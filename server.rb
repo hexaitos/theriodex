@@ -15,16 +15,12 @@ get "/" do
 
     puts sprite = pokemon_json["sprites"]["front_default"]
     puts moves_json = pokemon_json["moves"]
+    puts name = pokemon_json["name"]
     moves = ""
 
     moves_json.each do |key, value|
       moves << "#{key["move"]["name"]}\n"
     end
 
-    "
-    <img src='#{sprite}'/>
-    <br/>
-    <p>#{pokemon_json['name']}</p>
-    <p>#{moves}</p>
-    "
+    erb :index, locals: {:sprite => sprite, :name => name, :moves => moves}
 end
