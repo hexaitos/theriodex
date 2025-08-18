@@ -4,6 +4,8 @@ require 'uri'
 require 'net/http'
 require 'json'
 require 'sqlite3'
+require 'active_record'
+require 'fuzzy_match'
 require_relative 'funcs.rb'
 
 get "/" do
@@ -28,4 +30,28 @@ get "/" do
     end
 
     erb :index, locals: {:sprite => pokemon_sprite, :name => pokemon_name, :moves => pokemon_moves, :sprite_back => pokemon_sprite_back}
+end
+
+get "/search" do
+    query = params[:q]
+    db = SQLite3::Database.new "db.sqlite3"
+    search_results = ""
+    pokemon_names = db.execute("select name from pokemon_v2_pokemon;")
+    puts matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)
+
+    matches.each do |key,value|
+      puts "Pokemon: #{key}"
+      puts "Score: #{value}"
+
+      pokemon_id = db.execute("select pokemon_species_id from pokemon_v2_pokemon where name = '#{key.first.to_s}';").first.first.to_s
+      pokemon_sprite = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+      puts pokemon_sprite
+
+      search_results << "<img src='#{pokemon_sprite}'/><br/>#{key.first.to_s}<br/>" if value >= 0.25
+    end
+
+    "
+    <h1>Search results</h1>
+    <p>#{search_results}</p>
+    "
 end
