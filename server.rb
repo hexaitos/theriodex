@@ -1,11 +1,9 @@
 require 'sinatra'
 require 'csv'
-require 'uri'
-require 'net/http'
 require 'json'
 require 'sqlite3'
-require 'active_record'
 require 'fuzzy_match'
+require 'sanitize'
 require_relative 'funcs.rb'
 
 get "/" do
@@ -58,6 +56,7 @@ end
 
 get "/search" do
     query = params[:q]
+    query = Sanitize.fragment(query)
     db = SQLite3::Database.new "db.sqlite3"
     search_results = ""
     pokemon_names = db.execute("select name from pokemon_v2_pokemon;")
