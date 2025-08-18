@@ -1,4 +1,7 @@
 <img src='<%= sprite %>'/>
-<br/>
-<p><%= name.capitalize  %></p>
-<p><%= moves %></p>
+
+<% if !sprite_back.nil? %>
+    <img src='<%= sprite_back %>'/>
+<% end %>
+
+<p class="name"><%= name.capitalize %></p>
