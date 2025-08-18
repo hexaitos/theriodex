@@ -45,3 +45,21 @@ div.main {
     width: 128px;
 }
 
+div.search {
+}
+
+div.search div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.search div a {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+div.search_bar {
+    margin-bottom: 50px;
+}
