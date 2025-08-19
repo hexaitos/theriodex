@@ -13,7 +13,8 @@ get "/" do
                          :sprite => pokemon_data[:sprite],
                          :name => pokemon_data[:name],
                          :sprite_back => pokemon_data[:sprite_back],
-                         :types => pokemon_data[:types]
+                         :types => pokemon_data[:types],
+                         :flavour_text => pokemon_data[:flavour_text]
                         }
 end
 
@@ -25,7 +26,8 @@ get "/show/:id" do
                          :sprite => pokemon_data[:sprite],
                          :name => pokemon_data[:name],
                          :sprite_back => pokemon_data[:sprite_back],
-                         :types => pokemon_data[:types]
+                         :types => pokemon_data[:types],
+                         :flavour_text => pokemon_data[:flavour_text]
                         }
 end
 

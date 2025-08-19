@@ -22,6 +22,8 @@ def get_pokemon_info(pokemon_id)
 
     pokemon_data[:types] = db.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = #{pokemon_id};")
 
+    pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s
+
     return pokemon_data
 end
 
