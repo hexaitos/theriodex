@@ -7,8 +7,9 @@ require 'sanitize'
 require_relative 'funcs.rb'
 
 get "/" do
-    random_pokemon = rand(1..1025)
-    puts pokemon_data = get_pokemon_info(random_pokemon)
+    random_pokemon = rand(1..1024)
+    pokemon_data = get_pokemon_info(random_pokemon)
+    pokemon_damage = damage_taken(pokemon_data[:types])
 
     erb :index, locals: {
                          :sprite => pokemon_data[:sprite],
@@ -16,13 +17,15 @@ get "/" do
                          :id => random_pokemon,
                          :sprite_back => pokemon_data[:sprite_back],
                          :types => pokemon_data[:types],
-                         :flavour_text => pokemon_data[:flavour_text]
+                         :flavour_text => pokemon_data[:flavour_text],
+                         :damage_taken => pokemon_damage
                         }
 end
 
 get "/show/:id" do
     selected_pokemon = Sanitize.fragment(params["id"])
-    puts pokemon_data = get_pokemon_info(selected_pokemon)
+    pokemon_data = get_pokemon_info(selected_pokemon)
+    pokemon_damage = damage_taken(pokemon_data[:types])
 
     erb :index, locals: {
                          :sprite => pokemon_data[:sprite],
@@ -30,7 +33,8 @@ get "/show/:id" do
                          :id => selected_pokemon,
                          :sprite_back => pokemon_data[:sprite_back],
                          :types => pokemon_data[:types],
-                         :flavour_text => pokemon_data[:flavour_text]
+                         :flavour_text => pokemon_data[:flavour_text],
+                         :damage_taken => pokemon_damage
                         }
 end
 

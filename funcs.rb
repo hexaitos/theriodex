@@ -27,6 +27,19 @@ def get_pokemon_info(pokemon_id)
     return pokemon_data
 end
 
+def damage_taken(types)
+    db = SQLite3::Database.new "db.sqlite3"
+    pokemon_damage_taken = []
+
+    if types.size == 1 then
+         pokemon_damage_taken = db.execute("select damage_type_id, case when count(*) = 1 then max(damage_factor) when min(damage_factor) = 0 then 0 else round((min(damage_factor) * max(damage_factor)) / 100.0) end as combined_damage_factor from pokemon_v2_typeefficacy where target_type_id in (#{types[0].first}) group by damage_type_id order by damage_type_id asc;")
+    else
+         pokemon_damage_taken = db.execute("select damage_type_id, case when count(*) = 1 then max(damage_factor) when min(damage_factor) = 0 then 0 else round((min(damage_factor) * max(damage_factor)) / 100.0) end as combined_damage_factor from pokemon_v2_typeefficacy where target_type_id in (#{types[0].first}, #{types[1].first}) group by damage_type_id order by damage_type_id asc;")
+    end
+
+    return pokemon_damage_taken
+end
+
 def search_for_pokemon(query)
     db = SQLite3::Database.new "db.sqlite3"
     search_results = ""

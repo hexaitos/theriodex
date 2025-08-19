@@ -142,3 +142,12 @@ div.flavour {
         margin-top: 10px;
     }
 }
+
+div.damage_taken table img {
+    width: 32px;
+}
+
+div.damage_taken {
+    justify-content: center;
+    display: flex;
+}
