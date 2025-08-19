@@ -57,7 +57,8 @@ div.main {
 }
 
 div.sprites img {
-    border: 5px double #10378d;
+    /* border: 5px double #10378d; */
+    border: 5px double #b5dbe2;
     border-radius: 5px;
     width: 128px;
 }
@@ -69,7 +70,7 @@ div.search div {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: safe center;
 }
 
 div.search div a {
@@ -80,7 +81,7 @@ div.search div a {
 div.search_bar {
     margin-bottom: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: safe center;
 }
 
 div.types {
@@ -148,6 +149,18 @@ div.damage_taken table img {
 }
 
 div.damage_taken {
-    justify-content: center;
+    justify-content: safe center;
+    overflow: scroll;
     display: flex;
 }
+
+div.damage {
+    border: 5px double #b5dbe2;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+div.damage_taken td {
+    font-size: small;
+}
+
