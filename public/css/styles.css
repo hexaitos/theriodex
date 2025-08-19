@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Pixelated';
+  src: url('/fonts/PixeloidSans.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+    font-family: 'Pixelated';
+}
+
 body {
     margin-left: 20%;
     margin-right: 20%;
@@ -6,6 +18,7 @@ body {
 
 .menu a {
     padding: 10px;
+    margin-right: 10px;
     border-radius: 5px;
     text-decoration: none;
     color: white;
@@ -39,7 +52,7 @@ div.main {
     border-radius: 5px;
 }
 
-.main img {
+div.sprites img {
     border: 5px double #10378d;
     border-radius: 5px;
     width: 128px;
@@ -62,4 +75,27 @@ div.search div a {
 
 div.search_bar {
     margin-bottom: 50px;
+}
+
+div.types {
+    /* border: 2px solid #10378d; */
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+div.types img {
+    width: 40px;
+}
+
+div.types h1 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #10378d;
+}
+
+a:hover {
+    text-decoration: none;
 }

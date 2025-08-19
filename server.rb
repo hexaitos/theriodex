@@ -23,11 +23,15 @@ get "/" do
       pokemon_moves << "#{move.first.to_s}<br/>"
     end
 
-    if pokemon_sprite_back == nil then
-      puts "OWLIE"
-    end
+    pokemon_types = db.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = #{selected_pokemon};")
 
-    erb :index, locals: {:sprite => pokemon_sprite, :name => pokemon_name, :moves => pokemon_moves, :sprite_back => pokemon_sprite_back}
+    erb :index, locals: {
+                         :sprite => pokemon_sprite,
+                         :name => pokemon_name,
+                         :moves => pokemon_moves,
+                         :sprite_back => pokemon_sprite_back,
+                         :types => pokemon_types
+                        }
 end
 
 get "/show/:id" do
@@ -46,6 +50,7 @@ get "/show/:id" do
     db.execute("select name from pokemon_v2_movename where language_id = 9 and move_id in (select distinct move_id from pokemon_v2_pokemonmove where pokemon_id = #{selected_pokemon});").each do | move |
       pokemon_moves << "#{move.first.to_s}<br/>"
     end
+
 
     if pokemon_sprite_back == nil then
       puts "OWLIE"
@@ -74,4 +79,8 @@ get "/search" do
     end
 
     erb :search, locals: {:search_results => search_results}
+end
+
+get "/about" do
+    erb :about
 end

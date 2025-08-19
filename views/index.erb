@@ -1,7 +1,14 @@
-<img src='<%= sprite %>'/>
+<div class="types">
+<h1><%= name.capitalize %></h1>
+    <% types.each do |type| %>
+        <img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png"/>
+    <% end %>
+</div>
 
-<% if !sprite_back.nil? %>
-    <img src='<%= sprite_back %>'/>
-<% end %>
+<div class="sprites">
+    <img src="<%= sprite %>"/>
 
-<p class="name"><%= name.capitalize %></p>
+    <% if !sprite_back.nil? %>
+        <img src="<%= sprite_back %>"/>
+    <% end %>
+</div>
