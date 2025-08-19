@@ -142,6 +142,16 @@ div.flavour {
     button {
         margin-top: 10px;
     }
+
+    div.main {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.sprites img {
+        width: 116px;
+    }
 }
 
 div.damage_taken table img {
@@ -164,3 +174,6 @@ div.damage_taken td {
     font-size: small;
 }
 
+div.about {
+    text-align: left;
+}
