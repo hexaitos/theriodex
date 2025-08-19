@@ -8,6 +8,7 @@
 
 * {
     font-family: 'Pixelated';
+    box-sizing: border-box;
 }
 
 body {
@@ -35,6 +36,9 @@ body {
     padding: 30px;
     background-color: #9ed7e2;
     border-radius: 5px;
+    display: flex;
+    overflow: scroll;
+    justify-content: center;
 }
 
 footer {
@@ -75,6 +79,8 @@ div.search div a {
 
 div.search_bar {
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 div.types {
@@ -122,4 +128,12 @@ button:hover {
 
 div.flavour {
 
+}
+
+
+@media screen and (max-width: 900px) {
+    body {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
