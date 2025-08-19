@@ -163,6 +163,7 @@ div.damage_taken {
     justify-content: safe center;
     overflow: scroll;
     display: flex;
+    margin-top: 10px;
 }
 
 div.damage {
@@ -199,4 +200,13 @@ a.corner {
 
 a.corner:hover {
     background-color: #1d65ff;
+}
+
+div.damage span {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+div.damage h3 {
+    margin-bottom: 0px;
 }
