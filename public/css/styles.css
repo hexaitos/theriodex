@@ -99,3 +99,23 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+input {
+    border-radius: 5px;
+    border: 2px solid #10378d;
+    padding: 10px;
+}
+
+button {
+    padding: 12px;
+    background-color: #10378d;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    padding: 12px;
+    background-color: #1d65ff;
+    border-radius: 5px;
+}
