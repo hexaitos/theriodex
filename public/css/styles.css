@@ -37,7 +37,7 @@ body {
     background-color: #9ed7e2;
     border-radius: 5px;
     display: flex;
-    overflow: scroll;
+    overflow: auto;
     justify-content: center;
 }
 
@@ -161,7 +161,7 @@ div.damage_taken table img {
 
 div.damage_taken {
     justify-content: safe center;
-    overflow: scroll;
+    overflow: auto;
     display: flex;
     margin-top: 10px;
 }
