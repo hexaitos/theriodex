@@ -15,6 +15,12 @@ def get_pokemon_info(pokemon_id)
 
     pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s.gsub("", "")
 
+    pokemon_data[:species_name] = db.execute("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").first.first.to_s
+
+    pokemon_data[:weight] = db.execute("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+
+    pokemon_data[:height] = db.execute("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+
     return pokemon_data
 end
 

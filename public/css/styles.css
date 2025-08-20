@@ -109,6 +109,12 @@ div.types h1 {
     margin: 0;
 }
 
+div.types span {
+    font-size: small;
+    margin-top: 10px;
+    display: block;
+}
+
 a {
     color: var(--color-primary);
 }

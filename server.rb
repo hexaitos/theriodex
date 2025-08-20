@@ -18,7 +18,10 @@ get "/" do
                          :sprite_back => pokemon_data[:sprite_back],
                          :types => pokemon_data[:types],
                          :flavour_text => pokemon_data[:flavour_text],
-                         :damage_taken => pokemon_damage
+                         :damage_taken => pokemon_damage,
+                         :species_name => pokemon_data[:species_name],
+                         :weight => pokemon_data[:weight],
+                         :height => pokemon_data[:height]
                         }
 end
 
@@ -34,7 +37,10 @@ get "/show/:id" do
                          :sprite_back => pokemon_data[:sprite_back],
                          :types => pokemon_data[:types],
                          :flavour_text => pokemon_data[:flavour_text],
-                         :damage_taken => pokemon_damage
+                         :damage_taken => pokemon_damage,
+                         :species_name => pokemon_data[:species_name],
+                         :weight => pokemon_data[:weight],
+                         :height => pokemon_data[:height]
                         }
 end
 
