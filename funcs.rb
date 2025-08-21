@@ -10,7 +10,7 @@ def get_pokemon_info(pokemon_id)
 
     db = SQLite3::Database.new "db.sqlite3"
 
-    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize
+    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize.gsub("-f", " (f)").gsub("-m", " (m)")
     pokemon_data[:sprite] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     begin
         pokemon_data[:sprite_back] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
@@ -35,6 +35,9 @@ def get_pokemon_info(pokemon_id)
     return pokemon_data
 end
 
+# TODO consolidate some stuff so that get_pokemon_info_by_name and get_pokemon_info aren't essentially the same but with just one minor difference
+# TODO all the gsub and stuff… maybe I can make a method that formats stuff how I want it to instead
+
 def get_pokemon_info_by_name(pokemon_name)
     pokemon_data = {}
     pokemon_data[:evolutions] = []
@@ -44,7 +47,7 @@ def get_pokemon_info_by_name(pokemon_name)
     pokemon_data[:id] = db.get_first_value("select id from pokemon_v2_pokemon where name = '#{pokemon_name}';").to_i
     pokemon_id = pokemon_data[:id]
 
-    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize
+    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize.gsub("-f", " (f)").gsub("-m", " (m)")
     pokemon_data[:sprite] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     begin
         pokemon_data[:sprite_back] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")

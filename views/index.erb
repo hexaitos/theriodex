@@ -15,7 +15,7 @@
                 <% if evolution.capitalize == name then %>
                         <a class="current" href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
                     <% else %>
-                        <a href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
+                        <a href="/show/<%= evolution %>"><%= evolution.capitalize.gsub("-f", " (f)").gsub("-m", " (m)") %></a>
                     <% end %>
             <% end %>
         <% end %>
