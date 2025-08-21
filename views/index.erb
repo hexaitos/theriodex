@@ -8,11 +8,15 @@
     <span><%= weight / 10 %> kg • <%= height / 10 %> m • <%= species_name %></span>
     <span>
         Evolutions:
-        <% if evolutions.first == nil then %>
+        <% if evolutions.size == 1 then %>
            none
         <% else %>
             <% evolutions.each do | evolution | %>
-                <a href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
+                <% if evolution.capitalize == name then %>
+                        <a class="current" href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
+                    <% else %>
+                        <a href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
+                    <% end %>
             <% end %>
         <% end %>
     </span>

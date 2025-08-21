@@ -29,7 +29,7 @@ def get_pokemon_info(pokemon_id)
     pokemon_data[:height] = db.get_first_value("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
 
     db.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
-     pokemon_data[:evolutions] << form.first.to_s unless form.first.to_s.capitalize == pokemon_data[:name]
+     pokemon_data[:evolutions] << form.first.to_s
     end
 
     return pokemon_data
@@ -63,7 +63,7 @@ def get_pokemon_info_by_name(pokemon_name)
     pokemon_data[:height] = db.get_first_value("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
 
     db.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
-     pokemon_data[:evolutions] << form.first.to_s unless form.first.to_s.capitalize == pokemon_data[:name]
+     pokemon_data[:evolutions] << form.first.to_s
     end
 
     return pokemon_data

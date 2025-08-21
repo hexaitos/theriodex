@@ -246,3 +246,7 @@ div.damage h3 {
         width: 116px;
     }
 }
+
+a.current {
+    color: #523b37;
+}
