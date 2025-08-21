@@ -217,7 +217,7 @@ div.damage h3 {
         --color-bg: #162225;
     }
 
-    p, span, h1, h2, h3, tr {
+    p, span, h1, h2, h3, tr, a.current {
         color: white;
     }
 
@@ -248,5 +248,5 @@ div.damage h3 {
 }
 
 a.current {
-    color: #523b37;
+    color: black;
 }
