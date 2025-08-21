@@ -16,7 +16,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Display names and flavour text in other languages (maybe with a `?lang=` query and a select box)
 - [ ] Pit two Pokémon against one another to compare? 
 - [ ] Shows moves. Clickable with more info on each move on each click
-- [ ] Show evolutions
+- [x] Show evolutions (added in `fe4698bfa8`)
 - [ ] Show shiny sprites
 - [ ] Height, weight, abilities – that kind of information displayed… somewhere
 
