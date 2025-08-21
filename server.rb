@@ -34,14 +34,14 @@ get "/show/:id" do
     if selected_pokemon.is_integer? then
         begin
             pokemon_data = get_pokemon_info(selected_pokemon)
-        rescue NoMethodError
+        rescue JSON::ParserError
             pokemon_data = get_pokemon_info(134)
         end
         pokemon_damage = damage_taken(pokemon_data[:types])
     else
         begin
             pokemon_data = get_pokemon_info_by_name(selected_pokemon)
-        rescue NoMethodError
+        rescue JSON::ParserError
             pokemon_data = get_pokemon_info_by_name("vaporeon")
         end
         pokemon_damage = damage_taken(pokemon_data[:types])

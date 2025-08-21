@@ -4,29 +4,32 @@ class String
   end
 end
 
+class PokemonDataNotFound < StandardError
+end
+
 def get_pokemon_info(pokemon_id)
     pokemon_data = {}
     pokemon_data[:evolutions] = []
 
     db = SQLite3::Database.new "db.sqlite3"
 
-    pokemon_data[:name] = db.execute("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_s.capitalize
-    pokemon_data[:sprite] = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize
+    pokemon_data[:sprite] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     begin
-        pokemon_data[:sprite_back] = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+        pokemon_data[:sprite_back] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     rescue NoMethodError
         pokemon_data[:sprite_back] = nil
     end
 
     pokemon_data[:types] = db.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = #{pokemon_id};")
 
-    pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s.gsub("", " ")
+    pokemon_data[:flavour_text] = db.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").to_s.gsub("", " ")
 
-    pokemon_data[:species_name] = db.execute("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").first.first.to_s
+    pokemon_data[:species_name] = db.get_first_value("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").to_s
 
-    pokemon_data[:weight] = db.execute("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+    pokemon_data[:weight] = db.get_first_value("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
 
-    pokemon_data[:height] = db.execute("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+    pokemon_data[:height] = db.get_first_value("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
 
     db.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
      pokemon_data[:evolutions] << form.first.to_s unless form.first.to_s.capitalize == pokemon_data[:name]
@@ -41,26 +44,26 @@ def get_pokemon_info_by_name(pokemon_name)
 
     db = SQLite3::Database.new "db.sqlite3"
 
-    pokemon_data[:id] = db.execute("select id from pokemon_v2_pokemon where name = '#{pokemon_name}';").first.first.to_i
+    pokemon_data[:id] = db.get_first_value("select id from pokemon_v2_pokemon where name = '#{pokemon_name}';").to_i
     pokemon_id = pokemon_data[:id]
 
-    pokemon_data[:name] = db.execute("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_s.capitalize
-    pokemon_data[:sprite] = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize
+    pokemon_data[:sprite] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     begin
-        pokemon_data[:sprite_back] = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+        pokemon_data[:sprite_back] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     rescue NoMethodError
         pokemon_data[:sprite_back] = nil
     end
 
     pokemon_data[:types] = db.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = #{pokemon_id};")
 
-    pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s.gsub("", "")
+    pokemon_data[:flavour_text] = db.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").to_s.gsub("", " ")
 
-    pokemon_data[:species_name] = db.execute("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").first.first.to_s
+    pokemon_data[:species_name] = db.get_first_value("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").to_s
 
-    pokemon_data[:weight] = db.execute("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+    pokemon_data[:weight] = db.get_first_value("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
 
-    pokemon_data[:height] = db.execute("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+    pokemon_data[:height] = db.get_first_value("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
 
     db.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
      pokemon_data[:evolutions] << form.first.to_s unless form.first.to_s.capitalize == pokemon_data[:name]
@@ -68,6 +71,7 @@ def get_pokemon_info_by_name(pokemon_name)
 
     return pokemon_data
 end
+
 def damage_taken(types)
     db = SQLite3::Database.new "db.sqlite3"
     pokemon_damage_taken = []
@@ -99,4 +103,8 @@ def search_for_pokemon(query)
     end
 
     return search_results
+end
+
+
+def validate_input_data()
 end
