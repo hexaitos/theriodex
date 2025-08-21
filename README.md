@@ -20,7 +20,6 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Show shiny sprites
 - [x] Height, weight, genus, species information (added in `44e722b409`)
 - [ ] Show abilities
-- [ ] Show (some) moves
 
 # Copyright notice
 Pokémon and Pokémon character names are trademarks of Nintendo. The rest of this project is licensed under the [3-Clause BSD Licence](https://opensource.org/license/bsd-3-clause).

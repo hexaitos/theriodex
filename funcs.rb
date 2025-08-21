@@ -4,9 +4,6 @@ class String
   end
 end
 
-class PokemonDataNotFound < StandardError
-end
-
 def get_pokemon_info(pokemon_id)
     pokemon_data = {}
     pokemon_data[:evolutions] = []
