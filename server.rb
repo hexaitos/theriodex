@@ -32,10 +32,18 @@ get "/show/:id" do
     selected_pokemon = Sanitize.fragment(params["id"])
 
     if selected_pokemon.is_integer? then
-        pokemon_data = get_pokemon_info(selected_pokemon)
+        begin
+            pokemon_data = get_pokemon_info(selected_pokemon)
+        rescue NoMethodError
+            pokemon_data = get_pokemon_info(134)
+        end
         pokemon_damage = damage_taken(pokemon_data[:types])
     else
-        pokemon_data = get_pokemon_info_by_name(selected_pokemon)
+        begin
+            pokemon_data = get_pokemon_info_by_name(selected_pokemon)
+        rescue NoMethodError
+            pokemon_data = get_pokemon_info_by_name("vaporeon")
+        end
         pokemon_damage = damage_taken(pokemon_data[:types])
         selected_pokemon = pokemon_data[:id]
     end
