@@ -1,5 +1,12 @@
+class String
+  def is_integer?
+    self.to_i.to_s == self
+  end
+end
+
 def get_pokemon_info(pokemon_id)
     pokemon_data = {}
+    pokemon_data[:evolutions] = []
 
     db = SQLite3::Database.new "db.sqlite3"
 
@@ -13,7 +20,7 @@ def get_pokemon_info(pokemon_id)
 
     pokemon_data[:types] = db.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = #{pokemon_id};")
 
-    pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s.gsub("", "")
+    pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s.gsub("", " ")
 
     pokemon_data[:species_name] = db.execute("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").first.first.to_s
 
@@ -21,9 +28,46 @@ def get_pokemon_info(pokemon_id)
 
     pokemon_data[:height] = db.execute("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
 
+    db.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
+     pokemon_data[:evolutions] << form.first.to_s unless form.first.to_s.capitalize == pokemon_data[:name]
+    end
+
     return pokemon_data
 end
 
+def get_pokemon_info_by_name(pokemon_name)
+    pokemon_data = {}
+    pokemon_data[:evolutions] = []
+
+    db = SQLite3::Database.new "db.sqlite3"
+
+    pokemon_data[:id] = db.execute("select id from pokemon_v2_pokemon where name = '#{pokemon_name}';").first.first.to_i
+    pokemon_id = pokemon_data[:id]
+
+    pokemon_data[:name] = db.execute("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_s.capitalize
+    pokemon_data[:sprite] = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+    begin
+        pokemon_data[:sprite_back] = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+    rescue NoMethodError
+        pokemon_data[:sprite_back] = nil
+    end
+
+    pokemon_data[:types] = db.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = #{pokemon_id};")
+
+    pokemon_data[:flavour_text] = db.execute("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").first.first.to_s.gsub("", " ")
+
+    pokemon_data[:species_name] = db.execute("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").first.first.to_s
+
+    pokemon_data[:weight] = db.execute("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+
+    pokemon_data[:height] = db.execute("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first.first.to_f
+
+    db.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
+     pokemon_data[:evolutions] << form.first.to_s unless form.first.to_s.capitalize == pokemon_data[:name]
+    end
+
+    return pokemon_data
+end
 def damage_taken(types)
     db = SQLite3::Database.new "db.sqlite3"
     pokemon_damage_taken = []
@@ -41,7 +85,7 @@ def search_for_pokemon(query)
     db = SQLite3::Database.new "db.sqlite3"
     search_results = ""
     pokemon_names = db.execute("select name from pokemon_v2_pokemon;")
-    puts matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)
+    matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)
 
     matches.each do |key,value|
       puts "Pokemon: #{key}"

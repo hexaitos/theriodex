@@ -11,6 +11,8 @@ get "/" do
     pokemon_data = get_pokemon_info(random_pokemon)
     pokemon_damage = damage_taken(pokemon_data[:types])
 
+    puts pokemon_data[:evolutions]
+
     erb :index, locals: {
                          :sprite => pokemon_data[:sprite],
                          :name => pokemon_data[:name],
@@ -21,14 +23,22 @@ get "/" do
                          :damage_taken => pokemon_damage,
                          :species_name => pokemon_data[:species_name],
                          :weight => pokemon_data[:weight],
-                         :height => pokemon_data[:height]
+                         :height => pokemon_data[:height],
+                         :evolutions => pokemon_data[:evolutions]
                         }
 end
 
 get "/show/:id" do
     selected_pokemon = Sanitize.fragment(params["id"])
-    pokemon_data = get_pokemon_info(selected_pokemon)
-    pokemon_damage = damage_taken(pokemon_data[:types])
+
+    if selected_pokemon.is_integer? then
+        pokemon_data = get_pokemon_info(selected_pokemon)
+        pokemon_damage = damage_taken(pokemon_data[:types])
+    else
+        pokemon_data = get_pokemon_info_by_name(selected_pokemon)
+        pokemon_damage = damage_taken(pokemon_data[:types])
+        selected_pokemon = pokemon_data[:id]
+    end
 
     erb :index, locals: {
                          :sprite => pokemon_data[:sprite],
@@ -40,7 +50,8 @@ get "/show/:id" do
                          :damage_taken => pokemon_damage,
                          :species_name => pokemon_data[:species_name],
                          :weight => pokemon_data[:weight],
-                         :height => pokemon_data[:height]
+                         :height => pokemon_data[:height],
+                         :evolutions => pokemon_data[:evolutions]
                         }
 end
 

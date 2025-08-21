@@ -6,6 +6,16 @@
         <img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png"/>
     <% end %>
     <span><%= weight / 10 %> kg • <%= height / 10 %> m • <%= species_name %></span>
+    <span>
+        Evolutions:
+        <% if evolutions.first == nil then %>
+           none
+        <% else %>
+            <% evolutions.each do | evolution | %>
+                <a href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
+            <% end %>
+        <% end %>
+    </span>
 </div>
 
 <div class="sprites">
