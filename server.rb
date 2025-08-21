@@ -48,6 +48,8 @@ get "/show/:id" do
         selected_pokemon = pokemon_data[:id]
     end
 
+    puts pokemon_data[:name]
+
     erb :index, locals: {
                          :sprite => pokemon_data[:sprite],
                          :name => pokemon_data[:name],

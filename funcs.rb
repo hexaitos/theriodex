@@ -10,7 +10,7 @@ def get_pokemon_info(pokemon_id)
 
     db = SQLite3::Database.new "db.sqlite3"
 
-    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize.gsub("-f", " (f)").gsub("-m", " (m)")
+    pokemon_data[:name] = format_pokemon_name(db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s)
     pokemon_data[:sprite] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     begin
         pokemon_data[:sprite_back] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
@@ -47,7 +47,7 @@ def get_pokemon_info_by_name(pokemon_name)
     pokemon_data[:id] = db.get_first_value("select id from pokemon_v2_pokemon where name = '#{pokemon_name}';").to_i
     pokemon_id = pokemon_data[:id]
 
-    pokemon_data[:name] = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s.capitalize.gsub("-f", " (f)").gsub("-m", " (m)")
+    pokemon_data[:name] = format_pokemon_name(db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s)
     pokemon_data[:sprite] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
     begin
         pokemon_data[:sprite_back] = JSON.parse(db.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
@@ -99,12 +99,39 @@ def search_for_pokemon(query)
       pokemon_sprite = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
       puts pokemon_sprite
 
-      search_results << "<a href='/show/#{pokemon_id}'><img src='#{pokemon_sprite}'/><br/>#{key.first.to_s.capitalize}<br/></a>" if value >= 0.25
+      search_results << "<a href='/show/#{pokemon_id}'><img src='#{pokemon_sprite}'/><br/>#{format_pokemon_name(key.first.to_s)}<br/></a>" if value >= 0.25
     end
 
     return search_results
 end
 
+def format_pokemon_name(pokemon_name)
+    suffixes = {
+      "f" => " (f)",
+      "m" => " (m)",
+      "gliding-build" => " (gliding build)",
+      "sprinting-build" => " (sprinting build)",
+      "swimming-build" => " (swimming build)",
+      "origin" => " (origin)",
+      "limited-build" => "(limited build)",
+      "yellow" => " (yellow)",
+      "drive-mode" => " (drive mode)",
+      "totem" => " (totem)",
+      "average" => " (average)",
+      "zero" => " (zero)",
+      "solo" => " (solo)",
+      "boulder" => " (boulder)",
+      "bolt" => " (bolt)",
+      "tail" => " (tail)"
+    }
 
-def validate_input_data()
+    suffixes.each do |suffix, formatted|
+        if pokemon_name.sub(/^[^-]*-/, '') == suffix then
+          pokemon_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
+        else
+          pokemon_name = pokemon_name.capitalize
+        end
+    end
+
+    return pokemon_name
 end
