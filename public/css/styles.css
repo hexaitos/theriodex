@@ -204,6 +204,10 @@ div.damage h3 {
     margin-bottom: 0px;
 }
 
+a.current {
+    color: black;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #374d52;
@@ -245,8 +249,4 @@ div.damage h3 {
     div.sprites img {
         width: 116px;
     }
-}
-
-a.current {
-    color: black;
 }
