@@ -89,15 +89,28 @@ def search_for_pokemon(query)
     db = SQLite3::Database.new "db.sqlite3"
     search_results = ""
     pokemon_names = db.execute("select name from pokemon_v2_pokemon;")
+    pokemon_forms = db.execute("select id, name from pokemon_v2_pokemonform where form_name <> '';")
     matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)
 
     matches.each do |key,value|
-      puts "Pokemon: #{key}"
-      puts "Score: #{value}"
 
-      pokemon_id = db.execute("select pokemon_species_id from pokemon_v2_pokemon where name = '#{key.first.to_s}';").first.first.to_s
-      pokemon_sprite = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
-      puts pokemon_sprite
+      pokemon_id = db.get_first_value("select pokemon_species_id from pokemon_v2_pokemon where name = '#{key.first.to_s}';").to_s
+
+      if pokemon_forms.map(&:last).include?(key.first.to_s) then
+        id_by_form = pokemon_forms.map(&:reverse).to_h
+        puts id = id_by_form[key.first.to_s]
+        puts key.first.to_s
+
+        begin
+            puts pokemon_sprite = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonformsprites where pokemon_form_id = #{id};
+").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+        rescue
+            pokemon_sprite = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+        end
+      else
+
+        pokemon_sprite = JSON.parse(db.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+      end
 
       search_results << "<a href='/show/#{pokemon_id}'><img src='#{pokemon_sprite}'/><br/>#{format_pokemon_name(key.first.to_s)}<br/></a>" if value >= 0.25
     end
@@ -135,3 +148,17 @@ def format_pokemon_name(pokemon_name)
 
     return pokemon_name
 end
+
+def get_random_sprite(pokemon_id)
+    db = SQLite3::Database.new "db.sqlite3"
+    pokemon_name = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s
+    pokemon_name_clean = pokemon_name.sub(/-.*/, '')
+    pokemon_forms = db.execute("select id, name from pokemon_v2_pokemonform where form_name <> '' and name like '#{pokemon_name_clean}%' order by random();")
+
+    if pokemon_forms.map(&:last).include?(pokemon_name) then
+        puts pokemon_forms.first.first
+        puts pokemon_name
+    end
+end
+
+puts get_random_sprite(741)
