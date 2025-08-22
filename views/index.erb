@@ -1,82 +1,82 @@
 <a class="corner" href="/show/<%= id %>">Direct link</a>
 
 <div class="types">
-	<h1><%= name.capitalize %></h1>
-	<% types.each do |type| %>
-		<img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png"/>
-	<% end %>
-	<span><%= weight / 10 %> kg • <%= height / 10 %> m • <%= species_name %></span>
-	<span>
-		Evolutions:
-		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
-		   none
-		<% else %>
-			<% evolutions.each do | evolution | %>
-				<% if evolution.capitalize == name then %>
-						<a class="current" href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
-					<% else %>
-						<a href="/show/<%= evolution %>"><%= evolution.capitalize.gsub("-f", " (f)").gsub("-m", " (m)") %></a>
-					<% end %>
-			<% end %>
-		<% end %>
-	</span>
+    <h1><%= name.capitalize %></h1>
+    <% types.each do |type| %>
+        <img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png"/>
+    <% end %>
+    <span><%= weight / 10 %> kg • <%= height / 10 %> m • <%= species_name %></span>
+    <span>
+        Evolutions:
+        <% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
+           none
+        <% else %>
+            <% evolutions.each do | evolution | %>
+                <% if evolution.capitalize == name then %>
+                        <a class="current" href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
+                    <% else %>
+                        <a href="/show/<%= evolution %>"><%= evolution.capitalize.gsub("-f", " (f)").gsub("-m", " (m)") %></a>
+                    <% end %>
+            <% end %>
+        <% end %>
+    </span>
 </div>
 
 <div class="sprites">
-	<img src="<%= sprite %>"/>
+    <img src="<%= sprite %>"/>
 
-	<% if !sprite_back.nil? %>
-		<img src="<%= sprite_back %>"/>
-	<% end %>
+    <% if !sprite_back.nil? %>
+        <img src="<%= sprite_back %>"/>
+    <% end %>
 </div>
 
 <div class="flavour">
-	<p><%= flavour_text %></p>
+    <p><%= flavour_text %></p>
 </div>
 
 <div class="damage">
-	<h3>Damage taken from other types</h3>
-	<span>(horizontally scrollable on small screens)</span>
-	<div class="damage_taken">
-		<table>
-		<thead>
-		<tr>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/1.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/2.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/3.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/4.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/5.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/6.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/7.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/8.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/9.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/10.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/11.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/12.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/13.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/14.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/15.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/16.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/17.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/18.png"/></th>
-		</tr></thead>
-		<tbody>
-		<tr>
-			<% damage_taken.each do |type| %>
-				<% if type[1] / 100 == 0.5 then %>
-					<% converted_type = "½" %>
-				<% elsif type[1] / 100 == 0.25 then %>
-					<% converted_type = "¼" %>
-				<% else %>
-				   <% converted_type = type[1] / 100 %>
-				   <% converted_type = converted_type.to_s.gsub(/(\.)0+$/, '') %>
-				<% end %>
+    <h3>Damage taken from other types</h3>
+    <span>(horizontally scrollable on small screens)</span>
+    <div class="damage_taken">
+        <table>
+        <thead>
+        <tr>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/1.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/2.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/3.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/4.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/5.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/6.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/7.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/8.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/9.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/10.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/11.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/12.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/13.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/14.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/15.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/16.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/17.png"/></th>
+            <th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/18.png"/></th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <% damage_taken.each do |type| %>
+                <% if type[1] / 100 == 0.5 then %>
+                    <% converted_type = "½" %>
+                <% elsif type[1] / 100 == 0.25 then %>
+                    <% converted_type = "¼" %>
+                <% else %>
+                   <% converted_type = type[1] / 100 %>
+                   <% converted_type = converted_type.to_s.gsub(/(\.)0+$/, '') %>
+                <% end %>
 
-				<td><%= converted_type %>x</td>
-			<% end %>
-		</tr>
-		</tbody>
-		</table>
-	</div>
+                <td><%= converted_type %>x</td>
+            <% end %>
+        </tr>
+        </tbody>
+        </table>
+    </div>
 </div>
 <br/>
