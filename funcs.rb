@@ -4,6 +4,8 @@ class String
   end
 end
 
+# TODO instead of opening the every time, maybe open the DB ONCE as soon as the server starts and then just get everything from the variables? Would probably make it quite a bit faster I am imagining
+
 def get_pokemon_info(pokemon_id)
     pokemon_data = {}
     pokemon_data[:evolutions] = []
@@ -94,6 +96,7 @@ def search_for_pokemon(query)
 
     matches.each do |key,value|
 
+      # TODO this is all just kinda garbage omg I need to make this not terrible
       pokemon_id = db.get_first_value("select pokemon_species_id from pokemon_v2_pokemon where name = '#{key.first.to_s}';").to_s
 
       if pokemon_forms.map(&:last).include?(key.first.to_s) then
@@ -149,6 +152,8 @@ def format_pokemon_name(pokemon_name)
     return pokemon_name
 end
 
+# TODO everything is confusing and doesn't work how I want it to aaaa maybe just leaves this out not sure if this is a good idea
+# The intent is to show a random sprite if there are several sprites, but sometimes other sprites actually have other stats or something like with Oricorio's different forms
 def get_random_sprite(pokemon_id)
     db = SQLite3::Database.new "db.sqlite3"
     pokemon_name = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s
