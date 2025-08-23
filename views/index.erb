@@ -16,7 +16,7 @@
 			none
 		<% else %>
 			<% evolutions.each do | evolution | %>
-				<% if evolution == name then %>
+				<% if evolution.capitalize == name then %>
 						<a class="current" href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
 					<% else %>
 						<a href="/show/<%= evolution %>"><%= evolution.capitalize.gsub("-f", " (f)").gsub("-m", " (m)") %></a>
