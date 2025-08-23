@@ -138,13 +138,9 @@ def format_pokemon_name(pokemon_name)
 
 	formatted_name = ""
 
-	pokemon_name_split = pokemon_name.split("-").map(&:capitalize)
+	pokemon_name_base, *pokemon_name_suffixes = pokemon_name.split("-").map(&:capitalize)
 
-	puts "last test #{pokemon_name_split.last}"
-
-	pokemon_name_split.each do | part |
-		formatted_name << part + " "
-	end
+	pokemon_name_suffixes.size == 0 ? formatted_name = pokemon_name_base : formatted_name = "#{pokemon_name_base} (#{pokemon_name_suffixes.join(' ')})"
 
 	suffixes.each do |suffix, formatted|
 		if pokemon_name.sub(/^[^-]*-/, '') == suffix then
