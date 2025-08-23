@@ -9,7 +9,7 @@
 	<span>
 		Evolutions:
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
-		   none
+			none
 		<% else %>
 			<% evolutions.each do | evolution | %>
 				<% if evolution.capitalize == name then %>
@@ -41,34 +41,21 @@
 		<table>
 		<thead>
 		<tr>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/1.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/2.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/3.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/4.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/5.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/6.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/7.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/8.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/9.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/10.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/11.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/12.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/13.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/14.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/15.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/16.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/17.png"/></th>
-			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/18.png"/></th>
+		<% 19.times do |num| %>
+			<% unless num == 0 then %> 
+				<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= num %>.png"/></th> 
+			<% end %>
+		<% end %>
 		</tr></thead>
 		<tbody>
 		<tr>
 			<% damage_taken.each do |type| %>
-				<% if type[1] / 100 == 0.5 then %>
+				<% if type[1].to_f / 100 == 0.5 then %>
 					<% converted_type = "½" %>
-				<% elsif type[1] / 100 == 0.25 then %>
+				<% elsif type[1].to_f / 100 == 0.25 then %>
 					<% converted_type = "¼" %>
 				<% else %>
-				   <% converted_type = type[1] / 100 %>
+				   <% converted_type = type[1].to_f / 100 %>
 				   <% converted_type = converted_type.to_s.gsub(/(\.)0+$/, '') %>
 				<% end %>
 
