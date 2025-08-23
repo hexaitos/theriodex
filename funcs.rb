@@ -128,9 +128,20 @@ def format_pokemon_name(pokemon_name)
 		"m" => " (m)"
 	}
 
+	exceptions = {
+		"porygon-z" => "Porygon-Z",
+		"wo-chien" => "Wo-Chien",
+		"chien-pao" => "Chien-Pao",
+		"ting-lu" => "Ting-Lu",
+		"chi-yu" => "Chi-Yu"
+	}
+
 	formatted_name = ""
 
 	pokemon_name_split = pokemon_name.split("-").map(&:capitalize)
+
+	puts "last test #{pokemon_name_split.last}"
+
 	pokemon_name_split.each do | part |
 		formatted_name << part + " "
 	end
@@ -138,6 +149,12 @@ def format_pokemon_name(pokemon_name)
 	suffixes.each do |suffix, formatted|
 		if pokemon_name.sub(/^[^-]*-/, '') == suffix then
 			formatted_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
+		end
+	end
+
+	exceptions.each do |exception, formatted|
+		if pokemon_name == exception then
+			formatted_name = formatted
 		end
 	end
 
