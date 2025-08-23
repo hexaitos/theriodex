@@ -25,7 +25,7 @@
 <div class="sprites">
 	<img src="<%= sprite %>"/>
 
-	<% if !sprite_back.nil? %>
+	<% unless sprite_back.nil? %>
 		<img src="<%= sprite_back %>"/>
 	<% end %>
 </div>
@@ -41,10 +41,8 @@
 		<table>
 		<thead>
 		<tr>
-		<% 19.times do |num| %>
-			<% unless num == 0 then %> 
-				<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= num %>.png"/></th> 
-			<% end %>
+		<% 18.times do |num| %>
+			<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= num  + 1 %>.png"/></th>
 		<% end %>
 		</tr></thead>
 		<tbody>
