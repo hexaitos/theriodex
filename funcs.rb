@@ -156,6 +156,36 @@ def format_pokemon_name(pokemon_name)
 	return pokemon_name
 end
 
+def pokemon_view_index(id, form=nil)
+	selected_pokemon = Sanitize.fragment(id)
+	
+	# I only just learnt about these things called ternary operators? So of course I am going to try using them now even though I could have also just have written an if statement
+	form.nil? ? selected_form = nil : selected_form = Sanitize.fragment(form)
+
+	begin
+		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon) and selected_pokemon = pokemon_data[:id]
+	rescue JSON::ParserError
+		pokemon_data = get_pokemon_info_by_name("vaporeon")
+	end
+
+	return {
+			:sprite => pokemon_data[:sprite],
+			:name => pokemon_data[:name],
+			:id => selected_pokemon,
+			:sprite_back => pokemon_data[:sprite_back],
+			:types => pokemon_data[:types],
+			:flavour_text => pokemon_data[:flavour_text],
+			:damage_taken => damage_taken(pokemon_data[:types]),
+			:species_name => pokemon_data[:species_name],
+			:weight => pokemon_data[:weight],
+			:height => pokemon_data[:height],
+			:evolutions => pokemon_data[:evolutions],
+			:front_shiny => pokemon_data[:front_shiny],
+			:back_shiny => pokemon_data[:back_shiny],
+			:form => selected_form
+			}
+end
+
 # TODO everything is confusing and doesn't work how I want it to aaaa maybe just leaves this out not sure if this is a good idea
 # The intent is to show a random sprite if there are several sprites, but sometimes other sprites actually have other stats or something like with Oricorio's different forms
 def get_random_sprite(pokemon_id)
