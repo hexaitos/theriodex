@@ -162,11 +162,15 @@ def pokemon_view_index(id, form=nil)
 	# I only just learnt about these things called ternary operators? So of course I am going to try using them now even though I could have also just have written an if statement
 	form.nil? ? selected_form = nil : selected_form = Sanitize.fragment(form)
 
+	puts selected_pokemon
+
 	begin
-		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon) and selected_pokemon = pokemon_data[:id]
+		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
 	rescue JSON::ParserError
 		pokemon_data = get_pokemon_info_by_name("vaporeon")
 	end
+
+	puts pokemon_data
 
 	return {
 			:sprite => pokemon_data[:sprite],
