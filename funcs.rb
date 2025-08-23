@@ -1,6 +1,6 @@
 class String
 	def is_integer?
-	self.to_i.to_s == self
+		self.to_i.to_s == self
 	end
 end
 
@@ -17,7 +17,6 @@ def get_pokemon_info_by_name(pokemon_name)
 	pokemon_data = get_pokemon_info(pokemon_id)
 	pokemon_data[:id] = pokemon_id
 	return pokemon_data
-
 end
 
 def get_pokemon_info(pokemon_id)
@@ -46,9 +45,9 @@ end
 
 def get_pokemon_back_sprite(pokemon_id)
 	begin
-	return JSON.parse(DB.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+		return JSON.parse(DB.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
 	rescue NoMethodError
-	return nil
+		return nil
 	end
 end
 
@@ -86,9 +85,9 @@ def damage_taken(types)
 	pokemon_damage_taken = []
 
 	if types.size == 1 then
-	 pokemon_damage_taken = DB.execute("select damage_type_id, case when count(*) = 1 then max(damage_factor) when min(damage_factor) = 0 then 0 else round((min(damage_factor) * max(damage_factor)) / 100.0) end as combined_damage_factor from pokemon_v2_typeefficacy where target_type_id in (#{types[0].first}) group by damage_type_id order by damage_type_id asc;")
+		pokemon_damage_taken = DB.execute("select damage_type_id, case when count(*) = 1 then max(damage_factor) when min(damage_factor) = 0 then 0 else round((min(damage_factor) * max(damage_factor)) / 100.0) end as combined_damage_factor from pokemon_v2_typeefficacy where target_type_id in (#{types[0].first}) group by damage_type_id order by damage_type_id asc;")
 	else
-	 pokemon_damage_taken = DB.execute("select damage_type_id, case when count(*) = 1 then max(damage_factor) when min(damage_factor) = 0 then 0 else round((min(damage_factor) * max(damage_factor)) / 100.0) end as combined_damage_factor from pokemon_v2_typeefficacy where target_type_id in (#{types[0].first}, #{types[1].first}) group by damage_type_id order by damage_type_id asc;")
+		pokemon_damage_taken = DB.execute("select damage_type_id, case when count(*) = 1 then max(damage_factor) when min(damage_factor) = 0 then 0 else round((min(damage_factor) * max(damage_factor)) / 100.0) end as combined_damage_factor from pokemon_v2_typeefficacy where target_type_id in (#{types[0].first}, #{types[1].first}) group by damage_type_id order by damage_type_id asc;")
 	end
 
 	return pokemon_damage_taken
@@ -101,26 +100,24 @@ def search_for_pokemon(query)
 	matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)
 
 	matches.each do |key,value|
+		# TODO this is all just kinda garbage omg I need to make this not terrible
+		pokemon_id = DB.get_first_value("select pokemon_species_id from pokemon_v2_pokemon where name = '#{key.first.to_s}';").to_s
 
-	# TODO this is all just kinda garbage omg I need to make this not terrible
-	pokemon_id = DB.get_first_value("select pokemon_species_id from pokemon_v2_pokemon where name = '#{key.first.to_s}';").to_s
+		if pokemon_forms.map(&:last).include?(key.first.to_s) then
+			id_by_form = pokemon_forms.map(&:reverse).to_h
+			puts id = id_by_form[key.first.to_s]
+			puts key.first.to_s
+			begin
+				puts pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonformsprites where pokemon_form_id = #{id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+			rescue
+				pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+			end
+		else
 
-	if pokemon_forms.map(&:last).include?(key.first.to_s) then
-	id_by_form = pokemon_forms.map(&:reverse).to_h
-	puts id = id_by_form[key.first.to_s]
-	puts key.first.to_s
-
-	begin
-		puts pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonformsprites where pokemon_form_id = #{id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
-	rescue
 		pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
-	end
-	else
+		end
 
-	pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
-	end
-
-	search_results << "<a href='/show/#{pokemon_id}'><img src='#{pokemon_sprite}'/><br/>#{format_pokemon_name(key.first.to_s)}<br/></a>" if value >= 0.25
+		search_results << "<a href='/show/#{pokemon_id}'><img src='#{pokemon_sprite}'/><br/>#{format_pokemon_name(key.first.to_s)}<br/></a>" if value >= 0.25
 	end
 
 	return search_results
@@ -128,30 +125,30 @@ end
 
 def format_pokemon_name(pokemon_name)
 	suffixes = {
-	"f" => " (f)",
-	"m" => " (m)",
-	"gliding-build" => " (gliding build)",
-	"sprinting-build" => " (sprinting build)",
-	"swimming-build" => " (swimming build)",
-	"origin" => " (origin)",
-	"limited-build" => "(limited build)",
-	"yellow" => " (yellow)",
-	"drive-mode" => " (drive mode)",
-	"totem" => " (totem)",
-	"average" => " (average)",
-	"zero" => " (zero)",
-	"solo" => " (solo)",
-	"boulder" => " (boulder)",
-	"bolt" => " (bolt)",
-	"tail" => " (tail)"
+		"f" => " (f)",
+		"m" => " (m)",
+		"gliding-build" => " (gliding build)",
+		"sprinting-build" => " (sprinting build)",
+		"swimming-build" => " (swimming build)",
+		"origin" => " (origin)",
+		"limited-build" => "(limited build)",
+		"yellow" => " (yellow)",
+		"drive-mode" => " (drive mode)",
+		"totem" => " (totem)",
+		"average" => " (average)",
+		"zero" => " (zero)",
+		"solo" => " (solo)",
+		"boulder" => " (boulder)",
+		"bolt" => " (bolt)",
+		"tail" => " (tail)"
 	}
 
 	suffixes.each do |suffix, formatted|
-	if pokemon_name.sub(/^[^-]*-/, '') == suffix then
-		pokemon_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
-	else
-		pokemon_name = pokemon_name.capitalize
-	end
+		if pokemon_name.sub(/^[^-]*-/, '') == suffix then
+			pokemon_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
+		else
+			pokemon_name = pokemon_name.capitalize
+		end
 	end
 
 	return pokemon_name
@@ -166,8 +163,8 @@ def get_random_sprite(pokemon_id)
 	pokemon_forms = db.execute("select id, name from pokemon_v2_pokemonform where form_name <> '' and name like '#{pokemon_name_clean}%' order by random();")
 
 	if pokemon_forms.map(&:last).include?(pokemon_name) then
-	puts pokemon_forms.first.first
-	puts pokemon_name
+		puts pokemon_forms.first.first
+		puts pokemon_name
 	end
 end
 

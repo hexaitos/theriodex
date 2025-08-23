@@ -14,17 +14,17 @@ get "/" do
 	puts pokemon_data[:evolutions]
 
 	erb :index, locals: {
-						 :sprite => pokemon_data[:sprite],
-						 :name => pokemon_data[:name],
-						 :id => random_pokemon,
-						 :sprite_back => pokemon_data[:sprite_back],
-						 :types => pokemon_data[:types],
-						 :flavour_text => pokemon_data[:flavour_text],
-						 :damage_taken => pokemon_damage,
-						 :species_name => pokemon_data[:species_name],
-						 :weight => pokemon_data[:weight],
-						 :height => pokemon_data[:height],
-						 :evolutions => pokemon_data[:evolutions]
+						:sprite => pokemon_data[:sprite],
+						:name => pokemon_data[:name],
+						:id => random_pokemon,
+						:sprite_back => pokemon_data[:sprite_back],
+						:types => pokemon_data[:types],
+						:flavour_text => pokemon_data[:flavour_text],
+						:damage_taken => pokemon_damage,
+						:species_name => pokemon_data[:species_name],
+						:weight => pokemon_data[:weight],
+						:height => pokemon_data[:height],
+						:evolutions => pokemon_data[:evolutions]
 						}
 end
 
@@ -51,17 +51,17 @@ get "/show/:id" do
 	puts pokemon_data[:name]
 
 	erb :index, locals: {
-						 :sprite => pokemon_data[:sprite],
-						 :name => pokemon_data[:name],
-						 :id => selected_pokemon,
-						 :sprite_back => pokemon_data[:sprite_back],
-						 :types => pokemon_data[:types],
-						 :flavour_text => pokemon_data[:flavour_text],
-						 :damage_taken => pokemon_damage,
-						 :species_name => pokemon_data[:species_name],
-						 :weight => pokemon_data[:weight],
-						 :height => pokemon_data[:height],
-						 :evolutions => pokemon_data[:evolutions]
+						:sprite => pokemon_data[:sprite],
+						:name => pokemon_data[:name],
+						:id => selected_pokemon,
+						:sprite_back => pokemon_data[:sprite_back],
+						:types => pokemon_data[:types],
+						:flavour_text => pokemon_data[:flavour_text],
+						:damage_taken => pokemon_damage,
+						:species_name => pokemon_data[:species_name],
+						:weight => pokemon_data[:weight],
+						:height => pokemon_data[:height],
+						:evolutions => pokemon_data[:evolutions]
 						}
 end
 
