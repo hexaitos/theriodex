@@ -8,11 +8,9 @@ require_relative 'funcs.rb'
 
 get "/" do
 	random_pokemon = rand(1..1024)
-	pokemon_data = get_pokemon_info(random_pokemon)
+	puts pokemon_data = get_pokemon_info(random_pokemon)
 	pokemon_damage = damage_taken(pokemon_data[:types])
 	form = params[:form]
-
-	puts get_pokemon_sprites(random_pokemon)
 
 	erb :index, locals: {
 						:sprite => pokemon_data[:sprite],
@@ -33,7 +31,7 @@ get "/" do
 end
 
 get "/show/:id" do
-	selected_pokemon = Sanitize.fragment(params["id"])
+	puts selected_pokemon = Sanitize.fragment(params["id"])
 	form = params[:form]
 
 	if selected_pokemon.is_integer? then

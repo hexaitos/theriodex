@@ -22,7 +22,6 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data = {}
 	sprites = get_pokemon_sprites(pokemon_id)
 	attrs = get_pokemon_attr(pokemon_id)
-	puts "Attrs #{attrs}"
 
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id)
@@ -108,10 +107,10 @@ def search_for_pokemon(query)
 
 		if pokemon_forms.map(&:last).include?(key.first.to_s) then
 			id_by_form = pokemon_forms.map(&:reverse).to_h
-			puts id = id_by_form[key.first.to_s]
-			puts key.first.to_s
+			id = id_by_form[key.first.to_s]
+			key.first.to_s
 			begin
-				puts pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonformsprites where pokemon_form_id = #{id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+				pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonformsprites where pokemon_form_id = #{id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
 			rescue
 				pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
 			end
@@ -170,5 +169,3 @@ def get_random_sprite(pokemon_id)
 		puts pokemon_name
 	end
 end
-
-puts get_random_sprite(741)
