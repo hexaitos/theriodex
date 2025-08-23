@@ -17,7 +17,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Pit two Pokémon against one another to compare? 
 - [ ] Shows moves. Clickable with more info on each move on each click
 - [x] Show evolutions (added in `fe4698bfa8`)
-- [ ] Show shiny sprites
+- [x] Show shiny sprites (added in `777ddeb95c`)
 - [x] Height, weight, genus, species information (added in `44e722b409`)
 - [ ] Show abilities
 
