@@ -70,6 +70,20 @@ div.sprites img {
 	border: 5px double var(--color-accent-border);
 	border-radius: 5px;
 	width: 128px;
+	margin-bottom: 5px;
+}
+
+div.sprites a {
+	font-size: small;
+	padding: 5px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+div.sprites a:hover {
+	background: var(--color-primary-hover);
 }
 
 div.search {

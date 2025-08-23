@@ -20,6 +20,7 @@ end
 
 def get_pokemon_info(pokemon_id)
 	pokemon_data = {}
+	sprites = get_pokemon_sprites(pokemon_id)
 
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id)
@@ -28,8 +29,10 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data[:height] = get_pokemon_height(pokemon_id)
 	pokemon_data[:evolutions] = get_pokemon_evolutions(pokemon_id)
 	pokemon_data[:name] = get_pokemon_name(pokemon_id)
-	pokemon_data[:sprite] = get_pokemon_front_sprite(pokemon_id)
-	pokemon_data[:sprite_back] = get_pokemon_back_sprite(pokemon_id)
+	pokemon_data[:sprite] = sprites[:front_sprite]
+	pokemon_data[:sprite_back] = sprites[:back_sprite]
+	pokemon_data[:front_shiny] = sprites[:front_shiny]
+	pokemon_data[:back_shiny] = sprites[:back_shiny]
 
 	return pokemon_data
 end
@@ -38,16 +41,19 @@ def get_pokemon_name(pokemon_id)
 	return format_pokemon_name(DB.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s)
 end
 
-def get_pokemon_front_sprite(pokemon_id)
-	return JSON.parse(DB.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
-end
+def get_pokemon_sprites(pokemon_id)
+	sprites_formatted = {}
+	sprites_json = JSON.parse(DB.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)
 
-def get_pokemon_back_sprite(pokemon_id)
-	begin
-		return JSON.parse(DB.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
-	rescue NoMethodError
-		return nil
-	end
+	sprites_formatted[:front_sprite] = sprites_json["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
+
+	unless sprites_json["back_default"].nil? then sprites_formatted[:back_sprite] = sprites_json["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	unless sprites_json["front_shiny"].nil? then sprites_formatted[:front_shiny] = sprites_json["front_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	unless sprites_json["back_shiny"].nil? then sprites_formatted[:back_shiny] = sprites_json["back_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	return sprites_formatted
 end
 
 def get_pokemon_evolutions(pokemon_id)

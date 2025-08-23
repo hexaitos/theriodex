@@ -23,10 +23,25 @@
 </div>
 
 <div class="sprites">
-	<img src="<%= sprite %>"/>
+	<% if form == "shiny" and !front_shiny.nil? %>
+		<% unless front_shiny.nil? %>
+			<img src="<%= front_shiny%>"/>
+		<% end %>
 
-	<% unless sprite_back.nil? %>
-		<img src="<%= sprite_back %>"/>
+		<% unless back_shiny.nil? %>
+			<img src="<%= back_shiny %>"/>
+		<% end %>
+
+		<br />
+		<a href="/show/<%= id %>">Show normal</a>
+	<% elsif form == "" or form == "normal" or form.nil? %>
+		<img src="<%= sprite %>"/>
+
+		<% unless sprite_back.nil? %>
+			<img src="<%= sprite_back %>"/>
+		<% end %>
+		<br />
+		<a href="/show/<%= id %>?form=shiny">Show shiny</a>
 	<% end %>
 </div>
 
