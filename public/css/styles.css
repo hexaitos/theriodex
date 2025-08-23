@@ -1,9 +1,9 @@
 :root {
-    --color-primary: #10378d;
-    --color-primary-hover: #1d65ff;
-    --color-accent: #9ed7e2;
-    --color-accent-border: #b5dbe2;
-    --color-bg: #ecf7f9;
+	--color-primary: #10378d;
+	--color-primary-hover: #1d65ff;
+	--color-accent: #9ed7e2;
+	--color-accent-border: #b5dbe2;
+	--color-bg: #ecf7f9;
 }
 
 @font-face {
@@ -15,132 +15,132 @@
 }
 
 * {
-    font-family: 'Pixelated';
-    box-sizing: border-box;
+	font-family: 'Pixelated';
+	box-sizing: border-box;
 }
 
 body {
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: center;
 }
 
 .menu a {
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: var(--color-primary);
+	padding: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: var(--color-primary);
 }
 
 .menu a:hover {
-    background-color: var(--color-primary-hover);
+	background-color: var(--color-primary-hover);
 }
 
 .menu {
-    margin-top: 40px;
-    margin-bottom: 30px;
-    padding: 30px;
-    background-color: var(--color-accent);
-    border-radius: 5px;
-    display: flex;
-    overflow: auto;
-    justify-content: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+	padding: 30px;
+	background-color: var(--color-accent);
+	border-radius: 5px;
+	display: flex;
+	overflow: auto;
+	justify-content: center;
 }
 
 footer {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 30px;
-    background-color: var(--color-accent);
-    border-radius: 5px;
-    font-size: smaller;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 30px;
+	background-color: var(--color-accent);
+	border-radius: 5px;
+	font-size: smaller;
 }
 
 div.main {
-    padding: 50px;
-    /*background-color: #f6fbfc;*/
-    background-color: var(--color-bg);
-    border-radius: 5px;
+	padding: 50px;
+	/*background-color: #f6fbfc;*/
+	background-color: var(--color-bg);
+	border-radius: 5px;
 }
 
 div.sprites img {
-    /* border: 5px double #10378d; */
-    border: 5px double var(--color-accent-border);
-    border-radius: 5px;
-    width: 128px;
+	/* border: 5px double #10378d; */
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	width: 128px;
 }
 
 div.search {
 }
 
 div.search div {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: safe center;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: safe center;
 }
 
 div.search div a {
-    width: 200px;
-    margin-bottom: 10px;
+	width: 200px;
+	margin-bottom: 10px;
 }
 
 div.search_bar {
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: safe center;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: safe center;
 }
 
 div.types {
-    /* border: 2px solid #10378d; */
-    border-radius: 5px;
-    margin-bottom: 30px;
+	/* border: 2px solid #10378d; */
+	border-radius: 5px;
+	margin-bottom: 30px;
 }
 
 div.types img {
-    width: 40px;
-    margin-top: 5px;
+	width: 40px;
+	margin-top: 5px;
 }
 
 div.types h1 {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 div.types span {
-    font-size: small;
-    margin-top: 10px;
-    display: block;
+	font-size: small;
+	margin-top: 10px;
+	display: block;
 }
 
 a {
-    color: var(--color-primary);
+	color: var(--color-primary);
 }
 
 a:hover {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 input {
-    border-radius: 5px;
-    border: 2px solid var(--color-primary);
-    padding: 10px;
+	border-radius: 5px;
+	border: 2px solid var(--color-primary);
+	padding: 10px;
 }
 
 button {
-    padding: 12px;
-    background-color: var(--color-primary);
-    border-radius: 5px;
-    color: #ffffff;
-    border: none;
+	padding: 12px;
+	background-color: var(--color-primary);
+	border-radius: 5px;
+	color: #ffffff;
+	border: none;
 }
 
 button:hover {
-    padding: 12px;
-    background-color: var(--color-primary-hover);
-    border-radius: 5px;
+	padding: 12px;
+	background-color: var(--color-primary-hover);
+	border-radius: 5px;
 }
 
 div.flavour {
@@ -149,104 +149,104 @@ div.flavour {
 
 
 div.damage_taken table img {
-    width: 32px;
+	width: 32px;
 }
 
 div.damage_taken {
-    justify-content: safe center;
-    overflow: auto;
-    display: flex;
-    margin-top: 10px;
+	justify-content: safe center;
+	overflow: auto;
+	display: flex;
+	margin-top: 10px;
 }
 
 div.damage {
-    border: 5px double var(--color-accent-border);
-    border-radius: 5px;
-    padding: 10px;
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	padding: 10px;
 }
 
 div.damage_taken td {
-    font-size: small;
+	font-size: small;
 }
 
 div.about {
-    text-align: left;
+	text-align: left;
 }
 
 div.types a {
-    font-size: smaller;
+	font-size: smaller;
 }
 
 a.corner {
-    position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 10;
-    font-size: 10px;
-    padding: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: var(--color-primary);
+	position: fixed;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 10;
+	font-size: 10px;
+	padding: 5px;
+	margin-right: 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: var(--color-primary);
 }
 
 a.corner:hover {
-    background-color: var(--color-primary-hover);
+	background-color: var(--color-primary-hover);
 }
 
 div.damage span {
-    font-size: 10px;
-    margin-bottom: 10px;
+	font-size: 10px;
+	margin-bottom: 10px;
 }
 
 div.damage h3 {
-    margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 
 a.current {
-    color: black;
+	color: black;
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #374d52;
-    }
+	body {
+		background-color: #374d52;
+	}
 
-    :root {
-        --color-primary: #d6a095;
-        --color-primary-hover: #84615a;
-        --color-accent: #162225;
-        --color-accent-border: #b5dbe2;
-        --color-bg: #162225;
-    }
+	:root {
+		--color-primary: #d6a095;
+		--color-primary-hover: #84615a;
+		--color-accent: #162225;
+		--color-accent-border: #b5dbe2;
+		--color-bg: #162225;
+	}
 
-    p, span, h1, h2, h3, tr, a.current {
-        color: white;
-    }
+	p, span, h1, h2, h3, tr, a.current {
+		color: white;
+	}
 
-    input {
-        background-color: black;
-    }
+	input {
+		background-color: black;
+	}
 }
 
 @media screen and (max-width: 900px) {
-    body {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+	body {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
 
-    button {
-        margin-top: 10px;
-    }
+	button {
+		margin-top: 10px;
+	}
 
-    div.main {
-        padding: 30px;
-    }
+	div.main {
+		padding: 30px;
+	}
 }
 
 @media screen and (max-width: 500px) {
-    div.sprites img {
-        width: 116px;
-    }
+	div.sprites img {
+		width: 116px;
+	}
 }
