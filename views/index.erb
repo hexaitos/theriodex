@@ -1,4 +1,8 @@
-<a class="corner" href="/show/<%= id %>">Direct link</a>
+<% if form == nil %>
+	<a class="corner" href="/show/<%= id %>">Direct link</a>
+<% else %>
+	<a class="corner" href="/show/<%= id %>?form=<%= form %>">Direct link</a>
+<% end %>
 
 <div class="types">
 	<h1><%= name.capitalize %></h1>
