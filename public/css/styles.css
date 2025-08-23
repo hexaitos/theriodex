@@ -104,7 +104,7 @@ div.search div a {
 	transition: color 0.5s, transform 0.5s;
 }
 
-div.search div a:hover {
+div.search div a:hover, div.search div a:active {
 	color: transparent;
 	transition-duration: 0.5s;
 	transform: scale(2);
