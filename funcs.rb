@@ -21,14 +21,16 @@ end
 def get_pokemon_info(pokemon_id)
 	pokemon_data = {}
 	sprites = get_pokemon_sprites(pokemon_id)
+	attrs = get_pokemon_attr(pokemon_id)
+	puts "Attrs #{attrs}"
 
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id)
 	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id)
-	pokemon_data[:weight] = get_pokemon_weight(pokemon_id)
-	pokemon_data[:height] = get_pokemon_height(pokemon_id)
 	pokemon_data[:evolutions] = get_pokemon_evolutions(pokemon_id)
 	pokemon_data[:name] = get_pokemon_name(pokemon_id)
+	pokemon_data[:weight] = attrs[0].to_f
+	pokemon_data[:height] = attrs[1].to_f
 	pokemon_data[:sprite] = sprites[:front_sprite]
 	pokemon_data[:sprite_back] = sprites[:back_sprite]
 	pokemon_data[:front_shiny] = sprites[:front_shiny]
@@ -66,12 +68,8 @@ def get_pokemon_evolutions(pokemon_id)
 	return evolutions
 end
 
-def get_pokemon_height(pokemon_id)
-	DB.get_first_value("select height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
-end
-
-def get_pokemon_weight(pokemon_id)
-	DB.get_first_value("select weight from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_f
+def get_pokemon_attr(pokemon_id)
+	return DB.execute("select weight, height from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").first
 end
 
 def get_pokemon_types(pokemon_id)
