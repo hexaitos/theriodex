@@ -125,32 +125,23 @@ end
 def format_pokemon_name(pokemon_name)
 	suffixes = {
 		"f" => " (f)",
-		"m" => " (m)",
-		"gliding-build" => " (gliding build)",
-		"sprinting-build" => " (sprinting build)",
-		"swimming-build" => " (swimming build)",
-		"origin" => " (origin)",
-		"limited-build" => "(limited build)",
-		"yellow" => " (yellow)",
-		"drive-mode" => " (drive mode)",
-		"totem" => " (totem)",
-		"average" => " (average)",
-		"zero" => " (zero)",
-		"solo" => " (solo)",
-		"boulder" => " (boulder)",
-		"bolt" => " (bolt)",
-		"tail" => " (tail)"
+		"m" => " (m)"
 	}
+
+	formatted_name = ""
+
+	pokemon_name_split = pokemon_name.split("-").map(&:capitalize)
+	pokemon_name_split.each do | part |
+		formatted_name << part + " "
+	end
 
 	suffixes.each do |suffix, formatted|
 		if pokemon_name.sub(/^[^-]*-/, '') == suffix then
-			pokemon_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
-		else
-			pokemon_name = pokemon_name.capitalize
+			formatted_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
 		end
 	end
 
-	return pokemon_name
+	return formatted_name
 end
 
 def pokemon_view_index(id, form=nil)

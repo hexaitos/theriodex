@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="types">
-	<h1><%= name.capitalize %></h1>
+	<h1><%= name %></h1>
 	<% types.each do |type| %>
 		<img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png"/>
 	<% end %>
@@ -16,7 +16,7 @@
 			none
 		<% else %>
 			<% evolutions.each do | evolution | %>
-				<% if evolution.capitalize == name then %>
+				<% if evolution == name then %>
 						<a class="current" href="/show/<%= evolution %>"><%= evolution.capitalize %></a>
 					<% else %>
 						<a href="/show/<%= evolution %>"><%= evolution.capitalize.gsub("-f", " (f)").gsub("-m", " (m)") %></a>
