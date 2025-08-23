@@ -10,11 +10,8 @@ end
 DB = SQLite3::Database.new "db.sqlite3"
 
 def get_pokemon_info_by_name(pokemon_name)
-	pokemon_data = {}
-	pokemon_data[:evolutions] = []
 	pokemon_id = DB.get_first_value("select id from pokemon_v2_pokemon where name = '#{pokemon_name}';").to_i
 	pokemon_data = get_pokemon_info(pokemon_id)
-	pokemon_data[:id] = pokemon_id
 	return pokemon_data
 end
 
