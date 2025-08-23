@@ -5,7 +5,6 @@ class String
 end
 
 # TODO instead of opening the every time, maybe open the DB ONCE as soon as the server starts and then just get everything from the variables? Would probably make it quite a bit faster I am imagining
-
 # TODO all the gsub and stuff… maybe I can make a method that formats stuff how I want it to instead
 
 DB = SQLite3::Database.new "db.sqlite3"
@@ -55,7 +54,7 @@ def get_pokemon_evolutions(pokemon_id)
 	evolutions = []
 
 	DB.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
-	 evolutions << form.first.to_s
+		evolutions << form.first.to_s
 	end
 
 	return evolutions
