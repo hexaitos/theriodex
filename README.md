@@ -10,6 +10,8 @@ Requires Ruby and Bundler. Tested with Ruby `3.4.4`. Run `bundle install` in the
 
 You may want to run the server in production instead of development mode. To do so, you can start the server by running `APP_ENV=production ruby server.rb`. You may also wish to change the address to which the server listens because, by default, it only listens to `localhost` (so you would be unable to reach the website from anywhere but the machine you are running the server on). To do so, you can add the `-o` flag followed by the IP you wish for the server to listen on. For example, the command `ruby server.rb -o0.0.0.0` would make the server listen to any IP. 
 
+You can also start the server in production mode by running `ruby server.rb -e production` – this will also automatically make the server listen to `0.0.0.0`. 
+
 # TODO / Ideas
 Non-exhaustive list, may not all get implemented and other stuff not here may get implemented. 
 
@@ -24,6 +26,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Show even special varieties (like Oricorio baile and its other forms)
 - [ ] Edit database so that the GitHub links are replaced with links to local files (and have a script that you can run that automatically adjusts the database generated from PokeAPI)
 - [x] Add button to toggle between male and female forms if they exist (added in `d3678fed04`)
+- [ ] Ability to show animated sprites if there is one (maybe also with button, maybe display at random)
 
 # Acknowledgements
 I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database.
