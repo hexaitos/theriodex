@@ -235,27 +235,10 @@ def pokemon_view_index(id, form=nil, s=nil)
 
 	puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) – The following Pokémon was selected: #{selected_pokemon}.\n The following data was returned: #{pokemon_data}\n\n"
 
-	return {
-			:sprite => pokemon_data[:sprite],
-			:name => pokemon_data[:name],
-			:id => selected_pokemon,
-			:sprite_back => pokemon_data[:sprite_back],
-			:types => pokemon_data[:types],
-			:flavour_text => pokemon_data[:flavour_text],
-			:damage_taken => damage_taken(pokemon_data[:types]),
-			:species_name => pokemon_data[:species_name],
-			:weight => pokemon_data[:weight],
-			:height => pokemon_data[:height],
-			:evolutions => pokemon_data[:evolutions],
-			:evolutions_formatted => pokemon_data[:evolutions_formatted],
-			:front_shiny => pokemon_data[:front_shiny],
-			:back_shiny => pokemon_data[:back_shiny],
-			:front_female => pokemon_data[:front_female],
-			:back_female => pokemon_data[:back_female],
-			:front_shiny_female => pokemon_data[:front_shiny_female],
-			:back_shiny_female => pokemon_data[:back_shiny_female],
-			:stats => pokemon_data[:stats],
-			:form => selected_form,
-			:sex => selected_sex
-			}
+	pokemon_data[:id] = selected_pokemon
+	pokemon_data[:damage_taken] = damage_taken(pokemon_data[:types])
+	pokemon_data[:form] = selected_form
+	pokemon_data[:sex] = selected_sex
+
+	return pokemon_data
 end
