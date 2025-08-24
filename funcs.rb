@@ -4,9 +4,6 @@ class String
 	end
 end
 
-# TODO instead of opening the every time, maybe open the DB ONCE as soon as the server starts and then just get everything from the variables? Would probably make it quite a bit faster I am imagining
-# TODO all the gsub and stuff… maybe I can make a method that formats stuff how I want it to instead
-
 DB = SQLite3::Database.new "db.sqlite3"
 
 def get_pokemon_info_by_name(pokemon_name)
@@ -19,12 +16,13 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data = {}
 	sprites = get_pokemon_sprites(pokemon_id)
 	attrs = get_pokemon_attr(pokemon_id)
+	evolutions = get_pokemon_evolutions(pokemon_id)
 
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id)
 	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id)
-	pokemon_data[:evolutions] = get_pokemon_evolutions(pokemon_id)[:raw]
-	pokemon_data[:evolutions_formatted] = get_pokemon_evolutions(pokemon_id)[:formatted]
+	pokemon_data[:evolutions] = evolutions[:raw]
+	pokemon_data[:evolutions_formatted] = evolutions[:formatted]
 	pokemon_data[:name] = get_pokemon_name(pokemon_id)
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
@@ -52,6 +50,7 @@ def get_pokemon_sprites(pokemon_id)
 
 	unless sprites_json["back_shiny"].nil? then sprites_formatted[:back_shiny] = sprites_json["back_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
 
+
 	return sprites_formatted
 end
 
@@ -77,7 +76,7 @@ def get_pokemon_types(pokemon_id)
 end
 
 def get_pokemon_flavour_text(pokemon_id)
-	return DB.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").to_s.gsub("", " ")
+	return DB.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").to_s.gsub("", " ").gsub("\n", " ")
 end
 
 def get_pokemon_genus(pokemon_id)
@@ -94,6 +93,10 @@ def damage_taken(types)
 	end
 	
 	return pokemon_damage_taken
+end
+
+def format_flavour_text(txt)
+	
 end
 
 def search_for_pokemon(query)

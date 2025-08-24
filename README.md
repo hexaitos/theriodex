@@ -22,6 +22,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Show abilities
 - [ ] Show even special varieties (like Oricorio baile and its other forms)
 - [ ] Edit database so that the GitHub links are replaced with links to local files (and have a script that you can run that automatically adjusts the database generated from PokeAPI)
+- [ ] Add button to toggle between male and female forms if they exist
 
 # Copyright notice
 Pokémon and Pokémon character names are trademarks of Nintendo. The rest of this project is licensed under the [3-Clause BSD Licence](https://opensource.org/license/bsd-3-clause).
