@@ -7,6 +7,7 @@ GEM
     fuzzy_match (2.1.0)
     json (2.13.2)
     logger (1.7.0)
+    multi_json (1.17.0)
     mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.4)
@@ -38,6 +39,12 @@ GEM
       rack-protection (= 4.1.1)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
+    sinatra-contrib (4.1.1)
+      multi_json (>= 0.0.2)
+      mustermann (~> 3.0)
+      rack-protection (= 4.1.1)
+      sinatra (= 4.1.1)
+      tilt (~> 2.0)
     sqlite3 (2.7.3-x86_64-linux-gnu)
     tilt (2.6.1)
 
@@ -53,6 +60,7 @@ DEPENDENCIES
   rackup
   sanitize
   sinatra
+  sinatra-contrib
   sqlite3
 
 BUNDLED WITH

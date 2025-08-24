@@ -131,6 +131,7 @@ end
 
 def search_for_pokemon(query)
 	search_results = ""
+	query = Sanitize.fragment(query)
 	pokemon_names = DB.execute("select name from pokemon_v2_pokemon;")
 	pokemon_forms = DB.execute("select id, name from pokemon_v2_pokemonform where form_name <> '';")
 	matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)

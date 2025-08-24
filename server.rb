@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/namespace'
 require 'csv'
 require 'json'
 require 'sqlite3'
@@ -19,21 +20,23 @@ get "/" do
 	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s])
 end
 
-get "/show/:id" do
-	cache_control :public, :max_age => 36000
-	erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s])
+namespace "/show" do
+	get "/abilities/:id" do
+	end
+
+	get "/:id" do
+		cache_control :public, :max_age => 36000
+		erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s])
+	end
 end
 
 get "/search" do
 	cache_control :public, :max_age => 36000
-	search_results = search_for_pokemon(Sanitize.fragment(params[:q]))
+	search_results = search_for_pokemon(params[:q])
 
 	erb :search, locals: {:search_results => search_results}
 end
 
 get "/about" do
 	erb :about
-end
-
-get "/show/abilities/:id" do
 end
