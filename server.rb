@@ -7,12 +7,11 @@ require 'sanitize'
 require 'rack/cache'
 require_relative 'funcs.rb'
 
+set :static_cache_control, [:public, max_age: 36000]
 use Rack::Cache,
 	:metastore   => 'file:/tmp/cache/rack/meta',
 	:entitystore => 'file:/tmp/cache/rack/body',
-	:verbose => true,
-	:static => true,
-	:static_cache_control => [:public, max_age: 36000]
+	:verbose => true
 
 get "/" do
 	random_pokemon = rand(1..1024)
