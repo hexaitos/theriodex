@@ -39,6 +39,11 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data[:front_shiny_female] = sprites[:front_shiny_female]
 	pokemon_data[:back_shiny_female] = sprites[:back_shiny_female]
 
+	pokemon_data[:animated_front] = sprites[:animated_front]
+	pokemon_data[:animated_back] = sprites[:animated_back]
+	pokemon_data[:animated_front_shiny] = sprites[:animated_front_shiny]
+	pokemon_data[:animated_back_shiny] = sprites[:animated_back_front]
+
 	return pokemon_data
 end
 
@@ -67,6 +72,16 @@ def get_pokemon_sprites(pokemon_id)
 	unless sprites_json["front_shiny_female"].nil? then sprites_formatted[:front_shiny_female] = sprites_json["front_shiny_female"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
 
 	unless sprites_json["back_shiny_female"].nil? then sprites_formatted[:back_shiny_female] = sprites_json["back_shiny_female"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	# Animated Default
+	unless sprites_json["versions"]["generation-v"]["black-white"]["animated"]["front_default"].nil? then sprites_formatted[:animated_front] = sprites_json["versions"]["generation-v"]["black-white"]["animated"]["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	unless sprites_json["versions"]["generation-v"]["black-white"]["animated"]["back_default"].nil? then sprites_formatted[:animated_back] = sprites_json["versions"]["generation-v"]["black-white"]["animated"]["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	# Animated Shiny
+	unless sprites_json["versions"]["generation-v"]["black-white"]["animated"]["front_shiny"].nil? then sprites_formatted[:animated_front_shiny] = sprites_json["versions"]["generation-v"]["black-white"]["animated"]["front_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+	
+	unless sprites_json["versions"]["generation-v"]["black-white"]["animated"]["back_shiny"].nil? then sprites_formatted[:animated_back_shiny] = sprites_json["versions"]["generation-v"]["black-white"]["animated"]["back_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
 
 	return sprites_formatted
 end
@@ -143,8 +158,6 @@ def get_pokemon_moves_information(pokemon_id, moves)
 	return moves_information
 end
 
-puts get_pokemon_moves_information(134, get_pokemon_moves(134))
-
 def search_for_pokemon(query)
 	search_results = ""
 	query = Sanitize.fragment(query)
@@ -219,9 +232,10 @@ def pokemon_view_moves(id)
 			}
 end
 
-def pokemon_view_index(id, form=nil, s=nil)
+def pokemon_view_index(id, form=nil, s=nil, animated=false)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)
+	animated = Sanitize.fragment(animated) unless !animated
 	
 	# I only just learnt about these things called ternary operators? So of course I am going to try using them now even though I could have also just have written an if statement
 	form.nil? ? selected_form = nil : selected_form = Sanitize.fragment(form)
@@ -239,6 +253,7 @@ def pokemon_view_index(id, form=nil, s=nil)
 	pokemon_data[:damage_taken] = damage_taken(pokemon_data[:types])
 	pokemon_data[:form] = selected_form
 	pokemon_data[:sex] = selected_sex
+	pokemon_data[:animated] = animated
 
 	return pokemon_data
 end

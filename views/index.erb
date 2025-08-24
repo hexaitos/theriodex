@@ -4,7 +4,6 @@
 	<a class="corner" href="/show/<%= id %>?form=<%= form %>">Direct link</a>
 <% end %>
 
-
 <div class="types">
 	<h1><%= name %></h1>
 	<% types.each do |type| %>
@@ -42,7 +41,7 @@
 <div class="sprites">
 	<% case sex 
 	when "", nil %>
-		<% if form == "shiny" and !front_shiny.nil? %>
+		<% if form == "shiny" and !front_shiny.nil? and !animated %>
 			<img src="<%= front_shiny %>"/>
 
 			<% unless back_shiny.nil? %>
@@ -55,7 +54,12 @@
 			<% unless front_shiny_female.nil? %>
 				<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
 			<% end %>
-		<% elsif form == "" or form == "normal" or form.nil? %>
+
+			<% unless animated_front.nil? %>
+				<a href="/show/<%= id %>?animated=true&form=shiny">Toggle animation</a>
+			<% end %>
+
+		<% elsif form == "" or form == "normal" or form.nil? and !animated %>
 			<img src="<%= sprite %>"/>
 
 			<% unless sprite_back.nil? %>
@@ -67,6 +71,44 @@
 
 			<% unless front_shiny_female.nil? %>
 				<a href="/show/<%= id %>?s=female">Show female</a>
+			<% end %>
+
+			<% unless animated_front.nil? %>
+				<a href="/show/<%= id %>?animated=true">Toggle animation</a>
+			<% end %>
+
+		<% elsif form == "" or form == "normal" or form.nil? and animated %>
+			<img src="<%= animated_front %>"/>
+
+			<% unless animated_back.nil? %>
+				<img src="<%= animated_back %>"/>
+			<% end %>
+
+			<br />
+			<a href="/show/<%= id %>?form=shiny&animated=true">Show shiny</a>
+
+			<% unless front_shiny_female.nil? %>
+				<a href="/show/<%= id %>?s=female">Show female</a>
+			<% end %>
+
+			<a href="/show/<%= id %>">Toggle animation</a>
+
+		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
+			<img src="<%= animated_front_shiny %>"/>
+
+			<% unless animated_back_shiny.nil? %>
+				<img src="<%= animated_back_shiny %>"/>
+			<% end %>
+
+			<br />
+			<a href="/show/<%= id %>?animated=true">Show normal</a>
+
+			<% unless front_shiny_female.nil? %>
+				<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
+			<% end %>
+
+			<% unless animated_front.nil? %>
+				<a href="/show/<%= id %>?form=shiny">Toggle animation</a>
 			<% end %>
 		<% end %>
 	

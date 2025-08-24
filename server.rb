@@ -17,7 +17,7 @@ use Rack::Cache,
 get "/" do
 	random_pokemon = rand(1..1024)
 
-	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s])
+	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated])
 end
 
 namespace "/show" do
@@ -26,8 +26,7 @@ namespace "/show" do
 	end
 
 	get "/:id" do
-		cache_control :public, :max_age => 36000
-		erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s])
+		erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s], params[:animated])
 	end
 end
 
