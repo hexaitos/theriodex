@@ -23,7 +23,8 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id)
 	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id)
-	pokemon_data[:evolutions] = get_pokemon_evolutions(pokemon_id)
+	pokemon_data[:evolutions] = get_pokemon_evolutions(pokemon_id)[:raw]
+	pokemon_data[:evolutions_formatted] = get_pokemon_evolutions(pokemon_id)[:formatted]
 	pokemon_data[:name] = get_pokemon_name(pokemon_id)
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
@@ -55,12 +56,15 @@ def get_pokemon_sprites(pokemon_id)
 end
 
 def get_pokemon_evolutions(pokemon_id)
-	evolutions = []
+	evolutions = {}
+	evolutions[:raw] = []
+	evolutions[:formatted] = {}
 
 	DB.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = #{pokemon_id};").each do |form|
-		evolutions << form.first.to_s
+		evolutions[:raw] << form.first.to_s
+		evolutions[:formatted][form.first.to_s] = format_pokemon_name(form.first.to_s)
 	end
-
+	
 	return evolutions
 end
 
@@ -163,15 +167,13 @@ def pokemon_view_index(id, form=nil)
 	# I only just learnt about these things called ternary operators? So of course I am going to try using them now even though I could have also just have written an if statement
 	form.nil? ? selected_form = nil : selected_form = Sanitize.fragment(form)
 
-	puts selected_pokemon
-
 	begin
 		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
 	rescue JSON::ParserError
 		pokemon_data = get_pokemon_info_by_name("vaporeon")
 	end
 
-	puts pokemon_data
+	puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) – The following Pokémon was selected: #{selected_pokemon}.\n The following data was returned: #{pokemon_data}\n\n"
 
 	return {
 			:sprite => pokemon_data[:sprite],
@@ -185,9 +187,10 @@ def pokemon_view_index(id, form=nil)
 			:weight => pokemon_data[:weight],
 			:height => pokemon_data[:height],
 			:evolutions => pokemon_data[:evolutions],
+			:evolutions_formatted => pokemon_data[:evolutions_formatted],
 			:front_shiny => pokemon_data[:front_shiny],
 			:back_shiny => pokemon_data[:back_shiny],
-			:form => selected_form
+			:form => selected_form,
 			}
 end
 
