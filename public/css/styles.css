@@ -74,6 +74,7 @@ div.sprites img {
 	margin-bottom: 5px;
 	aspect-ratio: 1 / 1;
 	object-fit: scale-down;
+	image-rendering: pixelated;
 }
 
 div.sprites-links {
