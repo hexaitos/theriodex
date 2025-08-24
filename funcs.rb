@@ -129,12 +129,28 @@ def format_flavour_text(txt)
 
 end
 
+def get_pokemon_moves(pokemon_id)
+	return DB.execute("select move_id, name from pokemon_v2_movename where language_id = 9 and move_id in (select distinct move_id from pokemon_v2_pokemonmove where pokemon_id = #{pokemon_id});")
+end
+
+def get_pokemon_moves_information(pokemon_id, moves)
+	moves_information = []
+
+	moves.each do | move |
+		moves_information << DB.execute("select level, version_group_id from pokemon_v2_pokemonmove where move_id = #{move.first} and pokemon_id = #{pokemon_id};")
+	end
+
+	return moves_information
+end
+
+puts get_pokemon_moves_information(134, get_pokemon_moves(134))
+
 def search_for_pokemon(query)
 	search_results = ""
 	query = Sanitize.fragment(query)
 	pokemon_names = DB.execute("select name from pokemon_v2_pokemon;")
 	pokemon_forms = DB.execute("select id, name from pokemon_v2_pokemonform where form_name <> '';")
-	matches = FuzzyMatch.new(pokemon_names, :find_all_with_score =>true).find(query)
+	matches = FuzzyMatch.new(pokemon_names, :find_all_with_score => true).find(query)
 
 	matches.each do |key,value|
 		# TODO this is all just kinda garbage omg I need to make this not terrible
@@ -195,6 +211,14 @@ def format_pokemon_name(pokemon_name)
 	return formatted_name
 end
 
+def pokemon_view_moves(id)
+	id = Sanitize.fragment(id)
+
+	return 	{
+			:moves => get_pokemon_moves(id)
+			}
+end
+
 def pokemon_view_index(id, form=nil, s=nil)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)
@@ -234,18 +258,4 @@ def pokemon_view_index(id, form=nil, s=nil)
 			:form => selected_form,
 			:sex => selected_sex
 			}
-end
-
-# TODO everything is confusing and doesn't work how I want it to aaaa maybe just leaves this out not sure if this is a good idea
-# The intent is to show a random sprite if there are several sprites, but sometimes other sprites actually have other stats or something like with Oricorio's different forms
-def get_random_sprite(pokemon_id)
-	db = SQLite3::Database.new "db.sqlite3"
-	pokemon_name = db.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = #{pokemon_id};").to_s
-	pokemon_name_clean = pokemon_name.sub(/-.*/, '')
-	pokemon_forms = db.execute("select id, name from pokemon_v2_pokemonform where form_name <> '' and name like '#{pokemon_name_clean}%' order by random();")
-
-	if pokemon_forms.map(&:last).include?(pokemon_name) then
-		puts pokemon_forms.first.first
-		puts pokemon_name
-	end
 end

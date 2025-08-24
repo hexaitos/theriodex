@@ -21,7 +21,8 @@ get "/" do
 end
 
 namespace "/show" do
-	get "/abilities/:id" do
+	get "/moves/:id" do
+		erb :moves, locals: pokemon_view_moves(params[:id])
 	end
 
 	get "/:id" do
