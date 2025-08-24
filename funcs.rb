@@ -79,7 +79,7 @@ def get_pokemon_evolutions(pokemon_id)
 		evolutions[:raw] << form.first.to_s
 		evolutions[:formatted][form.first.to_s] = format_pokemon_name(form.first.to_s)
 	end
-	
+
 	return evolutions
 end
 
