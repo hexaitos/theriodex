@@ -72,6 +72,8 @@ div.sprites img {
 	border-radius: 5px;
 	width: 128px;
 	margin-bottom: 5px;
+	aspect-ratio: 1 / 1;
+	object-fit: scale-down;
 }
 
 div.sprites a {
