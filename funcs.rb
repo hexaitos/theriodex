@@ -27,6 +27,7 @@ def get_pokemon_info(pokemon_id)
 
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
+	pokemon_data[:stats] = get_pokemon_stats(pokemon_id)
 
 	pokemon_data[:sprite] = sprites[:front_sprite]
 	pokemon_data[:sprite_back] = sprites[:back_sprite]
@@ -81,6 +82,19 @@ def get_pokemon_evolutions(pokemon_id)
 	end
 
 	return evolutions
+end
+
+def get_pokemon_stats(pokemon_id)
+	stats = DB.execute("select base_stat from pokemon_v2_pokemonstat where pokemon_id = #{pokemon_id} order by stat_id;")
+
+	return {
+			:hp => stats[0].first.to_i,
+			:atk => stats[1].first.to_i,
+			:def => stats[2].first.to_i,
+			:spatk => stats[3].first.to_i,
+			:spdef => stats[4].first.to_i,
+			:speed => stats[5].first.to_i
+			}
 end
 
 def get_pokemon_attr(pokemon_id)
@@ -215,6 +229,7 @@ def pokemon_view_index(id, form=nil, s=nil)
 			:back_female => pokemon_data[:back_female],
 			:front_shiny_female => pokemon_data[:front_shiny_female],
 			:back_shiny_female => pokemon_data[:back_shiny_female],
+			:stats => pokemon_data[:stats],
 			:form => selected_form,
 			:sex => selected_sex
 			}

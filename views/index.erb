@@ -4,12 +4,25 @@
 	<a class="corner" href="/show/<%= id %>?form=<%= form %>">Direct link</a>
 <% end %>
 
+
 <div class="types">
 	<h1><%= name %></h1>
 	<% types.each do |type| %>
 		<img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png"/>
 	<% end %>
-	<span><%= weight / 10 %> kg • <%= height / 10 %> m • <%= species_name %></span>
+	<span>
+		<%= weight / 10 %> kg •
+		<%= height / 10 %> m •
+		<%= species_name %>
+	</span>
+	<span>
+		HP: <%= stats[:hp] %> • 
+		Atk: <%= stats[:atk] %> •
+		Def: <%= stats[:def] %> •
+		Sp.Atk: <%= stats[:spatk] %> •
+		Sp.Def: <%= stats[:spdef] %> •
+		Speed: <%= stats[:speed] %>
+	</span>
 	<span>
 		Evolutions:
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
