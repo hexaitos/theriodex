@@ -24,12 +24,19 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data[:evolutions] = evolutions[:raw]
 	pokemon_data[:evolutions_formatted] = evolutions[:formatted]
 	pokemon_data[:name] = get_pokemon_name(pokemon_id)
+
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
+
 	pokemon_data[:sprite] = sprites[:front_sprite]
 	pokemon_data[:sprite_back] = sprites[:back_sprite]
 	pokemon_data[:front_shiny] = sprites[:front_shiny]
 	pokemon_data[:back_shiny] = sprites[:back_shiny]
+
+	pokemon_data[:front_female] = sprites[:front_female]
+	pokemon_data[:back_female] = sprites[:back_female]
+	pokemon_data[:front_shiny_female] = sprites[:front_shiny_female]
+	pokemon_data[:back_shiny_female] = sprites[:back_shiny_female]
 
 	return pokemon_data
 end
@@ -42,6 +49,7 @@ def get_pokemon_sprites(pokemon_id)
 	sprites_formatted = {}
 	sprites_json = JSON.parse(DB.get_first_value("select sprites from pokemon_v2_pokemonsprites where pokemon_id = #{pokemon_id};").to_s)
 
+	# Male / Default
 	sprites_formatted[:front_sprite] = sprites_json["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
 
 	unless sprites_json["back_default"].nil? then sprites_formatted[:back_sprite] = sprites_json["back_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
@@ -50,6 +58,14 @@ def get_pokemon_sprites(pokemon_id)
 
 	unless sprites_json["back_shiny"].nil? then sprites_formatted[:back_shiny] = sprites_json["back_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
 
+	# Female
+	unless sprites_json["front_female"].nil? then sprites_formatted[:front_female] = sprites_json["front_female"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	unless sprites_json["back_female"].nil? then sprites_formatted[:back_female] = sprites_json["back_female"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	unless sprites_json["front_shiny_female"].nil? then sprites_formatted[:front_shiny_female] = sprites_json["front_shiny_female"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
+
+	unless sprites_json["back_shiny_female"].nil? then sprites_formatted[:back_shiny_female] = sprites_json["back_shiny_female"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
 
 	return sprites_formatted
 end
@@ -96,7 +112,7 @@ def damage_taken(types)
 end
 
 def format_flavour_text(txt)
-	
+
 end
 
 def search_for_pokemon(query)
@@ -164,11 +180,13 @@ def format_pokemon_name(pokemon_name)
 	return formatted_name
 end
 
-def pokemon_view_index(id, form=nil)
+def pokemon_view_index(id, form=nil, s=nil)
 	selected_pokemon = Sanitize.fragment(id)
+	selected_sex = Sanitize.fragment(s)
 	
 	# I only just learnt about these things called ternary operators? So of course I am going to try using them now even though I could have also just have written an if statement
 	form.nil? ? selected_form = nil : selected_form = Sanitize.fragment(form)
+	s.nil? ? selected_sex = nil : selected_sex = Sanitize.fragment(s)
 
 	begin
 		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
@@ -193,7 +211,12 @@ def pokemon_view_index(id, form=nil)
 			:evolutions_formatted => pokemon_data[:evolutions_formatted],
 			:front_shiny => pokemon_data[:front_shiny],
 			:back_shiny => pokemon_data[:back_shiny],
+			:front_female => pokemon_data[:front_female],
+			:back_female => pokemon_data[:back_female],
+			:front_shiny_female => pokemon_data[:front_shiny_female],
+			:back_shiny_female => pokemon_data[:back_shiny_female],
 			:form => selected_form,
+			:sex => selected_sex
 			}
 end
 

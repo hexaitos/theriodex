@@ -9,11 +9,11 @@ require_relative 'funcs.rb'
 get "/" do
 	random_pokemon = rand(1..1024)
 
-	erb :index, locals: pokemon_view_index(random_pokemon, params[:form])
+	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s])
 end
 
 get "/show/:id" do
-	erb :index, locals: pokemon_view_index(params["id"], params[:form])
+	erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s])
 end
 
 get "/search" do

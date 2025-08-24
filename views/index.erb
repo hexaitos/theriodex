@@ -27,25 +27,59 @@
 </div>
 
 <div class="sprites">
-	<% if form == "shiny" and !front_shiny.nil? %>
-		<img src="<%= front_shiny%>"/>
+	<% case sex 
+	when "", nil %>
+		<% if form == "shiny" and !front_shiny.nil? %>
+			<img src="<%= front_shiny %>"/>
 
-		<% unless back_shiny.nil? %>
-			<img src="<%= back_shiny %>"/>
+			<% unless back_shiny.nil? %>
+				<img src="<%= back_shiny %>"/>
+			<% end %>
+
+			<br />
+			<a href="/show/<%= id %>">Show normal</a>
+
+			<% unless front_shiny_female.nil? %>
+				<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
+			<% end %>
+		<% elsif form == "" or form == "normal" or form.nil? %>
+			<img src="<%= sprite %>"/>
+
+			<% unless sprite_back.nil? %>
+				<img src="<%= sprite_back %>"/>
+			<% end %>
+
+			<br />
+			<a href="/show/<%= id %>?form=shiny">Show shiny</a>
+
+			<% unless front_shiny_female.nil? %>
+				<a href="/show/<%= id %>?s=female">Show female</a>
+			<% end %>
 		<% end %>
+	<% when "female" %>
+		<% if form == "shiny" and !front_shiny_female.nil? %>
+			<img src="<%= front_shiny_female %>"/>
 
-		<br />
-		<a href="/show/<%= id %>">Show normal</a>
-	<% elsif form == "" or form == "normal" or form.nil? %>
-		<img src="<%= sprite %>"/>
+			<% unless back_shiny_female.nil? %>
+				<img src="<%= back_shiny_female %>"/>
+			<% end %>
 
-		<% unless sprite_back.nil? %>
-			<img src="<%= sprite_back %>"/>
+			<br />
+			<a href="/show/<%= id %>?s=female">Show normal</a>
+			<a href="/show/<%= id %>?form=shiny">Show male</a>
+		<% elsif form == "" or form == "normal" or form.nil? %>
+			<img src="<%= front_female %>"/>
+
+			<% unless back_female.nil? %>
+				<img src="<%= back_female %>"/>
+			<% end %>
+
+			<br />
+			<a href="/show/<%= id %>?form=shiny&s=female">Show shiny</a>
+			<a href="/show/<%= id %>">Show male</a>
 		<% end %>
-
-		<br />
-		<a href="/show/<%= id %>?form=shiny">Show shiny</a>
 	<% end %>
+
 </div>
 
 <div class="info">	
