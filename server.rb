@@ -4,7 +4,15 @@ require 'json'
 require 'sqlite3'
 require 'fuzzy_match'
 require 'sanitize'
+require 'rack/cache'
 require_relative 'funcs.rb'
+
+use Rack::Cache,
+	:metastore   => 'file:/tmp/cache/rack/meta',
+	:entitystore => 'file:/tmp/cache/rack/body',
+	:verbose => true,
+	:static => true,
+	:static_cache_control => [:public, max_age: 36000]
 
 get "/" do
 	random_pokemon = rand(1..1024)
@@ -13,10 +21,12 @@ get "/" do
 end
 
 get "/show/:id" do
+	cache_control :public, :max_age => 36000
 	erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s])
 end
 
 get "/search" do
+	cache_control :public, :max_age => 36000
 	search_results = search_for_pokemon(Sanitize.fragment(params[:q]))
 
 	erb :search, locals: {:search_results => search_results}
@@ -26,5 +36,5 @@ get "/about" do
 	erb :about
 end
 
-get "/test" do
+get "/show/abilities/:id" do
 end
