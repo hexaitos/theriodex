@@ -49,15 +49,17 @@
 			<% end %>
 
 			<br />
-			<a href="/show/<%= id %>">Show normal</a>
+			<div class="sprites-links">
+				<a href="/show/<%= id %>">Show normal</a>
 
-			<% unless front_shiny_female.nil? %>
-				<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
-			<% end %>
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
+				<% end %>
 
-			<% unless animated_front.nil? %>
-				<a href="/show/<%= id %>?animated=true&form=shiny">Toggle animation</a>
-			<% end %>
+				<% unless animated_front.nil? %>
+					<a href="/show/<%= id %>?animated=true&form=shiny">Toggle animation</a>
+				<% end %>
+			</div>
 
 		<% elsif form == "" or form == "normal" or form.nil? and !animated %>
 			<img src="<%= sprite %>"/>
@@ -67,15 +69,17 @@
 			<% end %>
 
 			<br />
-			<a href="/show/<%= id %>?form=shiny">Show shiny</a>
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?form=shiny">Show shiny</a>
 
-			<% unless front_shiny_female.nil? %>
-				<a href="/show/<%= id %>?s=female">Show female</a>
-			<% end %>
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female">Show female</a>
+				<% end %>
 
-			<% unless animated_front.nil? %>
-				<a href="/show/<%= id %>?animated=true">Toggle animation</a>
-			<% end %>
+				<% unless animated_front.nil? %>
+					<a href="/show/<%= id %>?animated=true">Toggle animation</a>
+				<% end %>
+			</div>
 
 		<% elsif form == "" or form == "normal" or form.nil? and animated %>
 			<img src="<%= animated_front %>"/>
@@ -85,13 +89,15 @@
 			<% end %>
 
 			<br />
-			<a href="/show/<%= id %>?form=shiny&animated=true">Show shiny</a>
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?form=shiny&animated=true">Show shiny</a>
 
-			<% unless front_shiny_female.nil? %>
-				<a href="/show/<%= id %>?s=female">Show female</a>
-			<% end %>
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female">Show female</a>
+				<% end %>
 
-			<a href="/show/<%= id %>">Toggle animation</a>
+				<a href="/show/<%= id %>">Toggle animation</a>
+			</div>
 
 		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
 			<img src="<%= animated_front_shiny %>"/>
@@ -101,15 +107,17 @@
 			<% end %>
 
 			<br />
-			<a href="/show/<%= id %>?animated=true">Show normal</a>
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?animated=true">Show normal</a>
 
-			<% unless front_shiny_female.nil? %>
-				<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
-			<% end %>
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
+				<% end %>
 
-			<% unless animated_front.nil? %>
-				<a href="/show/<%= id %>?form=shiny">Toggle animation</a>
-			<% end %>
+				<% unless animated_front.nil? %>
+					<a href="/show/<%= id %>?form=shiny">Toggle animation</a>
+				<% end %>
+			</div>
 		<% end %>
 	
 	<% when "female" %>
@@ -121,8 +129,10 @@
 			<% end %>
 
 			<br />
-			<a href="/show/<%= id %>?s=female">Show normal</a>
-			<a href="/show/<%= id %>?form=shiny">Show male</a>
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?s=female">Show normal</a>
+				<a href="/show/<%= id %>?form=shiny">Show male</a>
+			</div>
 		<% elsif form == "" or form == "normal" or form.nil? %>
 			<img src="<%= front_female %>"/>
 
@@ -131,8 +141,10 @@
 			<% end %>
 
 			<br />
-			<a href="/show/<%= id %>?form=shiny&s=female">Show shiny</a>
-			<a href="/show/<%= id %>">Show male</a>
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?form=shiny&s=female">Show shiny</a>
+				<a href="/show/<%= id %>">Show male</a>
+			</div>
 		<% end %>
 	<% end %>
 </div>

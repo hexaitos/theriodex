@@ -76,6 +76,12 @@ div.sprites img {
 	object-fit: scale-down;
 }
 
+div.sprites-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 div.sprites a {
 	font-size: small;
 	padding: 5px;
@@ -83,6 +89,7 @@ div.sprites a {
 	color: white;
 	border-radius: 5px;
 	text-decoration: none;
+	margin: 2px;
 }
 
 div.sprites a:hover {
