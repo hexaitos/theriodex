@@ -68,6 +68,10 @@ footer img {
 	margin-right: 5px;
 }
 
+footer span {
+	width: 100%;
+}
+
 div.main {
 	padding: 50px;
 	/*background-color: #f6fbfc;*/
