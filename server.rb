@@ -9,7 +9,7 @@ require 'rack/cache'
 
 require_relative 'lib/funcs.rb'
 
-set :static_cache_control, [:public, max_age: 36000]
+set :static_cache_control, [:public, max_age: 3600]
 use Rack::Cache,
 	:metastore => 'file:/tmp/cache/rack/meta',
 	:entitystore => 'file:/tmp/cache/rack/body',
@@ -32,7 +32,7 @@ namespace "/show" do
 end
 
 get "/search" do
-	cache_control :public, :max_age => 36000
+	cache_control :public, :max_age => 3600
 	search_results = search_for_pokemon(params[:q])
 
 	erb :search, locals: {:search_results => search_results}
