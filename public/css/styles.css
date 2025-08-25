@@ -18,6 +18,7 @@
 * {
 	font-family: 'Pixelated';
 	box-sizing: border-box;
+	cursor: url("/vaporeon.gif"), auto;
 }
 
 body {
