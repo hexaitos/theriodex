@@ -175,6 +175,7 @@ a {
 div.evolutions {
 	font-size: small;
 	margin: 5px;
+	display: contents;
 }
 
 div.evolutions a {
