@@ -15,6 +15,44 @@ You may want to run the server in production instead of development mode. To do 
 
 You can also start the server in production mode by running `ruby server.rb -e production` – this will also automatically make the server listen to `0.0.0.0`. 
 
+## Notes on OpenBSD
+I generally prefer to use OpenBSD as my server operating system these days. Unfortunately, Ruby has been a little bit annoying when it comes to OpenBSD. You should be able to install `bundler` itself without any problems, but when running `bundle install`, you may run into problems with installing `nokogiri`. To solve this, running the following commands should make it work: 
+
+```bash
+pkg_add libxml libxslt libiconv
+bundle config build.nokogiri --use-system-libraries
+bundle install
+```
+
+This was tested on OpenBSD 7.6 with Ruby 3.3.5 and Bundler 2.6.7. I will still have to test it on 7.7, but I presume it will be similar there. 
+
+## Notes on caching
+I am using [rack-cache](https://github.com/rtomayko/rack-cache) for disk caching. You may wish to remove or adjust it according to your preferences. To do so, check the `server.rb` file and change the following lines so that they match your preferences: 
+
+```ruby
+use Rack::Cache,
+	:metastore => 'file:/tmp/cache/rack/meta',
+	:entitystore => 'file:/tmp/cache/rack/body',
+	:verbose => true
+``` 
+
+By default (as can be seen in the code snippet above), Theriodex saves its cache in `/tmp/cache/rack/`. This means that even things like the included `styles.css` or the sprites are cached on disk until they are invalidated. Thus, if you update Theriodex, you may stil have an old version of the `styles.css` or other files cached. Thus, I recommend always deleting everything in `/tmp/cache/rack/` after an update. 
+
+**Disabling caching**: To disable caching, I would recommend to simply remove everything relating to caching from the `server.rb` file. This includes the above-mentioned code snippet, as well as any lines with `cache_control` in them (such as `cache_control :public, :max_age => 3600`). You should then also remove the `require 'rack/cache'` statement. 
+
+**Memory caching**: You may also wish to cache things in memory instead of on disk. To do so, change the above-mentioned code snippet to the following: 
+
+```ruby
+use Rack::Cache,
+  :metastore => 'heap:/',
+  :entitystore => 'heap:/',
+  :verbose => true
+```
+
+*It is important to note, however* that `rack-cache`'s memory storage does not feature an automatic purging of unused entries; therefore, the longer the application runs, the more memory it will end up using. This is obviously not a great idea for many reasons, so I would generally advice against doing so unless you are only testing this locally.
+
+Please also check the `racke-cache` [documentation](https://rtomayko.github.io/rack-cache/storage) for further information.
+
 # TODO / Ideas
 Non-exhaustive list, may not all get implemented and other stuff not here may get implemented. 
 
