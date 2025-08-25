@@ -11,7 +11,7 @@ require_relative 'lib/funcs.rb'
 
 set :static_cache_control, [:public, max_age: 36000]
 use Rack::Cache,
-	:metastore   => 'file:/tmp/cache/rack/meta',
+	:metastore => 'file:/tmp/cache/rack/meta',
 	:entitystore => 'file:/tmp/cache/rack/body',
 	:verbose => true
 
