@@ -6,7 +6,8 @@ require 'sqlite3'
 require 'fuzzy_match'
 require 'sanitize'
 require 'rack/cache'
-require_relative 'funcs.rb'
+
+require_relative 'lib/funcs.rb'
 
 set :static_cache_control, [:public, max_age: 36000]
 use Rack::Cache,

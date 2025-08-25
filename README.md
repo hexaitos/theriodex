@@ -27,6 +27,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Edit database so that the GitHub links are replaced with links to local files (and have a script that you can run that automatically adjusts the database generated from PokeAPI)
 - [x] Add button to toggle between male and female forms if they exist (added in `d3678fed04`)
 - [x] Ability to show animated sprites if there is one (maybe also with button, maybe display at random) (added in `f1782528cb`)
+- [ ] Clean up index.erb with some helper functions perhaps? 
 
 # Acknowledgements
 I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database.
