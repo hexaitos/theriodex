@@ -121,7 +121,7 @@ def get_pokemon_types(pokemon_id)
 end
 
 def get_pokemon_flavour_text(pokemon_id)
-	return DB.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").to_s.gsub("", " ").gsub("\n", " ")
+	return DB.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = #{pokemon_id} and language_id = 9 order by random() limit 1;").to_s.gsub("", " ").gsub("\n", " ").gsub("  ", "")
 end
 
 def get_pokemon_genus(pokemon_id)

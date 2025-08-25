@@ -289,11 +289,11 @@ a.current {
 
 	:root {
 		--color-primary: #96311d;
-		--color-primary-hover: #84615a;
+		--color-primary-hover: #c58043;
 		--color-accent: #162225;
 		--color-accent-border: #b5dbe2;
 		--color-bg: #162225;
-		--color-links: orange;
+		--color-links: #c58043;
 	}
 
 	p, span, h1, h2, h3, tr, a.current {

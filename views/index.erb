@@ -23,10 +23,11 @@
 		Speed: <%= stats[:speed] %>
 	</span>
 	<div class="evolutions">
-		<span>Evolutions:</span>
+		<span>Evolutions:
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
-			none
+			none</span>
 		<% else %>
+		</span>
 			<% evolutions.each do | evolution | %>
 				<% if evolutions_formatted[evolution] == name then %>
 						<a class="current" href="/show/<%= evolution %>"><%= evolutions_formatted[evolution] %></a>
