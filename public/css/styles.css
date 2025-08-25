@@ -57,6 +57,14 @@ footer {
 	background-color: var(--color-accent);
 	border-radius: 5px;
 	font-size: smaller;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: center;
+}
+
+footer img {
+	image-rendering: pixelated;
+	margin-top: 10px;
 }
 
 div.main {
