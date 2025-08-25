@@ -200,7 +200,27 @@ def format_pokemon_name(pokemon_name)
 		"wo-chien" => "Wo-Chien",
 		"chien-pao" => "Chien-Pao",
 		"ting-lu" => "Ting-Lu",
-		"chi-yu" => "Chi-Yu"
+		"chi-yu" => "Chi-Yu",
+		"gouging-fire" => "Gouging Fire",
+		"iron-moth" => "Iron Moth",
+		"iron-hands" => "Iron Hands",
+		"iron-crown" => "Iron Crown",
+		"iron-treads" => "Iron Treads",
+		"iron-thorns" => "Iron Thorn",
+		"iron-leaves" => "Iron Leaves",
+		"iron-bundle" => "Iron Bundle",
+		"iron-valiant" => "Iron Valiant",
+		"iron-jugulis" => "Iron Jugulis",
+		"iron-boulder" => "Iron Boulder",
+		"walking-wake" => "Walking Wake",
+		"raging-bolt" => "Raging Bolt",
+		"great-tusk" => "Great Tusk",
+		"scream-tail" => "Scream Tail",
+		"brute-bonnet" => "Brute Bonnet",
+		"slither-wing" => "Slither Wing",
+		"sandy-shocks" => "Sandy Shocks",
+		"roaring-moon" => "Roaring Moon",
+		"flutter-mane" => "Flutter Mane"
 	}
 
 	formatted_name = ""

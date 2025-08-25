@@ -163,8 +163,30 @@ div.types span {
 	display: block;
 }
 
+div.evolutions span {
+	margin-bottom: 5px;
+}
+
 a {
 	color: var(--color-links);
+	transition: 0.3s;
+}
+
+div.evolutions {
+	font-size: small;
+	margin: 5px;
+}
+
+div.evolutions a {
+	padding: 2.5px 5px;
+	border-radius: 5px;
+	color: white;
+	text-decoration: none;
+	background-color: var(--color-primary);
+}
+
+div.evolutions a:hover {
+	background-color: var(--color-primary-hover);
 }
 
 a:hover {
@@ -256,7 +278,7 @@ div.damage h3 {
 }
 
 a.current {
-	color: black;
+	background-color: black !important;
 }
 
 @media (prefers-color-scheme: dark) {

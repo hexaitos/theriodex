@@ -22,8 +22,8 @@
 		Sp.Def: <%= stats[:spdef] %> •
 		Speed: <%= stats[:speed] %>
 	</span>
-	<span>
-		Evolutions:
+	<div class="evolutions">
+		<span>Evolutions:</span>
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
 			none
 		<% else %>
@@ -35,7 +35,7 @@
 					<% end %>
 			<% end %>
 		<% end %>
-	</span>
+	</div>
 </div>
 
 <div class="sprites">
