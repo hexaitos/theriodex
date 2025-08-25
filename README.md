@@ -1,4 +1,4 @@
-# Theriodex
+# Theriodex – An Open-Source Pokédex Written In Ruby
 
 ![Theriodex 88x31 button](/public/button_theriodex.gif)
 
