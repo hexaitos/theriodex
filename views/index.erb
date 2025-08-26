@@ -21,8 +21,14 @@
 		Sp.Atk: <%= stats[:spatk] %> •
 		Sp.Def: <%= stats[:spdef] %> •
 		Speed: <%= stats[:speed] %>
-	</span>
-	<div class="evolutions">
+</span>
+<span>
+Abilities: 
+<% abilities.each do | name, hidden, slot, id, unformatted | %>
+	<a href="/show/ability/<%= id %>"><%= name %></a>
+<% end %>
+</span>
+<div class="evolutions">
 		<span>Evolutions:
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
 			none</span>

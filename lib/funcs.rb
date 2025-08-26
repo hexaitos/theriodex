@@ -24,6 +24,7 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data[:evolutions] = evolutions[:raw]
 	pokemon_data[:evolutions_formatted] = evolutions[:formatted]
 	pokemon_data[:name] = get_pokemon_name(pokemon_id)
+	pokemon_data[:abilities] = get_pokemon_abilities(pokemon_id)
 
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
@@ -127,6 +128,16 @@ end
 def get_pokemon_genus(pokemon_id)
 	return DB.get_first_value("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = #{pokemon_id};").to_s
 end
+
+def get_pokemon_abilities(pokemon_id)
+	return DB.execute("select an.name as ability_name, pa.is_hidden, pa.slot, pa.ability_id, a.name from pokemon_v2_pokemonability as pa join pokemon_v2_ability as a on pa.ability_id = a.id join pokemon_v2_abilityname as an on an.ability_id = a.id where pa.pokemon_id = #{pokemon_id} and an.language_id = 9 order by pa.slot;")
+end
+
+def get_pokemon_ability_information(ability_id)
+	return DB.get_first_value("select effect from pokemon_v2_abilityeffecttext where language_id = 9 and ability_id = #{ability_id};")
+end
+
+puts "#{get_pokemon_abilities(134)}"
 
 def damage_taken(types)
 	pokemon_damage_taken = []
@@ -248,7 +259,15 @@ def pokemon_view_moves(id)
 	id = Sanitize.fragment(id)
 
 	return 	{
-			:moves => get_pokemon_moves(id)
+				:moves => get_pokemon_moves(id)
+			}
+end
+
+def pokemon_view_ability(id)
+	id = Sanitize.fragment(id)
+
+	return 	{
+				:ability_information => get_pokemon_ability_information(id)
 			}
 end
 

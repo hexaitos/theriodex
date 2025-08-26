@@ -26,6 +26,10 @@ namespace "/show" do
 		erb :moves, locals: pokemon_view_moves(params[:id])
 	end
 
+	get  "/ability/:id" do
+		erb :ability, locals: pokemon_view_ability(params[:id])
+	end
+
 	get "/:id" do
 		erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s], params[:animated])
 	end
