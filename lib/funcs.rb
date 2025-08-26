@@ -239,7 +239,10 @@ def format_pokemon_name(pokemon_name)
 		"slither-wing" => "Slither Wing",
 		"sandy-shocks" => "Sandy Shocks",
 		"roaring-moon" => "Roaring Moon",
-		"flutter-mane" => "Flutter Mane"
+		"flutter-mane" => "Flutter Mane",
+		"kommo-o" => "Kommo-o",
+		"hakamo-o" => "Hakamo-o",
+		"jangmo-o" => "Jangmo-o"
 	}
 
 	formatted_name = ""
