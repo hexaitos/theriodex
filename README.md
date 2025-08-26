@@ -62,7 +62,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Show evolutions (added in `fe4698bfa8`)
 - [x] Show shiny sprites (added in `777ddeb95c`)
 - [x] Height, weight, genus, species information (added in `44e722b409`)
-- [ ] Show abilities
+- [x] Show abilities (added in `3526d228dd`)
 - [x] Show base stats (added in `23481c26f7`)
 - [ ] Show even special varieties (like Oricorio baile and its other forms)
 - [ ] Edit database so that the GitHub links are replaced with links to local files (and have a script that you can run that automatically adjusts the database generated from PokeAPI)

@@ -9,6 +9,7 @@ require 'rack/cache'
 
 require_relative 'lib/funcs.rb'
 require_relative 'lib/views.rb'
+require_relative 'lib/helpers/partials.rb'
 
 set :static_cache_control, [:public, max_age: 3600]
 use Rack::Cache,
@@ -49,10 +50,10 @@ end
 
 not_found do 
 	status 404
-	erb :error_404
+	erb :error_404, layout: :error_layout
 end
 
 error 500 do
 	status 500
-	erb :error_500
+	erb :error_500, layout: :error_layout
 end

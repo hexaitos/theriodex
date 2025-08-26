@@ -10,6 +10,9 @@ def pokemon_view_ability(id)
 	id = Sanitize.fragment(id)
 	pokemon_with_ability_raw = get_pokemons_with_ability(id)
 	pokemon_with_ability = {}
+
+	ability_name = get_pokemon_ability_name(id)
+	raise Sinatra::NotFound if ability_name.nil?
 	
 	pokemon_with_ability_raw.each do | pokemon |
 		puts pokemon.first
@@ -37,7 +40,7 @@ def pokemon_view_index(id, form=nil, s=nil, animated=false)
 	begin
 		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
 	rescue JSON::ParserError
-		pokemon_data = get_pokemon_info_by_name("vaporeon")
+		raise Sinatra::NotFound
 	end
 
 	puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) - The following Pokémon was selected: #{selected_pokemon}.\n The following data was returned: #{pokemon_data}\n\n"
