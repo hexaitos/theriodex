@@ -3,11 +3,21 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Theriodex is a small website for displaying information about either specific Pokémon or a random one – an open-source Pokédex made by Hexaitos.">
+
+<% unless request.path_info =~ %r{^/show/(?!ability\b|moves\b)[^/]+/?$} %>
+	<meta name="description" content="Theriodex is a small website for displaying information about either specific Pokémon or a random one – an open-source Pokédex made by Hexaitos.">
+<% else %>
+	<meta name="description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+<% end %>
+
 <script defer data-domain="dex.btlr.sh" src="https://analytics.btlr.sh/js/script.file-downloads.outbound-links.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
-<title>Theriodex</title>
+<% unless request.path_info =~ %r{^/show/(?!ability\b|moves\b)[^/]+/?$} %>
+	<title>Theriodex</title>
+<% else %>
+	<title>Theriodex – <%= name %></title>
+<% end %>
 
 <link rel="preload" as="style" href="/css/styles.css">
 <link rel="stylesheet" href="/css/styles.css">
