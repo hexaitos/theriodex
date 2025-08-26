@@ -8,6 +8,10 @@
 	<meta name="description" content="Theriodex is a small website for displaying information about either specific Pokémon or a random one – an open-source Pokédex made by Hexaitos.">
 <% else %>
 	<meta name="description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+	<meta property="og:title" content="Theriodex – <%= name %>">
+	<meta property="og:description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+	<meta property="og:image" content="https://dex.btlr.sh<%= sprite %>">
+	<meta property="og:url" content="https://dex.btlr.sh<%= request.path_info %>">
 <% end %>
 
 <script defer data-domain="dex.btlr.sh" src="https://analytics.btlr.sh/js/script.file-downloads.outbound-links.js"></script>
