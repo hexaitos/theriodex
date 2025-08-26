@@ -33,9 +33,6 @@
 		</script>
 	<% end %>
 
-	<script defer data-domain="dex.btlr.sh" src="https://analytics.btlr.sh/js/script.file-downloads.outbound-links.js"></script>
-	<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
 	<% unless request.path_info =~ %r{^/show/(?!ability\b|moves\b)[^/]+/?$} %>
 		<title>Theriodex</title>
 	<% else %>
