@@ -1,1 +1,11 @@
-<%= ability_information %>
+<h1><%= ability_name %></h1>
+<p><%= ability_information %></p>
+<br />
+<h2>Pokémon with this ability</h2>
+<div class="search">
+<div>
+<% pokemon_with_ability.each do | id, info | %>
+    <a href="/show/<%= id %>"><img src="<%= info[:sprite] %>"/><br /><%= info[:name] %><br /> 
+<% end %>
+</div>
+</div>

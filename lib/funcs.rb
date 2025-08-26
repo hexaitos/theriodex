@@ -133,8 +133,16 @@ def get_pokemon_abilities(pokemon_id)
 	return DB.execute("select an.name as ability_name, pa.is_hidden, pa.slot, pa.ability_id, a.name from pokemon_v2_pokemonability as pa join pokemon_v2_ability as a on pa.ability_id = a.id join pokemon_v2_abilityname as an on an.ability_id = a.id where pa.pokemon_id = #{pokemon_id} and an.language_id = 9 order by pa.slot;")
 end
 
+def get_pokemon_ability_name(ability_id)
+	return DB.get_first_value("select name from pokemon_v2_abilityname where ability_id = #{ability_id} and language_id = 9;")
+end
+
 def get_pokemon_ability_information(ability_id)
 	return DB.get_first_value("select effect from pokemon_v2_abilityeffecttext where language_id = 9 and ability_id = #{ability_id};")
+end
+
+def get_pokemons_with_ability(ability_id)
+	return DB.execute("select pokemon_id from pokemon_v2_pokemonability where ability_id = #{ability_id} and pokemon_id <= 1024;")
 end
 
 puts "#{get_pokemon_abilities(134)}"
@@ -265,9 +273,20 @@ end
 
 def pokemon_view_ability(id)
 	id = Sanitize.fragment(id)
+	pokemon_with_ability_raw = get_pokemons_with_ability(id)
+	pokemon_with_ability = {}
+	
+	pokemon_with_ability_raw.each do | pokemon |
+		puts pokemon.first
+		pokemon_with_ability[pokemon.first] = {}
+		pokemon_with_ability[pokemon.first][:name] = get_pokemon_name(pokemon.first)
+		pokemon_with_ability[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+	end
 
 	return 	{
-				:ability_information => get_pokemon_ability_information(id)
+				:ability_information => get_pokemon_ability_information(id),
+				:pokemon_with_ability => pokemon_with_ability,
+				:ability_name => get_pokemon_ability_name(id)
 			}
 end
 
