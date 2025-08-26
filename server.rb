@@ -46,3 +46,13 @@ end
 get "/about" do
 	erb :about
 end
+
+not_found do 
+	status 404
+	erb :error_404
+end
+
+error 500 do
+	status 500
+	erb :error_500
+end
