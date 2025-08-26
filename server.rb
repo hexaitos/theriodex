@@ -8,6 +8,7 @@ require 'sanitize'
 require 'rack/cache'
 
 require_relative 'lib/funcs.rb'
+require_relative 'lib/views.rb'
 
 set :static_cache_control, [:public, max_age: 3600]
 use Rack::Cache,

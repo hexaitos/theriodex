@@ -316,7 +316,7 @@ a.current {
 		margin-top: 10px;
 	}
 
-	div.flavour {
+	div.flavour, p.ability {
 		text-align: justify;
 	}
 
