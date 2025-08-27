@@ -26,7 +26,7 @@ bundle config build.nokogiri --use-system-libraries
 bundle install
 ```
 
-This was tested on OpenBSD 7.6 with Ruby 3.3.5 and Bundler 2.6.7. I will still have to test it on 7.7, but I presume it will be similar there. 
+This was tested on OpenBSD 7.7 with Ruby 3.3.5 and Bundler 2.6.7. 
 
 ## Notes on caching
 I am using [rack-cache](https://github.com/rtomayko/rack-cache) for disk caching. You may wish to remove or adjust it according to your preferences. To do so, check the `server.rb` file and change the following lines so that they match your preferences: 
