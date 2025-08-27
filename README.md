@@ -2,7 +2,7 @@
 
 ![Theriodex 88x31 button](/public/button_theriodex.gif)
 
-This is just a silly thing I am working on and I am not even entirely sure what the scope will end up being. It displays a random Pokémon with some details on the homepage and has a fuzzy search so you can search for and display the information for a particular Pokémon. Refer to the `TODO` section of this README for more information about what other features are planned. You can try it out over on [dex.btlr.sh](https://dex.btlr.sh).
+This is just a silly thing I am working on and I am not even entirely sure what the scope will end up being. It displays a random Pokémon with some details on the homepage and has a fuzzy search so you can search for and display the information for a particular Pokémon. Refer to the `TODO` section of this README for more information about what other features are planned. You can try it out over on [btlr.sh](https://btlr.sh).
 
 Very much a work in progress and not done yet. I am not sure about the name yet, but I quite like the name `Theriodex` so far, wherein `therio-` is a prefix from the Ancient Greek word for "animal" or "beast" and `-dex` is a reference to the Pokédex. Name is subject to change, however.
 
