@@ -15,6 +15,8 @@ You may want to run the server in production instead of development mode. To do 
 
 You can also start the server in production mode by running `ruby server.rb -e production` – this will also automatically make the server listen to `0.0.0.0`. 
 
+By default, the server listens to port `4567`. To change the port the server listens to, use the `-p` flag followed by the port as follows: `server.rb -p 8080`. 
+
 ## Notes on OpenBSD
 I generally prefer to use OpenBSD as my server operating system these days. Unfortunately, Ruby has been a little bit annoying when it comes to OpenBSD. You should be able to install `bundler` itself without any problems, but when running `bundle install`, you may run into problems with installing `nokogiri`. To solve this, running the following commands should make it work: 
 
@@ -51,7 +53,7 @@ use Rack::Cache,
 
 *It is important to note, however* that `rack-cache`'s memory storage does not feature an automatic purging of unused entries; therefore, the longer the application runs, the more memory it will end up using. This is obviously not a great idea for many reasons, so I would generally advice against doing so unless you are only testing this locally.
 
-Please also check the `racke-cache` [documentation](https://rtomayko.github.io/rack-cache/storage) for further information.
+Please also check the `rack-cache` [documentation](https://rtomayko.github.io/rack-cache/storage) for further information.
 
 # TODO / Ideas
 Non-exhaustive list, may not all get implemented and other stuff not here may get implemented. 
