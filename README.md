@@ -18,7 +18,10 @@ You can also start the server in production mode by running `ruby server.rb -e p
 By default, the server listens to port `4567`. To change the port the server listens to, use the `-p` flag followed by the port as follows: `server.rb -p 8080`. 
 
 ## Notes on OpenBSD
-I generally prefer to use OpenBSD as my server operating system these days. Unfortunately, Ruby has been a little bit annoying when it comes to OpenBSD. You should be able to install `bundler` itself without any problems, but when running `bundle install`, you may run into problems with installing `nokogiri`. To solve this, running the following commands should make it work: 
+I generally prefer to use OpenBSD as my server operating system these days. Unfortunately, Ruby has been a little bit annoying when it comes to OpenBSD. This was tested on OpenBSD 7.6 with Ruby 3.3.5 and Bundler 2.6.7 as well as OpenBSD 7.7 with Ruby 3.3.5 and Ruby 3.4.2. 
+
+### Nokogiri problems
+You should be able to install `bundler` itself without any problems, but when running `bundle install`, you may run into problems with installing `nokogiri`. To solve this, running the following commands should make it work: 
 
 ```bash
 pkg_add libxml libxslt libiconv
@@ -26,7 +29,19 @@ bundle config build.nokogiri --use-system-libraries
 bundle install
 ```
 
-This was tested on OpenBSD 7.7 with Ruby 3.3.5 and Bundler 2.6.7. 
+### Problem installing gems as non-root
+You may also have trouble installing the gems in the repository by running `bundle install` and will get permission errors, as Bundler is unable to write to the directories it wants to write to. A possible fix for this problem is changing the directory that Bundler installs its gems into to something that the current user can access, such as `~/.gem`. To do so, add the following to your `~/.profile`: 
+
+```bash
+export GEM_HOME=$HOME/.gem
+```
+
+You can do so directly by running the following command: 
+
+```bash
+echo 'export GEM_HOME=$HOME/.gem' >> $HOME/.profile
+```
+
 
 ## Notes on caching
 I am using [rack-cache](https://github.com/rtomayko/rack-cache) for disk caching. You may wish to remove or adjust it according to your preferences. To do so, check the `server.rb` file and change the following lines so that they match your preferences: 
