@@ -141,6 +141,14 @@ div.search_bar {
 	justify-content: safe center;
 }
 
+div.privacy {
+	text-align: left;
+}
+
+div.privacy pre {
+	overflow: auto;
+}
+
 div.types {
 	/* border: 2px solid #10378d; */
 	border-radius: 5px;

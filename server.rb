@@ -50,6 +50,10 @@ get "/about" do
 	erb :about
 end
 
+get "/privacy" do
+	erb :privacy
+end
+
 not_found do 
 	status 404
 	erb :error_404, layout: :error_layout
