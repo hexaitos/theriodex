@@ -10,6 +10,7 @@ require 'rack/cache'
 require_relative 'lib/db_queries.rb'
 require_relative 'lib/format_names.rb'
 require_relative 'lib/views.rb'
+require_relative 'lib/vars.rb'
 
 require_relative 'lib/helpers/partials.rb'
 
@@ -21,8 +22,8 @@ use Rack::Cache,
 
 get "/" do
 	random_pokemon = rand(1..1024)
-
-	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated], params[:lang].to_s.empty? ? 9 : params[:lang])
+	
+	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated], LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en")
 end
 
 namespace "/show" do
@@ -35,7 +36,7 @@ namespace "/show" do
 	end
 
 	get "/:id" do
-		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], params[:lang].to_s.empty? ? 9 : params[:lang])
+		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en")
 	end
 end
 

@@ -1,10 +1,4 @@
-class String
-	def is_integer?
-		self.to_i.to_s == self
-	end
-end
-
-DB = SQLite3::Database.new "db.sqlite3"
+require_relative 'vars.rb'
 
 def get_pokemon_info_by_name(pokemon_name, language_id=9)
 	pokemon_id = DB.get_first_value("select id from pokemon_v2_pokemon where pokemon_species_id in (select pokemon_species_id from pokemon_v2_pokemonspeciesname where lower(name) = lower( ? )) limit 1;", pokemon_name).to_i
@@ -44,7 +38,7 @@ def get_pokemon_info(pokemon_id, language_id=9)
 	pokemon_data[:animated_back] = sprites[:animated_back]
 	pokemon_data[:animated_front_shiny] = sprites[:animated_front_shiny]
 	pokemon_data[:animated_back_shiny] = sprites[:animated_back_front]
-	pokemon_data[:lang] = language_id
+	pokemon_data[:lang] = LANGUAGE_CODES.key(language_id)
 
 	return pokemon_data
 end

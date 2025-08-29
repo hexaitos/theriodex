@@ -10,6 +10,7 @@ def pokemon_view_ability(id, language_id=9)
 	id = Sanitize.fragment(id)
 	pokemon_with_ability_raw = get_pokemons_with_ability(id)
 	pokemon_with_ability = {}
+	language_id == "en" ? language_id = 9 : language_id
 
 	ability_name = get_pokemon_ability_name(id)
 	raise Sinatra::NotFound if ability_name.nil?
@@ -32,6 +33,7 @@ def pokemon_view_index(id, form=nil, s=nil, animated=false, language_id=9)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)
 	animated = Sanitize.fragment(animated) unless !animated
+	language_id == "en" ? language_id = 9 : language_id
 	
 	# I only just learnt about these things called ternary operators? So of course I am going to try using them now even though I could have also just have written an if statement
 	form.nil? ? selected_form = nil : selected_form = Sanitize.fragment(form)
