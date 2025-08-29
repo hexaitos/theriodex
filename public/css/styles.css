@@ -79,6 +79,7 @@ div.main {
 	/*background-color: #f6fbfc;*/
 	background-color: var(--color-bg);
 	border-radius: 5px;
+	position: relative;
 }
 
 div.sprites img {
@@ -260,17 +261,18 @@ div.types a {
 }
 
 a.corner {
-	position: fixed;
+	position: absolute;
 	top: 0.5rem;
 	left: 0.5rem;
 	z-index: 10;
-	font-size: 10px;
 	padding: 5px;
+	font-size: 12px;
 	margin-right: 10px;
 	border-radius: 5px;
 	text-decoration: none;
 	color: #ffffff;
 	background-color: var(--color-primary);
+	width: 100px;
 }
 
 a.corner:hover {
@@ -303,6 +305,11 @@ select#lang-select {
 	padding: 3px;
 	color: white;
 	margin-bottom: 5px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+	width: 100px;
 }
 
 @media (prefers-color-scheme: dark) {
