@@ -38,7 +38,7 @@
 				<% if evolutions_formatted[evolution] == name then %>
 						<a class="current" href="/show/<%= evolution %>"><%= evolutions_formatted[evolution] %></a>
 					<% else %>
-						<a href="/show/<%= evolution %>"><%= evolutions_formatted[evolution] %></a>
+						<a href="/show/<%= evolution %>?lang=<%= lang %>"><%= evolutions_formatted[evolution] %></a>
 					<% end %>
 			<% end %>
 		<% end %>

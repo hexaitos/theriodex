@@ -38,7 +38,7 @@ def pokemon_view_index(id, form=nil, s=nil, animated=false, language_id=9)
 	s.nil? ? selected_sex = nil : selected_sex = Sanitize.fragment(s)
 
 	begin
-		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon, language_id) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
+		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon, language_id) : pokemon_data = get_pokemon_info_by_name(selected_pokemon, language_id)
 	rescue JSON::ParserError
 		raise Sinatra::NotFound
 	end
