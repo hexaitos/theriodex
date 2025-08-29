@@ -12,19 +12,19 @@ def get_pokemon_info_by_name(pokemon_name)
 	return pokemon_data
 end
 
-def get_pokemon_info(pokemon_id)
+def get_pokemon_info(pokemon_id, language_id=9)
 	pokemon_data = {}
 	sprites = get_pokemon_sprites(pokemon_id)
 	attrs = get_pokemon_attr(pokemon_id)
-	evolutions = get_pokemon_evolutions(pokemon_id)
+	evolutions = get_pokemon_evolutions(pokemon_id, language_id)
 
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
-	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id)
-	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id)
+	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id, language_id)
+	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id, language_id)
 	pokemon_data[:evolutions] = evolutions[:raw]
 	pokemon_data[:evolutions_formatted] = evolutions[:formatted]
-	pokemon_data[:name] = get_pokemon_name(pokemon_id)
-	pokemon_data[:abilities] = get_pokemon_abilities(pokemon_id)
+	pokemon_data[:name] = get_pokemon_name(pokemon_id, language_id)
+	pokemon_data[:abilities] = get_pokemon_abilities(pokemon_id, language_id)
 
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
@@ -44,12 +44,13 @@ def get_pokemon_info(pokemon_id)
 	pokemon_data[:animated_back] = sprites[:animated_back]
 	pokemon_data[:animated_front_shiny] = sprites[:animated_front_shiny]
 	pokemon_data[:animated_back_shiny] = sprites[:animated_back_front]
+	pokemon_data[:lang] = language_id
 
 	return pokemon_data
 end
 
-def get_pokemon_name(pokemon_id)
-	return format_pokemon_name(DB.get_first_value("select name from pokemon_v2_pokemon where pokemon_species_id = ?", pokemon_id).to_s)
+def get_pokemon_name(pokemon_id, language_id=9)
+	return format_pokemon_name(DB.get_first_value("select name from pokemon_v2_pokemonspeciesname where pokemon_species_id = ? and language_id = ?;", [pokemon_id, language_id]).to_s)
 end
 
 def get_pokemon_sprites(pokemon_id)
@@ -87,14 +88,14 @@ def get_pokemon_sprites(pokemon_id)
 	return sprites_formatted
 end
 
-def get_pokemon_evolutions(pokemon_id)
+def get_pokemon_evolutions(pokemon_id, language_id=9)
 	evolutions = {}
 	evolutions[:raw] = []
 	evolutions[:formatted] = {}
 
-	DB.execute("select ps2.name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name where p.pokemon_species_id = ?", pokemon_id).each do |form|
-		evolutions[:raw] << form.first.to_s
-		evolutions[:formatted][form.first.to_s] = format_pokemon_name(form.first.to_s)
+	DB.execute("select ps2n.name as localised_name from pokemon_v2_pokemonspecies ps2 join pokemon_v2_pokemonspecies ps on ps2.evolution_chain_id = ps.evolution_chain_id join pokemon_v2_pokemon p on p.name = ps.name join pokemon_v2_pokemonspeciesname ps2n on ps2.id = ps2n.pokemon_species_id where p.pokemon_species_id = ? and ps2n.language_id = ?;", [pokemon_id, language_id]).each do |form|
+		evolutions[:raw] << form.first.to_s.downcase
+		evolutions[:formatted][form.first.to_s.downcase] = form.first.to_s
 	end
 
 	return evolutions
@@ -121,24 +122,24 @@ def get_pokemon_types(pokemon_id)
 	return DB.execute("select type_id from pokemon_v2_pokemontype where pokemon_id = ?", pokemon_id)
 end
 
-def get_pokemon_flavour_text(pokemon_id)
-	return DB.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = ? and language_id = 9 order by random() limit 1;", pokemon_id).to_s.gsub("", " ").gsub("\n", " ").gsub("  ", "")
+def get_pokemon_flavour_text(pokemon_id, language_id=9)
+	return DB.get_first_value("select flavor_text from pokemon_v2_pokemonspeciesflavortext where pokemon_species_id = ? and language_id = ? order by random() limit 1;", [pokemon_id, language_id]).to_s.gsub("", " ").gsub("\n", " ").gsub("  ", "")
 end
 
-def get_pokemon_genus(pokemon_id)
-	return DB.get_first_value("select genus from pokemon_v2_pokemonspeciesname where language_id = 9 and pokemon_species_id = ?;", pokemon_id).to_s
+def get_pokemon_genus(pokemon_id, language_id=9)
+	return DB.get_first_value("select genus from pokemon_v2_pokemonspeciesname where language_id = ? and pokemon_species_id = ?;", [language_id, pokemon_id]).to_s
 end
 
-def get_pokemon_abilities(pokemon_id)
-	return DB.execute("select an.name as ability_name, pa.is_hidden, pa.slot, pa.ability_id, a.name from pokemon_v2_pokemonability as pa join pokemon_v2_ability as a on pa.ability_id = a.id join pokemon_v2_abilityname as an on an.ability_id = a.id where pa.pokemon_id = ? and an.language_id = 9 order by pa.slot;", pokemon_id)
+def get_pokemon_abilities(pokemon_id, language_id=9)
+	return DB.execute("select an.name as ability_name, pa.is_hidden, pa.slot, pa.ability_id, a.name from pokemon_v2_pokemonability as pa join pokemon_v2_ability as a on pa.ability_id = a.id join pokemon_v2_abilityname as an on an.ability_id = a.id where pa.pokemon_id = ? and an.language_id = ? order by pa.slot;", [pokemon_id, language_id])
 end
 
-def get_pokemon_ability_name(ability_id)
-	return DB.get_first_value("select name from pokemon_v2_abilityname where ability_id = ? and language_id = 9;", ability_id)
+def get_pokemon_ability_name(ability_id, language_id=9)
+	return DB.get_first_value("select name from pokemon_v2_abilityname where ability_id = ? and language_id = ?;", [ability_id, language_id])
 end
 
-def get_pokemon_ability_information(ability_id)
-	return DB.get_first_value("select effect from pokemon_v2_abilityeffecttext where language_id = 9 and ability_id = ?;", ability_id)
+def get_pokemon_ability_information(ability_id, language_id=9)
+	return DB.get_first_value("select effect from pokemon_v2_abilityeffecttext where language_id = ? and ability_id = ?;", [language_id, ability_id])
 end
 
 def get_pokemons_with_ability(ability_id)
@@ -163,8 +164,8 @@ def format_flavour_text(txt)
 
 end
 
-def get_pokemon_moves(pokemon_id)
-	return DB.execute("select move_id, name from pokemon_v2_movename where language_id = 9 and move_id in (select distinct move_id from pokemon_v2_pokemonmove where pokemon_id = ?);", pokemon_id)
+def get_pokemon_moves(pokemon_id, language_id=9)
+	return DB.execute("select move_id, name from pokemon_v2_movename where language_id = ? and move_id in (select distinct move_id from pokemon_v2_pokemonmove where pokemon_id = ?);", [language_id, pokemon_id])
 end
 
 def get_pokemon_moves_information(pokemon_id, moves)

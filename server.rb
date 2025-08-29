@@ -22,7 +22,7 @@ use Rack::Cache,
 get "/" do
 	random_pokemon = rand(1..1024)
 
-	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated])
+	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated], params[:lang].to_s.empty? ? 9 : params[:lang])
 end
 
 namespace "/show" do
@@ -35,7 +35,7 @@ namespace "/show" do
 	end
 
 	get "/:id" do
-		erb :index, locals: pokemon_view_index(params["id"], params[:form], params[:s], params[:animated])
+		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], params[:lang].to_s.empty? ? 9 : params[:lang])
 	end
 end
 

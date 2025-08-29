@@ -1,4 +1,4 @@
-def pokemon_view_moves(id)
+def pokemon_view_moves(id, language_id=9)
 	id = Sanitize.fragment(id)
 
 	return 	{
@@ -6,7 +6,7 @@ def pokemon_view_moves(id)
 			}
 end
 
-def pokemon_view_ability(id)
+def pokemon_view_ability(id, language_id=9)
 	id = Sanitize.fragment(id)
 	pokemon_with_ability_raw = get_pokemons_with_ability(id)
 	pokemon_with_ability = {}
@@ -28,7 +28,7 @@ def pokemon_view_ability(id)
 			}
 end
 
-def pokemon_view_index(id, form=nil, s=nil, animated=false)
+def pokemon_view_index(id, form=nil, s=nil, animated=false, language_id=9)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)
 	animated = Sanitize.fragment(animated) unless !animated
@@ -38,7 +38,7 @@ def pokemon_view_index(id, form=nil, s=nil, animated=false)
 	s.nil? ? selected_sex = nil : selected_sex = Sanitize.fragment(s)
 
 	begin
-		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
+		selected_pokemon.is_integer? ? pokemon_data = get_pokemon_info(selected_pokemon, language_id) : pokemon_data = get_pokemon_info_by_name(selected_pokemon)
 	rescue JSON::ParserError
 		raise Sinatra::NotFound
 	end
