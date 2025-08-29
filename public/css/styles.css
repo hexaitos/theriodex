@@ -172,6 +172,10 @@ div.types span {
 	display: block;
 }
 
+div.corner {
+	margin-bottom: 15px;
+}
+
 div.evolutions span {
 	margin-bottom: 5px;
 }
@@ -267,7 +271,8 @@ a.corner {
 	z-index: 10;
 	padding: 5px;
 	font-size: 12px;
-	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 20px;
 	border-radius: 5px;
 	text-decoration: none;
 	color: #ffffff;
@@ -298,17 +303,18 @@ select,
 }
 
 select#lang-select {
+	top: 0.5rem;
+	right: 0.5rem;
 	appearance: none;
 	text-align: center;
 	border-radius: 5px;
 	background-color: var(--color-primary);
 	padding: 3px;
 	color: white;
-	margin-bottom: 5px;
 	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	z-index: 10;
 	width: 100px;
 }
 
