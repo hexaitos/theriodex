@@ -1,7 +1,7 @@
 <% if form == nil %>
-	<a class="corner" href="/show/<%= id %>">Direct link</a>
+	<a class="corner" href="/show/<%= id %>?lang=<%= lang %>">Direct link</a>
 <% else %>
-	<a class="corner" href="/show/<%= id %>?form=<%= form %>">Direct link</a>
+	<a class="corner" href="/show/<%= id %>?form=<%= form %>&lang=<%= lang %>">Direct link</a>
 <% end %>
 
 <div class="types">
