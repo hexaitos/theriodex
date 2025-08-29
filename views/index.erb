@@ -57,14 +57,14 @@
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>">Show normal</a>
+				<a href="/show/<%= id %>?lang=<%= lang %>">Show normal</a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>">Show female</a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?animated=true&form=shiny">Toggle animation</a>
+					<a href="/show/<%= id %>?animated=true&form=shiny&lang=<%= lang %>">Toggle animation</a>
 				<% end %>
 			</div>
 
@@ -77,14 +77,14 @@
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny">Show shiny</a>
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">Show shiny</a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female">Show female</a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>">Show female</a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?animated=true">Toggle animation</a>
+					<a href="/show/<%= id %>?animated=true&lang=<%= lang %>">Toggle animation</a>
 				<% end %>
 			</div>
 
@@ -97,13 +97,13 @@
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&animated=true">Show shiny</a>
+				<a href="/show/<%= id %>?form=shiny&animated=true&lang=<%= lang %>">Show shiny</a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female">Show female</a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>">Show female</a>
 				<% end %>
 
-				<a href="/show/<%= id %>">Toggle animation</a>
+				<a href="/show/<%= id %>?lang=<%= lang %>">Toggle animation</a>
 			</div>
 
 		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
@@ -115,14 +115,14 @@
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?animated=true">Show normal</a>
+				<a href="/show/<%= id %>?animated=true&lang=<%= lang %>">Show normal</a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&form=shiny">Show female</a>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>">Show female</a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?form=shiny">Toggle animation</a>
+					<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">Toggle animation</a>
 				<% end %>
 			</div>
 		<% end %>
@@ -149,8 +149,8 @@
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&s=female">Show shiny</a>
-				<a href="/show/<%= id %>">Show male</a>
+				<a href="/show/<%= id %>?form=shiny&s=female&lang=<%= lang %>">Show shiny</a>
+				<a href="/show/<%= id %>?lang=<%= lang %>">Show male</a>
 			</div>
 		<% end %>
 	<% end %>
