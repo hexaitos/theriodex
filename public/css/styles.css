@@ -304,7 +304,7 @@ a.current {
 		--color-links: #c58043;
 	}
 
-	p, span, h1, h2, h3, tr, a.current {
+	p, span, h1, h2, h3, tr, a.current, div.privacy {
 		color: white;
 	}
 
