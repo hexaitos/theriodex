@@ -290,6 +290,21 @@ a.current {
 	background-color: black !important;
 }
 
+select,
+::picker(select) {
+	appearance: base-select;
+}
+
+select#lang-select {
+	appearance: none;
+	text-align: center;
+	border-radius: 5px;
+	background-color: var(--color-primary);
+	padding: 3px;
+	color: white;
+	margin-bottom: 5px;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: black;
