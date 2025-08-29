@@ -1,0 +1,15 @@
+[Unit]
+Description=Theriodex
+After=network.target
+
+[Service]
+Type=simple
+User=hex
+ExecStart=/path/to/ruby /path/to/server.rb -e production -p 5678
+Restart=always
+WorkingDirectory=/path/to/theriodex
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
