@@ -22,8 +22,9 @@ use Rack::Cache,
 
 get "/" do
 	random_pokemon = rand(1..1024)
+	lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 	
-	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated], LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en")
+	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated], lang)
 end
 
 namespace "/show" do
@@ -32,11 +33,15 @@ namespace "/show" do
 	end
 
 	get  "/ability/:id" do
-		erb :ability, locals: pokemon_view_ability(params[:id])
+		lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+		
+		erb :ability, locals: pokemon_view_ability(params[:id], lang)
 	end
 
 	get "/:id" do
-		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en")
+		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+
+		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], lang)
 	end
 end
 

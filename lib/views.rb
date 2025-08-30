@@ -18,14 +18,16 @@ def pokemon_view_ability(id, language_id=9)
 	pokemon_with_ability_raw.each do | pokemon |
 		puts pokemon.first
 		pokemon_with_ability[pokemon.first] = {}
-		pokemon_with_ability[pokemon.first][:name] = get_pokemon_name(pokemon.first)
+		pokemon_with_ability[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_with_ability[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
 	end
 
 	return 	{
-				:ability_information => get_pokemon_ability_information(id),
+				:ability_information => get_pokemon_ability_information(id, language_id),
 				:pokemon_with_ability => pokemon_with_ability,
-				:ability_name => get_pokemon_ability_name(id)
+				:ability_name => get_pokemon_ability_name(id, language_id),
+				:id => id,
+				:lang => LANGUAGE_CODES.key(language_id)
 			}
 end
 
