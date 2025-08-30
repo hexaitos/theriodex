@@ -50,6 +50,8 @@ body {
 	display: flex;
 	overflow: auto;
 	justify-content: center;
+	flex-wrap: wrap;
+	gap: 5px;
 }
 
 footer {
