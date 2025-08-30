@@ -204,5 +204,48 @@ LOCALISED_TEXT = {
 		"it" => "Vel",
 		"zh-cn" => "速度",
 		"zh-tw" => "速度"
+	},
+
+	:random => {
+		"en" => "Random",
+		"de" => "Zufällig",
+		"ja" => "ランダム",
+		"ko" => "무작위",
+		"fr" => "Aléatoire",
+		"it" => "Casuale",
+		"zh-CN" => "随机",
+		"zh-TW" => "隨機"
+	},
+
+	:about => {
+		"en" => "About",
+		"de" => "Über",
+		"ja" => "概要",
+		"ko" => "소개",
+		"fr" => "À propos",
+		"it" => "Informazioni",
+		"zh-CN" => "关于",
+		"zh-TW" => "關於"
+	},
+
+	:search => {
+		"en" => "Search",
+		"de" => "Suche",
+		"ja" => "検索",
+		"ko" => "검색",
+		"fr" => "Recherche",
+		"it" => "Cerca",
+		"zh-CN" => "搜索",
+		"zh-TW" => "搜尋"
+	},
+	:enter_pokemon_name => {
+		"en" => "Enter name of a Pokémon",
+		"de" => "Namen eines Pokémon eingeben",
+		"ja" => "ポケモンの名前を入力",
+		"ko" => "포켓몬 이름 입력",
+		"fr" => "Entrez le nom d’un Pokémon",
+		"it" => "Inserisci il nome del Pokémon",
+		"zh-CN" => "输入宝可梦的名称",
+		"zh-TW" => "輸入寶可夢的名稱"
 	}
 }

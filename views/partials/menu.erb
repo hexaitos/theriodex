@@ -1,9 +1,12 @@
 <div class="menu">
 	<% if CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first.nil? %>
 		<a href="/">Random</a>
+		<a href="/search">Search</a>
+		<a href="/about">About</a>
 	<% else %>
-		<a href="/?lang=<%= CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>">Random</a>
+		<% language = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>
+		<a href="/?lang=<%= language %>"><%= get_localised_text(language, :random) %></a>
+		<a href="/search?lang=<%= language %>"><%= get_localised_text(language, :search) %></a>
+		<a href="/about?lang=<%= language %>"><%= get_localised_text(language, :about) %></a>
 	<% end %>
-	<a href="/search">Search</a>
-	<a href="/about">About</a>
 </div>

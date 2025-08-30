@@ -1,8 +1,10 @@
+<%= partial :lang_select %>
 
 <div class="search_bar">
 	<form action="/search" method="GET">
-	<input type="text" id="q" name="q" placeholder="Enter name of a Pokémon" required>
-	<button type="submit">Search</button>
+	<input type="text" id="q" name="q" placeholder="<%= get_localised_text(lang, :enter_pokemon_name) %>" required>
+	<input type="hidden" name="lang" value="<%= lang %>">
+	<button type="submit"><%= get_localised_text(lang, :search) %></button>
 	</form>
 </div>
 

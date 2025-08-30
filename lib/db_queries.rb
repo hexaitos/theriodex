@@ -174,7 +174,7 @@ def get_pokemon_moves_information(pokemon_id, moves)
 	return moves_information
 end
 
-def search_for_pokemon(query)
+def search_for_pokemon_old(query, language_id=9)
 	search_results = ""
 	query = Sanitize.fragment(query)
 	pokemon_names = DB.execute("select name from pokemon_v2_pokemon;")
