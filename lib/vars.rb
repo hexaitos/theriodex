@@ -26,8 +26,8 @@ LOCALISED_TEXT = {
 		"ko" => "특성",
 		"fr" => "Talent",
 		"it" => "Abilità",
-		"zh-CN" => "特性",
-		"zh-TW" => "特性"
+		"zh-cn" => "特性",
+		"zh-tw" => "特性"
 	},
 
 	:evolutions => {
@@ -37,8 +37,8 @@ LOCALISED_TEXT = {
 		"ko" => "진화",
 		"fr" => "Évolutions",
 		"it" => "Evoluzioni",
-		"zh-CN" => "进化",
-		"zh-TW" => "進化"
+		"zh-cn" => "进化",
+		"zh-tw" => "進化"
 	},
 
 	:shiny => {
@@ -48,8 +48,8 @@ LOCALISED_TEXT = {
 		"ko" => "색이 다른 포켓몬 표시",
 		"fr" => "Afficher les chromatiques",
 		"it" => "Mostra shiny",
-		"zh-CN" => "显示闪光",
-		"zh-TW" => "顯示閃光"
+		"zh-cn" => "显示闪光",
+		"zh-tw" => "顯示閃光"
 	},
 
 	:normal => {
@@ -59,8 +59,8 @@ LOCALISED_TEXT = {
 		"ko" => "일반 포켓몬 표시",
 		"fr" => "Afficher les normaux",
 		"it" => "Mostra normali",
-		"zh-CN" => "显示普通",
-		"zh-TW" => "顯示普通"
+		"zh-cn" => "显示普通",
+		"zh-tw" => "顯示普通"
 	},
 
 	:female => {
@@ -70,8 +70,8 @@ LOCALISED_TEXT = {
 		"ko" => "암컷 표시",
 		"fr" => "Afficher les femelles",
 		"it" => "Mostra femmine",
-		"zh-CN" => "显示雌性",
-		"zh-TW" => "顯示雌性"
+		"zh-cn" => "显示雌性",
+		"zh-tw" => "顯示雌性"
 	},
 
 	:male => {
@@ -81,8 +81,8 @@ LOCALISED_TEXT = {
 		"ko" => "수컷 표시",
 		"fr" => "Afficher les mâles",
 		"it" => "Mostra maschi",
-		"zh-CN" => "显示雄性",
-		"zh-TW" => "顯示雄性"
+		"zh-cn" => "显示雄性",
+		"zh-tw" => "顯示雄性"
 	},
 
 	:toggle_animation => {
@@ -92,8 +92,8 @@ LOCALISED_TEXT = {
 		"ko" => "애니메이션 전환",
 		"fr" => "Basculer l'animation",
 		"it" => "Attiva/disattiva animazione",
-		"zh-CN" => "切换动画",
-		"zh-TW" => "切換動畫"
+		"zh-cn" => "切换动画",
+		"zh-tw" => "切換動畫"
 	},
 
 	:damage_taken_from_other_types => {
@@ -103,8 +103,8 @@ LOCALISED_TEXT = {
 		"ko" => "다른 타입으로부터 받는 피해",
 		"fr" => "Dégâts reçus des autres types",
 		"it" => "Danni subiti da altri tipi",
-		"zh-CN" => "来自其他属性的伤害",
-		"zh-TW" => "來自其他屬性的傷害"
+		"zh-cn" => "来自其他属性的伤害",
+		"zh-tw" => "來自其他屬性的傷害"
 	},
 
 	:horizontally_scrollable_on_small_screens => {
@@ -114,8 +114,8 @@ LOCALISED_TEXT = {
 		"ko" => "작은 화면에서 가로로 스크롤 가능",
 		"fr" => "défilable horizontalement sur les petits écrans",
 		"it" => "scorrevole orizzontalmente su schermi piccoli",
-		"zh-CN" => "在小屏幕上可横向滚动",
-		"zh-TW" => "在小螢幕上可橫向捲動"
+		"zh-cn" => "在小屏幕上可横向滚动",
+		"zh-tw" => "在小螢幕上可橫向捲動"
 	},
 
 	:direct_link => {
@@ -125,8 +125,8 @@ LOCALISED_TEXT = {
 		"ko" => "직접 링크",
 		"fr" => "Lien direct",
 		"it" => "Link diretto",
-		"zh-CN" => "直接链接",
-		"zh-TW" => "直接連結"
+		"zh-cn" => "直接链接",
+		"zh-tw" => "直接連結"
 	},
 
 	:pokemon_with_this_ability => {
@@ -136,7 +136,73 @@ LOCALISED_TEXT = {
 		"ko" => "이 특성을 가진 포켓몬",
 		"fr" => "Pokémon ayant ce Talent",
 		"it" => "Pokémon con questa abilità",
-		"zh-CN" => "具有此特性的宝可梦",
-		"zh-TW" => "具有此特性的寶可夢"
+		"zh-cn" => "具有此特性的宝可梦",
+		"zh-tw" => "具有此特性的寶可夢"
+	},
+
+	:hp => {
+		"en" => "HP",
+		"de" => "KP",
+		"ja" => "HP",
+		"ko" => "HP",
+		"fr" => "PV",
+		"it" => "PS",
+		"zh-cn" => "HP",
+		"zh-tw" => "HP"
+	},
+
+	:atk => {
+		"en" => "Atk",
+		"de" => "Ang",
+		"ja" => "攻撃",
+		"ko" => "공격",
+		"fr" => "Att",
+		"it" => "Att",
+		"zh-cn" => "攻击",
+		"zh-tw" => "攻擊"
+	},
+
+	:def => {
+		"en" => "Def",
+		"de" => "Vert",
+		"ja" => "防御",
+		"ko" => "방어",
+		"fr" => "Déf",
+		"it" => "Dif",
+		"zh-cn" => "防御",
+		"zh-tw" => "防禦"
+	},
+
+	:spatk => {
+		"en" => "Sp.Atk",
+		"de" => "Sp.-Ang",
+		"ja" => "特攻",
+		"ko" => "특수공격",
+		"fr" => "Att. Spé",
+		"it" => "Att. Sp",
+		"zh-cn" => "特攻",
+		"zh-tw" => "特攻"
+	},
+
+	:spdef => {
+		"en" => "Sp.Def",
+		"de" => "Sp.-Vert",
+		"ja" => "特防",
+		"ko" => "특수방어",
+		"fr" => "Déf. Spé",
+		"it" => "Dif. Sp",
+		"zh-cn" => "特防",
+		"zh-tw" => "特防"
+	},
+
+	:speed => {
+		"en" => "Speed",
+		"de" => "Init",
+		"ja" => "素早さ",
+		"ko" => "스피드",
+		"fr" => "Vit",
+		"it" => "Vel",
+		"zh-cn" => "速度",
+		"zh-tw" => "速度"
 	}
-	}
+}

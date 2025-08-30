@@ -13,8 +13,8 @@
 			<option value="it">🌐 Italiano</option>
 			<option value="ko">🌐 한국어</option>
 			<option value="ja">🌐 日本語</option>
-			<option value="zh-cn">🌐 中文（简体</option>
-			<option value="zh-tw">🌐 中文（繁體</option>
+			<option value="zh-cn">🌐 中文（简体)</option>
+			<option value="zh-tw">🌐 中文（繁體)</option>
 		</select>
 	</form>
 </div>
@@ -42,12 +42,12 @@ window.onload = () => {
 		<%= species_name %>
 	</span>
 	<span>
-		HP: <%= stats[:hp] %> • 
-		Atk: <%= stats[:atk] %> •
-		Def: <%= stats[:def] %> •
-		Sp.Atk: <%= stats[:spatk] %> •
-		Sp.Def: <%= stats[:spdef] %> •
-		Speed: <%= stats[:speed] %>
+		<%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %> • 
+		<%= get_localised_text(lang, :atk)%>: <%= stats[:atk] %> •
+		<%= get_localised_text(lang, :def) %>: <%= stats[:def] %> •
+		<%= get_localised_text(lang, :spatk) %>: <%= stats[:spatk] %> •
+		<%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %> •
+		<%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %>
 </span>
 <div class="evolutions">
 <span><%= get_localised_text(lang, :abilities) %>:</span>
