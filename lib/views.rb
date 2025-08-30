@@ -6,6 +6,10 @@ def pokemon_view_moves(id, language_id=9)
 			}
 end
 
+def pokemon_view_search()
+	# TODO !!!
+end
+
 def pokemon_view_ability(id, language_id=9)
 	id = Sanitize.fragment(id)
 	pokemon_with_ability_raw = get_pokemons_with_ability(id)

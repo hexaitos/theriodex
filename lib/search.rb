@@ -1,6 +1,7 @@
 def search_for_pokemon(query, language_id=9)
 	search_results = ""
 	query = Sanitize.fragment(query)
+	language_id == "en" ? language_id = 9 : language_id
 	pokemon_names = DB.execute("select name from pokemon_v2_pokemonspeciesname where language_id = ? ", language_id)
 	matches = FuzzyMatch.new(pokemon_names, :find_all_with_score => true).find(query)
 

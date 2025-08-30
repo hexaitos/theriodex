@@ -28,7 +28,7 @@ document.querySelector('#language_select').addEventListener("change", (event) =>
 
 window.onload = () => {
 	const urlParams = new URLSearchParams(window.location.search);
-	const lang = urlParams.has('lang') ? urlParams.get('lang') : 'en';
+	const lang = urlParams.get('lang') || 'en';
 	document.querySelector('#lang-select').value = lang;
 };
 </script>
