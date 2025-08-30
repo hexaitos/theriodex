@@ -1,4 +1,6 @@
 <div class="corner">
+    <a class="corner" href="<%= request.fullpath %>"><%= get_localised_text(CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first, :direct_link) %></a>
+
 	<form action="<%= request.fullpath %>" method="get" id="language_select">
 		<select id="lang-select" name="lang" required>
 			<option value="en">🌐 English</option>
