@@ -1,12 +1,18 @@
 <div class="corner">
-    <a class="corner" href="<%= request.fullpath %>"><%= get_localised_text(CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first, :direct_link) %></a>
-
+	<% if request.fullpath.gsub(request.query_string, "").gsub("?", "") != "/" %>
+		<a class="corner" href="<%= request.fullpath %>"><%= get_localised_text(CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first, :direct_link) %></a>
+		<form action="<%= request.fullpath %>" method="get" id="language_select">
+	<% else %>
+		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :direct_link) %></a>
+		<form action="/show/<%= id %>" method="get" id="language_select">
+	<% end %>
 	<form action="<%= request.fullpath %>" method="get" id="language_select">
 		<select id="lang-select" name="lang" required>
 			<option value="en">🌐 English</option>
 			<option value="de">🌐 Deutsch</option>
 			<option value="fr">🌐 Français</option>
 			<option value="it">🌐 Italiano</option>
+			<option value="es">🌐 Español</option>
 			<option value="ko">🌐 한국어</option>
 			<option value="ja">🌐 日本語</option>
 			<option value="zh-cn">🌐 中文（简体)</option>

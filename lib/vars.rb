@@ -26,6 +26,7 @@ LOCALISED_TEXT = {
 		"ko" => "특성",
 		"fr" => "Talent",
 		"it" => "Abilità",
+		"es" => "Habilidades",
 		"zh-cn" => "特性",
 		"zh-tw" => "特性"
 	},
@@ -37,6 +38,7 @@ LOCALISED_TEXT = {
 		"ko" => "진화",
 		"fr" => "Évolutions",
 		"it" => "Evoluzioni",
+		"es" => "Evoluciones",
 		"zh-cn" => "进化",
 		"zh-tw" => "進化"
 	},
@@ -48,6 +50,7 @@ LOCALISED_TEXT = {
 		"ko" => "색이 다른 포켓몬 표시",
 		"fr" => "Afficher les chromatiques",
 		"it" => "Mostra shiny",
+		"es" => "Mostrar variocolor",
 		"zh-cn" => "显示闪光",
 		"zh-tw" => "顯示閃光"
 	},
@@ -59,6 +62,7 @@ LOCALISED_TEXT = {
 		"ko" => "일반 포켓몬 표시",
 		"fr" => "Afficher les normaux",
 		"it" => "Mostra normali",
+		"es" => "Mostrar normal",
 		"zh-cn" => "显示普通",
 		"zh-tw" => "顯示普通"
 	},
@@ -70,6 +74,7 @@ LOCALISED_TEXT = {
 		"ko" => "암컷 표시",
 		"fr" => "Afficher les femelles",
 		"it" => "Mostra femmine",
+		"es" => "Mostrar hembra",
 		"zh-cn" => "显示雌性",
 		"zh-tw" => "顯示雌性"
 	},
@@ -81,6 +86,7 @@ LOCALISED_TEXT = {
 		"ko" => "수컷 표시",
 		"fr" => "Afficher les mâles",
 		"it" => "Mostra maschi",
+		"es" => "Mostrar macho",
 		"zh-cn" => "显示雄性",
 		"zh-tw" => "顯示雄性"
 	},
@@ -92,6 +98,7 @@ LOCALISED_TEXT = {
 		"ko" => "애니메이션 전환",
 		"fr" => "Basculer l'animation",
 		"it" => "Attiva/disattiva animazione",
+		"es" => "Alternar animación",
 		"zh-cn" => "切换动画",
 		"zh-tw" => "切換動畫"
 	},
@@ -103,6 +110,7 @@ LOCALISED_TEXT = {
 		"ko" => "다른 타입으로부터 받는 피해",
 		"fr" => "Dégâts reçus des autres types",
 		"it" => "Danni subiti da altri tipi",
+		"es" => "Daño recibido de otros tipos",
 		"zh-cn" => "来自其他属性的伤害",
 		"zh-tw" => "來自其他屬性的傷害"
 	},
@@ -114,6 +122,7 @@ LOCALISED_TEXT = {
 		"ko" => "작은 화면에서 가로로 스크롤 가능",
 		"fr" => "défilable horizontalement sur les petits écrans",
 		"it" => "scorrevole orizzontalmente su schermi piccoli",
+		"es" => "desplazable horizontalmente en pantallas pequeñas",
 		"zh-cn" => "在小屏幕上可横向滚动",
 		"zh-tw" => "在小螢幕上可橫向捲動"
 	},
@@ -125,6 +134,7 @@ LOCALISED_TEXT = {
 		"ko" => "직접 링크",
 		"fr" => "Lien direct",
 		"it" => "Link diretto",
+		"es" => "Vínculo directo",
 		"zh-cn" => "直接链接",
 		"zh-tw" => "直接連結"
 	},
@@ -136,6 +146,7 @@ LOCALISED_TEXT = {
 		"ko" => "이 특성을 가진 포켓몬",
 		"fr" => "Pokémon ayant ce Talent",
 		"it" => "Pokémon con questa abilità",
+		"es" => "Pokémon con esta habilidad",
 		"zh-cn" => "具有此特性的宝可梦",
 		"zh-tw" => "具有此特性的寶可夢"
 	},
@@ -147,6 +158,7 @@ LOCALISED_TEXT = {
 		"ko" => "HP",
 		"fr" => "PV",
 		"it" => "PS",
+		"es" => "PS",
 		"zh-cn" => "HP",
 		"zh-tw" => "HP"
 	},
@@ -158,6 +170,7 @@ LOCALISED_TEXT = {
 		"ko" => "공격",
 		"fr" => "Att",
 		"it" => "Att",
+		"es" => "Atq",
 		"zh-cn" => "攻击",
 		"zh-tw" => "攻擊"
 	},
@@ -169,6 +182,7 @@ LOCALISED_TEXT = {
 		"ko" => "방어",
 		"fr" => "Déf",
 		"it" => "Dif",
+		"es" => "Def",
 		"zh-cn" => "防御",
 		"zh-tw" => "防禦"
 	},
@@ -180,6 +194,7 @@ LOCALISED_TEXT = {
 		"ko" => "특수공격",
 		"fr" => "Att. Spé",
 		"it" => "Att. Sp",
+		"es" => "Atq. Esp",
 		"zh-cn" => "特攻",
 		"zh-tw" => "特攻"
 	},
@@ -191,6 +206,7 @@ LOCALISED_TEXT = {
 		"ko" => "특수방어",
 		"fr" => "Déf. Spé",
 		"it" => "Dif. Sp",
+		"es" => "Def. Esp",
 		"zh-cn" => "特防",
 		"zh-tw" => "特防"
 	},
@@ -202,6 +218,7 @@ LOCALISED_TEXT = {
 		"ko" => "스피드",
 		"fr" => "Vit",
 		"it" => "Vel",
+		"es" => "Vel",
 		"zh-cn" => "速度",
 		"zh-tw" => "速度"
 	},
@@ -213,8 +230,9 @@ LOCALISED_TEXT = {
 		"ko" => "무작위",
 		"fr" => "Aléatoire",
 		"it" => "Casuale",
-		"zh-CN" => "随机",
-		"zh-TW" => "隨機"
+		"es" => "Aleatorio",
+		"zh-cn" => "随机",
+		"zh-tw" => "隨機"
 	},
 
 	:about => {
@@ -224,8 +242,9 @@ LOCALISED_TEXT = {
 		"ko" => "소개",
 		"fr" => "À propos",
 		"it" => "Informazioni",
-		"zh-CN" => "关于",
-		"zh-TW" => "關於"
+		"es" => "Acerca de",
+		"zh-cn" => "关于",
+		"zh-tw" => "關於"
 	},
 
 	:search => {
@@ -235,9 +254,11 @@ LOCALISED_TEXT = {
 		"ko" => "검색",
 		"fr" => "Recherche",
 		"it" => "Cerca",
-		"zh-CN" => "搜索",
-		"zh-TW" => "搜尋"
+		"es" => "Buscar",
+		"zh-cn" => "搜索",
+		"zh-tw" => "搜尋"
 	},
+
 	:enter_pokemon_name => {
 		"en" => "Enter name of a Pokémon",
 		"de" => "Namen eines Pokémon eingeben",
@@ -245,8 +266,9 @@ LOCALISED_TEXT = {
 		"ko" => "포켓몬 이름 입력",
 		"fr" => "Entrez le nom d’un Pokémon",
 		"it" => "Inserisci il nome del Pokémon",
-		"zh-CN" => "输入宝可梦的名称",
-		"zh-TW" => "輸入寶可夢的名稱"
+		"es" => "Introduce el nombre de un Pokémon",
+		"zh-cn" => "输入宝可梦的名称",
+		"zh-tw" => "輸入寶可夢的名稱"
 	},
 
 	:footer => {
@@ -256,6 +278,7 @@ LOCALISED_TEXT = {
 		"ko" => "<a href='https://hexaitos.eu'>Hexaitos</a>가 Sinatra로 제작했습니다（<a href='https://codeberg.org/hexaitos/theriodex'>소스 코드</a>）。포켓몬 및 포켓몬 캐릭터 이름은 닌텐도의 상표입니다.",
 		"fr" => "Créé par <a href='https://hexaitos.eu'>Hexaitos</a> avec Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>code source</a>). Pokémon et les noms des personnages Pokémon sont des marques de Nintendo.",
 		"it" => "Creato da <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>codice sorgente</a>). Pokémon e i nomi dei personaggi Pokémon sono marchi di Nintendo.",
+		"es" => "Creado por <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>código fuente</a>). Pokémon y los nombres de los personajes Pokémon son marcas registradas de Nintendo.",
 		"zh-CN" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 制作（<a href='https://codeberg.org/hexaitos/theriodex'>源代码</a>）。“宝可梦”及宝可梦角色名称为任天堂的商标。",
 		"zh-TW" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 製作（<a href='https://codeberg.org/hexaitos/theriodex'>原始程式碼</a>）。「寶可夢」及寶可夢角色名稱為任天堂的商標。"
 	}
