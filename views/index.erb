@@ -5,7 +5,7 @@
 		<a class="corner" href="/show/<%= id %>?form=<%= form %>&lang=<%= lang %>">Direct link</a>
 	<% end %>
 
-	<form action="<%= request.path_info %>" method="get" id="language_select">
+	<form action="/show/<%= id %>" method="get" id="language_select">
 		<select id="lang-select" name="lang" required>
 			<option value="en">🌐 English</option>
 			<option value="de">🌐 Deutsch</option>
