@@ -119,7 +119,7 @@ LOCALISED_TEXT = {
 	},
 
 	:direct_link => {
-		"en" => "direct link",
+		"en" => "Direct link",
 		"de" => "Direkter Link",
 		"ja" => "直接リンク",
 		"ko" => "직접 링크",

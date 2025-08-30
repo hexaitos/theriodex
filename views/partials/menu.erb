@@ -1,8 +1,8 @@
 <div class="menu">
 	<% if CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first.nil? %>
-		<a href="/">Home</a>
+		<a href="/">Random</a>
 	<% else %>
-		<a href="/?lang=<%= CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>">Home</a>
+		<a href="/?lang=<%= CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>">Random</a>
 	<% end %>
 	<a href="/search">Search</a>
 	<a href="/about">About</a>
