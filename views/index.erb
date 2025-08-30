@@ -1,8 +1,8 @@
 <div class="corner">
 	<% if form == nil %>
-		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>">Direct link</a>
+		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :direct_link) %></a>
 	<% else %>
-		<a class="corner" href="/show/<%= id %>?form=<%= form %>&lang=<%= lang %>">Direct link</a>
+		<a class="corner" href="/show/<%= id %>?form=<%= form %>&lang=<%= lang %>"><%= get_localised_text(lang, :direct_link) %></a>
 	<% end %>
 
 	<form action="/show/<%= id %>" method="get" id="language_select">
@@ -50,13 +50,13 @@ window.onload = () => {
 		Speed: <%= stats[:speed] %>
 </span>
 <div class="evolutions">
-<span>Abilities:</span>
+<span><%= get_localised_text(lang, :abilities) %>:</span>
 <% abilities.each do | name, hidden, slot, id, unformatted | %>
 	<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
 <% end %>
 </div>
 <div class="evolutions">
-		<span>Evolutions:
+		<span><%= get_localised_text(lang, :evolutions) %>:
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
 			none</span>
 		<% else %>
@@ -84,14 +84,14 @@ window.onload = () => {
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?lang=<%= lang %>">Show normal</a>
+				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>">Show female</a>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?animated=true&form=shiny&lang=<%= lang %>">Toggle animation</a>
+					<a href="/show/<%= id %>?animated=true&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
 				<% end %>
 			</div>
 
@@ -104,14 +104,14 @@ window.onload = () => {
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">Show shiny</a>
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&lang=<%= lang %>">Show female</a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female)%></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?animated=true&lang=<%= lang %>">Toggle animation</a>
+					<a href="/show/<%= id %>?animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
 				<% end %>
 			</div>
 
@@ -124,13 +124,13 @@ window.onload = () => {
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&animated=true&lang=<%= lang %>">Show shiny</a>
+				<a href="/show/<%= id %>?form=shiny&animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&lang=<%= lang %>">Show female</a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
-				<a href="/show/<%= id %>?lang=<%= lang %>">Toggle animation</a>
+				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
 			</div>
 
 		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
@@ -142,14 +142,14 @@ window.onload = () => {
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?animated=true&lang=<%= lang %>">Show normal</a>
+				<a href="/show/<%= id %>?animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>">Show female</a>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">Toggle animation</a>
+					<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
 				<% end %>
 			</div>
 		<% end %>
@@ -164,8 +164,8 @@ window.onload = () => {
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?s=female">Show normal</a>
-				<a href="/show/<%= id %>?form=shiny">Show male</a>
+				<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
 			</div>
 		<% elsif form == "" or form == "normal" or form.nil? %>
 			<img src="<%= front_female %>" alt="Default front female sprite"/>
@@ -176,8 +176,8 @@ window.onload = () => {
 
 			<br />
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&s=female&lang=<%= lang %>">Show shiny</a>
-				<a href="/show/<%= id %>?lang=<%= lang %>">Show male</a>
+				<a href="/show/<%= id %>?form=shiny&s=female&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
+				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
 			</div>
 		<% end %>
 	<% end %>
@@ -189,8 +189,8 @@ window.onload = () => {
 	</div>
 
 	<div class="damage">
-		<h3>Damage taken from other types</h3>
-		<span>(horizontally scrollable on small screens)</span>
+		<h3><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
+		<span>(<%= get_localised_text(lang, :horizontally_scrollable_on_small_screens) %>)</span>
 		<div class="damage_taken">
 			<table>
 			<thead>

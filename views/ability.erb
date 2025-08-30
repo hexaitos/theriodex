@@ -30,7 +30,7 @@ window.onload = () => {
 <p class="ability"><%= ability_information %></p>
 <br />
 
-<h2>Pokémon with this ability</h2>
+<h2><%= get_localised_text(lang, :pokemon_with_this_ability) %></h2>
 <div class="search">
 	<div>
 	<% pokemon_with_ability.each do | id, info | %>

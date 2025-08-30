@@ -7,10 +7,11 @@ require 'fuzzy_match'
 require 'sanitize'
 require 'rack/cache'
 
+require_relative 'lib/vars.rb'
 require_relative 'lib/db_queries.rb'
 require_relative 'lib/format_names.rb'
 require_relative 'lib/views.rb'
-require_relative 'lib/vars.rb'
+require_relative 'lib/get_localised_text.rb'
 
 require_relative 'lib/helpers/partials.rb'
 
