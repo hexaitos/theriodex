@@ -279,7 +279,7 @@ LOCALISED_TEXT = {
 		"fr" => "Créé par <a href='https://hexaitos.eu'>Hexaitos</a> avec Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>code source</a>). Pokémon et les noms des personnages Pokémon sont des marques de Nintendo.",
 		"it" => "Creato da <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>codice sorgente</a>). Pokémon e i nomi dei personaggi Pokémon sono marchi di Nintendo.",
 		"es" => "Creado por <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>código fuente</a>). Pokémon y los nombres de los personajes Pokémon son marcas registradas de Nintendo.",
-		"zh-CN" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 制作（<a href='https://codeberg.org/hexaitos/theriodex'>源代码</a>）。“宝可梦”及宝可梦角色名称为任天堂的商标。",
-		"zh-TW" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 製作（<a href='https://codeberg.org/hexaitos/theriodex'>原始程式碼</a>）。「寶可夢」及寶可夢角色名稱為任天堂的商標。"
+		"zh-cn" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 制作（<a href='https://codeberg.org/hexaitos/theriodex'>源代码</a>）。“宝可梦”及宝可梦角色名称为任天堂的商标。",
+		"zh-tw" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 製作（<a href='https://codeberg.org/hexaitos/theriodex'>原始程式碼</a>）。「寶可夢」及寶可夢角色名稱為任天堂的商標。"
 	}
 }
