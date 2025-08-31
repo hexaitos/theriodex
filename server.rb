@@ -9,21 +9,10 @@ require 'rack/cache'
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
 
-Dir.glob("#{Dir.pwd}/app/db/*rb") do | db_helper |
-	require_relative db_helper
-end
-
-Dir.glob("#{Dir.pwd}/app/services/*rb") do | service |
-	require_relative service
-end
-
-Dir.glob("#{Dir.pwd}/app/helpers/*rb") do | helper |
-	require_relative helper
-end
-
-Dir.glob("#{Dir.pwd}/app/routes/*rb") do | route |
-	require_relative route
-end
+Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_helper }
+Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }
+Dir.glob("#{Dir.pwd}/app/helpers/*rb").each { | helper | require_relative helper }
+Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
 configure :production do
 	set :static_cache_control, [:public, max_age: 3600]
