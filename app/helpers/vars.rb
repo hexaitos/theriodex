@@ -16,6 +16,8 @@ LANGUAGE_CODES = {
 	"en" => 9
 }
 
+CACHE_DIR = "/tmp/cache/rack"
+
 LOCALISED_TEXT = {
 	:abilities => {
 		"en" => "Abilities",

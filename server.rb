@@ -14,11 +14,13 @@ Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative serv
 Dir.glob("#{Dir.pwd}/app/helpers/*rb").each { | helper | require_relative helper }
 Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
+FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
+
 configure :production do
 	set :static_cache_control, [:public, max_age: 3600]
 	use Rack::Cache,
-		:metastore => 'file:/tmp/cache/rack/meta',
-		:entitystore => 'file:/tmp/cache/rack/body',
+		:metastore => "file:#{CACHE_DIR}/meta",
+		:entitystore => "file:#{CACHE_DIR}/body",
 		:verbose => true
 end
 
