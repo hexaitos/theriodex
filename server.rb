@@ -7,69 +7,33 @@ require 'fuzzy_match'
 require 'sanitize'
 require 'rack/cache'
 
-require_relative 'lib/vars.rb'
-require_relative 'lib/db_queries.rb'
-require_relative 'lib/format_names.rb'
-require_relative 'lib/views.rb'
-require_relative 'lib/get_localised_text.rb'
-require_relative 'lib/search.rb'
+DB = SQLite3::Database.new "app/db/db.sqlite3"
 
-require_relative 'lib/helpers/partials.rb'
-
-set :static_cache_control, [:public, max_age: 3600]
-use Rack::Cache,
-	:metastore => 'file:/tmp/cache/rack/meta',
-	:entitystore => 'file:/tmp/cache/rack/body',
-	:verbose => true
-
-get "/" do
-	random_pokemon = rand(1..1024)
-	lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-	
-	erb :index, locals: pokemon_view_index(random_pokemon, params[:form], params[:s], params[:animated], lang)
+Dir.glob("#{Dir.pwd}/app/db/*rb") do | db_helper |
+	require_relative db_helper
 end
 
-namespace "/show" do
-	get "/moves/:id" do
-		erb :moves, locals: pokemon_view_moves(params[:id])
-	end
-
-	get  "/ability/:id" do
-		lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-		
-		erb :ability, locals: pokemon_view_ability(params[:id], lang)
-	end
-
-	get "/:id" do
-		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-
-		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], lang)
-	end
+Dir.glob("#{Dir.pwd}/app/services/*rb") do | service |
+	require_relative service
 end
 
-get "/search" do
-	cache_control :public, :max_age => 3600
-	lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-
-	search_results = search_for_pokemon(params[:q], lang)
-
-	erb :search, locals: {:search_results => search_results, :lang => LANGUAGE_CODES.key(lang)}
+Dir.glob("#{Dir.pwd}/app/helpers/*rb") do | helper |
+	require_relative helper
 end
 
-get "/about" do
-	erb :about
+Dir.glob("#{Dir.pwd}/app/routes/*rb") do | route |
+	require_relative route
 end
 
-get "/privacy" do
-	erb :privacy
+configure :production do
+	set :static_cache_control, [:public, max_age: 3600]
+	use Rack::Cache,
+		:metastore => 'file:/tmp/cache/rack/meta',
+		:entitystore => 'file:/tmp/cache/rack/body',
+		:verbose => true
 end
 
-not_found do 
-	status 404
-	erb :error_404, layout: :error_layout
-end
-
-error 500 do
-	status 500
-	erb :error_500, layout: :error_layout
+configure do
+	set :views, File.expand_path('views', __dir__)
+	set :erb, layout_options: { views: File.join(settings.views, 'layouts') }
 end

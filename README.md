@@ -90,7 +90,8 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Ability to show animated sprites if there is one (maybe also with button, maybe display at random) (added in `f1782528cb`)
 - [ ] Clean up index.erb with some helper functions perhaps? 
 - [ ] Add info what generation a Pokémon first appeared in
-- [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`).
+- [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
+- [ ] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
 
 # Acknowledgements
 I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using. 

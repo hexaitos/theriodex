@@ -4,8 +4,6 @@ class String
 	end
 end
 
-DB = SQLite3::Database.new "db.sqlite3"
-
 LANGUAGE_CODES = {
 	"ja" => 1,
 	"ko"=> 3,
