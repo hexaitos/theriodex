@@ -24,6 +24,10 @@ configure :production do
 		:verbose => true
 end
 
+configure :no_rack_cache do
+	set :static_cache_control, [:public, max_age: 3600]
+end
+
 configure do
 	set :views, File.expand_path('views', __dir__)
 	set :erb, layout_options: { views: File.join(settings.views, 'layouts') }

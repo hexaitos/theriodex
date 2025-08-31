@@ -35,6 +35,8 @@ body {
 	text-decoration: none;
 	color: #ffffff;
 	background-color: var(--color-primary);
+	flex: 1 1 0;
+	max-width: 150px;
 }
 
 .menu a:hover {
@@ -282,7 +284,7 @@ a.corner {
 	text-decoration: none;
 	color: #ffffff;
 	background-color: var(--color-primary);
-	width: 100px;
+	width: 110px;
 }
 
 a.corner:hover {
@@ -312,6 +314,7 @@ select#lang-select {
 	right: 0.5rem;
 	appearance: none;
 	text-align: center;
+	justify-content: center;
 	border-radius: 5px;
 	background-color: var(--color-primary);
 	padding: 5px;
@@ -320,7 +323,7 @@ select#lang-select {
 	margin-right: 10px;
 	margin-bottom: 20px;
 	z-index: 10;
-	width: 100px;
+	width: 110px;
 	border: none;
 	font-size: 12px;
 }
