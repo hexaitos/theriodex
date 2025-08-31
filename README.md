@@ -76,7 +76,7 @@ Please also check the `rack-cache` [documentation](https://rtomayko.github.io/ra
 # TODO / Ideas
 Non-exhaustive list, may not all get implemented and other stuff not here may get implemented. 
 
-- [ ] Display names and flavour text in other languages (maybe with a `?lang=` query and a select box)
+- [x] Display names and flavour text in other languages (maybe with a `?lang=` query and a select box) (fully localised as of `636b1aeca2`)
 - [ ] Pit two Pokémon against one another to compare? 
 - [ ] Shows moves. Clickable with more info on each move on each click
 - [x] Show evolutions (added in `fe4698bfa8`)
@@ -90,6 +90,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Ability to show animated sprites if there is one (maybe also with button, maybe display at random) (added in `f1782528cb`)
 - [ ] Clean up index.erb with some helper functions perhaps? 
 - [ ] Add info what generation a Pokémon first appeared in
+- [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`).
 
 # Acknowledgements
 I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using. 
