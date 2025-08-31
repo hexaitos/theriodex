@@ -6,8 +6,12 @@ def pokemon_view_moves(id, language_id=9)
 			}
 end
 
-def pokemon_view_search()
-	# TODO !!!
+def pokemon_view_search(query, language_id=9)
+	query = Sanitize.fragment(query)
+	return 	{
+				:search_results => search_for_pokemon(query, language_id),
+				:lang => LANGUAGE_CODES.key(language_id)
+			}	
 end
 
 def pokemon_view_ability(id, language_id=9)

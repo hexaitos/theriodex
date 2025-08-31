@@ -1,6 +1,5 @@
 def search_for_pokemon(query, language_id=9)
 	search_results = ""
-	query = Sanitize.fragment(query)
 	language_id == "en" ? language_id = 9 : language_id
 	pokemon_names = DB.execute("select name from pokemon_v2_pokemonspeciesname where language_id = ? ", language_id)
 	matches = FuzzyMatch.new(pokemon_names, :find_all_with_score => true).find(query)
@@ -11,7 +10,7 @@ def search_for_pokemon(query, language_id=9)
 
 		pokemon_sprite = JSON.parse(DB.execute("select sprites from pokemon_v2_pokemonsprites where pokemon_id = ?;", pokemon_id).first.first.to_s)["front_default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "")
 
-		search_results << "<a href='/show/#{pokemon_id}?lang=#{LANGUAGE_CODES.key(language_id)}'><img src='#{pokemon_sprite}'/><br/>#{format_pokemon_name(key.first.to_s)}<br/></a>" if value >= 0.25
+		search_results << "<a href='/show/#{pokemon_id}?lang=#{LANGUAGE_CODES.key(language_id)}'><img src='#{pokemon_sprite}'/><br/>#{key.first.to_s}<br/></a>" if value >= 0.25
 	end
 
 	return search_results
