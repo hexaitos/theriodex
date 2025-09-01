@@ -6,7 +6,15 @@ This is just a silly thing I am working on and I am not even entirely sure what 
 
 Very much a work in progress and not done yet. I am not sure about the name yet, but I quite like the name `Theriodex` so far, wherein `therio-` is a prefix from the Ancient Greek word for "animal" or "beast" and `-dex` is a reference to the Pokédex. Name is subject to change, however.
 
-This is based off of [PokeAPI](https://github.com/PokeAPI/pokeapi) which, in turn, takes a lot of its data from [Veekun's Pokédex](https://github.com/veekun/pokedex). However, I am not using their API or hosting it myself, I simply built the database which the API uses (`db.sqlite3` in this repository) and am querying it manually from within Ruby. In addition, the sprites are fetched not from GitHub but from locally stored sprites. To use those, place the `sprites` folder from [this](https://github.com/PokeAPI/sprites/tree/4bcd17051efacd74966305ac87a0330b6131259a) repository in the `/public/` folder of this repo. The sprites are pretty large (about 1.5 GB in size) and I did not want to include all that in this repo. No changes have been made to the database and you can also build the database yourself by looking at the instructions in the above-mentioned PokeAPI repository and simply replace the database included herein with your own build - it should work without any problems.
+This is based off of [PokeAPI](https://github.com/PokeAPI/pokeapi) which, in turn, takes a lot of its data from [Veekun's Pokédex](https://github.com/veekun/pokedex). However, I am not using their API or hosting it myself, I simply built the database which the API uses (`db.sqlite3` in this repository) and am querying it manually from within Ruby. 
+
+# Getting sprites and sounds
+The sprites and cries are fetched not from GitHub but from local storage instead. To use those, place the `sprites` folder from [this](https://github.com/PokeAPI/sprites/tree/4bcd17051efacd74966305ac87a0330b6131259a) repository in the `/public/` folder of this repo. The sprites are pretty large (about 1.5 GB in size).
+
+Please do the same for the `cries` folder from [this](https://github.com/PokeAPI/cries) repository. The cries are much smaller in size, only about 30 MB. 
+
+# Database information
+No changes have been made to the database and you can also build the database yourself by looking at the instructions in the above-mentioned PokeAPI repository and simply replace the database included herein with your own build - it should work without any problems. However, I am planning on modifying the database at some point and that may require you to run a migration script that will then be included in this repository. 
 
 # Installation
 Requires Ruby and Bundler. Tested with Ruby `3.4.4`. Run `bundle install` in the cloned repository to download all required gems. Ensure you have placed the `sprites` folder in the correct location as mentioned above (`/public/sprites`). You can then start the server by running `ruby server.rb`.
@@ -19,6 +27,17 @@ By default, the server listens to port `4567`. To change the port the server lis
 
 ## Privacy policy
 This repo includes the privacy policy for my own hosted instance of Theriodex. This will obviously not apply to you, so if you wish to host it yourself, **change the privacy policy under `/views/privacy.erb` accordingly**. 
+
+## Notes on `rerun`
+Theriodex includes a Ruby gem called `rerun` that will automatically detect if a file has changed and, then, restart the server automatically. This has the advantage that all you will need to do is run `git pull` in the directory you downloaded Theriodex to and it will automatically be updated and you will get the newest version without having to manually restart the server using, for example, `sudo systemctl restart theriodex`. 
+
+To use this functionality, you can start Theriodex using a command that looks as follows: 
+
+```bash
+rerun -- ruby server.rb -e production
+```
+
+This will start Theriodex in production mode on the default port with `rerun`. 
 
 ## Notes on OpenBSD
 I generally prefer to use OpenBSD as my server operating system these days. Unfortunately, Ruby has been a little bit annoying when it comes to OpenBSD. This was tested on OpenBSD 7.6 with Ruby 3.3.5 and Bundler 2.6.7 as well as OpenBSD 7.7 with Ruby 3.3.5 and Ruby 3.4.2. 
@@ -45,20 +64,22 @@ You can do so directly by running the following command:
 echo 'export GEM_HOME=$HOME/.gem' >> $HOME/.profile
 ```
 
-
 ## Notes on caching
-I am using [rack-cache](https://github.com/rtomayko/rack-cache) for disk caching. You may wish to remove or adjust it according to your preferences. To do so, check the `server.rb` file and change the following lines so that they match your preferences: 
+I am using [rack-cache](https://github.com/rtomayko/rack-cache) for disk caching. You may wish to remove or adjust it according to your preferences. To do so, check the `/app/helpers/vars.rb` file and change the following variable so that it matches your preference: 
 
 ```ruby
-use Rack::Cache,
-	:metastore => 'file:/tmp/cache/rack/meta',
-	:entitystore => 'file:/tmp/cache/rack/body',
-	:verbose => true
+CACHE_DIR = "/tmp/cache/rack"
 ``` 
 
-By default (as can be seen in the code snippet above), Theriodex saves its cache in `/tmp/cache/rack/`. This means that even things like the included `styles.css` or the sprites are cached on disk until they are invalidated. Thus, if you update Theriodex, you may stil have an old version of the `styles.css` or other files cached. Thus, I recommend always deleting everything in `/tmp/cache/rack/` after an update. 
+By default (as can be seen in the code snippet above), Theriodex saves its cache in `/tmp/cache/rack/`. This means that even things like the included `styles.css` or the sprites are cached on disk until they are invalidated. The server should automatically delete the cache whenever it starts. If you do not want this functionality, you can comment out the following line in the `server.rb` file: 
+
+```ruby
+FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
+```
 
 **Disabling caching**: To disable caching, I would recommend to simply remove everything relating to caching from the `server.rb` file. This includes the above-mentioned code snippet, as well as any lines with `cache_control` in them (such as `cache_control :public, :max_age => 3600`). You should then also remove the `require 'rack/cache'` statement. 
+
+You can also simply use the `no_rack_cache` environment. Simply start the server by specifying `server.rb -e no_rack_cache` and the caching will be disabled. 
 
 **Memory caching**: You may also wish to cache things in memory instead of on disk. To do so, change the above-mentioned code snippet to the following: 
 
@@ -94,7 +115,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
 - [ ] Maybe add berries?
 - [ ] Maybe add characteristic?
-- [ ] Add cries?
+- [x] Add cries? (added in `a7946dd1dd`)
 
 # Acknowledgements
 I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using.
