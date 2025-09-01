@@ -349,6 +349,14 @@ select#lang-select {
 		background-color: black;
 	}
 
+	.sound-btn {
+		filter: invert(100);
+	}
+
+	.sound-btn:hover {
+		filter: brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(4587%) hue-rotate(326deg) brightness(82%) contrast(85%);
+	}
+
 	:root {
 		--color-primary: #96311d;
 		--color-primary-hover: #c58043;
