@@ -11,6 +11,7 @@ def get_pokemon_info(pokemon_id, language_id=9)
 	pokemon_data[:evolutions_formatted] = evolutions[:formatted]
 	pokemon_data[:name] = get_pokemon_name(pokemon_id, language_id)
 	pokemon_data[:abilities] = get_pokemon_abilities(pokemon_id, language_id)
+	pokemon_data[:calls] = get_pokemon_calls(pokemon_id)
 
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f

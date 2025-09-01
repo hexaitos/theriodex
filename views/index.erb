@@ -1,9 +1,12 @@
 <%= partial :lang_select, id: id, lang: lang %>
 
 <div class="types">
-	<h1><%= name %></h1>
+	<h1 class="pokemon-title">
+		<%= name %>
+		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()"/>
+	</h1>
 	<% types.each do |type| %>
-		<img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>"/>
+		<img class="types" src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>"/>
 	<% end %>
 	<span>
 		<%= weight / 10 %> kg •
@@ -18,6 +21,7 @@
 		<%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %> •
 		<%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %>
 </span>
+
 <div class="evolutions">
 <span><%= get_localised_text(lang, :abilities) %>:</span>
 <% abilities.each do | name, hidden, slot, id, unformatted | %>

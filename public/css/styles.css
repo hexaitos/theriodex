@@ -154,13 +154,29 @@ div.privacy pre {
 	overflow: auto;
 }
 
+.sound-btn {
+	vertical-align: super;
+	margin: 0;
+	width: 16px;
+	transform: translateY(-5px);
+	transform: translateX(-8px);
+}
+
+.sound-btn:hover {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(95%) saturate(7003%) hue-rotate(223deg) brightness(110%) contrast(102%);
+}
+
+.pokemon-title {
+	transform: translateX(11px);
+}
+
 div.types {
 	/* border: 2px solid #10378d; */
 	border-radius: 5px;
 	margin-bottom: 30px;
 }
 
-div.types img {
+div.types img.types {
 	width: 40px;
 	margin-top: 5px;
 }
