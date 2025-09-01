@@ -92,9 +92,12 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Add info what generation a Pokémon first appeared in
 - [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
 - [ ] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
+- [ ] Maybe add berries?
+- [ ] Maybe add characteristic?
+- [ ] Add cries?
 
 # Acknowledgements
-I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using. 
+I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using.
 
 A special thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn't been for them. Thanks 🩵
 
