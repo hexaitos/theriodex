@@ -14,6 +14,21 @@ def pokemon_view_search(query, language_id=9)
 			}	
 end
 
+def pokemon_view_game(id, language_id=9)
+	selected_pokemon = Sanitize.fragment(id)
+	language_id == "en" ? language_id = 9 : language_id
+	session[:pokemon_info] = game_data = get_game_info(id, language_id)
+	session[:points] ||= 0
+	game_data[:points] = session[:points]
+
+	puts game_data
+
+	return game_data
+end
+
+def pokemon_view_guess()
+end
+
 def pokemon_view_ability(id, language_id=9)
 	id = Sanitize.fragment(id)
 	pokemon_with_ability_raw = get_pokemons_with_ability(id)
