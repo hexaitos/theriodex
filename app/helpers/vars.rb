@@ -281,5 +281,137 @@ LOCALISED_TEXT = {
 		"es" => "Creado por <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>código fuente</a>). Pokémon y los nombres de los personajes Pokémon son marcas registradas de Nintendo.",
 		"zh-cn" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 制作（<a href='https://codeberg.org/hexaitos/theriodex'>源代码</a>）。“宝可梦”及宝可梦角色名称为任天堂的商标。",
 		"zh-tw" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 製作（<a href='https://codeberg.org/hexaitos/theriodex'>原始程式碼</a>）。「寶可夢」及寶可夢角色名稱為任天堂的商標。"
+	},
+
+	:game => {
+		"en" => "Game",
+		"de" => "Spiel",
+		"ja" => "ゲーム",
+		"ko" => "게임",
+		"fr" => "Jeu",
+		"it" => "Gioco",
+		"es" => "Juego",
+		"zh-cn" => "游戏",
+		"zh-tw" => "遊戲"
+	},
+
+	:guess_the_pokemon => {
+		"en" => "Guess the Pokémon!",
+		"de" => "Errate das Pokémon!",
+		"ja" => "ポケモンを当てて！",
+		"ko" => "포켓몬을 맞혀보세요!",
+		"fr" => "Devinez le Pokémon !",
+		"it" => "Indovina il Pokémon!",
+		"es" => "¡Adivina el Pokémon!",
+		"zh-cn" => "猜宝可梦！",
+		"zh-tw" => "猜寶可夢！"
+	},
+
+	:points => {
+		"en" => "Points",
+		"de" => "Punkte",
+		"ja" => "ポイント",
+		"ko" => "점수",
+		"fr" => "Points",
+		"it" => "Punti",
+		"es" => "Puntos",
+		"zh-cn" => "分数",
+		"zh-tw" => "分數"
+	},
+
+	:reset => {
+		"en" => "Reset",
+		"de" => "Zurücksetzen",
+		"ja" => "リセット",
+		"ko" => "초기화",
+		"fr" => "Réinitialiser",
+		"it" => "Reimposta",
+		"es" => "Reiniciar",
+		"zh-cn" => "重置",
+		"zh-tw" => "重設"
+	},
+
+	:enter_pokemon_name_game => {
+		"en" => "Enter Pokémon name",
+		"de" => "Namen des Pokémon eingeben",
+		"ja" => "ポケモン名を入力",
+		"ko" => "포켓몬 이름 입력",
+		"fr" => "Entrez le nom du Pokémon",
+		"it" => "Inserisci il nome del Pokémon",
+		"es" => "Introduce el nombre del Pokémon",
+		"zh-cn" => "输入宝可梦名称",
+		"zh-tw" => "輸入寶可夢名稱"
+	},
+
+	:guess_button => {
+		"en" => "Guess",
+		"de" => "Raten",
+		"ja" => "予想",
+		"ko" => "맞혀보기",
+		"fr" => "Deviner",
+		"it" => "Indovina",
+		"es" => "Adivinar",
+		"zh-cn" => "猜",
+		"zh-tw" => "猜"
+	},
+
+	:better_luck_next_time => {
+		"en" => "Better luck next time!",
+		"de" => "Viel Glück beim nächsten Mal!",
+		"ja" => "次は頑張ってね！",
+		"ko" => "다음에 더 잘할 거예요!",
+		"fr" => "Bonne chance la prochaine fois !",
+		"it" => "Meglio la prossima volta!",
+		"es" => "¡Mejor suerte la próxima vez!",
+		"zh-cn" => "下次再加油！",
+		"zh-tw" => "下次再加油！"
+	},
+
+	:you_guessed_wrong => {
+		"en" => "You guessed (name) but the Pokémon was (name)",
+		"de" => "Du hast (name) geraten, aber das Pokémon war (name)",
+		"ja" => "あなたは「(name)」と入力しましたが、ポケモンは「(name)」でした",
+		"ko" => "당신은 (name)라고 추측했지만 포켓몬은 (name)이었어요",
+		"fr" => "Vous avez deviné (name), mais le Pokémon était (name)",
+		"it" => "Hai indovinato (name), ma il Pokémon era (name)",
+		"es" => "Adivinaste (name), pero el Pokémon era (name)",
+		"zh-cn" => "你猜的是 (name)，但宝可梦是 (name)",
+		"zh-tw" => "你猜的是 (name)，但寶可夢是 (name)"
+	},
+
+	:play_again => {
+		"en" => "Play again!",
+		"de" => "Nochmal spielen!",
+		"ja" => "もう一度遊ぶ！",
+		"ko" => "다시 플레이!",
+		"fr" => "Rejouer !",
+		"it" => "Gioca di nuovo!",
+		"es" => "¡Juega de nuevo!",
+		"zh-cn" => "再玩一次！",
+		"zh-tw" => "再玩一次！"
+	},
+
+	:you_guessed_correctly => {
+		"en" => "You guessed correctly!",
+		"de" => "Du hast richtig geraten!",
+		"ja" => "正解です！",
+		"ko" => "정답입니다!",
+		"fr" => "Bonne réponse !",
+		"it" => "Hai indovinato!",
+		"es" => "¡Has acertado!",
+		"zh-cn" => "你猜对了！",
+		"zh-tw" => "你猜對了！"
+	},
+
+	:well_done => {
+		"en" => "You guessed (name) and the Pokémon was (name). Well done!",
+		"de" => "Du hast (name) geraten und das Pokémon war (name). Gut gemacht!",
+		"ja" => "あなたは「(name)」と答え、ポケモンは「(name)」でした。よくできました！",
+		"ko" => "당신은 (name)라고 추측했고 포켓몬은 (name)이었습니다. 잘했어요!",
+		"fr" => "Vous avez deviné (name) et le Pokémon était (name). Bien joué !",
+		"it" => "Hai indovinato (name) e il Pokémon era (name). Ben fatto!",
+		"es" => "Adivinaste (name) y el Pokémon era (name). ¡Bien hecho!",
+		"zh-cn" => "你猜的是 (name)，宝可梦是 (name)。做得好！",
+		"zh-tw" => "你猜的是 (name)，寶可夢是 (name)。做得好！"
 	}
 }

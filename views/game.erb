@@ -1,7 +1,11 @@
-<h1>Guess the Pokémon!</h1>
-<p>Points: <%= points %> <a class="a-btn-1" href="/game/reset">Reset</a></p>
+<%= partial :lang_select, id: id, lang: lang %>
+
+<h1><%= get_localised_text(lang, :guess_the_pokemon) %></h1>
+<p><%= get_localised_text(lang, :points) %>: <%= points %> <a class="a-btn-1" href="/game/reset/<%= lang %>"><%= get_localised_text(lang, :reset) %></a></p>
+<br />
 <img src="<%= sprite %>" style="filter: blur(<%= rand(5..15)%>px); width: 256px">
-<form action="/game" method="post">
-	<input name="guess" autocomplete="off" placeholder="Enter Pokémon name">
-	<button type="submit">Guess</button>
-</form>
+<br />
+<form action="/game?lang=<%= lang %>" method="post">
+	<input name="guess" autocomplete="off" placeholder="<%= get_localised_text(lang, :enter_pokemon_name_game) %>">
+	<button type="submit"><%= get_localised_text(lang, :guess_button) %></button>
+</form

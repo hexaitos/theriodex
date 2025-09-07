@@ -1,13 +1,15 @@
+<% lang = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>
+
 <% if correct then %>
-	<h1>You guessed correctly!</h1>
+	<h1><%= get_localised_text(lang, :you_guessed_correctly) %></h1>
 	<img src="<%= pokemon_info[:sprite] %>" style="width: 256px">
 	<br />
-	<p>You guessed <%= guess.upcase %> and the Pokémon was <%= pokemon_info[:name] %>. Well done!</p>
+	<p>You guessed <u><%= guess.capitalize %></u> and the Pokémon was <u><%= pokemon_info[:name] %></u>. Well done!</p>
 <% else %>
-	<h1>Better luck next time!</h1>
+	<h1><%= get_localised_text(lang, :better_luck_next_time) %></h1>
 	<img src="<%= pokemon_info[:sprite] %>" style="width: 256px">
 	<br />
 	<p>You guessed <u><%= guess.capitalize %></u> but the Pokémon was <u><%= pokemon_info[:name] %></u></p>
 <% end %>
 <br />
-<a href="/game"><button>Play again!</button></a>
+<a href="/game?lang=<%= lang %>"><button><%= get_localised_text(lang, :play_again) %></button></a>
