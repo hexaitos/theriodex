@@ -236,6 +236,20 @@ input {
 	margin-bottom: 10px;
 }
 
+a.a-btn-1 {
+	font-size: small;
+	padding: 5px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 2px;
+}
+
+a.a-btn-1:hover {
+	background-color: var(--color-primary-hover);
+}
+
 button {
 	padding: 12px;
 	background-color: var(--color-primary);

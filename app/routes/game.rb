@@ -19,6 +19,7 @@ post "/game" do
 	erb :guess, locals: { :pokemon_info => session[:pokemon_info], :guess => params['guess'], :correct => correct }
 end
 
-get "/game/clear" do
+get "/game/reset" do
 	session.clear
+	redirect "/game"
 end
