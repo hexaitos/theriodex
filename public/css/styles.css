@@ -250,6 +250,11 @@ a.a-btn-1:hover {
 	background-color: var(--color-primary-hover);
 }
 
+div.guess img {
+	width: 256px;
+	image-rendering: pixelated;
+}
+
 button {
 	padding: 12px;
 	background-color: var(--color-primary);
