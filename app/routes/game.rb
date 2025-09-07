@@ -8,7 +8,7 @@ get "/game" do
 	erb :game, locals: pokemon_info
 end
 
-post "/game/guess" do
+post "/game" do
 	if session[:pokemon_info][:name].downcase == params['guess'].downcase then
 		correct = true
 		session[:points] += 1
