@@ -2,6 +2,7 @@
 	<% if CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first.nil? %>
 		<a href="/">Random</a>
 		<a href="/search">Search</a>
+		<a href="/game">Game</a>
 		<a href="/about">About</a>
 	<% else %>
 		<% language = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>

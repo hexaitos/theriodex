@@ -1,4 +1,6 @@
-<img src="<%= sprite %>" style="filter: blur(10px);">
+<h1>Guess the Pokémon!</h1>
+<p>Points: <%= points %></p>
+<img src="<%= sprite %>" style="filter: blur(<%= rand(5..15)%>px); width: 256px">
 <form action="/game/guess" method="post">
 	<input name="guess" autocomplete="off" placeholder="Enter Pokémon name">
 	<button type="submit">Guess</button>

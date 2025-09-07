@@ -1,0 +1,13 @@
+<% if correct then %>
+	<h1>You guessed correctly!</h1>
+	<img src="<%= pokemon_info[:sprite] %>" style="width: 256px">
+	<br />
+	You guessed <%= guess.upcase %> and the Pokémon was <%= pokemon_info[:name] %>. Well done!
+<% else %>
+	<h1>Better luck next time!</h1>
+	<img src="<%= pokemon_info[:sprite] %>" style="width: 256px">
+	<br />
+	You guessed <%= guess.capitalize %> but the Pokémon was <%= pokemon_info[:name] %>
+<% end %>
+<br />
+<a href="/game"><button>Play again!</button></a>
