@@ -16,6 +16,8 @@ Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
 FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
 
+enable :sessions
+
 configure :production do
 	set :static_cache_control, [:public, max_age: 3600]
 	use Rack::Cache,
