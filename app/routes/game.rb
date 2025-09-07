@@ -12,6 +12,7 @@ end
 
 post "/game" do
 	guess = Sanitize.fragment(params['guess'])
+	guess.gsub!(' ', '')
 
 	if session[:pokemon_info][:name].downcase == guess.downcase then
 		correct = true
