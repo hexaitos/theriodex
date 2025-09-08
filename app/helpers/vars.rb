@@ -449,5 +449,41 @@ LOCALISED_TEXT = {
 		"es" => "Omitidos",
 		"zh-cn" => "已跳过",
 		"zh-tw" => "已跳過"
+	},
+
+	:first_letter_of_name => {
+		"en" => "First letter of name",
+		"de" => "Anfangsbuchstabe",
+		"ja" => "名前の頭文字",
+		"ko" => "이름의 첫 글자",
+		"fr" => "Première lettre du nom",
+		"it" => "Prima lettera del nome",
+		"es" => "Primera letra del nombre",
+		"zh-cn" => "名字的首字母",
+		"zh-tw" => "名字的首字母"
+	},
+
+	:last_letter_of_name => {
+		"en" => "Last letter of name",
+		"de" => "Letzter Buchstabe",
+		"ja" => "名前の最後の文字",
+		"ko" => "이름의 마지막 글자",
+		"fr" => "Dernière lettre du nom",
+		"it" => "Ultima lettera del nome",
+		"es" => "Última letra del nombre",
+		"zh-cn" => "名字的尾字母",
+		"zh-tw" => "名字的尾字母"
+	},
+
+	:hints => {
+		"en" => "Hints",
+		"de" => "Tips",
+		"ja" => "ヒント",
+		"ko" => "힌트",
+		"fr" => "Indices",
+		"it" => "Indizi",
+		"es" => "Pistas",
+		"zh-cn" => "提示",
+		"zh-tw" => "提示"
 	}
 }

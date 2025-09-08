@@ -17,20 +17,19 @@
 	</form>
 	<br />
 
-	<h2>Hints</h2>
+	<h2><%= get_localised_text(lang, :hints) %></h2>
 
 	<details>
 		<summary>
-		First letter of name
+		<%= get_localised_text(lang, :first_letter_of_name) %>
 		</summary>
-		<p>First letter of name: <%= hints[:first_letter] %></p>
+		<p><%= get_localised_text(lang, :first_letter_of_name) %>: <%= hints[:first_letter] %></p>
 	</details>
 
 	<details>
 		<summary>
-		Last letter of name
+		<%= get_localised_text(lang, :last_letter_of_name) %>
 		</summary>
-		<p>Last letter of name: <%= hints[:last_letter] %></p>
+		<p><%= get_localised_text(lang, :last_letter_of_name) %>: <%= hints[:last_letter] %></p>
 	</details>
-
 </div>
