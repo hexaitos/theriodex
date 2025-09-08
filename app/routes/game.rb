@@ -15,6 +15,6 @@ get "/game/reset/:lang" do
 end
 
 get "/game/skip/:lang" do
-	session[:skips] += 1
+	if !session[:skips] then session[:skips] = 1 else session[:skips] += 1 end
 	redirect "/game?lang=#{params['lang']}"
 end
