@@ -13,5 +13,6 @@ def check_pokemon_guess(guess)
 		data[:correct] = false
 	end
 
+	session[:guesses] += 1
 	return data
 end

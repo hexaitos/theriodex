@@ -18,8 +18,9 @@ def pokemon_view_game(id, language_id=9)
 	selected_pokemon = Sanitize.fragment(id)
 	language_id == "en" ? language_id = 9 : language_id
 	session[:pokemon_info] = game_data = get_game_info(id, language_id)
-	session[:points] ||= 0
-	game_data[:points] = session[:points]
+	game_data[:points] = session[:points] ||= 0
+	game_data[:guesses] = session[:guesses] ||= 0
+	game_data[:skips] = session[:skips] ||= 0
 
 	puts game_data
 

@@ -246,7 +246,20 @@ a.a-btn-1 {
 	margin: 2px;
 }
 
+a.a-btn-2 {
+	font-size: 13.3333px;
+	padding: 12px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
 a.a-btn-1:hover {
+	background-color: var(--color-primary-hover);
+}
+
+a.a-btn-2:hover {
 	background-color: var(--color-primary-hover);
 }
 
