@@ -36,7 +36,6 @@ body {
 	color: #ffffff;
 	background-color: var(--color-primary);
 	flex: 1 1 0;
-	max-width: 150px;
 }
 
 .menu a:hover {
@@ -247,12 +246,14 @@ a.a-btn-1 {
 }
 
 a.a-btn-2 {
-	font-size: 13.3333px;
+	font-size: small;
 	padding: 12px;
 	background: var(--color-primary);
 	color: white;
 	border-radius: 5px;
 	text-decoration: none;
+	display: inline-block;
+	min-width: 80px;
 }
 
 a.a-btn-1:hover {
@@ -269,12 +270,14 @@ div.guess img {
 }
 
 button {
+	font-size: small;
 	padding: 12px;
 	background-color: var(--color-primary);
 	border-radius: 5px;
 	color: #ffffff;
 	border: none;
 	transition: 0.3s;
+	min-width: 80px;
 }
 
 button:hover {
