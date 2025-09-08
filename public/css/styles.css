@@ -376,6 +376,14 @@ select#lang-select {
 	font-size: 12px;
 }
 
+summary {
+	background-color: var(--color-primary);
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+	margin-bottom: 10px;
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: black;
