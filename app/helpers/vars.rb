@@ -413,5 +413,41 @@ LOCALISED_TEXT = {
 		"es" => "Adivinaste (name) y el Pokémon era (name). ¡Bien hecho!",
 		"zh-cn" => "你猜的是 (name)，宝可梦是 (name)。做得好！",
 		"zh-tw" => "你猜的是 (name)，寶可夢是 (name)。做得好！"
+	},
+	
+	:skip => {
+		"en" => "Skip",
+		"de" => "Überspringen",
+		"ja" => "スキップ",
+		"ko" => "건너뛰기",
+		"fr" => "Passer",
+		"it" => "Salta",
+		"es" => "Saltar",
+		"zh-cn" => "跳过",
+		"zh-tw" => "跳過"
+	},
+
+	:correct_guesses => {
+		"en" => "Correct guesses",
+		"de" => "Richtige Antworten",
+		"ja" => "正解数",
+		"ko" => "정답 수",
+		"fr" => "Réponses correctes",
+		"it" => "Risposte corrette",
+		"es" => "Aciertos",
+		"zh-cn" => "猜对次数",
+		"zh-tw" => "猜對次數"
+	},
+
+	:skipped => {
+		"en" => "Skipped",
+		"de" => "Übersprungen",
+		"ja" => "スキップ数",
+		"ko" => "건너뛴 수",
+		"fr" => "Passés",
+		"it" => "Saltati",
+		"es" => "Omitidos",
+		"zh-cn" => "已跳过",
+		"zh-tw" => "已跳過"
 	}
 }
