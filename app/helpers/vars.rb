@@ -485,5 +485,17 @@ LOCALISED_TEXT = {
 		"es" => "Pistas",
 		"zh-cn" => "提示",
 		"zh-tw" => "提示"
+	},
+
+	:decrease_blur => {
+		"en" => "Decrease blur",
+		"de" => "Weichzeichnung verringern",
+		"ja" => "ぼかしを弱める",
+		"ko" => "블러 줄이기",
+		"fr" => "Réduire le flou",
+		"it" => "Riduci la sfocatura",
+		"es" => "Reducir el desenfoque",
+		"zh-cn" => "减少模糊",
+		"zh-tw" => "減少模糊"
 	}
 }
