@@ -1,1 +1,0 @@
-{935 => {name: "Charcadet", skipped: true}, 401 => {name: "Kricketot", skipped: true}, 590 => {name: "Foongus", skipped: true}, 940 => {name: "Wattrel", skipped: true}, 171 => {name: "Lanturn", skipped: true}, 1015 => {name: "Munkidori", skipped: true}, 974 => {name: "Cetoddle", skipped: true}, game_info: {points: 0, guesses: 7, difficulty: "easy"}}
