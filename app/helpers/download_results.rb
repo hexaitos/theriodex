@@ -1,6 +1,6 @@
 def download_results()
 	# TODO re-write this some
-	results = session[:results]
+	results = session[:results].dup
 
 	results[:game_info] = {
 		:points => session[:points],
