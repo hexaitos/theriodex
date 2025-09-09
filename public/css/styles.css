@@ -409,12 +409,22 @@ select#difficulty {
 	flex-wrap: wrap;
 }
 
-.game-results .guess {
+.game-results .guess-results {
 	flex: 0 0
 }
 
-.guess p {
+.guess-results p {
 	margin: 0;
+	font-size: small;
+}
+
+button.print {
+	width: 100%;
+}
+
+.guess-results img {
+	image-rendering: pixelated;
+	width: 128px;
 }
 
 summary {

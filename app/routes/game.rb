@@ -15,7 +15,6 @@ get "/game/play" do
 	if !session[:difficulty] then
 		redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
 	end
-	session[:unblurred] ||= 0
 	random_pokemon = rand(1..1024)
 	
 	erb :game, locals: pokemon_view_game(random_pokemon, lang, session[:difficulty])
@@ -26,6 +25,9 @@ post "/game/play" do
 end
 
 get "/game/results" do
+	if !session[:results] then
+		redirect back
+	end
 	erb :game_results, locals: pokemon_view_results()
 end
 
@@ -36,5 +38,6 @@ end
 
 get "/game/skip/:lang" do
 	if !session[:skips] then session[:skips] = 1 else session[:skips] += 1 end
+	session[:results][session[:pokemon_info][:id]] = { :name => session[:pokemon_info][:name], :skipped => true }
 	redirect "/game/play?lang=#{params['lang']}"
 end
