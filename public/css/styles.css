@@ -30,7 +30,7 @@ body {
 
 .menu a {
 	padding: 10px;
-	margin-right: 10px;
+	/* margin-right: 10px; */
 	border-radius: 5px;
 	text-decoration: none;
 	color: #ffffff;
