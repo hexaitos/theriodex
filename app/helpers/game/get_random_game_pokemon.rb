@@ -3,6 +3,13 @@ def get_random_game_pokemon(gen=false)
 		return rand(1..1024)
 	else
 		pokemon = get_pokemon_ids_by_gen(gen)
-		return pokemon[rand(pokemon.size - 1)].first.to_i
+		random_pokemon = pokemon[rand(pokemon.size - 1)].first.to_i
+		
+		if session[:results] then
+			return get_random_game_pokemon(gen) if session[:results].keys.include?(random_pokemon)
+			return random_pokemon if !session[:results].keys.include?(random_pokemon)
+		else
+			return random_pokemon
+		end
 	end
 end
