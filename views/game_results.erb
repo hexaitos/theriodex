@@ -6,21 +6,33 @@
 
 <p><%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> </p>
 
+<h2>Guessed Pokémon</h2>
 <div class="game-results">
 	<% session[:results].each do | id, data | %>
 		<div class="guess-results">
-			<img src="/sprites/pokemon/<%= id %>.png"/>
 			<% if data[:skipped] %>
-				<p>The Pokémon was: <u><%= data[:name] %></u></p>
-				<p>You skipped this Pokémon</p>
 			<% else %>
-				<p>You guessed: <u><%= data[:guess] %></u></p>
+
+			<img src="/sprites/pokemon/<%= id %>.png"/>
+				<p>Your guess: <u><%= data[:guess] %></u></p>
 				<p>The Pokémon was: <u><%= data[:name] %></u></p>
 				<% if data[:correct] %>
-					<p>Your guess was correct</p>
+					<p>You were correct</p>
 				<% else %>
-					<p>Your guess was wrong</p>
+					<p>You were wrong</p>
 				<% end %>
+			<% end %>
+		</div class="guess">
+	<% end %>
+</div>
+
+<h2>Skipped Pokémon</h2>
+<div class="game-results">
+	<% session[:results].each do | id, data | %>
+		<div class="guess-results">
+			<% if data[:skipped] %>
+				<img src="/sprites/pokemon/<%= id %>.png"/>
+				<p>You skipped this Pokémon</p>
 			<% end %>
 		</div class="guess">
 	<% end %>
