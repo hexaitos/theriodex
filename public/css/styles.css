@@ -396,6 +396,7 @@ select#lang-select {
 
 select#difficulty {
 	padding: 10px 20px 10px 20px;
+	border-radius: 5px;
 	text-align: center;
 	background-color: var(--color-primary);
 	color: white;
