@@ -1,0 +1,25 @@
+<%= partial :lang_select, id: id, lang: lang %>
+
+<p>Choose your difficulty</p>
+<% if !session[:points] %>
+	<form action="/game/start/<%= lang %>" method="post" id="difficulty">
+		<select id="difficulty" name="diff" required>
+			<option value="easy">Easy</option>
+			<option value="medium">Medium</option>
+			<option value="hard">Hard</option>
+		</select>
+		<br /><br />
+		<button type="submit">Start Game</button>
+	</form>
+<% else %>
+	<form action="/game/start/<%= lang %>" method="post" id="difficulty">
+		<select id="difficulty" name="diff" required>
+			<option value="easy">Easy</option>
+			<option value="medium">Medium</option>
+			<option value="hard">Hard</option>
+		</select>
+		<br /><br />
+		<button type="submit">Restart Game (will reset counters)</button>
+		<a class="a-btn-2" href="/game/play?lang=<%= lang %>">Continue</a>
+	</form>
+<% end %>

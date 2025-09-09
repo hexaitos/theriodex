@@ -1,9 +1,8 @@
 <%= partial :lang_select, id: id, lang: lang %>
-<% blur = rand(5..15) %>
 
 <div class="game">
 	<h1><%= get_localised_text(lang, :guess_the_pokemon) %></h1>
-	<p><%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %></p>
+	<p><%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> </p>
 
 	<a class="a-btn-1" href="/game/reset/<%= lang %>"><%= get_localised_text(lang, :reset) %></a>
 	<a class="a-btn-1" id="dec" href="#"><%= get_localised_text(lang, :decrease_blur) %></a>
@@ -15,15 +14,16 @@
 	<br /><br />
 	<script>
 		const img = document.getElementById('sprite');
+		let start = <%= blur %>;
 		let current = <%= blur %>;
 
 		document.getElementById('dec').addEventListener('click', () => {
-			current = Math.max(3, current - 1);
+			current = Math.max(start - 5, current - 1);
 			img.style.filter = `blur(${current}px)`;
 		});
 	</script>
 
-	<form action="/game?lang=<%= lang %>" method="post">
+	<form action="/game/play?lang=<%= lang %>" method="post">
 		<input name="guess" autocomplete="off" required placeholder="<%= get_localised_text(lang, :enter_pokemon_name_game) %>">
 		<button type="submit"><%= get_localised_text(lang, :guess_button) %></button>
 		<a class="a-btn-2" href="/game/skip/<%= lang %>"><%= get_localised_text(lang, :skip) %></a>

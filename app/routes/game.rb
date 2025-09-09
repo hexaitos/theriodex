@@ -1,12 +1,27 @@
 get "/game" do
-	session[:unblurred] ||= 0
-	random_pokemon = rand(1..1024)
-	lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-	
-	erb :game, locals: pokemon_view_game(random_pokemon, lang)
+	lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? params[:lang] : "en"
+
+	erb :game_start, locals: { :lang => lang, :id => 1 }
 end
 
-post "/game" do
+post "/game/start/:lang" do
+	session.clear
+	session[:difficulty] ||= params['diff']
+	redirect "/game/play?lang=#{params['lang']}"
+end
+
+get "/game/play" do
+	lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+	if !session[:difficulty] then
+		redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
+	end
+	session[:unblurred] ||= 0
+	random_pokemon = rand(1..1024)
+	
+	erb :game, locals: pokemon_view_game(random_pokemon, lang, session[:difficulty])
+end
+
+post "/game/play" do
 	erb :guess, locals: check_pokemon_guess(params['guess'])
 end
 
@@ -17,5 +32,5 @@ end
 
 get "/game/skip/:lang" do
 	if !session[:skips] then session[:skips] = 1 else session[:skips] += 1 end
-	redirect "/game?lang=#{params['lang']}"
+	redirect "/game/play?lang=#{params['lang']}"
 end

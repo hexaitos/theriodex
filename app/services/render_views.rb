@@ -14,10 +14,10 @@ def pokemon_view_search(query, language_id=9)
 			}	
 end
 
-def pokemon_view_game(id, language_id=9)
+def pokemon_view_game(id, language_id=9, difficulty="easy")
 	selected_pokemon = Sanitize.fragment(id)
 	language_id == "en" ? language_id = 9 : language_id
-	session[:pokemon_info] = game_data = get_game_info(id, language_id)
+	session[:pokemon_info] = game_data = get_game_info(id, language_id, difficulty)
 	game_data[:points] = session[:points] ||= 0
 	game_data[:guesses] = session[:guesses] ||= 0
 	game_data[:skips] = session[:skips] ||= 0

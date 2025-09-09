@@ -381,6 +381,14 @@ select#lang-select {
 	font-size: 12px;
 }
 
+select#difficulty {
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: white;
+    width: 200px;
+}
+
 summary {
 	background-color: var(--color-primary);
 	padding: 5px;
