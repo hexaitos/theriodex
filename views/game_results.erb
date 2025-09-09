@@ -1,8 +1,10 @@
 <%= partial :lang_select, id: id, lang: lang %>
 
 <h1>Game Results</h1>
-<div class="print">
-<button class="print" onClick="window.print()">Print your results</button>
+<div class="download">
+	<button class="print" onClick="window.print()">Print</button>
+	<a class="print a-btn-2" href="/game/save">Download as .txt</a>
+</div>
 
 <p><%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> </p>
 
@@ -37,5 +39,4 @@
 			<% end %>
 		</div class="guess">
 	<% end %>
-</div>
 </div>

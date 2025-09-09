@@ -3,11 +3,13 @@
 <div class="game">
 	<h1><%= get_localised_text(lang, :guess_the_pokemon) %></h1>
 	<p><%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> </p>
-
-	<a class="a-btn-1" href="/game/reset/<%= lang %>"><%= get_localised_text(lang, :reset) %></a>
-	<a class="a-btn-1" id="dec" href="#"><%= get_localised_text(lang, :decrease_blur) %></a>
-	<a class="a-btn-1" href="/game/results?lang=<%= lang %>">Results</a>
-	<br />
+	
+	<div class="game-buttons">
+		<a class="a-btn-1" href="/game/reset/<%= lang %>"><%= get_localised_text(lang, :reset) %></a>
+		<a class="a-btn-1" id="dec" href="#"><%= get_localised_text(lang, :decrease_blur) %></a>
+		<a class="a-btn-1" href="/game/results?lang=<%= lang %>">Results</a>
+		<br />
+	</div>
 
 	<img id="sprite" src="<%= sprite %>" style="filter: blur(<%= blur %>px); width: 256px"/>
 	<br />

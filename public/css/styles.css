@@ -418,8 +418,22 @@ select#difficulty {
 	font-size: small;
 }
 
-button.print {
-	width: 100%;
+.print {
+	width: 50%;
+}
+
+.download {
+	display: flex;
+	gap: 10px;
+}
+
+div.difficulty-select a.a-btn-2 {
+	margin-top: 5px;
+}
+
+.game-buttons {
+	display: flex;
+	justify-content: center;
 }
 
 .guess-results img {

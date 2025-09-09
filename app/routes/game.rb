@@ -31,6 +31,10 @@ get "/game/results" do
 	erb :game_results, locals: pokemon_view_results()
 end
 
+get "/game/save" do
+	download_results()
+end
+
 get "/game/reset/:lang" do
 	session.clear
 	redirect "/game?lang=#{params['lang']}"

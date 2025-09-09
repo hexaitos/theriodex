@@ -1,4 +1,4 @@
-def get_game_info(id, language_id=9, difficulty="easy")	
+def get_game_info(id, language_id=9, difficulty="easy")
 	puts session[:results]
 	name = get_pokemon_name(id, language_id)
 	hints = {}
