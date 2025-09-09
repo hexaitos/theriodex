@@ -12,6 +12,7 @@ DB = SQLite3::Database.new "app/db/db.sqlite3"
 Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_helper }
 Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }
 Dir.glob("#{Dir.pwd}/app/helpers/*rb").each { | helper | require_relative helper }
+Dir.glob("#{Dir.pwd}/app/helpers/game/*rb").each { | helper | require_relative helper }
 Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
 FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
