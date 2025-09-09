@@ -21,8 +21,19 @@ def pokemon_view_game(id, language_id=9, difficulty="easy")
 	game_data[:points] = session[:points] ||= 0
 	game_data[:guesses] = session[:guesses] ||= 0
 	game_data[:skips] = session[:skips] ||= 0
+	game_data[:results] = session[:results] ||= {}
 
 	puts game_data
+
+	return game_data
+end
+
+def pokemon_view_results()
+	game_data = session[:pokemon_info]
+	game_data[:points] = session[:points] 
+	game_data[:guesses] = session[:guesses]
+	game_data[:skips] = session[:skips]
+	game_data[:results] = session[:results]
 
 	return game_data
 end

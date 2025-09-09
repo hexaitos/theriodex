@@ -25,6 +25,10 @@ post "/game/play" do
 	erb :guess, locals: check_pokemon_guess(params['guess'])
 end
 
+get "/game/results" do
+	erb :game_results, locals: pokemon_view_results()
+end
+
 get "/game/reset/:lang" do
 	session.clear
 	redirect "/game?lang=#{params['lang']}"

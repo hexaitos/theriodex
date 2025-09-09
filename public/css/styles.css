@@ -403,6 +403,20 @@ select#difficulty {
 	width: 200px;
 }
 
+.game-results {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.game-results .guess {
+	flex: 0 0
+}
+
+.guess p {
+	margin: 0;
+}
+
 summary {
 	background-color: var(--color-primary);
 	padding: 5px;
