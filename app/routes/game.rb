@@ -1,7 +1,7 @@
 get "/game" do
 	lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? params[:lang] : "en"
 
-	erb :game_start, locals: { :lang => lang, :id => 1 }
+	erb :'game/game_start', locals: { :lang => lang, :id => 1 }
 end
 
 post "/game/start/:lang" do
@@ -17,18 +17,18 @@ get "/game/play" do
 	end
 	random_pokemon = rand(1..1024)
 	
-	erb :game, locals: pokemon_view_game(random_pokemon, lang, session[:difficulty])
+	erb :'game/game', locals: pokemon_view_game(random_pokemon, lang, session[:difficulty])
 end
 
 post "/game/play" do
-	erb :guess, locals: check_pokemon_guess(params['guess'])
+	erb :'game/guess', locals: check_pokemon_guess(params['guess'])
 end
 
 get "/game/results" do
 	if !session[:results] then
 		redirect back
 	end
-	erb :game_results, locals: pokemon_view_results()
+	erb :'game/game_results', locals: pokemon_view_results()
 end
 
 get "/game/save" do
