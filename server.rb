@@ -6,6 +6,9 @@ require 'sqlite3'
 require 'fuzzy_match'
 require 'sanitize'
 require 'rack/cache'
+require 'rack/session/pool'
+
+use Rack::Session::Pool, key: 'rack.session', expire_after: 2_592_000
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
 
@@ -16,8 +19,6 @@ Dir.glob("#{Dir.pwd}/app/helpers/game/*rb").each { | helper | require_relative h
 Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
 FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
-
-enable :sessions
 
 configure :production do
 	set :static_cache_control, [:public, max_age: 3600]
