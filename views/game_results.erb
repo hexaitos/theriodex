@@ -32,6 +32,7 @@
 		<div class="guess-results">
 			<% if data[:skipped] %>
 				<img src="/sprites/pokemon/<%= id %>.png"/>
+				<p>The Pokémon was: <u><%= data[:name] %></u></p>
 				<p>You skipped this Pokémon</p>
 			<% end %>
 		</div class="guess">
