@@ -17,7 +17,7 @@ get "/game/play" do
 		redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
 	end
 	
-	erb :'game/game', locals: pokemon_view_game(get_random_game_pokemon(session[:gen	]), lang, session[:difficulty])
+	erb :'game/game', locals: pokemon_view_game(get_random_game_pokemon(session[:gen]), lang, session[:difficulty])
 end
 
 post "/game/play" do

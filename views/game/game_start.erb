@@ -28,18 +28,9 @@
 	<% else %>
 		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
 			<select id="difficulty" name="diff" required>
-				<option value="easy"
-					<%= if session[:difficulty] == 'easy' then 'selected' end %>>
-					🟢 Easy
-				</option>
-				<option value="medium" 
-					<%= if session[:difficulty] == 'medium' then 'selected' end %>>
-					🟡 Medium
-				</option>
-				<option value="hard"
-					<%= if session[:difficulty] == 'hard' then 'selected' end %>>
-					🔴 Hard
-				</option>
+				<option value="easy" <%= if session[:difficulty] == 'easy' then 'selected' end %>🟢 Easy</option>
+				<option value="medium" <%= if session[:difficulty] == 'medium' then 'selected' end%>>🟡 Medium</option>
+				<option value="hard" <%= if session[:difficulty] == 'hard' then 'selected' end %>>🔴 Hard</option>
 			</select>
 			<select id="generation" name="gen" required>
 				<option value="any" <%= if session[:gen] == 'any' or !session[:gen] then 'selected' end %>>Any generation</option>
