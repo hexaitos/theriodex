@@ -10,6 +10,18 @@
 				<option value="medium">🟡 Medium</option>
 				<option value="hard">🔴 Hard</option>
 			</select>
+
+			<select id="generation" name="gen" required>
+				<option value="any" selected>Any generation</option>
+				<option value="1">Gen 1</option>
+				<option value="2">Gen 2</option>
+				<option value="3">Gen 3</option>
+				<option value="5">Gen 5</option>
+				<option value="6">Gen 6</option>
+				<option value="7">Gen 7</option>
+				<option value="8">Gen 8</option>
+				<option value="9">Gen 9</option>
+			</select>
 			<br /><br />
 			<button type="submit">Start Game</button>
 		</form>
@@ -28,6 +40,17 @@
 					<%= if session[:difficulty] == 'hard' then 'selected' end %>>
 					🔴 Hard
 				</option>
+			</select>
+			<select id="generation" name="gen" required>
+				<option value="any" <%= if session[:gen] == 'any' or !session[:gen] then 'selected' end %>>Any generation</option>
+				<option value="1" <%= if session[:gen] == '1' then 'selected' end %>>Gen 1</option>
+				<option value="2" <%= if session[:gen] == '2' then 'selected' end %>>Gen 2</option>
+				<option value="3" <%= if session[:gen] == '3' then 'selected' end %>>Gen 3</option>
+				<option value="5" <%= if session[:gen] == '5' then 'selected' end %>>Gen 5</option>
+				<option value="6" <%= if session[:gen] == '6' then 'selected' end %>>Gen 6</option>
+				<option value="7" <%= if session[:gen] == '7' then 'selected' end %>>Gen 7</option>
+				<option value="8" <%= if session[:gen] == '8' then 'selected' end %>>Gen 8</option>
+				<option value="9" <%= if session[:gen] == '9' then 'selected' end %>>Gen 9</option>
 			</select>
 			<br /><br />
 			<button type="submit">Restart Game</button>

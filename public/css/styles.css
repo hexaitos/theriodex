@@ -394,13 +394,14 @@ select#lang-select {
 	font-size: 12px;
 }
 
-select#difficulty {
+select#difficulty, select#generation {
 	padding: 10px 20px 10px 20px;
 	border-radius: 5px;
 	text-align: center;
 	background-color: var(--color-primary);
 	color: white;
 	width: 200px;
+	margin-top: 10px;
 }
 
 .game-results {

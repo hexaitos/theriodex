@@ -4,9 +4,10 @@ get "/game" do
 	erb :'game/game_start', locals: { :lang => lang, :id => 1 }
 end
 
-post "/game/start/:lang" do
+post "/game/start/:lang/?:gen?" do
 	session.clear
 	session[:difficulty] ||= params['diff']
+	session[:gen] ||= params['gen'] if params['gen']
 	redirect "/game/play?lang=#{params['lang']}"
 end
 
@@ -15,9 +16,8 @@ get "/game/play" do
 	if !session[:difficulty] then
 		redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
 	end
-	random_pokemon = rand(1..1024)
 	
-	erb :'game/game', locals: pokemon_view_game(random_pokemon, lang, session[:difficulty])
+	erb :'game/game', locals: pokemon_view_game(get_random_game_pokemon(session[:gen	]), lang, session[:difficulty])
 end
 
 post "/game/play" do
