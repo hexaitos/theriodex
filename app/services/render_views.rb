@@ -23,7 +23,7 @@ def pokemon_view_game(id, language_id=9, difficulty="easy")
 	game_data[:skips] = session[:skips] ||= 0
 	game_data[:results] = session[:results] ||= {}
 
-	puts game_data
+	puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) - Game data: #{game_data}\n\n"
 
 	return game_data
 end
@@ -51,7 +51,6 @@ def pokemon_view_ability(id, language_id=9)
 	raise Sinatra::NotFound if ability_name.nil?
 	
 	pokemon_with_ability_raw.each do | pokemon |
-		puts pokemon.first
 		pokemon_with_ability[pokemon.first] = {}
 		pokemon_with_ability[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_with_ability[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
