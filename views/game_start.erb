@@ -1,25 +1,43 @@
 <%= partial :lang_select, id: id, lang: lang %>
 
-<p>Choose your difficulty</p>
-<% if !session[:points] %>
-	<form action="/game/start/<%= lang %>" method="post" id="difficulty">
-		<select id="difficulty" name="diff" required>
-			<option value="easy">Easy</option>
-			<option value="medium">Medium</option>
-			<option value="hard">Hard</option>
-		</select>
-		<br /><br />
-		<button type="submit">Start Game</button>
-	</form>
-<% else %>
-	<form action="/game/start/<%= lang %>" method="post" id="difficulty">
-		<select id="difficulty" name="diff" required>
-			<option value="easy">Easy</option>
-			<option value="medium">Medium</option>
-			<option value="hard">Hard</option>
-		</select>
-		<br /><br />
-		<button type="submit">Restart Game (will reset counters)</button>
-		<a class="a-btn-2" href="/game/play?lang=<%= lang %>">Continue</a>
-	</form>
-<% end %>
+<h1>Pokémon Guessing Game</h1>
+<div class="difficulty-select">
+	<h3>Choose your difficulty</h3>
+	<% if !session[:points] %>
+		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
+			<select id="difficulty" name="diff" required>
+				<option value="easy">🟢 Easy</option>
+				<option value="medium">🟡 Medium</option>
+				<option value="hard">🔴 Hard</option>
+			</select>
+			<br /><br />
+			<button type="submit">Start Game</button>
+		</form>
+	<% else %>
+		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
+			<select id="difficulty" name="diff" required>
+				<option value="easy"
+					<%= if session[:difficulty] == 'easy' then 'selected' end %>>
+					🟢 Easy
+				</option>
+				<option value="medium" 
+					<%= if session[:difficulty] == 'medium' then 'selected' end %>>
+					🟡 Medium
+				</option>
+				<option value="hard"
+					<%= if session[:difficulty] == 'hard' then 'selected' end %>>
+					🔴 Hard
+				</option>
+			</select>
+			<br /><br />
+			<button type="submit">Restart Game</button>
+			<a class="a-btn-2" href="/game/play?lang=<%= lang %>">Continue</a>
+		</form>
+		<div class="diff-hint">
+			<p>Hint: If you want to try a new difficulty, select your new difficult and restart your game. </p>
+			<p><u>Restarting the game will reset all the counters</u>. If you want to continue where you left off and keep your score for this session, click the “Continue” button.</p>
+		</div>
+	<% end %>
+</div>
+<h2>What is this?</h2>
+<p class="block">A simple Pokémon guessing game where you will be presented with a blurred sprite of a Pokémon and will have to guess its name! The higher the difficulty, the higher the blur and the fewer hints you get – hard difficult will not give you any hints at all! You will be able to decrease the blur by a certain degree as well as skip Pokémon you really cannot guess at all. You will also get a score counter that keeps track of how many correct guesses you have made and how many Pokémon you skipped! Try it out!</p>

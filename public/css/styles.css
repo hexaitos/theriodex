@@ -357,6 +357,19 @@ a.current {
 	background-color: black !important;
 }
 
+.difficulty-select {
+	border: 5px double var(--color-accent-border);
+	padding: 10px;
+}
+
+p.block {
+	text-align: justify;
+}
+
+div.diff-hint {
+	font-size: small;
+}
+
 select,
 ::picker(select) {
 	appearance: base-select;
@@ -382,11 +395,11 @@ select#lang-select {
 }
 
 select#difficulty {
-    padding: 10px 20px 10px 20px;
-    text-align: center;
-    background-color: var(--color-primary);
-    color: white;
-    width: 200px;
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+	background-color: var(--color-primary);
+	color: white;
+	width: 200px;
 }
 
 summary {
