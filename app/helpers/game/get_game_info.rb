@@ -9,11 +9,11 @@ def get_game_info(id, language_id=9, difficulty="easy")
 		blur = rand(2..5)
 	when "medium"
 		hints[:first_letter] = name[0].upcase
-		hints[:last_letter] = "Disabled"
+		hints[:last_letter] = false
 		blur = rand(7..13)
 	when "hard"
-		hints[:first_letter] = "Disabled"
-		hints[:last_letter] = "Disabled"
+		hints[:first_letter] = false
+		hints[:last_letter] = false
 		blur = rand(12..20)
 	end
 

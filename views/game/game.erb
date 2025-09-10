@@ -34,11 +34,11 @@
 	</form>
 	<br />
 
-	<% unless hints[:first_letter] == "Disabled" && hints[:last_letter ] == "Disabled"%>
+	<% unless !hints[:first_letter] and !hints[:last_letter] %>
 		<h2><%= get_localised_text(lang, :hints) %></h2>
 	<% end %>
 
-	<% unless hints[:first_letter] == "Disabled"%>
+	<% unless !hints[:first_letter]%>
 		<details>
 			<summary>
 			<%= get_localised_text(lang, :first_letter_of_name) %>
@@ -47,7 +47,7 @@
 		</details>
 	<% end %>
 
-	<% unless hints[:last_letter] == "Disabled"%>
+	<% unless !hints[:last_letter]%>
 		<details>
 			<summary>
 			<%= get_localised_text(lang, :last_letter_of_name) %>
