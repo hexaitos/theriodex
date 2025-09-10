@@ -20,7 +20,8 @@
 		let start = <%= blur %>;
 		let current = <%= blur %>;
 
-		document.getElementById('dec').addEventListener('click', () => {
+		document.getElementById('dec').addEventListener('click', (event) => {
+			event.preventDefault()
 			current = Math.max(start - 5, current - 1);
 			img.style.filter = `blur(${current}px)`;
 		});
@@ -33,19 +34,25 @@
 	</form>
 	<br />
 
-	<h2><%= get_localised_text(lang, :hints) %></h2>
+	<% unless hints[:first_letter] == "Disabled" && hints[:last_letter ] == "Disabled"%>
+		<h2><%= get_localised_text(lang, :hints) %></h2>
+	<% end %>
 
-	<details>
-		<summary>
-		<%= get_localised_text(lang, :first_letter_of_name) %>
-		</summary>
-		<p><%= get_localised_text(lang, :first_letter_of_name) %>: <%= hints[:first_letter] %></p>
-	</details>
+	<% unless hints[:first_letter] == "Disabled"%>
+		<details>
+			<summary>
+			<%= get_localised_text(lang, :first_letter_of_name) %>
+			</summary>
+			<p><%= get_localised_text(lang, :first_letter_of_name) %>: <%= hints[:first_letter] %></p>
+		</details>
+	<% end %>
 
-	<details>
-		<summary>
-		<%= get_localised_text(lang, :last_letter_of_name) %>
-		</summary>
-		<p><%= get_localised_text(lang, :last_letter_of_name) %>: <%= hints[:last_letter] %></p>
-	</details>
+	<% unless hints[:last_letter] == "Disabled"%>
+		<details>
+			<summary>
+			<%= get_localised_text(lang, :last_letter_of_name) %>
+			</summary>
+			<p><%= get_localised_text(lang, :last_letter_of_name) %>: <%= hints[:last_letter] %></p>
+		</details>
+	<% end %>
 </div>
