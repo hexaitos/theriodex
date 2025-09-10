@@ -45,3 +45,8 @@ get "/game/skip/:lang" do
 	session[:results][session[:pokemon_info][:id]] = { :name => session[:pokemon_info][:name], :skipped => true }
 	redirect "/game/play?lang=#{params['lang']}"
 end
+
+post "/game/save" do
+	save_data_in_leaderboard(params['username'])
+	redirect back
+end
