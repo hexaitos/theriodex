@@ -48,7 +48,7 @@ get "/game/skip/:lang" do
 end
 
 post "/game/leaderboard/save" do
-	save_data_in_leaderboard(session[:username])
+	save_data_in_leaderboard(session[:username]) if session[:username]
 	redirect back
 end
 
