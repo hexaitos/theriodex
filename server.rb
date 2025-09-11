@@ -13,7 +13,7 @@ require 'digest'
 use Rack::Session::Pool, key: 'rack.session', expire_after: 2_592_000
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
-REDIS = Redis.new(host: ENV['HOST'])
+REDIS = Redis.new(host: ENV['REDIS_HOST'])
 
 Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_helper }
 Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }

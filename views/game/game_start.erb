@@ -2,9 +2,10 @@
 
 <h1>Pokémon Guessing Game</h1>
 <div class="difficulty-select">
-	<h3>Choose your difficulty</h3>
 	<% if !session[:points] %>
+		<h3>Choose your difficulty</h3>
 		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
+			<input class="username" name="username" autocomplete="off" required placeholder="Enter username">
 			<select id="difficulty" name="diff" required>
 				<option value="easy">🟢 Easy</option>
 				<option value="medium">🟡 Medium</option>
@@ -24,8 +25,17 @@
 			</select>
 			<br /><br />
 			<button type="submit">Start Game</button>
+			<hr />
+			<a class="a-btn-2" href="/game/leaderboard">View leaderboard</a>
 		</form>
 	<% else %>
+		<h3>Continue game</h3>	
+		<div class="diff-hint">
+			<p>Clicking this button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard or to select a new username or to restart with different settings, scroll down.</p>
+		</div>
+		<a class="a-btn-2 continue" href="/game/play?lang=<%= lang %>">Continue</a>
+		<hr />
+		<h3>Restart game with new settings</h3>
 		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
 			<select id="difficulty" name="diff" required>
 				<option value="easy" <%= if session[:difficulty] == 'easy' then 'selected' end %>>🟢 Easy</option>
@@ -44,10 +54,22 @@
 				<option value="9" <%= if session[:gen] == '9' then 'selected' end %>>Gen 9</option>
 			</select>
 			<br /><br />
-			<button type="submit">Restart Game</button>
-			<a class="a-btn-2" href="/game/play?lang=<%= lang %>">Continue</a>
+			<input class="username" name="username" autocomplete="off" required placeholder="<%= session[:username] %>">
+			<button type="submit">Restart Game</button> 
+			<hr />
 			<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
+			<a class="a-btn-2" href="/game/leaderboard">View leaderboard</a>
 		</form>
+		<% if !session[:saved_in_leaderboard] %>
+			<form action="/game/leaderboard/save" method="post">
+				<button type="submit">Save data in leaderboard</button>
+			</form>
+		<% else %>
+			<form action="/game/leaderboard/save" method="post">
+				<button type="submit">Override saved data in leaderboard</button>
+			</form>
+		<% end %>
+		<hr />
 		<div class="diff-hint">
 			<p>Hint: If you want to try a new difficulty or generation, select your new options and restart your game. </p>
 			<p><u>Restarting the game will reset all the counters</u>. If you want to continue where you left off and keep your score for this session, click the “Continue” button.</p>

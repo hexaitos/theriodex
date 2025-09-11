@@ -4,9 +4,18 @@
 <div class="download">
 	<a class="print a-btn-2" onClick="window.print()" href="#">Print</button>
 	<a class="print a-btn-2" href="/game/save">Download</a>
-</div>
+</div></br />
+<% if !session[:saved_in_leaderboard] %>
+	<form action="/game/leaderboard/save" method="post">
+		<button type="submit">Save data in leaderboard</button>
+	</form>
+<% else %>
+	<form action="/game/leaderboard/save" method="post">
+		<button type="submit">Override saved data in leaderboard</button>
+	</form>
+<% end %>
 
-<p><%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> </p>
+<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
 
 <h2>Guessed Pokémon</h2>
 <div class="game-results">
@@ -40,8 +49,3 @@
 		</div class="guess">
 	<% end %>
 </div>
-
-<form action="/game/save" method="post">
-	<input name="username" autocomplete="off" required placeholder="Enter username">
-	<button type="submit">Save data in leaderboard</button>
-</form>

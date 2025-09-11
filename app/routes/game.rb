@@ -8,6 +8,7 @@ post "/game/start/:lang/?:gen?" do
 	session.clear
 	session[:difficulty] ||= params['diff']
 	session[:gen] ||= params['gen'] if params['gen']
+	session[:username] ||= params['username']
 	redirect "/game/play?lang=#{params['lang']}"
 end
 
@@ -46,7 +47,11 @@ get "/game/skip/:lang" do
 	redirect "/game/play?lang=#{params['lang']}"
 end
 
-post "/game/save" do
-	save_data_in_leaderboard(params['username'])
+post "/game/leaderboard/save" do
+	save_data_in_leaderboard(session[:username])
 	redirect back
+end
+
+get "/game/leaderboard" do
+	erb :'game/leaderboard'
 end

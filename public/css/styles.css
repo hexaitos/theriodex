@@ -204,6 +204,9 @@ a {
 	transition: 0.3s;
 }
 
+form [
+]
+
 div.evolutions {
 	font-size: small;
 	margin: 5px;
@@ -402,6 +405,23 @@ select#difficulty, select#generation {
 	color: white;
 	width: 200px;
 	margin-top: 10px;
+}
+
+div.leaderboard {
+	height: 200px;
+	overflow-y: scroll;
+}
+
+input.username {
+	width: 80%;
+}
+
+form {
+	margin-top: 5px;
+}
+
+.continue {
+	width: 100%;
 }
 
 .game-results {
