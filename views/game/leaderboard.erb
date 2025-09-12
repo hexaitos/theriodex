@@ -1,4 +1,4 @@
-<h1>Leaderboard</h1>
+<h1>Pokémon Guessing Game – Leaderboard</h1>
 <div class="leaderboard">
 	<table><thead>
 	<tr>
@@ -18,3 +18,18 @@
 	</tbody>
 	</table>
 </div>
+<% if username and points %>
+	<hr />
+	<h1>Your data</h1>
+	<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
+
+	<% if !session[:saved_in_leaderboard] %>
+		<form action="/game/leaderboard/save" method="post">
+			<button type="submit">Save data in leaderboard</button>
+		</form>
+	<% else %>
+		<form action="/game/leaderboard/save" method="post">
+			<button type="submit">Override saved data in leaderboard</button>
+		</form>
+	<% end %>
+<% end %>

@@ -53,5 +53,5 @@ post "/game/leaderboard/save" do
 end
 
 get "/game/leaderboard/view" do
-	erb :'game/leaderboard'
+	erb :'game/leaderboard', locals: { :points => session[:points], :guesses => session[:guesses], :skips => session[:skips], :username => session[:username], :lang => "en" }
 end
