@@ -362,18 +362,6 @@ a.current {
 	background-color: black !important;
 }
 
-.difficulty-select {
-	border: 5px double var(--color-accent-border);
-	padding: 10px;
-}
-
-.username-select {
-	border: 5px double var(--color-accent-border);
-	border-radius: 5px;
-	padding: 15px;
-	text-align: center;
-	font-weight: bold;
-}
 
 p.block {
 	text-align: justify;
@@ -390,6 +378,7 @@ select,
 
 select {
 	-webkit-appearance: none;
+	text-align-last: center;
 }
 
 select#lang-select {
@@ -419,6 +408,20 @@ select#difficulty, select#generation {
 	color: white;
 	width: 200px;
 	margin-top: 10px;
+}
+
+.difficulty-select {
+	border: 5px double var(--color-accent-border);
+	padding: 10px;
+}
+
+.username-select {
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	padding: 15px;
+	text-align: center;
+	font-weight: bold;
+	background-color: white;
 }
 
 div.leaderboard {
