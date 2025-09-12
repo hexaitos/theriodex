@@ -384,6 +384,10 @@ select,
 	appearance: base-select;
 }
 
+select {
+	-webkit-appearance: none;
+}
+
 select#lang-select {
 	top: 0.5rem;
 	right: 0.5rem;
