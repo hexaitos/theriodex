@@ -365,6 +365,12 @@ a.current {
 	padding: 10px;
 }
 
+.username-select {
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	padding: 10px;
+}
+
 p.block {
 	text-align: justify;
 }

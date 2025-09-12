@@ -3,9 +3,26 @@
 <h1>Pokémon Guessing Game</h1>
 <div class="difficulty-select">
 	<% if !session[:points] %>
-		<h3>Choose your difficulty</h3>
+		<h3>Enter username</h3>
 		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
-			<input class="username" name="username" autocomplete="off" required placeholder="Enter username">
+			<select id="username-1" class="username-select" name="username-1" required>
+				<% ('A'..'Z').each do | letter | %>
+					<option value="<%= letter %>"><%= letter %></option>
+				<%end%>
+			</select>
+			<select id="username-2" class="username-select" name="username-2" required>
+				<% ('A'..'Z').each do | letter | %>
+					<option value="<%= letter %>"><%= letter %></option>
+				<%end%>
+			</select>
+			<select id="username-3" class="username-select" name="username-3" required>
+				<% ('A'..'Z').each do | letter | %>
+					<option value="<%= letter %>"><%= letter %></option>
+				<%end%>
+			</select>
+			<br />
+
+			<h3>Choose your difficulty</h3>
 			<select id="difficulty" name="diff" required>
 				<option value="easy">🟢 Easy</option>
 				<option value="medium">🟡 Medium</option>

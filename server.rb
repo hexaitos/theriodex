@@ -9,6 +9,7 @@ require 'rack/cache'
 require 'rack/session/pool'
 require 'redis'
 require 'digest'
+require 'erubi'
 
 use Rack::Session::Pool, key: 'rack.session', expire_after: 2_592_000
 

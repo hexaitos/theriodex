@@ -8,7 +8,7 @@ post "/game/start/:lang/?:gen?" do
 	session.clear
 	session[:difficulty] ||= params['diff']
 	session[:gen] ||= params['gen'] if params['gen']
-	session[:username] ||= params['username']
+	session[:username] ||= generate_username(params['username-1'], params['username-2'], params['username-3'])
 	redirect "/game/play?lang=#{params['lang']}"
 end
 
