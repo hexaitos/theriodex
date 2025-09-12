@@ -412,6 +412,7 @@ select#difficulty, select#generation {
 
 .difficulty-select {
 	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
 	padding: 10px;
 }
 
