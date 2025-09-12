@@ -6,10 +6,10 @@ end
 
 post "/game/start/:lang/?:gen?" do
 	session.clear
-	session[:difficulty] ||= params['diff']
-	session[:gen] ||= params['gen'] if params['gen']
-	session[:username] ||= generate_username(params['username-1'], params['username-2'], params['username-3'])
-	redirect "/game/play?lang=#{params['lang']}"
+	session[:difficulty] ||= params['diff'].clean
+	session[:gen] ||= params['gen'].clean if params['gen']
+	session[:username] ||= generate_username(params['username-1'].clean, params['username-2'].clean, params['username-3'].clean)
+	redirect "/game/play?lang=#{params['lang'].clean}"
 end
 
 get "/game/play" do
@@ -18,7 +18,7 @@ get "/game/play" do
 		redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
 	end
 	
-	erb :'game/game', locals: pokemon_view_game(get_random_game_pokemon(session[:gen]), lang, session[:difficulty])
+	erb :'game/game', locals: pokemon_view_game(get_random_game_pokemon(session[:gen].clean), lang, session[:difficulty].clean)
 end
 
 post "/game/play" do
@@ -48,10 +48,10 @@ get "/game/skip/:lang" do
 end
 
 post "/game/leaderboard/save" do
-	save_data_in_leaderboard(session[:username]) if session[:username]
+	save_data_in_leaderboard(session[:username].clean) if session[:username]
 	redirect back
 end
 
-get "/game/leaderboard" do
+get "/game/leaderboard/view" do
 	erb :'game/leaderboard'
 end

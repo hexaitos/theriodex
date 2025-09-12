@@ -2,6 +2,10 @@ class String
 	def is_integer?
 		self.to_i.to_s == self
 	end
+
+	def clean
+		Sanitize.fragment(self)
+	end
 end
 
 LANGUAGE_CODES = {

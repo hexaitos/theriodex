@@ -368,7 +368,9 @@ a.current {
 .username-select {
 	border: 5px double var(--color-accent-border);
 	border-radius: 5px;
-	padding: 10px;
+	padding: 15px;
+	text-align: center;
+	font-weight: bold;
 }
 
 p.block {

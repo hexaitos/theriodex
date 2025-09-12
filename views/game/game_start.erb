@@ -20,7 +20,10 @@
 					<option value="<%= letter %>"><%= letter %></option>
 				<%end%>
 			</select>
-			<br />
+			<div class="diff-hint">
+				<p>Choose your username like in an old arcade game! You can choose between three different letters from A-Z. Or just leave it at the default and save your result as “AAA” in the leaderboard!</p>
+			</div>
+			<hr/>
 
 			<h3>Choose your difficulty</h3>
 			<select id="difficulty" name="diff" required>
@@ -43,8 +46,11 @@
 			</select>
 			<br /><br />
 			<button type="submit">Start Game</button>
+			<div class="diff-hint">
+				<p>Choose between three difficulty settings! The easiest will have the least amount of blur and the most number of hints whereas “Hard” will have a lot of blur and no hints at all! You can also choose to either have to guess the Pokémon of any generation (1-9) or you can choose to only guess Pokémon of a particular generation if you are more familiar with it.</p>
+			</div>
 			<hr />
-			<a class="a-btn-2" href="/game/leaderboard">View leaderboard</a>
+			<a class="a-btn-2" href="/game/leaderboard/view">View leaderboard</a>
 		</form>
 	<% else %>
 		<h3>Continue game</h3>	
@@ -55,7 +61,7 @@
 		<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
 		<hr />
 		<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
-		<a class="a-btn-2" href="/game/leaderboard">View leaderboard</a>
+		<a class="a-btn-2" href="/game/leaderboard/view">View leaderboard</a>
 		</form>
 		<% if !session[:saved_in_leaderboard] %>
 			<form action="/game/leaderboard/save" method="post">
