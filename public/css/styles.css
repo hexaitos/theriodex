@@ -5,6 +5,8 @@
 	--color-accent-border: #b5dbe2;
 	--color-bg: #ecf7f9;
 	--color-links: #10378d;
+	--color-th: #9ed7e2;
+	--color-td: white;
 }
 
 @font-face {
@@ -420,8 +422,21 @@ select#difficulty, select#generation {
 }
 
 div.leaderboard {
-	height: 200px;
-	overflow-y: scroll;
+	max-height: 500px;
+	overflow: auto;
+	display: inline-block;
+}
+
+div.leaderboard th {
+	padding: 10px;
+	background-color: var(--color-th);
+	border-radius: 5px;
+}
+
+div.leaderboard td {
+	background-color: var(--color-td);
+	border-radius: 5px;
+	padding: 10px;
 }
 
 input.username {
@@ -508,6 +523,13 @@ summary:hover {
 		--color-accent-border: #b5dbe2;
 		--color-bg: #162225;
 		--color-links: #c58043;
+		--color-th: #96311d;
+		--color-td: black;
+	}
+
+	select.username-select {
+		background-color: black;
+		color: white;
 	}
 
 	p, span, h1, h2, h3, tr, a.current, div.privacy {
