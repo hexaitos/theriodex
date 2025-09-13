@@ -12,11 +12,15 @@
 		<a href="/privacy" target="_blank" rel="noopener">privacy policy</a> before continuing.
 		</p>
 
-		<label>
-		<input type="checkbox" id="consentCheckbox">
-		I have read and agree to the privacy policy and consent to saving my data publicly.
-		</label>
+		<div class="switch-wrapper">
+			<label class="rocker rocker-small" for="consentCheckbox">
+				<input type="checkbox" id="consentCheckbox">
+				<span class="switch-left">Yes</span>
+				<span class="switch-right">No</span>
+			</label>
+		</div>
 
+		<p>I have read and agree to the privacy policy and consent to saving my data publicly.</p>
 		<div class="modal-actions">
 		<button type="button" id="declineBtn">Cancel</button>
 		<button type="button" id="acceptBtn" disabled>Accept and save</button>
