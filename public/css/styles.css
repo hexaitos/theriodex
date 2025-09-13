@@ -342,7 +342,7 @@ a:hover {
 }
 
 .switch-wrapper input:checked + .switch-left {
-	background-color: #474bff;
+	background-color: #2d9e00;
 	color: #fff;
 	bottom: 0px;
 	left: 0.5em;
