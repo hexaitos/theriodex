@@ -2,7 +2,7 @@ def save_data_in_leaderboard(username)
 	if session[:saved_in_leaderboard]
 		override_data_in_leaderboard(session[:database_username], session[:username])
 	else
-		database_username = "#{username}-#{Time.now.strftime('%Y%m%d%H%M%S')}"
+		database_username = "#{username}-#{Time.now.strftime('%Y%m%d%H%M%S')}>#{rand(0..1000000000000)}"
 		score = calculate_game_score(session[:points], session[:guesses], session[:skips])
 		REDIS.zadd("scores", score, database_username)
 		session[:saved_in_leaderboard] ||= true

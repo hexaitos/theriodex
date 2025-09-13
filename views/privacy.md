@@ -2,6 +2,40 @@
 
 **Last updated:** 13 September 2025
 
+----------
+
+## Short overview
+We store only the minimum needed to run the game and site. Sessions/logs are stored for 24h, DNS logs for 72h (anonymised, last octet removed), and leaderboard scores persist only if you submit them.
+
+**What we store**:
+
+- **Temporary session/game data** while you play (username, guesses, skips, current Pokémon and its ID, guess text, whether or not guess was correct, calculated score). Can be deleted by resetting game.
+- **Optional leaderboard entries** (username, score, submission date) – stored only if you choose to submit, requires active consent.
+- **Server access logs** (IP, timestamp, requested resource, actions such as which Pokémon was shown).
+
+**Retention**:
+
+- **Session cookies & server access logs:** deleted after a maximum of **24 hours**.
+- **Bunny DNS logs:** deleted after **72 hours**; logs are anonymised (last IP octet removed).
+- **Leaderboard entries:** kept **perpetually** until you request deletion.
+
+**Where data is processed / stored**:
+
+All processing and storage in done in the EU.
+
+- Website and Redis (leaderboard) provided by: **Scaleway (France)**.
+- DNS provided by: **Bunny (Slovenia)**.
+- Email provded by: **mailbox.org (Germany)**.
+- Operator based in: **Germany**.
+
+**How to delete data**:
+
+- **You can delete the current session data yourself** by navigating to [https://btlr.sh/game/reset](https://btlr.sh/game/reset).
+- **Contact us to delete leaderboard data**. 
+- Contact: **privacy@btlr.sh** – include details (username, date) to request removal (e.g., leaderboard entry).
+
+----------
+
 ## 1. Controller
 
 - **Hexaitos**, henceforth referred to as simply “operator”, based in Germany  
@@ -31,7 +65,7 @@
   - The name and ID of the Pokémon the user was guessing at that time
   - Whether the guess was correct
   - The user’s calculated score
-- Rack::Session::Pool keeps session data server‑side (in memory) rather than storing full session payloads in client cookies; session data is lost when the server process restarts<sup>1</sup>.
+- Rack::Session::Pool keeps session data server‑side (in memory) rather than storing full session payloads in client cookies; session data is lost when the server process restarts.
 
 **Leaderboard (optional, persistent)**
 
@@ -67,15 +101,17 @@
 - Leaderboard database:
   - The leaderboard is stored in a Redis database running on a small VPS hosted by **Scaleway**.  
   - The Redis instance is reachable only from a private network (VPC) that connects the Serverless Container and the VPS.
-- DNS is hosted by **Bunny (Slovenia)**.  
-- Email services remain available for contact at privacy@btlr.sh.  
+- Scaleway is based in France.
+- DNS is hosted by **Bunny DNS (Slovenia)**.  
+- Emails hosting is provided by **mailbox.org (Germany)**.
 - DPAs can be provided upon request.
 
 ## 6. Retention
 
 - **Scaleway / Grafana logs:** retained for 1 day. These logs may contain IP addresses and activity data (including Pokémon shown and game state when a user plays).  
-- **Session / game data (Rack::Session::Pool):** deleted after 24 hours, when the user uses the “Reset game” button, or when the server restarts (sessions are kept in memory)<sup>1</sup>.
-- **Leaderboard entries:** stored perpetually (unless a deletion request is processed — see section 9).  
+- **Session / game data (Rack::Session::Pool):** deleted after 24 hours, when the user uses the “Reset game” button, or when the server restarts (sessions are kept in memory).
+- **Leaderboard entries:** stored perpetually (unless a deletion request is processed — see section 9). 
+- **DNS queries** : Anonymised DNS queries are stored for 72 hours on Bunny DNS (the last octet of the IP from which the request originated is removed for privacy). 
 - In case of an ongoing security investigation or legal obligation, relevant logs or data may be kept for longer as necessary.
 
 ## 7. Recipients and disclosures
@@ -104,9 +140,9 @@ To exercise these rights, contact the operator at privacy@btlr.sh. For deletion 
 
 This policy may be updated. The “Last updated” date above will indicate the current version.
 
-## Changes from initial privacy policy from August 28th, 2025
+## Changes from initial privacy policy from 28 August 2025
 
-### Rev. 1 – September 13th, 2025
+### Rev. 1 – 13 September 2025
 - **Server logs:** now stored on **Scaleway’s Grafana** logging/dashboard service and **retained for 1 day**. Logs include IP addresses, website activity (e.g., which Pokémon was displayed) and **current game data** when a user plays.  
 - **Hosting:** clarified that the application runs on **Scaleway Serverless Containers** (no longer hosted on OpenBSD or multiple providers).  
 - **DNS:** changed to **Bunny (Slovenia)**.  
@@ -115,4 +151,8 @@ This policy may be updated. The “Last updated” date above will indicate the 
 - **Removed** references to prior reverse proxy / OpenBSD log storage and any providers no longer used.
 
 ## Reading
-- <sup>1</sup>https://www.rubydoc.info/gems/eac-rack/Rack/Session/Pool
+- https://www.rubydoc.info/gems/eac-rack/Rack/Session/Pool
+- https://www.scaleway.com/en/docs/serverless-containers/faq/
+- https://bunny.net/dns
+- https://bunny.net/privacy/
+- https://www.scaleway.com/en/privacy-policy/

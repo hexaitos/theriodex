@@ -36,7 +36,7 @@ get "/game/save" do
 	download_results()
 end
 
-get "/game/reset/:lang" do
+get "/game/reset/?:lang?" do
 	session.clear
 	redirect "/game?lang=#{params['lang']}"
 end
