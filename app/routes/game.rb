@@ -53,5 +53,6 @@ post "/game/leaderboard/save" do
 end
 
 get "/game/leaderboard/view" do
-	erb :'game/leaderboard', locals: { :points => session[:points], :guesses => session[:guesses], :skips => session[:skips], :username => session[:username], :lang => "en" }
+	lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+	erb :'game/leaderboard', locals: { :points => session[:points], :guesses => session[:guesses], :skips => session[:skips], :username => session[:username], :lang => LANGUAGE_CODES.key(lang) }
 end

@@ -8,7 +8,7 @@
 		<a class="a-btn-1" href="/game/reset/<%= lang %>"><%= get_localised_text(lang, :reset) %></a>
 		<a class="a-btn-1" id="dec" href="#"><%= get_localised_text(lang, :decrease_blur) %></a>
 		<a class="a-btn-1" href="/game/results?lang=<%= lang %>">Results</a>
-		<a class="a-btn-1" href="/game/leaderboard/view">Leaderboard</a>
+		<a class="a-btn-1" href="/game/leaderboard/view?lang=<% lang %>">Leaderboard</a>
 		<br />
 	</div>
 
@@ -36,6 +36,7 @@
 	<br />
 
 	<% unless !hints[:first_letter] and !hints[:last_letter] %>
+		<hr />
 		<h2><%= get_localised_text(lang, :hints) %></h2>
 	<% end %>
 

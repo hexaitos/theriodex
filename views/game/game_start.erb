@@ -44,24 +44,33 @@
 				<option value="8">8️⃣ Gen 8</option>
 				<option value="9">9️⃣ Gen 9</option>
 			</select>
-			<br /><br />
-			<button type="submit">Start Game</button>
 			<div class="diff-hint">
 				<p>Choose between three difficulty settings! The easiest will have the least amount of blur and the most number of hints whereas “Hard” will have a lot of blur and no hints at all! You can also choose to either have to guess the Pokémon of any generation (1-9) or you can choose to only guess Pokémon of a particular generation if you are more familiar with it.</p>
 			</div>
 			<hr />
-			<a class="a-btn-2" href="/game/leaderboard/view">View leaderboard</a>
+			<button type="submit" class="full">Start Game</button>
+			<div class="diff-hint">
+				<p>Start the game immediately with the difficulty settings and the username you selected above!</p>
+			</div>
+			<hr />
+			<a class="a-btn-2 full" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+			<div class="diff-hint">
+				<p>View the leaderboard and see the scores of other players – maybe you can even get to the top!</p>
+			</div>
 		</form>
 	<% else %>
 		<h3>Continue game</h3>	
 		<div class="diff-hint">
 			<p>Clicking the “Continue” button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard, to view your results or to see the leaderboard, scroll down. To reset the game, click the “Reset Game” button.</p>
 		</div>
-		<a class="a-btn-2 continue" href="/game/play?lang=<%= lang %>">Continue</a>
-		<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
+		<div class="game-start-buttons">
+			<a class="a-btn-2 continue" href="/game/play?lang=<%= lang %>">Continue</a>
+			<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
+		</div>
 		<hr />
-		<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
-		<a class="a-btn-2" href="/game/leaderboard/view">View leaderboard</a>
+		<div class="game-start-buttons">
+			<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
+			<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
 		</form>
 		<% if !session[:saved_in_leaderboard] %>
 			<form action="/game/leaderboard/save" method="post">
@@ -72,6 +81,7 @@
 				<button type="submit">Override saved data in leaderboard</button>
 			</form>
 		<% end %>
+		</div>
 		<hr />
 		<div class="diff-hint">
 			<p>Hint: If you want to try a new difficulty or generation or use a new username (so that your friend can play as well, for example), please use the “Reset Game” button.</p>

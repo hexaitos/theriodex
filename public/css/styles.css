@@ -206,9 +206,6 @@ a {
 	transition: 0.3s;
 }
 
-form [
-]
-
 div.evolutions {
 	font-size: small;
 	margin: 5px;
@@ -362,13 +359,39 @@ a.current {
 	background-color: black !important;
 }
 
-
 p.block {
 	text-align: justify;
 }
 
 div.diff-hint {
 	font-size: small;
+}
+
+form.save-in-leaderboard {
+	display: flex;
+	gap: 10px;
+	align-items: baseline;
+}
+
+form.save-in-leaderboard button, form.save-in-leaderboard a {
+	width: 50%;
+}
+
+.full {
+	width: 100%;
+}
+
+div.game-start-buttons {
+	display: flex;
+	gap: 5px;
+	flex-wrap: wrap;
+	flex: 0 0 1;
+	justify-content: center;
+}
+
+div.game-start-buttons a {
+	flex: 1 1 0;
+	flex-basis: auto;
 }
 
 select,
@@ -486,6 +509,7 @@ div.difficulty-select a.a-btn-2 {
 .game-buttons {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .guess-results img {
@@ -550,10 +574,6 @@ summary:hover {
 	body {
 		margin-left: 10%;
 		margin-right: 10%;
-	}
-
-	button {
-		margin-top: 10px;
 	}
 
 	div.flavour, p.ability {
