@@ -1,4 +1,5 @@
 <%= partial :lang_select_game, lang: lang %>
+<%= partial :privacy_js %>
 
 <h1>Pokémon Guessing Game – Leaderboard</h1>
 <div class="leaderboard">
@@ -14,7 +15,7 @@
 			<tr>
 				<td><%= name.rpartition("-")[0] %></td>
 				<td><%= score.to_i %></td>
-				<td><%= Time.strptime(name.rpartition("-")[2], '%Y%m%d%H%M%S').strftime('%B %-d, %Y. %H:%M') %></td>
+				<td><%= Time.strptime(name.rpartition("-")[2], '%Y%m%d%H%M%S').strftime('%B %-d, %Y') %></td>
 			</tr>
 		<% end%>
 	</tbody>
@@ -26,9 +27,7 @@
 	<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
 
 	<% if !session[:saved_in_leaderboard] %>
-		<form action="/game/leaderboard/save" method="post">
-			<button type="submit">Save data in leaderboard</button>
-		</form>
+		<%= partial :save_in_leaderboard %>
 	<% else %>
 		<form action="/game/leaderboard/save" method="post">
 			<button type="submit">Override saved data in leaderboard</button>

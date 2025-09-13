@@ -18,12 +18,12 @@
 }
 
 * {
-	font-family: 'Pixelated';
 	box-sizing: border-box;
 	cursor: url("/cursors/talonflame.cur"), auto;
 }
 
 body {
+	font-family: 'Pixelated';
 	margin-left: 20%;
 	margin-right: 20%;
 	text-align: center;
@@ -149,10 +149,14 @@ div.search_bar {
 
 div.privacy {
 	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-div.privacy pre {
+div.privacy code {
 	overflow: auto;
+	display: block;
+	unicode-bidi: embed;
+	white-space: pre;
 }
 
 .sound-btn {
@@ -228,7 +232,26 @@ a:hover {
 	text-decoration: none;
 }
 
+.modal {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	background: rgba(0,0,0,0.5);
+	z-index: 9999;
+}
+.modal[hidden] { display: none; }
+.modal-inner {
+	background: #fff;
+	padding: 1rem;
+	max-width: 480px;
+	width: 90%;
+	border-radius: 6px;
+}
+.modal-actions { margin-top: 0.75rem; display: flex; gap: .5rem; justify-content: flex-end; }
+
 input {
+	font-family: 'Pixelated';
 	border-radius: 5px;
 	border: 2px solid var(--color-primary);
 	padding: 10px;
@@ -272,6 +295,7 @@ div.guess img {
 }
 
 button {
+	font-family: 'Pixelated';
 	font-size: small;
 	padding: 12px;
 	background-color: var(--color-primary);
@@ -402,6 +426,7 @@ select,
 select {
 	-webkit-appearance: none;
 	text-align-last: center;
+	font-family: 'Pixelated';
 }
 
 select#lang-select {

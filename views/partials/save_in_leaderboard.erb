@@ -1,0 +1,25 @@
+<form id="saveForm" action="/game/leaderboard/save" method="post">
+	<button type="submit">Save data in leaderboard</button>
+	<input type="hidden" name="privacy_accepted" id="privacy_accepted" value="0">
+</form>
+
+<div id="consentModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="consentTitle" hidden>
+	<div class="modal-inner" role="document">
+		<h2 id="consentTitle">Save to leaderboard — privacy notice</h2>
+		<p>
+		This will save your <strong>username, score and date</strong> into our public leaderboard.
+		Your saved entry will be visible to anyone visiting the leaderboard. Read our
+		<a href="/privacy" target="_blank" rel="noopener">privacy policy</a> before continuing.
+		</p>
+
+		<label>
+		<input type="checkbox" id="consentCheckbox">
+		I have read and agree to the privacy policy and consent to saving my data publicly.
+		</label>
+
+		<div class="modal-actions">
+		<button type="button" id="declineBtn">Cancel</button>
+		<button type="button" id="acceptBtn" disabled>Accept and save</button>
+		</div>
+	</div>
+</div>

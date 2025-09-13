@@ -1,4 +1,5 @@
 <%= partial :lang_select, id: id, lang: lang %>
+<%= partial :privacy_js %>
 
 <h1>Pokémon Guessing Game</h1>
 <div class="difficulty-select">
@@ -73,15 +74,14 @@
 			<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
 		</form>
 		<% if !session[:saved_in_leaderboard] %>
-			<form action="/game/leaderboard/save" method="post">
-				<button type="submit">Save data in leaderboard</button>
-			</form>
+			<%= partial :save_in_leaderboard %>
 		<% else %>
 			<form action="/game/leaderboard/save" method="post">
 				<button type="submit">Override saved data in leaderboard</button>
 			</form>
 		<% end %>
 		</div>
+
 		<hr />
 		<div class="diff-hint">
 			<p>Hint: If you want to try a new difficulty or generation or use a new username (so that your friend can play as well, for example), please use the “Reset Game” button.</p>

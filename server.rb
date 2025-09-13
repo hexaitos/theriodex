@@ -10,8 +10,9 @@ require 'rack/session/pool'
 require 'redis'
 require 'digest'
 require 'erubi'
+require 'redcarpet'
 
-use Rack::Session::Pool, key: 'rack.session', expire_after: 2_592_000
+use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
 REDIS = Redis.new(host: ENV['REDIS_HOST'])

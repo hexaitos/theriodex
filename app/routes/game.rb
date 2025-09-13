@@ -48,6 +48,7 @@ get "/game/skip/:lang" do
 end
 
 post "/game/leaderboard/save" do
+	redirect back if params['privacy_accepted'].to_i != 1
 	save_data_in_leaderboard(session[:username].clean) if session[:username]
 	redirect back
 end
