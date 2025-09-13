@@ -30,7 +30,7 @@ All processing and storage in done in the EU.
 
 **How to delete data**:
 
-- **You can delete the current session data yourself** by navigating to [https://btlr.sh/game/reset](https://btlr.sh/game/reset).
+- **You can delete the current session data yourself** by navigating to [https://btlr.sh/game/reset](https://btlr.sh/game/reset) (**Warning**: Clicking this link will immediately delete your current game data).
 - **Contact us to delete leaderboard data**. 
 - Contact: **privacy@btlr.sh** – include details (username, date) to request removal (e.g., leaderboard entry).
 
