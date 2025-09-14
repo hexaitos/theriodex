@@ -7,23 +7,45 @@ variables:
   - &repo codeberg.org/${CI_REPO_OWNER}/theriodex
 
 steps:
-  dryrun:
+  build:
     image: woodpeckerci/plugin-kaniko
     settings:
       dockerfile: *file
       platforms: linux/amd64
-      dry_run: true
       repo: *repo
       tags: latest
 
-  publish:
+  publish_to_codeberg:
     image: woodpeckerci/plugin-kaniko
     settings:
       dockerfile: *file
       platforms: linux/amd64
       repo: *repo
-      registry: codeberg.org
       tags: latest
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
+
+  publish_to_scaleway:
+    image: woodpeckerci/plugin-kaniko
+    settings:
+      dockerfile: *file
+      platforms: linux/amd64
+      repo:
+        from_secret: scaleway_repo
+      tags: latest
+      username: nologin
+      password:
+        from_secret: scw_key
+
+  deploy:
+    image: debian
+    environment:
+      SCW_SECRET_KEY:
+        from_secret: scw_key
+      CONTAINER_REGION:
+        from_secret: container_region
+      CONTAINER_ID:
+        from_secret: container_id
+    commands:
+      - curl -X POST -H "X-Auth-Token: $${SCW_SECRET_KEY}" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/$${CONTAINER_REGION}/containers/$${CONTAINER_ID}/deploy"
