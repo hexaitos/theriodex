@@ -4,7 +4,7 @@ when:
 
 variables:
   - &file Dockerfile
-  - &repo codeberg.org/${CI_REPO_OWNER}/theriodex
+  - &repo https://codeberg.org/${CI_REPO_OWNER}/theriodex
 
 steps:
   build:
@@ -20,8 +20,7 @@ steps:
     settings:
       dockerfile: *file
       platforms: linux/amd64
-      registry: codeberg.org
-      repo: hexaitos/theriodex
+      repo: *repo
       tags: latest
       username: ${CI_REPO_OWNER}
       password:
