@@ -48,4 +48,5 @@ steps:
       CONTAINER_ID:
         from_secret: container_id
     commands:
-      - curl -X POST -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/$CONTAINER_REGION/containers/$CONTAINER_ID/deploy"
+      - |
+        curl -X POST -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/$CONTAINER_REGION/containers/$CONTAINER_ID/deploy"
