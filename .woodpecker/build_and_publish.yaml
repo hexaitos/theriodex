@@ -4,7 +4,7 @@ when:
 
 variables:
   - &file Dockerfile
-  - &repo https://codeberg.org/${CI_REPO_OWNER}/theriodex
+  - &repo codeberg.org/${CI_REPO_OWNER}/theriodex
 
 steps:
   build:
@@ -20,23 +20,12 @@ steps:
     settings:
       dockerfile: *file
       platforms: linux/amd64
+      registry: codeberg.org
       repo: *repo
       tags: latest
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
-
-  publish_to_scaleway:
-    image: woodpeckerci/plugin-kaniko
-    settings:
-      dockerfile: *file
-      platforms: linux/amd64
-      repo:
-        from_secret: scaleway_repo
-      tags: latest
-      username: nologin
-      password:
-        from_secret: scw_key
 
   deploy:
     image: debian
