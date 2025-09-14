@@ -8,7 +8,7 @@ variables:
 
 steps:
   dryrun:
-    image: woodpeckerci/plugin-docker-buildx
+    image: woodpeckerci/plugin-kaniko
     settings:
       dockerfile: *file
       platforms: linux/amd64
@@ -17,7 +17,7 @@ steps:
       tags: latest
 
   publish:
-    image: woodpeckerci/plugin-docker-buildx
+    image: woodpeckerci/plugin-kaniko
     settings:
       dockerfile: *file
       platforms: linux/amd64
