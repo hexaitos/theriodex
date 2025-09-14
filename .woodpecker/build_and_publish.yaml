@@ -8,7 +8,7 @@ variables:
 
 steps:
   build:
-    image: woodpeckerci/plugin-kaniko
+    image: woodpeckerci/plugin-docker-buildx:6
     settings:
       dockerfile: *file
       platforms: linux/amd64
@@ -16,11 +16,11 @@ steps:
       tags: latest
 
   publish_to_codeberg:
-    image: woodpeckerci/plugin-kaniko
+    image: woodpeckerci/plugin-docker-buildx:6
     settings:
+      registry: codeberg.org
       dockerfile: *file
       platforms: linux/amd64
-      registry: codeberg.org
       repo: *repo
       tags: latest
       username: ${CI_REPO_OWNER}
