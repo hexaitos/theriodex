@@ -20,7 +20,8 @@ steps:
     settings:
       dockerfile: *file
       platforms: linux/amd64
-      repo: *repo
+      registry: codeberg.org
+      repo: hexaitos/theriodex
       tags: latest
       username: ${CI_REPO_OWNER}
       password:
