@@ -17,7 +17,7 @@ Please do the same for the `cries` folder from [this](https://github.com/PokeAPI
 No changes have been made to the database and you can also build the database yourself by looking at the instructions in the above-mentioned PokeAPI repository and simply replace the database included herein with your own build - it should work without any problems. However, I am planning on modifying the database at some point and that may require you to run a migration script that will then be included in this repository. 
 
 # Installation
-Requires Ruby and Bundler. Tested with Ruby `3.4.4`. Run `bundle install` in the cloned repository to download all required gems. Ensure you have placed the `sprites` folder in the correct location as mentioned above (`/public/sprites`). You can then start the server by running `ruby server.rb`.
+Requires Ruby and Bundler. Tested with Ruby `3.4.5`. Run `bundle install` in the cloned repository to download all required gems. Ensure you have placed the `sprites` folder in the correct location as mentioned above (`/public/sprites`). You can then start the server by running `ruby server.rb`.
 
 You may want to run the server in production instead of development mode. To do so, you can start the server by running `APP_ENV=production ruby server.rb`. You may also wish to change the address to which the server listens because, by default, it only listens to `localhost` (so you would be unable to reach the website from anywhere but the machine you are running the server on). To do so, you can add the `-o` flag followed by the IP you wish for the server to listen on. For example, the command `ruby server.rb -o0.0.0.0` would make the server listen to any IP. 
 
@@ -25,8 +25,15 @@ You can also start the server in production mode by running `ruby server.rb -e p
 
 By default, the server listens to port `4567`. To change the port the server listens to, use the `-p` flag followed by the port as follows: `server.rb -p 8080`. 
 
+## Leaderboard
+Theriodex comes with a small leaderboard that allows users to save their game data (from the Pokémon guessing game) in a Redis / Valkey database. Entries are saved into the sorted set `score` with the username in the following format: `ABC-20250911143250>123001238592` wherein the string after `-` is the date and time of the submission and the string after `>` is a randomly generated hash.
+
+To specify the host of the Redis database, you need to set the environment variable `REDIS_HOST` to the correct value. For example, if the database is running on the same machine as Theriodex, you can do the following: `REDIS_HOST="localhost" ruby server.rb -e production`. 
+
 ## Privacy policy
-This repo includes the privacy policy for my own hosted instance of Theriodex. This will obviously not apply to you, so if you wish to host it yourself, **change the privacy policy under `/views/privacy.erb` accordingly**. 
+This repo includes the privacy policy for my own hosted instance of Theriodex. This will obviously not apply to you, so if you wish to host it yourself, **change the privacy policy under `/views/privacy.md` accordingly**. 
+
+If you are using the Docker container, you can overwrite the default privacy policy with your own using a volume: `docker run -e REDIS_HOST="redis_host" -p 5678:5678 -v /path/to/your/custom/privacy.md:/usr/src/app/views/privacy.md theriodex`. 
 
 ## Notes on `rerun`
 Theriodex includes a Ruby gem called `rerun` that will automatically detect if a file has changed and, then, restart the server automatically. This has the advantage that all you will need to do is run `git pull` in the directory you downloaded Theriodex to and it will automatically be updated and you will get the newest version without having to manually restart the server using, for example, `sudo systemctl restart theriodex`. 
