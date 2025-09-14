@@ -18,4 +18,5 @@ COPY server.rb server.rb
 
 RUN apk del build-base gcompat wget gzip
 
+EXPOSE 5678
 CMD ["bundle", "exec", "ruby", "server.rb", "-e", "production", "-p", "5678"]
