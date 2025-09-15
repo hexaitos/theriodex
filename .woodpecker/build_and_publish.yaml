@@ -24,4 +24,4 @@ steps:
       repo: *repo
       tags: latest
       username: ${CI_REPO_OWNER}
-      password: ${{ secrets.cb_token }}
+      password: ${secrets.CB_TOKEN}
