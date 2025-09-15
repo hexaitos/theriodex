@@ -25,13 +25,3 @@ steps:
       tags: latest
       username: ${CI_REPO_OWNER}
       password: ${{ secrets.cb_token }}
-
-  deploy:
-    image: debian
-    env: 
-      SCW_SECRET_KEY: ${{ secrets.scw_key }}
-      CONTAINER_ID: ${{ secrets.container_id }}
-      container_region: ${{ secrets.container_region }}
-    commands:
-      - |
-        curl -X POST -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/$CONTAINER_REGION/containers/$CONTAINER_ID/deploy"
