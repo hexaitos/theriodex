@@ -14,6 +14,10 @@ steps:
       platforms: linux/amd64
       repo: *repo
       tags: latest
+      registry: codeberg.org
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: cb_token
 
   publish_to_codeberg:
     image: woodpeckerci/plugin-docker-buildx:6
