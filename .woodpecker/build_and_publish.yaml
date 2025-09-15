@@ -28,13 +28,10 @@ steps:
 
   deploy:
     image: debian
-    environment:
-      SCW_SECRET_KEY:
-        from_secret: scw_key
-      CONTAINER_REGION:
-        from_secret: container_region
-      CONTAINER_ID:
-        from_secret: container_id
+    env: 
+      SCW_SECRET_KEY: ${{ secrets.scw_key }}
+      CONTAINER_ID: ${{ secrets.container_id }}
+      container_region: ${{ secrets.container_region }}
     commands:
       - |
-        curl -X POST -H "X-Auth-Token: ${{ secrets.scw_key }}" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/${{ secrets.container_region }}/containers/${{ secrets.container_id }}/deploy"
+        curl -X POST -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/$CONTAINER_REGION/containers/$CONTAINER_ID/deploy"
