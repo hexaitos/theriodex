@@ -23,7 +23,7 @@ LANGUAGE_CODES = {
 CACHE_DIR = "/tmp/cache/rack"
 
 LOCALISED_TEXT = {
-	:abilities => {
+	abilities: {
 		"en" => "Abilities",
 		"de" => "Fähigkeiten",
 		"ja" => "特性",
@@ -35,7 +35,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "特性"
 	},
 
-	:evolutions => {
+	evolutions: {
 		"en" => "Evolutions",
 		"de" => "Entwicklungen",
 		"ja" => "進化",
@@ -47,7 +47,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "進化"
 	},
 
-	:shiny => {
+	shiny: {
 		"en" => "Show shiny",
 		"de" => "Schillernde Form",
 		"ja" => "色違いを表示",
@@ -59,7 +59,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "顯示閃光"
 	},
 
-	:normal => {
+	normal: {
 		"en" => "Show normal",
 		"de" => "Normale Form",
 		"ja" => "通常を表示",
@@ -71,7 +71,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "顯示普通"
 	},
 
-	:female => {
+	female: {
 		"en" => "Show female",
 		"de" => "Weibliche Form",
 		"ja" => "メスを表示",
@@ -83,7 +83,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "顯示雌性"
 	},
 
-	:male => {
+	male: {
 		"en" => "Show male",
 		"de" => "Männliche Form",
 		"ja" => "オスを表示",
@@ -95,7 +95,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "顯示雄性"
 	},
 
-	:toggle_animation => {
+	toggle_animation: {
 		"en" => "Toggle animation",
 		"de" => "Animation ein-/ausschalten",
 		"ja" => "アニメーション切替",
@@ -107,7 +107,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "切換動畫"
 	},
 
-	:damage_taken_from_other_types => {
+	damage_taken_from_other_types: {
 		"en" => "Damage taken from other types",
 		"de" => "Schaden durch andere Typen",
 		"ja" => "他のタイプから受けるダメージ",
@@ -119,7 +119,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "來自其他屬性的傷害"
 	},
 
-	:horizontally_scrollable_on_small_screens => {
+	horizontally_scrollable_on_small_screens: {
 		"en" => "horizontally scrollable on small screens",
 		"de" => "auf kleinen Bildschirmen horizontal scrollbar",
 		"ja" => "小さい画面で横にスクロール可能",
@@ -131,7 +131,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "在小螢幕上可橫向捲動"
 	},
 
-	:direct_link => {
+	direct_link: {
 		"en" => "Direct link",
 		"de" => "Direkter Link",
 		"ja" => "直接リンク",
@@ -143,7 +143,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "直接連結"
 	},
 
-	:pokemon_with_this_ability => {
+	pokemon_with_this_ability: {
 		"en" => "Pokémon with this ability",
 		"de" => "Pokémon mit dieser Fähigkeit",
 		"ja" => "この特性を持つポケモン",
@@ -155,7 +155,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "具有此特性的寶可夢"
 	},
 
-	:hp => {
+	hp: {
 		"en" => "HP",
 		"de" => "KP",
 		"ja" => "HP",
@@ -167,7 +167,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "HP"
 	},
 
-	:atk => {
+	atk: {
 		"en" => "Atk",
 		"de" => "Ang",
 		"ja" => "攻撃",
@@ -179,7 +179,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "攻擊"
 	},
 
-	:def => {
+	def: {
 		"en" => "Def",
 		"de" => "Vert",
 		"ja" => "防御",
@@ -191,7 +191,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "防禦"
 	},
 
-	:spatk => {
+	spatk: {
 		"en" => "Sp.Atk",
 		"de" => "Sp.-Ang",
 		"ja" => "特攻",
@@ -203,7 +203,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "特攻"
 	},
 
-	:spdef => {
+	spdef: {
 		"en" => "Sp.Def",
 		"de" => "Sp.-Vert",
 		"ja" => "特防",
@@ -215,7 +215,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "特防"
 	},
 
-	:speed => {
+	speed: {
 		"en" => "Speed",
 		"de" => "Init",
 		"ja" => "素早さ",
@@ -227,7 +227,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "速度"
 	},
 
-	:random => {
+	random: {
 		"en" => "Random",
 		"de" => "Zufällig",
 		"ja" => "ランダム",
@@ -239,7 +239,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "隨機"
 	},
 
-	:about => {
+	about: {
 		"en" => "About",
 		"de" => "Über",
 		"ja" => "概要",
@@ -251,7 +251,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "關於"
 	},
 
-	:search => {
+	search: {
 		"en" => "Search",
 		"de" => "Suche",
 		"ja" => "検索",
@@ -263,7 +263,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "搜尋"
 	},
 
-	:enter_pokemon_name => {
+	enter_pokemon_name: {
 		"en" => "Enter name of a Pokémon",
 		"de" => "Namen eines Pokémon eingeben",
 		"ja" => "ポケモンの名前を入力",
@@ -275,7 +275,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "輸入寶可夢的名稱"
 	},
 
-	:footer => {
+	footer: {
 		"en" => "Made by <a href='https://hexaitos.eu'>Hexaitos</a> with Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>source code</a>). Pokémon and Pokémon character names are trademarks of Nintendo.",
 		"de" => "Erstellt von <a href='https://hexaitos.eu'>Hexaitos</a> mit Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>Quellcode</a>). „Pokémon“ und die Namen der Pokémon‑Charaktere sind Marken von Nintendo.",
 		"ja" => "<a href='https://hexaitos.eu'>Hexaitos</a> が Sinatra を使って作成しました（<a href='https://codeberg.org/hexaitos/theriodex'>ソースコード</a>）。ポケモンおよびポケモンのキャラクター名は任天堂の商標です。",
@@ -287,7 +287,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 製作（<a href='https://codeberg.org/hexaitos/theriodex'>原始程式碼</a>）。「寶可夢」及寶可夢角色名稱為任天堂的商標。"
 	},
 
-	:game => {
+	game: {
 		"en" => "Game",
 		"de" => "Spiel",
 		"ja" => "ゲーム",
@@ -299,7 +299,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "遊戲"
 	},
 
-	:guess_the_pokemon => {
+	guess_the_pokemon: {
 		"en" => "Guess the Pokémon!",
 		"de" => "Errate das Pokémon!",
 		"ja" => "ポケモンを当てて！",
@@ -311,7 +311,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "猜寶可夢！"
 	},
 
-	:points => {
+	points: {
 		"en" => "Points",
 		"de" => "Punkte",
 		"ja" => "ポイント",
@@ -323,7 +323,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "分數"
 	},
 
-	:reset => {
+	reset: {
 		"en" => "Reset",
 		"de" => "Zurücksetzen",
 		"ja" => "リセット",
@@ -335,7 +335,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "重設"
 	},
 
-	:enter_pokemon_name_game => {
+	enter_pokemon_name_game: {
 		"en" => "Enter Pokémon name",
 		"de" => "Namen des Pokémon eingeben",
 		"ja" => "ポケモン名を入力",
@@ -347,7 +347,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "輸入寶可夢名稱"
 	},
 
-	:guess_button => {
+	guess_button: {
 		"en" => "Guess",
 		"de" => "Raten",
 		"ja" => "予想",
@@ -359,7 +359,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "猜"
 	},
 
-	:better_luck_next_time => {
+	better_luck_next_time: {
 		"en" => "Better luck next time!",
 		"de" => "Viel Glück beim nächsten Mal!",
 		"ja" => "次は頑張ってね！",
@@ -371,7 +371,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "下次再加油！"
 	},
 
-	:you_guessed_wrong => {
+	you_guessed_wrong: {
 		"en" => "You guessed (name) but the Pokémon was (name)",
 		"de" => "Du hast (name) geraten, aber das Pokémon war (name)",
 		"ja" => "あなたは「(name)」と入力しましたが、ポケモンは「(name)」でした",
@@ -383,7 +383,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "你猜的是 (name)，但寶可夢是 (name)"
 	},
 
-	:play_again => {
+	play_again: {
 		"en" => "Play again!",
 		"de" => "Nochmal spielen!",
 		"ja" => "もう一度遊ぶ！",
@@ -395,7 +395,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "再玩一次！"
 	},
 
-	:you_guessed_correctly => {
+	you_guessed_correctly: {
 		"en" => "You guessed correctly!",
 		"de" => "Du hast richtig geraten!",
 		"ja" => "正解です！",
@@ -407,7 +407,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "你猜對了！"
 	},
 
-	:well_done => {
+	well_done: {
 		"en" => "You guessed (name) and the Pokémon was (name). Well done!",
 		"de" => "Du hast (name) geraten und das Pokémon war (name). Gut gemacht!",
 		"ja" => "あなたは「(name)」と答え、ポケモンは「(name)」でした。よくできました！",
@@ -418,8 +418,8 @@ LOCALISED_TEXT = {
 		"zh-cn" => "你猜的是 (name)，宝可梦是 (name)。做得好！",
 		"zh-tw" => "你猜的是 (name)，寶可夢是 (name)。做得好！"
 	},
-	
-	:skip => {
+
+	skip: {
 		"en" => "Skip",
 		"de" => "Überspringen",
 		"ja" => "スキップ",
@@ -431,7 +431,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "跳過"
 	},
 
-	:correct_guesses => {
+	correct_guesses: {
 		"en" => "Correct guesses",
 		"de" => "Richtige Antworten",
 		"ja" => "正解数",
@@ -443,7 +443,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "猜對次數"
 	},
 
-	:skipped => {
+	skipped: {
 		"en" => "Skipped",
 		"de" => "Übersprungen",
 		"ja" => "スキップ数",
@@ -455,7 +455,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "已跳過"
 	},
 
-	:first_letter_of_name => {
+	first_letter_of_name: {
 		"en" => "First letter of name",
 		"de" => "Anfangsbuchstabe",
 		"ja" => "名前の頭文字",
@@ -467,7 +467,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "名字的首字母"
 	},
 
-	:last_letter_of_name => {
+	last_letter_of_name: {
 		"en" => "Last letter of name",
 		"de" => "Letzter Buchstabe",
 		"ja" => "名前の最後の文字",
@@ -479,7 +479,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "名字的尾字母"
 	},
 
-	:hints => {
+	hints: {
 		"en" => "Hints",
 		"de" => "Tips",
 		"ja" => "ヒント",
@@ -491,7 +491,7 @@ LOCALISED_TEXT = {
 		"zh-tw" => "提示"
 	},
 
-	:decrease_blur => {
+	decrease_blur: {
 		"en" => "Decrease blur",
 		"de" => "Weichzeichnung verringern",
 		"ja" => "ぼかしを弱める",

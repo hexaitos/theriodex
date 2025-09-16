@@ -1,4 +1,4 @@
-not_found do 
+not_found do
 	status 404
 	erb :error_404, layout: :error_layout
 end

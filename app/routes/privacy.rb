@@ -1,3 +1,3 @@
 get "/privacy" do
-	erb :privacy, locals: { :text => markdown(:privacy) }
+	erb :privacy, locals: { text: markdown(:privacy) }
 end

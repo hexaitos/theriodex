@@ -1,4 +1,4 @@
-def get_game_info(id, language_id=9, difficulty="easy")
+def get_game_info(id, language_id = 9, difficulty = "easy")
 	name = get_pokemon_name(id, language_id)
 	hints = {}
 
@@ -17,12 +17,12 @@ def get_game_info(id, language_id=9, difficulty="easy")
 		blur = rand(12..20)
 	end
 
-	return 	{
-				:id => id,
-				:name => name,
-				:lang => LANGUAGE_CODES.key(language_id),
-				:sprite => get_pokemon_sprites(id)[:front_sprite],
-				:hints => hints,
-				:blur => blur
-			}
+	{
+		id: id,
+		name: name,
+		lang: LANGUAGE_CODES.key(language_id),
+		sprite: get_pokemon_sprites(id)[:front_sprite],
+		hints: hints,
+		blur: blur
+	}
 end

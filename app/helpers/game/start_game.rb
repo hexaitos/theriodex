@@ -1,4 +1,4 @@
-def start_game(difficulty, gen=nil, u1, u2, u3, lang)
+def start_game(difficulty, gen = nil, u1, u2, u3, lang)
 	session.clear
 	session[:difficulty] ||= difficulty.clean
 	session[:gen] ||= gen.clean if gen

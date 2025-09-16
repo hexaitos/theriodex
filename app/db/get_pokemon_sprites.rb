@@ -30,5 +30,5 @@ def get_pokemon_sprites(pokemon_id)
 
 	unless sprites_json["versions"]["generation-v"]["black-white"]["animated"]["back_shiny"].nil? then sprites_formatted[:animated_back_shiny] = sprites_json["versions"]["generation-v"]["black-white"]["animated"]["back_shiny"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") end
 
-	return sprites_formatted
+	sprites_formatted
 end

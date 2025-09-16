@@ -42,8 +42,8 @@ def format_pokemon_name(pokemon_name)
 	pokemon_name_suffixes.size == 0 ? formatted_name = pokemon_name_base : formatted_name = "#{pokemon_name_base} (#{pokemon_name_suffixes.join(' ')})"
 
 	suffixes.each do |suffix, formatted|
-		if pokemon_name.sub(/^[^-]*-/, '') == suffix then
-			formatted_name = pokemon_name.capitalize.gsub("-#{suffix}", '') + formatted
+		if pokemon_name.sub(/^[^-]*-/, "") == suffix then
+			formatted_name = pokemon_name.capitalize.gsub("-#{suffix}", "") + formatted
 		end
 	end
 
@@ -53,5 +53,5 @@ def format_pokemon_name(pokemon_name)
 		end
 	end
 
-	return formatted_name
+	formatted_name
 end
