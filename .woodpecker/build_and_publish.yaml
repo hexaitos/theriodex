@@ -7,16 +7,7 @@ variables:
   - &repo codeberg.org/${CI_REPO_OWNER}/theriodex
 
 steps:
-  build:
-    image: woodpeckerci/plugin-docker-buildx:6
-    settings:
-      dockerfile: *file
-      platforms: linux/amd64
-      repo: *repo
-      tags: latest
-      dry_run: true
-
-  publish_to_codeberg:
+  build_and_publish_to_codeberg:
     image: woodpeckerci/plugin-docker-buildx:6
     settings:
       registry: codeberg.org
