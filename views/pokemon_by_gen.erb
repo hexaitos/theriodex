@@ -1,0 +1,13 @@
+<%= partial :lang_select %>
+
+<h1>Generation Stuff</h1>
+<br />
+
+<h2>Pokémon</h2>
+<div class="search">
+	<div class="pokemon-of-gen">
+		<% pokemon_of_gen.each do | id, info | %>
+			<a href="/show/<%= id %>?lang=<%= lang %>"><img src="<%= info[:sprite] %>"/><br /><%= info[:name] %></a><br /> 
+		<% end %>
+	</div>
+</div>

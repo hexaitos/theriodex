@@ -65,6 +65,24 @@ def pokemon_view_ability(id, language_id=9)
 			}
 end
 
+def pokemon_view_gen(gen, language_id=9)
+	gen = Sanitize.fragment(gen)
+	pokemon_of_gen_raw = get_pokemon_ids_by_gen(gen)
+	pokemon_of_gen = {}
+	language_id == "en" ? language_id = 9 : language_id
+
+	pokemon_of_gen_raw.each do | pokemon |
+		pokemon_of_gen[pokemon.first] = {}
+		pokemon_of_gen[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
+		pokemon_of_gen[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+	end
+
+	return 	{
+				:pokemon_of_gen => pokemon_of_gen,
+				:lang => LANGUAGE_CODES.key(language_id)
+			}
+end
+
 def pokemon_view_index(id, form=nil, s=nil, animated=false, language_id=9)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)

@@ -644,6 +644,11 @@ div.leaderboard th:nth-of-type(1) {
 	width: 25%;
 }
 
+div.pokemon-of-gen {
+	height: 500px;
+	overflow-y: auto;
+}
+
 input.username {
 	width: 80%;
 }
