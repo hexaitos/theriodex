@@ -7,7 +7,7 @@
 <div class="search">
 	<div class="pokemon-of-gen">
 		<% pokemon_of_gen.each do | id, info | %>
-			<a href="/show/<%= id %>?lang=<%= lang %>"><img src="<%= info[:sprite] %>"/><br /><%= info[:name] %></a><br /> 
+			<a href="/show/<%= id %>?lang=<%= lang %>"><img loading="lazy" src="<%= info[:sprite] %>"/><br /><%= info[:name] %></a><br /> 
 		<% end %>
 	</div>
 </div>
