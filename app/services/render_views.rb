@@ -69,17 +69,22 @@ def pokemon_view_gen(gen, language_id=9)
 	gen = Sanitize.fragment(gen)
 	pokemon_of_gen_raw = get_pokemon_ids_by_gen(gen)
 	pokemon_of_gen = {}
+	generation = nil
 	language_id == "en" ? language_id = 9 : language_id
 
 	pokemon_of_gen_raw.each do | pokemon |
+		generation ||= get_pokemon_generation(pokemon.first, language_id)
 		pokemon_of_gen[pokemon.first] = {}
 		pokemon_of_gen[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_of_gen[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
 	end
 
+	puts generation
+
 	return 	{
 				:pokemon_of_gen => pokemon_of_gen,
-				:lang => LANGUAGE_CODES.key(language_id)
+				:lang => LANGUAGE_CODES.key(language_id),
+				:gen => generation
 			}
 end
 

@@ -12,7 +12,7 @@
 		<%= weight / 10 %> kg •
 		<%= height / 10 %> m •
 		<%= species_name %> •
-		<%= gen %>
+		<a href="/show/pokemon/gen/<%= gen[1] %>"><%= gen[0] %></a>
 	</span>
 	<span>
 		<%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %> • 

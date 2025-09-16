@@ -643,7 +643,7 @@ div.leaderboard th:nth-of-type(1) {
 	width: 25%;
 }
 
-div.pokemon-of-gen {
+div.pokemon-list {
 	height: 500px;
 	overflow-y: auto;
 	border: 5px double var(--color-accent-border);
