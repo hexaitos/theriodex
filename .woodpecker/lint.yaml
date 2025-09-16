@@ -1,0 +1,9 @@
+when:
+  branch: dev
+  event: [push, pull_request]
+
+  deploy:
+    image: ruby:3.2.9-slim-trixie
+    commands:
+      - gem install rubocop rubocop-performance rubocop-rails rubocop-minitest
+      - rubocop
