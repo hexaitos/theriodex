@@ -1,0 +1,13 @@
+labels:
+  platform: dev
+
+when:
+  branch: dev
+  event: [push, pull_request]
+
+steps:
+  lint:
+    image: ruby:3.2.9-trixie
+    commands:
+      - gem install rubocop rubocop-performance rubocop-rails rubocop-minitest
+      - rubocop
