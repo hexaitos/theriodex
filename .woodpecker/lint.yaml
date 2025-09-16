@@ -4,9 +4,7 @@ when:
 
 steps:
   deploy:
-    image: ruby:3.2.9-slim-trixie
+    image: ruby:3.2.9-trixie
     commands:
-      - apt-get update
-      - apt-get install -y build-essential
       - gem install rubocop rubocop-performance rubocop-rails rubocop-minitest
       - rubocop -A
