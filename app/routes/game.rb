@@ -18,7 +18,7 @@ namespace "/game" do
 		erb :"game/game", locals: pokemon_view_game(get_random_game_pokemon(session[:gen].clean), lang, session[:difficulty].clean)
 	end
 
-	post '/play' do
+	post "/play" do
 		erb :"game/guess", locals: check_pokemon_guess(params["guess"])
 	end
 
