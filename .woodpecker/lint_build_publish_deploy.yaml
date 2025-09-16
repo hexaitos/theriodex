@@ -7,6 +7,12 @@ variables:
   - &repo codeberg.org/${CI_REPO_OWNER}/theriodex
 
 steps:
+  lint:
+    image: ruby:3.2.9-trixie
+    commands:
+      - gem install rubocop rubocop-performance rubocop-rails rubocop-minitest
+      - rubocop -A
+
   build_and_publish_to_codeberg:
     image: woodpeckerci/plugin-docker-buildx:6
     settings:
