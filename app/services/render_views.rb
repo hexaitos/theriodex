@@ -29,6 +29,8 @@ def pokemon_view_game(id, language_id = 9, difficulty = "easy")
 end
 
 def pokemon_view_results
+	raise Sinatra::NotFound if !session[:results]
+
 	game_data = session[:pokemon_info]
 	game_data[:points] = session[:points]
 	game_data[:guesses] = session[:guesses]

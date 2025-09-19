@@ -23,9 +23,6 @@ namespace "/game" do
 	end
 
 	get "/results" do
-		if !session[:results]
-			redirect back
-		end
 		erb :"game/game_results", locals: pokemon_view_results()
 	end
 
