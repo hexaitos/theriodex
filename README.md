@@ -119,9 +119,9 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Add button to toggle between male and female forms if they exist (added in `d3678fed04`)
 - [x] Ability to show animated sprites if there is one (maybe also with button, maybe display at random) (added in `f1782528cb`)
 - [ ] Clean up index.erb with some helper functions perhaps? 
-- [ ] Add info what generation a Pokémon first appeared in
+- [x] Add info what generation a Pokémon first appeared in
 - [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
-- [ ] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
+- [x] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
 - [ ] Maybe add berries?
 - [ ] Maybe add characteristic?
 - [x] Add cries? (added in `a7946dd1dd`)
