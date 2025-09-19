@@ -118,8 +118,7 @@ div.sprites a:hover {
 	background: var(--color-primary-hover);
 }
 
-div.search {
-}
+div.search {}
 
 div.search div {
 	width: 100%;
@@ -128,21 +127,14 @@ div.search div {
 	justify-content: safe center;
 }
 
-div.search div.pokemon-list {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: safe center;
-	padding: 50px 0 50px 0;
-}
-
 div.search div a {
 	margin-bottom: 10px;
 	color: var(--color-links);
 	transition: color 0.5s, transform 0.5s;
 }
 
-div.search div a:hover, div.search div a:active {
+div.search div a:hover,
+div.search div a:active {
 	color: transparent;
 	transition-duration: 0.5s;
 	transform: scale(2);
@@ -219,8 +211,13 @@ a {
 
 div.evolutions {
 	font-size: small;
-	margin: 5px;
-	display: contents;
+	/* margin: 5px; */
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	margin-top: 5px;
 }
 
 div.evolutions a {
@@ -244,10 +241,14 @@ a:hover {
 	inset: 0;
 	display: grid;
 	place-items: center;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0, 0, 0, 0.5);
 	z-index: 9999;
 }
-.modal[hidden] { display: none; }
+
+.modal[hidden] {
+	display: none;
+}
+
 .modal-inner {
 	background: #fff;
 	padding: 1rem;
@@ -255,7 +256,13 @@ a:hover {
 	width: 90%;
 	border-radius: 6px;
 }
-.modal-actions { margin-top: 0.75rem; display: flex; gap: .5rem; justify-content: flex-end; }
+
+.modal-actions {
+	margin-top: 0.75rem;
+	display: flex;
+	gap: .5rem;
+	justify-content: flex-end;
+}
 
 .switch-wrapper input[type="checkbox"] {
 	visibility: hidden;
@@ -348,7 +355,7 @@ a:hover {
 	transform: skewY(65deg);
 }
 
-.switch-wrapper input:checked + .switch-left {
+.switch-wrapper input:checked+.switch-left {
 	background-color: #2d9e00;
 	color: #fff;
 	bottom: 0px;
@@ -358,12 +365,12 @@ a:hover {
 	transform: rotate(0deg) skewX(0deg);
 }
 
-.switch-wrapper input:checked + .switch-left::before {
+.switch-wrapper input:checked+.switch-left::before {
 	background-color: transparent;
 	width: 3.0833em;
 }
 
-.switch-wrapper input:checked + .switch-left + .switch-right {
+.switch-wrapper input:checked+.switch-left+.switch-right {
 	background-color: #ddd;
 	color: #888;
 	bottom: 0.4em;
@@ -373,23 +380,23 @@ a:hover {
 	transform: rotate(-15deg) skewX(-15deg);
 }
 
-.switch-wrapper input:checked + .switch-left + .switch-right::before {
+.switch-wrapper input:checked+.switch-left+.switch-right::before {
 	background-color: #ccc;
 }
 
-.switch-wrapper input:focus + .switch-left {
+.switch-wrapper input:focus+.switch-left {
 	color: #333;
 }
 
-.switch-wrapper input:checked:focus + .switch-left {
+.switch-wrapper input:checked:focus+.switch-left {
 	color: #fff;
 }
 
-.switch-wrapper input:focus + .switch-left + .switch-right {
+.switch-wrapper input:focus+.switch-left+.switch-right {
 	color: #fff;
 }
 
-.switch-wrapper input:checked:focus + .switch-left + .switch-right {
+.switch-wrapper input:checked:focus+.switch-left+.switch-right {
 	color: #333;
 }
 
@@ -456,8 +463,7 @@ button:hover {
 	transition: 0.3s;
 }
 
-div.flavour {
-}
+div.flavour {}
 
 div.info {
 	margin-top: 30px;
@@ -487,10 +493,6 @@ div.damage_taken td {
 
 div.about {
 	text-align: justify;
-}
-
-div.types a {
-	font-size: smaller;
 }
 
 a.corner {
@@ -540,7 +542,8 @@ form.save-in-leaderboard {
 	align-items: baseline;
 }
 
-form.save-in-leaderboard button, form.save-in-leaderboard a {
+form.save-in-leaderboard button,
+form.save-in-leaderboard a {
 	width: 50%;
 }
 
@@ -591,7 +594,8 @@ select#lang-select {
 	font-size: 12px;
 }
 
-select#difficulty, select#generation {
+select#difficulty,
+select#generation {
 	padding: 10px 20px 10px 20px;
 	border-radius: 5px;
 	text-align: center;
@@ -652,10 +656,13 @@ div.leaderboard th:nth-of-type(1) {
 }
 
 div.pokemon-list {
+	justify-content: safe center;
 	height: 500px;
 	overflow-y: auto;
 	border: 5px double var(--color-accent-border);
 	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 input.username {
@@ -724,7 +731,9 @@ summary:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-	body, .modal-inner {
+
+	body,
+	.modal-inner {
 		background-color: black;
 	}
 
@@ -752,7 +761,14 @@ summary:hover {
 		color: white;
 	}
 
-	p, span, h1, h2, h3, tr, a.current, div.privacy {
+	p,
+	span,
+	h1,
+	h2,
+	h3,
+	tr,
+	a.current,
+	div.privacy {
 		color: white;
 	}
 
@@ -768,7 +784,8 @@ summary:hover {
 		margin-right: 10%;
 	}
 
-	div.flavour, p.ability {
+	div.flavour,
+	p.ability {
 		text-align: justify;
 	}
 

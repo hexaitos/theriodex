@@ -23,16 +23,19 @@
 		<%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %>
 </span>
 
-<div class="evolutions">
 <span><%= get_localised_text(lang, :abilities) %>:</span>
+<div class="evolutions">
 <% abilities.each do | name, hidden, slot, id, unformatted | %>
 	<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
 <% end %>
 </div>
+
+<% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
+	<span><%= get_localised_text(lang, :evolutions) %>:</span>
+<% end %>
+
 <div class="evolutions">
-		<span><%= get_localised_text(lang, :evolutions) %>:
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
-			none</span>
 		<% else %>
 		</span>
 			<% evolutions.each do | evolution | %>
