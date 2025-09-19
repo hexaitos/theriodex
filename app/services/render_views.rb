@@ -68,7 +68,7 @@ end
 def pokemon_view_gen(gen, language_id = 9)
 	gen = Sanitize.fragment(gen)
 	pokemon_of_gen_raw = get_pokemon_ids_by_gen(gen)
-	redirect back if pokemon_of_gen_raw.size == 0
+	raise Sinatra::NotFound if pokemon_of_gen_raw.size == 0
 
 	pokemon_of_gen = {}
 	generation = nil
