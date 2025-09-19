@@ -68,6 +68,8 @@ end
 def pokemon_view_gen(gen, language_id = 9)
 	gen = Sanitize.fragment(gen)
 	pokemon_of_gen_raw = get_pokemon_ids_by_gen(gen)
+	redirect back if pokemon_of_gen_raw.size == 0
+
 	pokemon_of_gen = {}
 	generation = nil
 	language_id == "en" ? language_id = 9 : language_id
@@ -78,8 +80,6 @@ def pokemon_view_gen(gen, language_id = 9)
 		pokemon_of_gen[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_of_gen[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
 	end
-
-	puts generation
 
 	{
 		pokemon_of_gen: pokemon_of_gen,
