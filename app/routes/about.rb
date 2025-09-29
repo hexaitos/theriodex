@@ -1,3 +1,3 @@
 get "/about" do
-	erb :about
+	erb :about, locals: { text: markdown(:about) }
 end
