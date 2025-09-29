@@ -15,8 +15,8 @@
 		<a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a>
 	</span>
 	<span>
-		<%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %> • 
-		<%= get_localised_text(lang, :atk)%>: <%= stats[:atk] %> •
+		<%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %> •
+		<%= get_localised_text(lang, :atk) %>: <%= stats[:atk] %> •
 		<%= get_localised_text(lang, :def) %>: <%= stats[:def] %> •
 		<%= get_localised_text(lang, :spatk) %>: <%= stats[:spatk] %> •
 		<%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %> •
@@ -50,7 +50,7 @@
 </div>
 
 <div class="sprites">
-	<% case sex 
+	<% case sex
 	when "", nil %>
 		<% if form == "shiny" and !front_shiny.nil? and !animated %>
 			<img src="<%= front_shiny %>" alt="Front shiny sprite"/>
@@ -130,7 +130,7 @@
 				<% end %>
 			</div>
 		<% end %>
-	
+
 	<% when "female" %>
 		<% if form == "shiny" and !front_shiny_female.nil? %>
 			<img src="<%= front_shiny_female %>" alt="Front shiny female sprite"/>
