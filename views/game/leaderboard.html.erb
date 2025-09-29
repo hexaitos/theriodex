@@ -21,7 +21,7 @@
 	</table>
 </div>
 <% if username and points %>
-	<hr />
+	<hr>
 	<h1>Your data</h1>
 	<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
 

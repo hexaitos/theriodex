@@ -9,22 +9,22 @@
 			<select id="username-1" class="username-select" name="username-1" required>
 				<% ('A'..'Z').each do | letter | %>
 					<option value="<%= letter %>"><%= letter %></option>
-				<%end%>
+				<% end %>
 			</select>
 			<select id="username-2" class="username-select" name="username-2" required>
 				<% ('A'..'Z').each do | letter | %>
 					<option value="<%= letter %>"><%= letter %></option>
-				<%end%>
+				<% end %>
 			</select>
 			<select id="username-3" class="username-select" name="username-3" required>
 				<% ('A'..'Z').each do | letter | %>
 					<option value="<%= letter %>"><%= letter %></option>
-				<%end%>
+				<% end %>
 			</select>
 			<div class="diff-hint">
 				<p>Choose your username like in an old arcade game! You can choose between three different letters from A-Z. Or just leave it at the default and save your result as “AAA” in the leaderboard!</p>
 			</div>
-			<hr/>
+			<hr>
 
 			<h3>Choose your difficulty</h3>
 			<select id="difficulty" name="diff" required>
@@ -48,19 +48,19 @@
 			<div class="diff-hint">
 				<p>Choose between three difficulty settings! The easiest will have the least amount of blur and the most number of hints whereas “Hard” will have a lot of blur and no hints at all! You can also choose to either have to guess the Pokémon of any generation (1-9) or you can choose to only guess Pokémon of a particular generation if you are more familiar with it.</p>
 			</div>
-			<hr />
+			<hr>
 			<button type="submit" class="full">Start Game</button>
 			<div class="diff-hint">
 				<p>Start the game immediately with the difficulty settings and the username you selected above!</p>
 			</div>
-			<hr />
+			<hr>
 			<a class="a-btn-2 full" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
 			<div class="diff-hint">
 				<p>View the leaderboard and see the scores of other players – maybe you can even get to the top!</p>
 			</div>
 		</form>
 	<% else %>
-		<h3>Continue game</h3>	
+		<h3>Continue game</h3>
 		<div class="diff-hint">
 			<p>Clicking the “Continue” button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard, to view your results or to see the leaderboard, scroll down. To reset the game, click the “Reset Game” button.</p>
 		</div>
@@ -68,11 +68,11 @@
 			<a class="a-btn-2 continue" href="/game/play?lang=<%= lang %>">Continue</a>
 			<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
 		</div>
-		<hr />
+		<hr>
 		<div class="game-start-buttons">
 			<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
 			<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
-		</form>
+		</div>
 		<% if !session[:saved_in_leaderboard] %>
 			<%= partial :save_in_leaderboard %>
 		<% else %>
@@ -80,9 +80,8 @@
 				<button type="submit">Override saved data in leaderboard</button>
 			</form>
 		<% end %>
-		</div>
 
-		<hr />
+		<hr>
 		<div class="diff-hint">
 			<p>Hint: If you want to try a new difficulty or generation or use a new username (so that your friend can play as well, for example), please use the “Reset Game” button.</p>
 			<p><u>Resetting the game will reset all the counters</u>. If you want to continue where you left off and keep your score for this session, click the “Continue” button.</p>

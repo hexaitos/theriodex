@@ -9,13 +9,13 @@
 		<a class="a-btn-1" id="dec" href="#"><%= get_localised_text(lang, :decrease_blur) %></a>
 		<a class="a-btn-1" href="/game/results?lang=<%= lang %>">Results</a>
 		<a class="a-btn-1" href="/game/leaderboard/view?lang=<% lang %>">Leaderboard</a>
-		<br />
+		<br>
 	</div>
 
 	<img id="sprite" src="<%= sprite %>" style="filter: blur(<%= blur %>px); width: 256px"/>
-	<br />
+	<br>
 
-	<br /><br />
+	<br><br>
 	<script>
 		const img = document.getElementById('sprite');
 		let start = <%= blur %>;
@@ -33,10 +33,10 @@
 		<button type="submit"><%= get_localised_text(lang, :guess_button) %></button>
 		<a class="a-btn-2" href="/game/skip/<%= lang %>"><%= get_localised_text(lang, :skip) %></a>
 	</form>
-	<br />
+	<br>
 
 	<% unless !hints[:first_letter] and !hints[:last_letter] %>
-		<hr />
+		<hr>
 		<h2><%= get_localised_text(lang, :hints) %></h2>
 	<% end %>
 
