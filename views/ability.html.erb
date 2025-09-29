@@ -1,0 +1,15 @@
+<%= partial :lang_select %>
+
+<h1><%= ability_name %></h1>
+<p class="ability"><%= ability_information %></p>
+<br />
+<hr />
+
+<h2><%= get_localised_text(lang, :pokemon_with_this_ability) %></h2>
+<div class="pokemon-list-container">
+	<div class="pokemon-list">
+	<% pokemon_with_ability.each do | id, info | %>
+		<a href="/show/<%= id %>?lang=<%= lang %>"><img src="<%= info[:sprite] %>"/><br /><%= info[:name] %></a><br /> 
+	<% end %>
+	</div>
+</div>

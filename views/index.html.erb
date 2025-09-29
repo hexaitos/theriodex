@@ -1,0 +1,202 @@
+<%= partial :lang_select, id: id, lang: lang %>
+
+<div class="types">
+	<h1 class="pokemon-title">
+		<%= name %>
+		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()"/>
+	</h1>
+	<% types.each do |type| %>
+		<img class="types" src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>"/>
+	<% end %>
+	<span>
+		<%= weight / 10 %> kg •
+		<%= height / 10 %> m •
+		<%= species_name %> •
+		<a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a>
+	</span>
+	<span>
+		<%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %> • 
+		<%= get_localised_text(lang, :atk)%>: <%= stats[:atk] %> •
+		<%= get_localised_text(lang, :def) %>: <%= stats[:def] %> •
+		<%= get_localised_text(lang, :spatk) %>: <%= stats[:spatk] %> •
+		<%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %> •
+		<%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %>
+</span>
+
+<span><%= get_localised_text(lang, :abilities) %>:</span>
+<div class="evolutions">
+<% abilities.each do | name, hidden, slot, id, unformatted | %>
+	<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
+<% end %>
+</div>
+
+<% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
+	<span><%= get_localised_text(lang, :evolutions) %>:</span>
+<% end %>
+
+<div class="evolutions">
+		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
+		<% else %>
+		</span>
+			<% evolutions.each do | evolution | %>
+				<% if evolutions_formatted[evolution] == name then %>
+						<a class="current" href="/show/<%= evolution %>?lang=<%= lang %>"><%= evolutions_formatted[evolution] %></a>
+					<% else %>
+						<a href="/show/<%= evolution %>?lang=<%= lang %>"><%= evolutions_formatted[evolution] %></a>
+					<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div class="sprites">
+	<% case sex 
+	when "", nil %>
+		<% if form == "shiny" and !front_shiny.nil? and !animated %>
+			<img src="<%= front_shiny %>" alt="Front shiny sprite"/>
+
+			<% unless back_shiny.nil? %>
+				<img src="<%= back_shiny %>" alt="Back shiny sprite"/>
+			<% end %>
+
+			<br />
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
+
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+				<% end %>
+
+				<% unless animated_front.nil? %>
+					<a href="/show/<%= id %>?animated=true&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+				<% end %>
+			</div>
+
+		<% elsif form == "" or form == "normal" or form.nil? and !animated %>
+			<img src="<%= sprite %>" alt="Front default sprite"/>
+
+			<% unless sprite_back.nil? %>
+				<img src="<%= sprite_back %>" alt="Back default sprite"/>
+			<% end %>
+
+			<br />
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
+
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female)%></a>
+				<% end %>
+
+				<% unless animated_front.nil? %>
+					<a href="/show/<%= id %>?animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+				<% end %>
+			</div>
+
+		<% elsif form == "" or form == "normal" or form.nil? and animated %>
+			<img src="<%= animated_front %>" alt="Animated front sprite"/>
+
+			<% unless animated_back.nil? %>
+				<img src="<%= animated_back %>" alt="Animated back sprite"/>
+			<% end %>
+
+			<br />
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?form=shiny&animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
+
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+				<% end %>
+
+				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+			</div>
+
+		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
+			<img src="<%= animated_front_shiny %>" alt="Animated front shiny sprite"/>
+
+			<% unless animated_back_shiny.nil? %>
+				<img src="<%= animated_back_shiny %>" alt="Animated back shiny sprite"/>
+			<% end %>
+
+			<br />
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
+
+				<% unless front_shiny_female.nil? %>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+				<% end %>
+
+				<% unless animated_front.nil? %>
+					<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+				<% end %>
+			</div>
+		<% end %>
+	
+	<% when "female" %>
+		<% if form == "shiny" and !front_shiny_female.nil? %>
+			<img src="<%= front_shiny_female %>" alt="Front shiny female sprite"/>
+
+			<% unless back_shiny_female.nil? %>
+				<img src="<%= back_shiny_female %>" alt="Back shiny female sprite"/>
+			<% end %>
+
+			<br />
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
+			</div>
+		<% elsif form == "" or form == "normal" or form.nil? %>
+			<img src="<%= front_female %>" alt="Default front female sprite"/>
+
+			<% unless back_female.nil? %>
+				<img src="<%= back_female %>" alt="Default back female sprite"/>
+			<% end %>
+
+			<br />
+			<div class="sprites-links">
+				<a href="/show/<%= id %>?form=shiny&s=female&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
+				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+
+<div class="info">
+	<hr/>
+	<div class="flavour">
+		<p><%= flavour_text %></p>
+	</div>
+	<hr/>
+
+	<div class="damage">
+		<h3><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
+		<span>(<%= get_localised_text(lang, :horizontally_scrollable_on_small_screens) %>)</span>
+		<div class="damage_taken">
+			<table>
+			<thead>
+			<tr>
+			<% 18.times do |num| %>
+				<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"/></th>
+			<% end %>
+			</tr></thead>
+			<tbody>
+			<tr>
+				<% damage_taken.each do |type| %>
+					<% if type[1].to_f / 100 == 0.5 then %>
+						<% converted_type = "½" %>
+					<% elsif type[1].to_f / 100 == 0.25 then %>
+						<% converted_type = "¼" %>
+					<% else %>
+						<% converted_type = type[1].to_f / 100 %>
+						<% converted_type = converted_type.to_s.gsub(/(\.)0+$/, '') %>
+					<% end %>
+
+					<td><%= converted_type %>x</td>
+				<% end %>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<br/>

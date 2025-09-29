@@ -1,0 +1,52 @@
+<%= partial :lang_select, id: id, lang: lang %>
+<%= partial :privacy_js %>
+
+<h1>Game Results</h1>
+<div class="download">
+	<a class="print a-btn-2" onClick="window.print()" href="#">Print</button>
+	<a class="print a-btn-2" href="/game/save">Download</a>
+</div>
+
+<% if !session[:saved_in_leaderboard] %>
+	<%= partial :save_in_leaderboard_results, lang: lang %>
+<% else %>
+	<form class="save-in-leaderboard" action="/game/leaderboard/save" method="post">
+		<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+		<button type="submit">Override saved data in leaderboard</button>
+	</form>
+<% end %>
+
+<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
+
+<h2>Guessed Pokémon</h2>
+<div class="game-results">
+	<% session[:results].each do | id, data | %>
+		<div class="guess-results">
+			<% if data[:skipped] %>
+			<% else %>
+
+			<img src="/sprites/pokemon/<%= id %>.png"/>
+				<p>Your guess: <u><%= data[:guess] %></u></p>
+				<p>The Pokémon was: <u><%= data[:name] %></u></p>
+				<% if data[:correct] %>
+					<p>You were correct</p>
+				<% else %>
+					<p>You were wrong</p>
+				<% end %>
+			<% end %>
+		</div class="guess">
+	<% end %>
+</div>
+
+<h2>Skipped Pokémon</h2>
+<div class="game-results">
+	<% session[:results].each do | id, data | %>
+		<div class="guess-results">
+			<% if data[:skipped] %>
+				<img src="/sprites/pokemon/<%= id %>.png"/>
+				<p>The Pokémon was: <u><%= data[:name] %></u></p>
+				<p>You skipped this Pokémon</p>
+			<% end %>
+		</div class="guess">
+	<% end %>
+</div>
