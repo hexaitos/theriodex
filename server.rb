@@ -12,6 +12,7 @@ require 'digest'
 require 'erubi'
 require 'redcarpet'
 
+Tilt.register Tilt::ERBTemplate, 'html.erb'
 use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
