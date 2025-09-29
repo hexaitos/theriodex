@@ -603,6 +603,7 @@ select#generation {
 	color: white;
 	width: 200px;
 	margin-top: 10px;
+	border: none;
 }
 
 .difficulty-select {
