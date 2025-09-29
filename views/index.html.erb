@@ -3,10 +3,10 @@
 <div class="types">
 	<h1 class="pokemon-title">
 		<%= name %>
-		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()"/>
+		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()">
 	</h1>
 	<% types.each do |type| %>
-		<img class="types" src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>"/>
+		<img class="types" src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>">
 	<% end %>
 	<span>
 		<%= weight / 10 %> kg •
@@ -37,7 +37,6 @@
 <div class="evolutions">
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
 		<% else %>
-		</span>
 			<% evolutions.each do | evolution | %>
 				<% if evolutions_formatted[evolution] == name then %>
 						<a class="current" href="/show/<%= evolution %>?lang=<%= lang %>"><%= evolutions_formatted[evolution] %></a>
@@ -53,10 +52,10 @@
 	<% case sex
 	when "", nil %>
 		<% if form == "shiny" and !front_shiny.nil? and !animated %>
-			<img src="<%= front_shiny %>" alt="Front shiny sprite"/>
+			<img src="<%= front_shiny %>" alt="Front shiny sprite">
 
 			<% unless back_shiny.nil? %>
-				<img src="<%= back_shiny %>" alt="Back shiny sprite"/>
+				<img src="<%= back_shiny %>" alt="Back shiny sprite">
 			<% end %>
 
 			<br>
@@ -73,10 +72,10 @@
 			</div>
 
 		<% elsif form == "" or form == "normal" or form.nil? and !animated %>
-			<img src="<%= sprite %>" alt="Front default sprite"/>
+			<img src="<%= sprite %>" alt="Front default sprite">
 
 			<% unless sprite_back.nil? %>
-				<img src="<%= sprite_back %>" alt="Back default sprite"/>
+				<img src="<%= sprite_back %>" alt="Back default sprite">
 			<% end %>
 
 			<br>
@@ -84,7 +83,7 @@
 				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female)%></a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
@@ -93,10 +92,10 @@
 			</div>
 
 		<% elsif form == "" or form == "normal" or form.nil? and animated %>
-			<img src="<%= animated_front %>" alt="Animated front sprite"/>
+			<img src="<%= animated_front %>" alt="Animated front sprite">
 
 			<% unless animated_back.nil? %>
-				<img src="<%= animated_back %>" alt="Animated back sprite"/>
+				<img src="<%= animated_back %>" alt="Animated back sprite">
 			<% end %>
 
 			<br>
@@ -111,10 +110,10 @@
 			</div>
 
 		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
-			<img src="<%= animated_front_shiny %>" alt="Animated front shiny sprite"/>
+			<img src="<%= animated_front_shiny %>" alt="Animated front shiny sprite">
 
 			<% unless animated_back_shiny.nil? %>
-				<img src="<%= animated_back_shiny %>" alt="Animated back shiny sprite"/>
+				<img src="<%= animated_back_shiny %>" alt="Animated back shiny sprite">
 			<% end %>
 
 			<br>
@@ -133,10 +132,10 @@
 
 	<% when "female" %>
 		<% if form == "shiny" and !front_shiny_female.nil? %>
-			<img src="<%= front_shiny_female %>" alt="Front shiny female sprite"/>
+			<img src="<%= front_shiny_female %>" alt="Front shiny female sprite">
 
 			<% unless back_shiny_female.nil? %>
-				<img src="<%= back_shiny_female %>" alt="Back shiny female sprite"/>
+				<img src="<%= back_shiny_female %>" alt="Back shiny female sprite">
 			<% end %>
 
 			<br>
@@ -145,10 +144,10 @@
 				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
 			</div>
 		<% elsif form == "" or form == "normal" or form.nil? %>
-			<img src="<%= front_female %>" alt="Default front female sprite"/>
+			<img src="<%= front_female %>" alt="Default front female sprite">
 
 			<% unless back_female.nil? %>
-				<img src="<%= back_female %>" alt="Default back female sprite"/>
+				<img src="<%= back_female %>" alt="Default back female sprite">
 			<% end %>
 
 			<br>
@@ -176,7 +175,7 @@
 			<thead>
 			<tr>
 			<% 18.times do |num| %>
-				<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"/></th>
+				<th><img src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></th>
 			<% end %>
 			</tr></thead>
 			<tbody>
@@ -199,4 +198,4 @@
 		</div>
 	</div>
 </div>
-<br/>
+<br>
