@@ -10,14 +10,13 @@
 		<th>Date</th>
 	</tr></thead>
 	<tbody>
-	</tbody>
 		<% REDIS.zrevrange("scores", 0, -1, :with_scores => true).each do |name, score| %>
 			<tr>
 				<td><%= name.rpartition("-")[0] %></td>
 				<td><%= score.to_i %></td>
 				<td><%= Time.strptime(name.rpartition("-")[2], '%Y%m%d%H%M%S').strftime('%B %-d, %Y') %></td>
 			</tr>
-		<% end%>
+		<% end %>
 	</tbody>
 	</table>
 </div>
