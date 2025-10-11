@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gem.coop/
   specs:
     base64 (0.3.0)
     connection_pool (2.5.4)
