@@ -15,6 +15,12 @@ namespace "/show" do
 		erb :pokemon_by_gen, locals: pokemon_view_gen(params["gen"], lang)
 	end
 
+	get "/pokemon/type/:type" do
+		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+
+		erb :pokemon_by_type, locals: pokemon_view_type(params["type"], lang)
+	end
+
 	get "/:id" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 

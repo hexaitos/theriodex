@@ -6,7 +6,9 @@
 		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()">
 	</h1>
 	<% types.each do |type| %>
-		<img class="types" src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>">
+		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>">
+			<img class="types" src="/sprites/types/generation-vii/ultra-sun-ultra-moon/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>">
+		</a>
 	<% end %>
 	<span>
 		<%= weight / 10 %> kg •

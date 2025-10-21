@@ -1,0 +1,12 @@
+<%= partial :lang_select %>
+
+<h1>Pokémon – <%= type_name %>-types</h1>
+<br>
+
+<div class="pokemom-list-container">
+	<div class="pokemon-list">
+		<% pokemon_of_type.each do | id, info | %>
+			<a href="/show/<%= id %>?lang=<%= lang %>"><img loading="lazy" src="<%= info[:sprite] %>"><br><%= info[:name] %></a><br>
+		<% end %>
+	</div>
+</div>

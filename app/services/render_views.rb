@@ -90,6 +90,29 @@ def pokemon_view_gen(gen, language_id = 9)
 	}
 end
 
+def pokemon_view_type(type, language_id = 9)
+	type = Sanitize.fragment(type)
+	type_name = nil
+	pokemon_of_type_raw = get_pokemon_ids_by_type(type)
+	raise Sinatra::NotFound if pokemon_of_type_raw.size == 0
+
+	pokemon_of_type = {}
+	language_id == "en" ? language_id = 9 : language_id
+
+	pokemon_of_type_raw.each do | pokemon |
+		type_name ||= get_pokemon_type_name(type, language_id)
+		pokemon_of_type[pokemon.first] = {}
+		pokemon_of_type[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
+		pokemon_of_type[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+	end
+
+	{
+		type_name: type_name,
+		pokemon_of_type: pokemon_of_type,
+		lang: LANGUAGE_CODES.key(language_id)
+	}
+end
+
 def pokemon_view_index(id, form = nil, s = nil, animated = false, language_id = 9)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)
