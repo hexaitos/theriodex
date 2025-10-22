@@ -22,7 +22,7 @@ namespace "/show" do
 	end
 
 	get "/:id" do
-		redirect "/show/pokemon/#{params[:id]}"
+		redirect "/show/pokemon/#{request.fullpath.gsub('/show/', '')}"
 	end
 
 	get "/pokemon/:id" do
