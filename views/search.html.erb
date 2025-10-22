@@ -14,7 +14,7 @@
 	<div class="pokemom-list-container">
 		<div class="pokemon-list">
 			<% search_results.each do | id, info | %>
-				<div class="pokemon">
+				<div class="pokemon search">
 					<% info[:types].each do |id, name| %>
 						<a style="text-decoration: none;" href="/show/pokemon/type/<%= id.first %>">
 							<img style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id.first %>.png" alt="Pokémon type <%= name %>">

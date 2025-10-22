@@ -56,6 +56,8 @@ def pokemon_view_ability(id, language_id = 9)
 		pokemon_with_ability[pokemon.first] = {}
 		pokemon_with_ability[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_with_ability[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		pokemon_with_ability[pokemon.first][:types] = get_pokemon_types(pokemon)
+		pokemon_with_ability[pokemon.first][:gen] = get_pokemon_generation(pokemon, language_id)
 	end
 
 	{
@@ -81,6 +83,8 @@ def pokemon_view_gen(gen, language_id = 9)
 		pokemon_of_gen[pokemon.first] = {}
 		pokemon_of_gen[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_of_gen[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		pokemon_of_gen[pokemon.first][:types] = get_pokemon_types(pokemon)
+		pokemon_of_gen[pokemon.first][:gen] = get_pokemon_generation(pokemon, language_id)
 	end
 
 	{
@@ -104,6 +108,7 @@ def pokemon_view_type(type, language_id = 9)
 		pokemon_of_type[pokemon.first] = {}
 		pokemon_of_type[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_of_type[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		pokemon_of_type[pokemon.first][:types] = get_pokemon_types(pokemon)
 		pokemon_of_type[pokemon.first][:gen] = get_pokemon_generation(pokemon.first, language_id)
 	end
 

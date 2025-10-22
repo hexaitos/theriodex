@@ -20,14 +20,14 @@ def search_for_pokemon(query, language_id = 9)
 
 		pokemon_generation = get_pokemon_generation(pokemon_id, language_id)
 
-		# search_results << "<a href='/show/#{pokemon_id}?lang=#{LANGUAGE_CODES.key(language_id)}'><img src='#{pokemon_sprite}'/><br/>#{key.first}<br/></a>" if value >= 0.25
-
-		search_results[pokemon_id] = {
-			name: key.first,
-			sprite: pokemon_sprite,
-			types: pokemon_type_names,
-			gen: pokemon_generation
-		}
+		if value >= 0.30 then
+			search_results[pokemon_id] = {
+				name: key.first,
+				sprite: pokemon_sprite,
+				types: pokemon_type_names,
+				gen: pokemon_generation
+			}
+		end
 	end
 
 	search_results
