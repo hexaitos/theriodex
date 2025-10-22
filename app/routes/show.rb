@@ -22,6 +22,10 @@ namespace "/show" do
 	end
 
 	get "/:id" do
+		redirect "/show/pokemon/#{params[:id]}"
+	end
+
+	get "/pokemon/:id" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
 		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], lang)

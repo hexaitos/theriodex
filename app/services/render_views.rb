@@ -104,9 +104,11 @@ def pokemon_view_type(type, language_id = 9)
 		pokemon_of_type[pokemon.first] = {}
 		pokemon_of_type[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
 		pokemon_of_type[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		pokemon_of_type[pokemon.first][:gen] = get_pokemon_generation(pokemon.first, language_id)
 	end
 
 	{
+		type_num: type,
 		type_name: type_name,
 		pokemon_of_type: pokemon_of_type,
 		lang: LANGUAGE_CODES.key(language_id)
