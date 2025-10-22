@@ -7,20 +7,4 @@
 
 <h2><%= get_localised_text(lang, :pokemon_with_this_ability) %></h2>
 
-<div class="pokemom-list-container">
-	<div class="pokemon-list">
-		<% pokemon_with_ability.each do | id, info | %>
-			<div class="pokemon search">
-				<% info[:types].each do |id, name| %>
-					<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>">
-						<img style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id %>.png" alt="Pokémon type <%= name %>">
-					</a>
-				<% end %>
-				<br>
-				<a href="/show/<%= id %>?lang=<%= lang %>"><img loading="lazy" src="<%= info[:sprite] %>"><br><%= info[:name] %><br></a>
-				<a class="test" href="/show/pokemon/gen/<%= info[:gen][1] %>"><%= info[:gen][0] %></a>
-				<br>
-			</div>
-		<% end %>
-	</div>
-</div>
+<%= partial :view_pokemon_by_x, list: pokemon_with_ability, lang: lang %>
