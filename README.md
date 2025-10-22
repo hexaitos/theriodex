@@ -137,6 +137,8 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [ ] Maybe add characteristic?
 - [x] Add cries? (added in `a7946dd1dd`)
 - [ ] View Pokémon by type
+- [ ] Show Pokémon by type sorted by generation
+- [ ] Show Pokémon by generation sorted by type
 
 # Acknowledgements
 
