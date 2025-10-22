@@ -8,9 +8,24 @@
 	<button type="submit"><%= get_localised_text(lang, :search) %></button>
 	</form>
 </div>
-<hr>
-<div class="search">
-	<div>
-		<%= search_results %>
+
+<% unless search_results.size == 0 %>
+	<hr>
+	<div class="pokemom-list-container">
+		<div class="pokemon-list">
+			<% search_results.each do | id, info | %>
+				<div class="pokemon">
+					<% info[:types].each do |id, name| %>
+						<a style="text-decoration: none;" href="/show/pokemon/type/<%= id.first %>">
+							<img style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id.first %>.png" alt="Pokémon type <%= name %>">
+						</a>
+					<% end %>
+					<br>
+					<a href="/show/<%= id %>?lang=<%= lang %>"><img loading="lazy" src="<%= info[:sprite] %>"><br><%= info[:name] %><br></a>
+					<a class="test" href="/show/pokemon/gen/<%= info[:gen][1] %>"><%= info[:gen][0] %></a>
+					<br>
+				</div>
+			<% end %>
+		</div>
 	</div>
-</div>
+<% end %>

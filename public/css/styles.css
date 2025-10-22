@@ -676,6 +676,17 @@ div.pokemon-list {
 	flex-wrap: wrap;
 }
 
+a.test {
+	font-size: 10px;
+}
+
+div.pokemon {
+	border: 1px solid var(--color-accent-border);
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px;
+}
+
 input.username {
 	width: 80%;
 }
