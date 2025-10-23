@@ -4,10 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-
-	<% unless request.path_info =~ %r{^/show/(?!ability\b|moves\b)[^/]+/?$} %>
-		<meta name="description" content="Theriodex is a small website for displaying information about either specific Pokémon or a random one – an open-source Pokédex made by Hexaitos.">
-	<% else %>
+	<% case request.path_info
+	when %r{^/show/([^/]+)$} %>
+		<title>Theriodex – <%= name %></title>
 		<meta name="description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
 		<meta property="og:title" content="Theriodex – <%= name %>">
 		<meta property="og:description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
@@ -31,12 +30,42 @@
 				}
 			}.to_json %>
 		</script>
-	<% end %>
 
-	<% unless request.path_info =~ %r{^/show/(?!ability\b|moves\b)[^/]+/?$} %>
-		<title>Theriodex</title>
-	<% else %>
+	<% when %r{^/show/pokemon/([^/]+)$} %>
 		<title>Theriodex – <%= name %></title>
+		<meta name="description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+		<meta property="og:title" content="Theriodex – <%= name %>">
+		<meta property="og:description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+		<meta property="og:image" content="<%= request.base_url %><%= sprite %>">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": request.base_url + request.path_info,
+				"name": "Theriodex – #{name}",
+				"description": "#{name} is a Pokémon. #{flavour_text}",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + sprite,
+					"contentUrl": request.base_url + sprite,
+					"width": 128,
+					"height": 128,
+					"caption": "#{name} sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
+
+	<% when %r{^/show/pokemon/type/([^/]+)$} %>
+
+	<% when %r{^/show/pokemon/gen/([^/]+)$} %>
+
+	<% when %r{^/show/pokemon/ability/([^/]+)$} %>
+
+	<% else %>
+		<title>Theriodex</title>
+		<meta name="description" content="Theriodex is a small website for displaying information about either specific Pokémon or a random one – an open-source Pokédex made by Hexaitos.">
 	<% end %>
 
 	<link rel="preload" as="style" href="/css/styles.css">
