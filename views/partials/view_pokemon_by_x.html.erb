@@ -4,7 +4,7 @@
 			<div class="pokemon search">
 				<% info[:types].each do |id, name| %>
 					<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>">
-						<img style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id %>.png" alt="Pokémon type <%= name %>">
+						<img class="types" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id %>.png" alt="Pokémon type <%= name %>">
 					</a>
 				<% end %>
 				<br>

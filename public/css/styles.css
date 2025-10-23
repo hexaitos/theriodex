@@ -184,13 +184,13 @@ div.types {
 	margin-bottom: 30px;
 }
 
-div.types img.types {
+img.types {
 	width: 64px;
 	margin-top: 5px;
 	transition: transform 0.5s;
 }
 
-div.types img.types:hover {
+img.types:hover {
 	transform: scale(2);
 }
 
