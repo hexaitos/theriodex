@@ -188,6 +188,29 @@ img.types:hover {
 	transform: scale(2);
 }
 
+img.types-browse {
+	width: 128px;
+	margin-top: 5px;
+	transition: transform 0.5s;
+}
+
+img.types-browse:hover {
+	transform: scale(2);
+}
+
+div.browse-type {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+div.browse-gen {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 7px;
+}
+
 div.types h1 {
 	padding: 0;
 	margin: 0;
@@ -434,11 +457,24 @@ a.a-btn-2 {
 	min-width: 80px;
 }
 
+a.a-btn-3 {
+	padding: 12px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	flex: 1 1 0;
+}
+
 a.a-btn-1:hover {
 	background-color: var(--color-primary-hover);
 }
 
 a.a-btn-2:hover {
+	background-color: var(--color-primary-hover);
+}
+
+a.a-btn-3:hover {
 	background-color: var(--color-primary-hover);
 }
 

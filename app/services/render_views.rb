@@ -148,3 +148,12 @@ def pokemon_view_index(id, form = nil, s = nil, animated = false, language_id = 
 
 	pokemon_data
 end
+
+def pokemon_view_browse(language_id = 9)
+	language_id == "en" ? language_id = 9 : language_id
+
+	{
+		gens: get_all_generations(language_id),
+		lang: LANGUAGE_CODES.key(language_id)
+	}
+end

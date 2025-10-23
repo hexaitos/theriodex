@@ -1,0 +1,15 @@
+<%= partial :lang_select %>
+<h1>Browse Pokémon – By Type</h1>
+<div class="browse-type">
+	<% 18.times do |num| %>
+		<a href="/show/pokemon/type/<%= num + 1 %>?lang=<%= lang %>"><img class="types-browse" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></a>
+	<% end %>
+</div>
+
+<hr>
+<h1>Browse Pokémon – By Generation</h1>
+<div class="browse-gen">
+	<% gens.each do | name, num | %>
+		<a class="a-btn-3" href="/show/pokemon/gen/<%= num %>"><%= name %></a>
+	<% end %>
+</div>
