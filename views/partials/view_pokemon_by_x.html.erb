@@ -2,9 +2,14 @@
 	<div class="pokemon-list">
 		<% list.each do | id, info | %>
 			<div class="pokemon search">
+				<div class="id-container">
+					<% id.to_s.chars.map(&:to_i).each do | num | %>
+						<span><%= num %></span>
+					<% end %>
+				</div>
 				<% info[:types].each do |id, name| %>
 					<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>">
-						<img class="types" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id %>.png" alt="Pokémon type <%= name %>">
+					<img class="types" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= id %>.png" alt="Pokémon type <%= name %>">
 					</a>
 				<% end %>
 				<br>

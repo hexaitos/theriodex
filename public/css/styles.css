@@ -38,6 +38,7 @@ body {
 	color: #ffffff;
 	background-color: var(--color-primary);
 	flex: 1 1 0;
+	flex-basis: auto;
 }
 
 .menu a:hover {
@@ -119,13 +120,6 @@ div.sprites a:hover {
 }
 
 div.search {
-}
-
-div.search div {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: safe center;
 }
 
 div.search div a {
@@ -685,6 +679,33 @@ div.pokemon-list {
 
 .efficacy-type {
 	flex: 1;
+	border: 2px solid var(--color-accent-border);
+	border-radius: 5px;
+	padding: 5px;
+}
+
+div.id-container {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+div.id-container span {
+	font-size: 10px;
+	line-height: 10px;
+	color: grey;
+}
+
+p.info {
+	margin-top: 0;
+	font-size: 10px;
+}
+
+h2.efficacy {
+	margin-bottom: 0;
 }
 
 div.search {
@@ -701,6 +722,7 @@ div.pokemon {
 	margin: 5px;
 	padding: 5px;
 	flex: 1 1 0;
+	position: relative;
 }
 
 input.username {
@@ -806,7 +828,8 @@ summary:hover {
 	h3,
 	tr,
 	a.current,
-	div.privacy {
+	div.privacy,
+	div.id-container span {
 		color: white;
 	}
 

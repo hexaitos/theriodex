@@ -2,12 +2,14 @@
 	<% if CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first.nil? %>
 		<a href="/">Random</a>
 		<a href="/search">Search</a>
+		<a href="/sorted">Sorted Pokémon</a>
 		<a href="/game">Game</a>
 		<a href="/about">About</a>
 	<% else %>
 		<% language = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>
 		<a href="/?lang=<%= language %>"><%= get_localised_text(language, :random) %></a>
 		<a href="/search?lang=<%= language %>"><%= get_localised_text(language, :search) %></a>
+		<a href="/sorted">Sorted Pokémon</a>
 		<a href="/game?lang=<%= language %>"><%= get_localised_text(language, :game) %></a>
 		<a href="/about?lang=<%= language %>"><%= get_localised_text(language, :about) %></a>
 	<% end %>
