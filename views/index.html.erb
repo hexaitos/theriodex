@@ -10,6 +10,7 @@
 			<img class="types" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>">
 		</a>
 	<% end %>
+	<hr class="small">
 	<span>
 		<%= weight / 10 %> kg •
 		<%= height / 10 %> m •
@@ -25,6 +26,7 @@
 		<%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %>
 </span>
 
+<hr class="small">
 <span><%= get_localised_text(lang, :abilities) %>:</span>
 <div class="evolutions">
 <% abilities.each do | name, hidden, slot, id, unformatted | %>
@@ -33,6 +35,7 @@
 </div>
 
 <% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
+	<hr class="small">
 	<span><%= get_localised_text(lang, :evolutions) %>:</span>
 <% end %>
 

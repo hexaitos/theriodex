@@ -222,6 +222,10 @@ div.types span {
 	display: block;
 }
 
+hr.small {
+	width: 50%;
+}
+
 div.corner {
 	margin-bottom: 15px;
 }
