@@ -183,16 +183,7 @@
 			<tbody>
 			<tr>
 				<% damage_taken.each do |type| %>
-					<% if type[1].to_f / 100 == 0.5 then %>
-						<% converted_type = "½" %>
-					<% elsif type[1].to_f / 100 == 0.25 then %>
-						<% converted_type = "¼" %>
-					<% else %>
-						<% converted_type = type[1].to_f / 100 %>
-						<% converted_type = converted_type.to_s.gsub(/(\.)0+$/, '') %>
-					<% end %>
-
-					<td><%= converted_type %>x</td>
+					<td><%= convert_damage(type[1]) %>x</td>
 				<% end %>
 			</tr>
 			</tbody>
