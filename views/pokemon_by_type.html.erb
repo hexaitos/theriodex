@@ -2,6 +2,30 @@
 
 <h1>“<img style="width: 128px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= type_num %>.png" alt="Pokémon type <%= type_num %>">” Pokémon</h1>
 
-<br>
+<p>Number of Pokémon: <%= num_of_pokemon %></p>
+
+<hr>
+<h2>Efficacy against other types</h2>
+<div class="efficacy">
+	<% efficacy_weakness[:efficacy].each do | damage, type | %>
+		<div class="efficacy-type">
+			<a href="/show/pokemon/type/<%= type %>"><img class="types" style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= type %>.png" alt="Pokémon type <%= type %>"></a><br>
+			<span><%= convert_damage(damage) %>x</span>
+		</div>
+	<% end %>
+</div>
+<hr>
+<h2>Damage from other types</h2>
+<div class="efficacy">
+	<% efficacy_weakness[:weakness].each do | damage, type | %>
+		<div class="efficacy-type">
+			<a href="/show/pokemon/type/<%= type %>"><img class="types" style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= type %>.png" alt="Pokémon type <%= type %>"></a><br>
+			<span><%= convert_damage(damage) %>x</span>
+		</div>
+	<% end %>
+</div>
+
+<hr>
+<h2>All Pokémon with this type</h2>
 
 <%= partial :view_pokemon_by_x, list: pokemon_of_type, lang: lang %>

@@ -676,6 +676,17 @@ div.pokemon-list {
 	flex-wrap: wrap;
 }
 
+.efficacy {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+.efficacy-type {
+	flex: 1;
+}
+
 div.search {
 	min-width: 200px;
 }
@@ -689,6 +700,7 @@ div.pokemon {
 	border-radius: 5px;
 	margin: 5px;
 	padding: 5px;
+	flex: 1 1 0;
 }
 
 input.username {
@@ -816,7 +828,7 @@ summary:hover {
 	}
 
 	div.main {
-		padding: 30px;
+		padding: 20px;
 	}
 }
 
