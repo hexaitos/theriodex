@@ -94,11 +94,11 @@ def pokemon_view_gen(gen, language_id = 9)
 	}
 end
 
-def pokemon_view_type(type, language_id = 9)
+def pokemon_view_by_gen_and_type(gen, type, language_id = 9)
 	type = Sanitize.fragment(type)
 	type_name ||= get_pokemon_type_name(type, language_id)
 	efficacy_weakness ||= get_efficacy_weakness(type)
-	pokemon_of_type_raw = get_pokemon_ids_by_type(type)
+	pokemon_of_type_raw = get_pokemon_ids_by_gen_and_type(gen, type)
 	raise Sinatra::NotFound if pokemon_of_type_raw.size == 0
 
 	pokemon_of_type = {}

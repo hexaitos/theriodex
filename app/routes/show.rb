@@ -21,6 +21,16 @@ namespace "/show" do
 		erb :pokemon_by_type, locals: pokemon_view_type(params["type"], lang)
 	end
 
+	get "/pokemon/type/:type/gen/:gen" do
+		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+
+		erb :pokemon_by_type_and_gen, locals: pokemon_view_by_gen_and_type(params["gen"], params["type"], lang)
+	end
+
+	post "/pokemon/type/gen" do
+		redirect "/show/pokemon/type/#{params['type']}/gen/#{params['gen']}"
+	end
+
 	get "/items/:pocket/gen/:gen" do
 		items = get_items_by_category(params["pocket"], 9, params["gen"])
 

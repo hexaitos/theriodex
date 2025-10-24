@@ -1,5 +1,15 @@
 <%= partial :lang_select %>
-<h1>Browse Pokémon – By Type</h1>
+
+<h1>Browse database</h1>
+<div class="browse-gen">
+	<a class="a-btn-3" href="#type">Pokémon by Type</a>
+	<a class="a-btn-3" href="#gen">Pokémon by Generation</a>
+	<a class="a-btn-3" href="#gen-type">Pokémon by Type and Generation</a>
+	<a class="a-btn-3" href="#items">Items</a>
+</div>
+
+<hr>
+<h2 id="type">Browse Pokémon – By Type</h2>
 <div class="browse-type">
 	<% 18.times do |num| %>
 		<a href="/show/pokemon/type/<%= num + 1 %>?lang=<%= lang %>"><img class="types-browse" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></a>
@@ -7,15 +17,58 @@
 </div>
 
 <hr>
-<h1>Browse Pokémon – By Generation</h1>
+<h2 id="gen">Browse Pokémon – By Generation</h2>
 <div class="browse-gen">
 	<% gens.each do | name, num | %>
 		<a class="a-btn-3" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %><img style="width: 64px; vertical-align: middle;" src="<%= GEN_SPRITES[num] %>"></a>
 	<% end %>
 </div>
-
 <hr>
-<h1>Browse Items – By Pocket</h1>
+
+<h2 id="gen-type">Browse Pokémon – By Generation and Type</h2>
+<div class="browse-gen-type">
+	<form method="POST" action="/show/pokemon/type/gen">
+		<select id="generation" name="gen" required>
+			<option value="">⬇️ Select Generation</option>
+			<option value="1">1️⃣ Gen I</option>
+			<option value="2">2️⃣ Gen II</option>
+			<option value="3">3️⃣ Gen III</option>
+			<option value="4">4️⃣ Gen IV</option>
+			<option value="5">5️⃣ Gen V</option>
+			<option value="6">6️⃣ Gen VI</option>
+			<option value="7">7️⃣ Gen VII</option>
+			<option value="8">8️⃣ Gen VIII</option>
+			<option value="9">9️⃣ Gen IX</option>
+		</select>
+
+		<select id="type" name="type" required>
+			<option value="">⬇️ Select Type</option>
+			<option value="1">Normal</option>
+			<option value="2">Fighting</option>
+			<option value="3">Flying</option>
+			<option value="4">Poison</option>
+			<option value="5">Ground</option>
+			<option value="6">Rock</option>
+			<option value="7">Bug</option>
+			<option value="8">Ghost</option>
+			<option value="9">Steel</option>
+			<option value="10">Fire</option>
+			<option value="11">Water</option>
+			<option value="12">Grass</option>
+			<option value="13">Electric</option>
+			<option value="14">Psychic</option>
+			<option value="15">Ice</option>
+			<option value="16">Dragon</option>
+			<option value="17">Dark</option>
+			<option value="18">Fairy</option>
+		</select>
+
+		<button class="full" type="submit">View Pokémon</button>
+	</form>
+</div>
+<hr>
+
+<h2 id="items">Browse Items – By Pocket</h2>
 <div class="browse-gen">
 	<% pocket_ids_and_names.each do | id, name | %>
 		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><img style="width: 32px; vertical-align: middle;" src="<%= POCKET_SPRITES[id] %>"></a>

@@ -639,8 +639,19 @@ select#lang-select {
 	font-size: 12px;
 }
 
+div.browse-gen-type select {
+	min-width: 49% !important;
+	max-width: 200px;
+}
+
+div.browse-gen-type button {
+	margin-top: 10px;
+	width: 98.9%;
+}
+
 select#difficulty,
-select#generation {
+select#generation,
+select#type {
 	padding: 10px 20px 10px 20px;
 	border-radius: 5px;
 	text-align: center;
