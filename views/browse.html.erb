@@ -13,3 +13,11 @@
 		<a class="a-btn-3" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %></a>
 	<% end %>
 </div>
+
+<hr>
+<h1>Browse Items – By Pocket</h1>
+<div class="browse-gen">
+	<% get_item_pocket_ids_and_names.each do | id, name | %>
+		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %></a>
+	<% end %>
+</div>

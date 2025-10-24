@@ -4,8 +4,8 @@
 
 <div class="pokemom-list-container">
 	<div class="item-list">
-		<% items.each do | item_id, name, effect, short_effect, flavour_text, sprite, cost | %>
-			<% img = JSON.parse(sprite)["default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") %>
+		<% items.each do | item_id, name, effect, short_effect, flavour_text, versions, sprite, cost | %>
+			<% img = JSON.parse(sprite)["default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") unless img.nil? %>
 			<div class="item search">
 				<div class="id-container">
 					<% item_id.to_s.chars.map(&:to_i).each do | num | %>
@@ -29,6 +29,16 @@
 						<br>
 						<hr>
 						<span><%= flavour_text %></span>
+						<hr>
+						<span>
+							<% versions.split(",").each_with_index do | version, i| %>
+								<% unless i == versions.split(",").size - 1 %>
+									<%= version %> •
+								<% else %>
+									<%= version %>
+								<% end %>
+							<% end %>
+						</span>
 					</div>
 				</div>
 			</div>

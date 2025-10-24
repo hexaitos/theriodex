@@ -801,8 +801,8 @@ div.item {
 	margin: 5px;
 	padding: 5px;
 	position: relative;
-	min-width: 45%;
 	flex: 1 1 0;
+	min-width: 40%;
 }
 
 div.item-container {
@@ -951,6 +951,10 @@ summary:hover {
 
 	div.main {
 		padding: 20px;
+	}
+
+	div.item {
+		min-width: 100%;
 	}
 }
 
