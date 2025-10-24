@@ -501,5 +501,28 @@ LOCALISED_TEXT = {
 		"es" => "Reducir el desenfoque",
 		"zh-cn" => "减少模糊",
 		"zh-tw" => "減少模糊"
+	},
+
+	browse: {
+		"en" => "Browse",
+		"de" => "Durchsuchen",
+		"ja" => "閲覧",
+		"ko" => "둘러보기",
+		"fr" => "Parcourir",
+		"it" => "Sfoglia",
+		"es" => "Explorar",
+		"zh-cn" => "浏览",
+		"zh-tw" => "瀏覽"
 	}
+}
+
+POCKET_SPRITES = {
+	1 => "/sprites/items/leaf-stone.png",
+	2 => "/sprites/items/potion.png",
+	3 => "/sprites/items/beast-ball.png",
+	4 => "/sprites/items/tm-ice.png",
+	5 => "/sprites/items/berries/colbur-berry.png",
+	6 => "/sprites/items/grass-mail.png",
+	7 => "/sprites/items/yellow-flute.png",
+	8 => "/sprites/items/bicycle.png"
 }
