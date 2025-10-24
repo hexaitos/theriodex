@@ -526,3 +526,15 @@ POCKET_SPRITES = {
 	7 => "/sprites/items/yellow-flute.png",
 	8 => "/sprites/items/bicycle.png"
 }
+
+GEN_SPRITES = {
+	1 => "/sprites/pokemon/1.png",
+	2 => "/sprites/pokemon/152.png",
+	3 => "/sprites/pokemon/252.png",
+	4 => "/sprites/pokemon/387.png",
+	5 => "/sprites/pokemon/494.png",
+	6 => "/sprites/pokemon/650.png",
+	7 => "/sprites/pokemon/722.png",
+	8 => "/sprites/pokemon/810.png",
+	9 => "/sprites/pokemon/906.png"
+}

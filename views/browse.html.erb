@@ -10,7 +10,7 @@
 <h1>Browse Pokémon – By Generation</h1>
 <div class="browse-gen">
 	<% gens.each do | name, num | %>
-		<a class="a-btn-3" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %></a>
+		<a class="a-btn-3" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %><img style="width: 64px; vertical-align: middle;" src="<%= GEN_SPRITES[num] %>"></a>
 	<% end %>
 </div>
 
