@@ -18,6 +18,10 @@
 <h1>Browse Items – By Pocket</h1>
 <div class="browse-gen">
 	<% pocket_ids_and_names.each do | id, name | %>
+<<<<<<< HEAD
 		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><img style="width: 32px; vertical-align: middle;" src="<%= POCKET_SPRITES[id] %>"></a>
+=======
+		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><br><img style="width: 32px;" src="<%= POCKET_SPRITES[id] %>"></a>
+>>>>>>> b66f5ba3cb98554d55eb49cb7b286bd4e4f79871
 	<% end %>
 </div>
