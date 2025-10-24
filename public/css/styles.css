@@ -467,6 +467,7 @@ a.a-btn-3 {
 	color: white;
 	border-radius: 5px;
 	text-decoration: none;
+	min-width: 150px;
 	flex: 1 1 0;
 }
 

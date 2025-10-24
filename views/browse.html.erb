@@ -17,7 +17,7 @@
 <hr>
 <h1>Browse Items – By Pocket</h1>
 <div class="browse-gen">
-	<% get_item_pocket_ids_and_names.each do | id, name | %>
-		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %></a>
+	<% pocket_ids_and_names.each do | id, name | %>
+		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><br><img style="width: 32px;" src="<%= POCKET_SPRITES[id] %>"></a>
 	<% end %>
 </div>

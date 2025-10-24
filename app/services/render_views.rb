@@ -151,9 +151,21 @@ end
 
 def pokemon_view_browse(language_id = 9)
 	language_id == "en" ? language_id = 9 : language_id
+	pocket_ids_and_names = get_item_pocket_ids_and_names(language_id)
 
 	{
 		gens: get_all_generations(language_id),
+		pocket_ids_and_names: pocket_ids_and_names,
+		lang: LANGUAGE_CODES.key(language_id)
+	}
+end
+
+def pokemon_view_items_by_pocket(pocket_id, language_id = 9)
+	language_id == "en" ? language_id = 9 : language_id
+
+	{
+		items: get_items_by_category(pocket_id, language_id),
+		pocket_name: get_item_pocket_name(pocket_id, language_id),
 		lang: LANGUAGE_CODES.key(language_id)
 	}
 end

@@ -30,11 +30,10 @@ namespace "/show" do
 	end
 
 	get "/items/:pocket" do
-		items = get_items_by_category(params["pocket"], 9, params["gen"])
+		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
-		puts items
 
-		erb :items_by_pocket, locals: { items: items }
+		erb :items_by_pocket, locals: pokemon_view_items_by_pocket(params["pocket"], lang)
 	end
 
 	get "/:id" do
