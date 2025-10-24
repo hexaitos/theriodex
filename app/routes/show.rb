@@ -21,6 +21,14 @@ namespace "/show" do
 		erb :pokemon_by_type, locals: pokemon_view_type(params["type"], lang)
 	end
 
+	get "/pokemon/items/:pocket/gen/:gen" do
+		items = get_items_by_category(params["pocket"], 9, params["gen"])
+
+		puts items
+
+		erb :items_by_pocket, locals: { items: items }
+	end
+
 	get "/:id" do
 		redirect "/show/pokemon/#{request.fullpath.gsub('/show/', '')}"
 	end

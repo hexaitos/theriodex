@@ -1,0 +1,37 @@
+<%= partial :lang_select %>
+
+<h1>Items</h1>
+
+<div class="pokemom-list-container">
+	<div class="item-list">
+		<% items.each do | item_id, name, effect, short_effect, flavour_text, sprite, cost | %>
+			<% img = JSON.parse(sprite)["default"].gsub("https://raw.githubusercontent.com/PokeAPI/sprites/master", "") %>
+			<div class="item search">
+				<div class="id-container">
+					<% item_id.to_s.chars.map(&:to_i).each do | num | %>
+						<span><%= num %></span>
+					<% end %>
+				</div>
+				<div class="price-container">
+					<span>₽</span>
+					<% cost.to_s.chars.map(&:to_i).each do | num | %>
+						<span><%= num %></span>
+					<% end %>
+				</div>
+				<div class="item-container">
+					<p><%= name %></p>
+					<br>
+					<img src="<%= img %>">
+					<br>
+					<hr>
+					<div class="item-text">
+						<span><%= effect %></span>
+						<br>
+						<hr>
+						<span><%= flavour_text %></span>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

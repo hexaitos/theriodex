@@ -710,6 +710,16 @@ div.pokemon-list {
 	flex-wrap: wrap;
 }
 
+div.item-list {
+	justify-content: space-evenly;
+	max-height: 500px;
+	overflow-y: auto;
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .efficacy {
 	display: flex;
 	flex-wrap: wrap;
@@ -731,9 +741,29 @@ div.id-container {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	left: 0;
+	right: 0;
+	padding-left: 5px;
 }
 
-div.id-container span {
+div.price-container {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	left: 0;
+	right: 0;
+	padding-right: 5px;
+}
+
+div.item-text {
+	text-align: justify;
+}
+
+div.id-container,
+div.price-container span {
 	font-size: 10px;
 	line-height: 10px;
 	color: grey;
@@ -763,6 +793,35 @@ div.pokemon {
 	padding: 5px;
 	flex: 1 1 0;
 	position: relative;
+}
+
+div.item {
+	border: 1px solid var(--color-accent-border);
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px;
+	position: relative;
+	min-width: 45%;
+	flex: 1 1 0;
+}
+
+div.item-container {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div.item-container img {
+	width: 64px;
+}
+
+div.item-container p {
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+div.item-container span {
+	font-size: small;
+	text-align: justify;
 }
 
 input.username {

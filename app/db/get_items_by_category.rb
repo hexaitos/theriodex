@@ -1,0 +1,3 @@
+def get_items_by_category(pocket_id, language_id = 9, version_group_id = 5)
+	DB.execute("select n.item_id, n.name, e.effect, e.short_effect, f.flavor_text, s.sprites, i.cost from pokemon_v2_item i join pokemon_v2_itemcategory c on i.item_category_id = c.id join pokemon_v2_itempocket p on c.item_pocket_id = p.id join pokemon_v2_itemname n on i.id = n.item_id join pokemon_v2_itemflavortext f on i.id = f.item_id join pokemon_v2_itemeffecttext e on i.id = e.item_id join pokemon_v2_itemsprites s on i.id = s.item_id where p.id = ? and n.language_id = ? and f.version_group_id = ?;", [ pocket_id, language_id, version_group_id ])
+end
