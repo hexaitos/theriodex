@@ -172,22 +172,21 @@
 	</div>
 	<hr>
 
-	<% if !session[:table] then %>
-		<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
-		<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
-		<%= partial :damage, damage_info: damage_taken, lang: lang %>
-	<% else %>
-		<%= partial :old_damage, damage_info: damage_taken, lang: lang %>
-	<% end %>
+	<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
+	<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
+	<%= partial :damage, damage_info: damage_taken, lang: lang %>
+
 </div>
-<br>
-<a class="a-btn-2 full" href="/toggle-table/<%= id %>">Toggle table</a>
+<details style="margin-top: 10px;">
+		<summary>Toggle table</summary>
+		<%= partial :old_damage, damage_info: damage_taken, lang: lang %>
+</details>
 <hr>
 
 <h3 class="no-bottom-margin">Moves</h3>
 <p class="info">(The moves this Pokémon learns from levelling up)</p>
 <details>
-	<summary>Toggle moves</summary>
+	<summary>Toggle table</summary>
 	<div class="move-table">
 		<table>
 			<caption>
@@ -216,6 +215,27 @@
 				<% end %>
 			</tbody>
 		</table>
+	</div>
 </details>
+
+<div class="move-cards">
+	<% moves.each do |level, name, type_id, cat, power, accuracy, is_stab, generation_id| %>
+		<div class="move-card">
+			<div class="card-header">
+				<span class="move-name"><%= name %></span>
+				<span class="move-level">Lv. <%= level %></span>
+			</div>
+		<div class="card-body">
+			<div class="move-type">
+				<img src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png" alt="<%= type_id %> type" class="type-icon-moves">
+			</div>
+			<div class="move-stats">
+				<span>Category: <%= cat %></span>
+				<span>Power: <%= power || '—' %></span>
+				<span>Accuracy: <%= accuracy || '—' %></span>
+			</div>
+		</div>
+	</div>
+<% end %>
 </div>
-<br>
+</div>

@@ -818,6 +818,64 @@ div.move-table table {
 	width: 100%;
 }
 
+.move-cards {
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.move-card {
+	border: 2px solid var(--color-accent-border);
+	border-radius: 5px;
+	overflow: hidden;
+	background: var(--color-bg);
+	flex: auto;
+}
+
+.card-header {
+	background: var(--color-accent);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #eee;
+}
+
+div.move-cards {
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card-body {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.move-name {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.move-level {
+	font-size: 15px;
+}
+
+.type-icon {
+	height: 24px;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.type-icon-moves {
+	width: 100px;
+	vertical-align: middle;
+}
+
+.move-stats span {
+	display: block;
+	padding: 0.25rem 0;
+	font-size: 0.9rem;
+}
+
 div.search {
 	min-width: 200px;
 }
