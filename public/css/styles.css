@@ -774,6 +774,11 @@ div.item-text {
 	text-align: justify;
 }
 
+div.item-text span.versions {
+	color: grey;
+	font-size: 9px;
+}
+
 div.id-container,
 div.price-container span {
 	font-size: 10px;
@@ -967,6 +972,10 @@ summary:hover {
 
 	div.item {
 		min-width: 100%;
+		margin: 0px;
+		border: 0px;
+		border-radius: 0;
+		border-bottom: 2px solid var(--color-accent-border);
 	}
 }
 

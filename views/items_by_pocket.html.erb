@@ -30,14 +30,8 @@
 						<hr>
 						<span><%= flavour_text %></span>
 						<hr>
-						<span>
-							<% versions.split(",").each_with_index do | version, i| %>
-								<% unless i == versions.split(",").size - 1 %>
-									<%= version %> •
-								<% else %>
-									<%= version %>
-								<% end %>
-							<% end %>
+						<span class="versions">
+							<%= format_versions(versions) %>
 						</span>
 					</div>
 				</div>
