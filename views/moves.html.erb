@@ -1,3 +1,29 @@
-<% moves.each do | move | %>
-	<p>This is a move: <%= move %> </p><br>
-<% end %>
+<div class="move-table">
+	<table>
+		<caption>
+
+		</caption>
+			<thead>
+				<tr>
+					<th scope="col">Level</th>
+					<th scope="col">Name</th>
+					<th scope="col">Type</th>
+					<th scope="col">Category</th>
+					<th scope="col">Power</th>
+					<th scope="col">Accuracy</th>
+				</tr>
+			</thead>
+		<tbody>
+			<% moves.each do | level, name, type_id, cat, power, accuracy, is_stab, generation_id | %>
+			<tr>
+				<th scope="row"><%= level %></th>
+				<td><%= name %></td>
+				<td><img class="types" src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png"/></td>
+				<td><%= cat %></td>
+				<td><%= power %></td>
+				<td><%= accuracy %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
