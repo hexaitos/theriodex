@@ -795,6 +795,11 @@ p.info {
 	font-size: 10px;
 }
 
+hr {
+	border: 1px solid var(--color-primary);
+	border-radius: 5px;
+}
+
 div.search {
 	min-width: 200px;
 }
@@ -813,7 +818,7 @@ div.pokemon {
 }
 
 div.item {
-	border: 1px solid var(--color-accent-border);
+	border: 2px solid var(--color-accent-border);
 	border-radius: 5px;
 	margin: 5px;
 	padding: 5px;
@@ -945,7 +950,9 @@ summary:hover {
 	tr,
 	a.current,
 	div.privacy,
-	div.id-container span {
+	div.id-container span,
+	div.price-container span,
+	div.item-text span.versions {
 		color: white;
 	}
 

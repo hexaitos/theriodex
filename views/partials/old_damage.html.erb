@@ -1,0 +1,21 @@
+<div class="damage">
+	<h3><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
+	<span>(<%= get_localised_text(lang, :horizontally_scrollable_on_small_screens) %>)</span>
+	<div class="damage_taken">
+		<table>
+		<thead>
+		<tr>
+		<% 18.times do |num| %>
+			<th><img src="/sprites/types/generation-vi/x-y/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></th>
+		<% end %>
+		</tr></thead>
+		<tbody>
+		<tr>
+			<% damage_info.each do | type, damage | %>
+				<td><%= convert_damage(damage) %>x</td>
+			<% end %>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+</div>

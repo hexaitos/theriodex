@@ -172,8 +172,14 @@
 	</div>
 	<hr>
 
-	<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
-	<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
-	<%= partial :damage, damage_info: damage_taken, lang: lang %>
+	<% if !session[:table] then %>
+		<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
+		<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
+		<%= partial :damage, damage_info: damage_taken, lang: lang %>
+	<% else %>
+		<%= partial :old_damage, damage_info: damage_taken, lang: lang %>
+	<% end %>
 </div>
+<br>
+<a class="a-btn-2 full" href="/toggle-table/<%= id %>">Toggle table</a>
 <br>
