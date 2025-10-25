@@ -30,6 +30,10 @@ body {
 	background-color: #b5dbe27a;
 }
 
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+
 .menu a {
 	padding: 10px;
 	/* margin-right: 10px; */
@@ -789,10 +793,6 @@ div.price-container span {
 p.info {
 	margin-top: 0;
 	font-size: 10px;
-}
-
-h2.efficacy {
-	margin-bottom: 0;
 }
 
 div.search {

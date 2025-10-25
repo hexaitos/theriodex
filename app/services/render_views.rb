@@ -77,6 +77,7 @@ def pokemon_view_gen(gen, language_id = 9)
 	pokemon_of_gen = {}
 	generation = nil
 	language_id == "en" ? language_id = 9 : language_id
+	versions = get_versions_from_gen(gen, language_id).flatten.join(' • ')
 
 	pokemon_of_gen_raw.each do | pokemon |
 		generation ||= get_pokemon_generation(pokemon.first, language_id)
@@ -89,6 +90,8 @@ def pokemon_view_gen(gen, language_id = 9)
 
 	{
 		pokemon_of_gen: pokemon_of_gen,
+		versions: versions,
+		years: GEN_RELEASE_YEARS[gen.to_i],
 		lang: LANGUAGE_CODES.key(language_id),
 		gen: generation
 	}

@@ -5,7 +5,7 @@
 <p>Number of Pokémon: <%= num_of_pokemon %></p>
 
 <hr>
-<h2 class="efficacy">Damage against other types</h2>
+<h2 class="no-bottom-margin">Damage against other types</h2>
 <p class="info">(The amount of damage this type does against Pokémon of other types)</p>
 <div class="efficacy">
 	<% efficacy_weakness[:efficacy].each do | damage, type | %>
@@ -16,7 +16,7 @@
 	<% end %>
 </div>
 <hr>
-<h2 class="efficacy">Damage from other types</h3>
+<h2 class="no-bottom-margin">Damage from other types</h3>
 <p class="info">(The amount of damage that a Pokémon of this type receives from other types)</p>
 <div class="efficacy">
 	<% efficacy_weakness[:weakness].each do | damage, type | %>

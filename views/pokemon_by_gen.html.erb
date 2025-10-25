@@ -1,6 +1,9 @@
 <%= partial :lang_select %>
 
-<h1>Pokémon – <%= gen[0] %></h1>
-<br>
+<h1 class="no-bottom-margin">Pokémon – <%= gen[0] %></h1>
+<p class="info">(<%= years %>)</p>
+<p><%= versions %></p>
+<hr>
 
+<br>
 <%= partial :view_pokemon_by_x, list: pokemon_of_gen, lang: lang %>
