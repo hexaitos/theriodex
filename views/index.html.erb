@@ -172,26 +172,8 @@
 	</div>
 	<hr>
 
-	<div class="damage">
-		<h3><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
-		<span>(<%= get_localised_text(lang, :horizontally_scrollable_on_small_screens) %>)</span>
-		<div class="damage_taken">
-			<table>
-			<thead>
-			<tr>
-			<% 18.times do |num| %>
-				<th><img src="/sprites/types/generation-vi/x-y/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></th>
-			<% end %>
-			</tr></thead>
-			<tbody>
-			<tr>
-				<% damage_taken.each do |type| %>
-					<td><%= convert_damage(type[1]) %>x</td>
-				<% end %>
-			</tr>
-			</tbody>
-			</table>
-		</div>
-	</div>
+	<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
+	<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
+	<%= partial :damage, damage_info: damage_taken, lang: lang %>
 </div>
 <br>
