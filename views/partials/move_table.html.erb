@@ -17,7 +17,11 @@
 			<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name | %>
 			<tr>
 				<th scope="row"><%= level %></th>
-				<td><%= name %></td>
+				<% if is_stab == 1 then %>
+					<td class="underline"><%= name %></td>
+				<% else %>
+					<td><%= name %></td>
+				<% end %>
 				<td><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></td>
 				<td><div id="<%= cat_id %>" class="category"><%= cat.upcase %></td>
 				<td><%= power %></td>

@@ -557,6 +557,10 @@ td div.category {
 	border-radius: 5px;
 }
 
+.underline {
+	text-decoration: underline;
+}
+
 div.move-type-card#\31 {
 	background: #a8a77a;
 } /* Normal */
