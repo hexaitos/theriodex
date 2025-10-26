@@ -6,6 +6,7 @@ def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 	{
 		id: id,
 		moves: get_pokemon_moves_by_gen(pokemon_id, gen_id, language_id),
+		moves_hmtm: get_pokemon_moves_hmtm(pokemon_id, gen_id, language_id),
 		gens: get_pokemon_move_versions(pokemon_id).flatten,
 		name: get_pokemon_name(pokemon_id, language_id),
 		lang: language_id

@@ -183,13 +183,20 @@
 </details>
 <hr>
 
-<h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
-<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
+<h3><%= name %> – Moves</h3>
 <% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
 	<%= partial :move_gens_type, gens: move_gens, id: id, lang: lang %>
 	<p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
-	<hr class="small">
 <% end %>
+
+<div class="type-move-container">
+	<a class="a-btn-3" href="/show/pokemon/moves/<%= id %>/gen/<%= moves[0][9] %>">Moves learnt by all means</a>
+</div>
+<p class="info">(Click the button to view all of the moves this Pokémon can learn – e. g. moves learnt through machines)</p>
+<hr>
+
+<h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
+<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
 <details>
 	<summary>Toggle table</summary>
 	<%= partial :move_table, moves: moves, lang: lang %>

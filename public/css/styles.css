@@ -566,6 +566,13 @@ div.move-type-card:hover {
 	color: black;
 }
 
+.hm-details {
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
 div.move-type-card,
 div.category {
 	color: white;
