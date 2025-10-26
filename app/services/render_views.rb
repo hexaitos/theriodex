@@ -160,7 +160,7 @@ def pokemon_view_index(id, form = nil, s = nil, animated = false, language_id = 
 	pokemon_data[:form] = selected_form
 	pokemon_data[:sex] = selected_sex
 	pokemon_data[:animated] = animated
-	pokemon_data[:move_gens] = get_pokemon_move_versions(selected_pokemon).flatten
+	pokemon_data[:move_gens] = get_pokemon_move_versions(pokemon_data[:pokemon_id]).flatten
 
 	pokemon_data
 end
