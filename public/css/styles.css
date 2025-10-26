@@ -533,8 +533,79 @@ div.damage {
 	border: 5px double var(--color-accent-border);
 	border-radius: 5px;
 	padding: 10px;
-	margin-top: 30px;
 }
+
+div.category#\32 {
+	background: orange;
+}
+
+div.category#\31 {
+	background: grey;
+}
+
+div.category#\33 {
+	background: steelblue;
+}
+
+div.move-type-card,
+div.category {
+	color: white;
+}
+
+div.move-type-card#\31 {
+	background: #a8a77a;
+} /* Normal */
+div.move-type-card#\32 {
+	background: #c22e28;
+} /* Fighting */
+div.move-type-card#\33 {
+	background: #a98ff3;
+} /* Flying */
+div.move-type-card#\34 {
+	background: #a33ea1;
+} /* Poison */
+div.move-type-card#\35 {
+	background: #e2bf65;
+} /* Ground */
+div.move-type-card#\36 {
+	background: #b6a136;
+} /* Rock */
+div.move-type-card#\37 {
+	background: #a6b91a;
+} /* Bug */
+div.move-type-card#\38 {
+	background: #735797;
+} /* Ghost */
+div.move-type-card#\39 {
+	background: #b7b7ce;
+} /* Steel */
+div.move-type-card#\31\30 {
+	background: #ee8130;
+} /* Fire */
+div.move-type-card#\31\31 {
+	background: #6390f0;
+} /* Water */
+div.move-type-card#\31\32 {
+	background: #7ac74c;
+} /* Grass */
+div.move-type-card#\31\33 {
+	background: #f7d02c;
+} /* Electric */
+div.move-type-card#\31\34 {
+	background: #f95587;
+} /* Psychic */
+div.move-type-card#\31\35 {
+	background: #96d9d6;
+} /* Ice */
+div.move-type-card#\31\36 {
+	background: #6f35fc;
+} /* Dragon */
+div.move-type-card#\31\37 {
+	background: #705746;
+} /* Dark */
+div.move-type-card#\31\38 {
+	background: #d685ad;
+} /* Fairy */
 
 div.damage_taken td {
 	font-size: small;
@@ -836,17 +907,18 @@ div.move-table table {
 	padding: 10px;
 	display: flex;
 	justify-content: space-between;
-	border-bottom: 1px solid #eee;
+	/* border-bottom: 1px solid #eee; */
 }
 
 div.move-cards {
+	margin-top: 10px;
 	padding: 0;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .card-body {
-	margin-top: 10px;
+	/* margin-top: 10px; */
 	margin-bottom: 10px;
 }
 

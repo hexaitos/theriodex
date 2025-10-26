@@ -1,0 +1,21 @@
+<div class="move-cards">
+	<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name | %>
+		<div class="move-card">
+			<div class="card-header">
+				<span class="move-name"><%= name %></span>
+				<span class="move-level">Lv. <%= level %></span>
+			</div>
+		<div class="card-body">
+			<div id="<%= cat_id %>" class="category"><%= cat.upcase %></div>
+			<div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div>
+			<div class="move-stats">
+				<span>PWR: <%= power || '—' %> • ACC: <%= accuracy || '—' %>
+				<% if is_stab == 1 %>
+				• STAB
+				<% end %>
+				</span>
+			</div>
+		</div>
+	</div>
+<% end %>
+</div>

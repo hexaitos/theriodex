@@ -1,0 +1,29 @@
+<div class="move-table">
+	<table>
+		<caption>
+
+		</caption>
+			<thead>
+				<tr>
+					<th scope="col">Level</th>
+					<th scope="col">Name</th>
+					<th scope="col">Type</th>
+					<th scope="col">Category</th>
+					<th scope="col">Power</th>
+					<th scope="col">Accuracy</th>
+				</tr>
+			</thead>
+		<tbody>
+			<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name | %>
+			<tr>
+				<th scope="row"><%= level %></th>
+				<td><%= name %></td>
+				<td><a href="/show/pokemon/type/<%= type_id %>"><img class="types" src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png"/></a></td>
+				<td><%= cat %></td>
+				<td><%= power %></td>
+				<td><%= accuracy %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

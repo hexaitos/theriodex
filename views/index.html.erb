@@ -175,67 +175,20 @@
 	<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
 	<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
 	<%= partial :damage, damage_info: damage_taken, lang: lang %>
-
 </div>
+
 <details style="margin-top: 10px;">
 		<summary>Toggle table</summary>
 		<%= partial :old_damage, damage_info: damage_taken, lang: lang %>
 </details>
 <hr>
 
-<h3 class="no-bottom-margin">Moves</h3>
-<p class="info">(The moves this Pokémon learns from levelling up)</p>
+<h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
+<p class="info">(The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
 <details>
 	<summary>Toggle table</summary>
-	<div class="move-table">
-		<table>
-			<caption>
-
-			</caption>
-				<thead>
-					<tr>
-						<th scope="col">Level</th>
-						<th scope="col">Name</th>
-						<th scope="col">Type</th>
-						<th scope="col">Category</th>
-						<th scope="col">Power</th>
-						<th scope="col">Accuracy</th>
-					</tr>
-				</thead>
-			<tbody>
-				<% moves.each do | level, name, type_id, cat, power, accuracy, is_stab, generation_id | %>
-				<tr>
-					<th scope="row"><%= level %></th>
-					<td><%= name %></td>
-					<td><a href="/show/pokemon/type/<%= type_id %>"><img class="types" src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png"/></a></td>
-					<td><%= cat %></td>
-					<td><%= power %></td>
-					<td><%= accuracy %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
+	<%= partial :move_table, moves: moves, lang: lang %>
+	<hr>
 </details>
 
-<div class="move-cards">
-	<% moves.each do |level, name, type_id, cat, power, accuracy, is_stab, generation_id| %>
-		<div class="move-card">
-			<div class="card-header">
-				<span class="move-name"><%= name %></span>
-				<span class="move-level">Lv. <%= level %></span>
-			</div>
-		<div class="card-body">
-			<div class="move-type">
-				<img src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png" alt="<%= type_id %> type" class="type-icon-moves">
-			</div>
-			<div class="move-stats">
-				<span>Category: <%= cat %></span>
-				<span>Power: <%= power || '—' %></span>
-				<span>Accuracy: <%= accuracy || '—' %></span>
-			</div>
-		</div>
-	</div>
-<% end %>
-</div>
-</div>
+<%= partial :move_cards, moves: moves, lang: lang %>
