@@ -17,6 +17,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	pokemon_data[:height] = attrs[1].to_f
 	pokemon_data[:stats] = get_pokemon_stats(pokemon_id)
 	pokemon_data[:gen] = get_pokemon_generation(pokemon_id, language_id)
+	pokemon_data[:moves] = get_pokemon_moves(pokemon_id, language_id)
 
 	pokemon_data[:sprite] = sprites[:front_sprite]
 	pokemon_data[:sprite_back] = sprites[:back_sprite]
