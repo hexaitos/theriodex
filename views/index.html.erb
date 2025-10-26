@@ -186,11 +186,7 @@
 <h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
 <p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
 <% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
-	<div class="type-move-container">
-		<% move_gens.each do | move_gen | %>
-			<a class="a-btn-4" href="/show/pokemon/moves/<%= id %>/gen/<%= move_gen %>"><%= move_gen.romanise %></a>
-		<% end %>
-	</div>
+	<%= partial :move_gens_type, gens: move_gens, id: id, lang: lang %>
 	<p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
 	<hr class="small">
 <% end %>
