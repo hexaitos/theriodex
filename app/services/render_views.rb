@@ -1,10 +1,10 @@
 def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
-	id = Sanitize.fragment(pokemon_id)
+	pokemon_id = Sanitize.fragment(pokemon_id)
 	language_id == "en" ? language_id = 9 : language_id
-	puts pokemon_id
+	if !pokemon_id.is_integer? then pokemon_id = get_pokemon_id_from_name(pokemon_id, language_id) end
 
 	{
-		id: id,
+		id: pokemon_id,
 		moves: get_pokemon_moves_by_gen(pokemon_id, gen_id, language_id),
 		moves_hmtm: get_pokemon_moves_hmtm(pokemon_id, gen_id, language_id),
 		gens: get_pokemon_move_versions(pokemon_id).flatten,
@@ -160,7 +160,7 @@ def pokemon_view_index(id, form = nil, s = nil, animated = false, language_id = 
 	pokemon_data[:form] = selected_form
 	pokemon_data[:sex] = selected_sex
 	pokemon_data[:animated] = animated
-	pokemon_data[:move_gens] = get_pokemon_move_versions(selected_pokemon).flatten
+	pokemon_data[:move_gens] = get_pokemon_move_versions(pokemon_data[:pokemon_id]).flatten
 
 	pokemon_data
 end

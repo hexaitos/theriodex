@@ -185,7 +185,7 @@
 
 <h3><%= name %> – Moves</h3>
 <% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
-	<%= partial :move_gens_type, gens: move_gens, id: id, lang: lang %>
+	<%= partial :move_gens_type, gens: move_gens, id: pokemon_id, lang: lang %>
 	<p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
 <% end %>
 

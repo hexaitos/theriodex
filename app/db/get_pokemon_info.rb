@@ -34,6 +34,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	pokemon_data[:animated_front_shiny] = sprites[:animated_front_shiny]
 	pokemon_data[:animated_back_shiny] = sprites[:animated_back_front]
 	pokemon_data[:lang] = LANGUAGE_CODES.key(language_id)
+	pokemon_data[:pokemon_id] = pokemon_id
 
 	pokemon_data
 end
