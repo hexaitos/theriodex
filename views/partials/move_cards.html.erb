@@ -11,7 +11,7 @@
 			</div>
 		<div class="card-body">
 			<div id="<%= cat_id %>" class="category"><%= cat.upcase %></div>
-			<div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div>
+			<a href="/show/pokemon/type/<%= type_id %>" class="type-link"><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></a>
 			<div class="move-stats">
 				<span>PWR: <%= power || '—' %> • ACC: <%= accuracy || '—' %></span>
 			</div>

@@ -22,7 +22,7 @@
 				<% else %>
 					<td><%= name %></td>
 				<% end %>
-				<td><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></td>
+				<td><a href="/show/pokemon/type/<%= type_id %>" class="type-link"><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></a></td>
 				<td><div id="<%= cat_id %>" class="category"><%= cat.upcase %></td>
 				<td><%= power || "—" %></td>
 				<td><%= accuracy || "—" %></td>

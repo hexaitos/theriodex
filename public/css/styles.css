@@ -561,6 +561,11 @@ div.category#\33 {
 	background: steelblue;
 }
 
+div.move-type-card:hover {
+	filter: brightness(140%);
+	color: black;
+}
+
 div.move-type-card,
 div.category {
 	color: white;
@@ -910,6 +915,10 @@ div.move-table {
 
 div.move-table table {
 	width: 100%;
+}
+
+a.type-link {
+	text-decoration: none;
 }
 
 div.type-move-container {
