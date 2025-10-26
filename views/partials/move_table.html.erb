@@ -8,9 +8,9 @@
 					<th scope="col">Level</th>
 					<th scope="col">Name</th>
 					<th scope="col">Type</th>
-					<th scope="col">Category</th>
-					<th scope="col">Power</th>
-					<th scope="col">Accuracy</th>
+					<th scope="col">Cat.</th>
+					<th scope="col">Pwr.</th>
+					<th scope="col">Acc.</th>
 				</tr>
 			</thead>
 		<tbody>
@@ -18,8 +18,8 @@
 			<tr>
 				<th scope="row"><%= level %></th>
 				<td><%= name %></td>
-				<td><a href="/show/pokemon/type/<%= type_id %>"><img class="types" src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png"/></a></td>
-				<td><%= cat %></td>
+				<td><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></td>
+				<td><div id="<%= cat_id %>" class="category"><%= cat.upcase %></td>
 				<td><%= power %></td>
 				<td><%= accuracy %></td>
 			</tr>

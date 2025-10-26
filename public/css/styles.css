@@ -552,6 +552,11 @@ div.category {
 	color: white;
 }
 
+td div.move-type-card,
+td div.category {
+	border-radius: 5px;
+}
+
 div.move-type-card#\31 {
 	background: #a8a77a;
 } /* Normal */
