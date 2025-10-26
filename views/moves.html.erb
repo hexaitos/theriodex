@@ -1,29 +1,16 @@
-<div class="move-table">
-	<table>
-		<caption>
-
-		</caption>
-			<thead>
-				<tr>
-					<th scope="col">Level</th>
-					<th scope="col">Name</th>
-					<th scope="col">Type</th>
-					<th scope="col">Category</th>
-					<th scope="col">Power</th>
-					<th scope="col">Accuracy</th>
-				</tr>
-			</thead>
-		<tbody>
-			<% moves.each do | level, name, type_id, cat, power, accuracy, is_stab, generation_id | %>
-			<tr>
-				<th scope="row"><%= level %></th>
-				<td><%= name %></td>
-				<td><img class="types" src="/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_id %>.png"/></td>
-				<td><%= cat %></td>
-				<td><%= power %></td>
-				<td><%= accuracy %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+<h1 class="no-bottom-margin"><%= name %> moves in <%= moves[0][10] %></h3>
+<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
+<div class="type-move-container">
+	<% gens.each do | move_gen | %>
+		<a class="a-btn-4" href="/show/pokemon/moves/<%= id %>/gen/<%= move_gen %>"><%= move_gen.romanise %></a>
+	<% end %>
 </div>
+<p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
+<hr class="small">
+<details>
+	<summary>Toggle table</summary>
+	<%= partial :move_table, moves: moves, lang: lang %>
+	<hr>
+</details>
+
+<%= partial :move_cards, moves: moves, lang: lang %>
