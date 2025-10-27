@@ -33,9 +33,9 @@
 
 	<% when %r{^/show/pokemon/([^/]+)$} %>
 		<title>Theriodex – <%= name %></title>
-		<meta name="description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+		<meta name="description" content="<%= name %> is a <%= gen[0] %> Pokémon. <%= flavour_text %>">
 		<meta property="og:title" content="Theriodex – <%= name %>">
-		<meta property="og:description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
+		<meta property="og:description" content="<%= name %> is a <%= gen[0] %> Pokémon. <%= flavour_text %>">
 		<meta property="og:image" content="<%= request.base_url %><%= sprite %>">
 		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
 		<script type="application/ld+json">
@@ -44,7 +44,7 @@
 				"@type": "WebPage",
 				"url": request.base_url + request.path_info,
 				"name": "Theriodex – #{name}",
-				"description": "#{name} is a Pokémon. #{flavour_text}",
+				"description": "#{name} is a #{gen[0]} Pokémon. #{flavour_text}",
 				"image": {
 					"@type": "ImageObject",
 					"url": request.base_url + sprite,
@@ -60,12 +60,65 @@
 	<% when %r{^/show/pokemon/type/([^/]+)$} %>
 
 	<% when %r{^/show/pokemon/gen/([^/]+)$} %>
+		<title>Theriodex – <%= gen[0] %></title>
+		<meta name="description" content="All Pokémon of <%= gen[0] %>">
+		<meta property="og:title" content="All Pokémon of <%= gen[0] %>">
+		<meta property="og:description" content="All Pokémon of <%= gen[0] %>">
+		<meta property="og:image" content="<%= request.base_url %><%= pokemon_of_gen.values[0][:sprite] %>">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": request.base_url + request.path_info,
+				"name": "Theriodex – #{gen[0]}",
+				"description": "All Pokémon of #{gen[0]}",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + pokemon_of_gen.values[0][:sprite],
+					"contentUrl": request.base_url + pokemon_of_gen.values[0][:sprite],
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
 
-	<% when %r{^/show/pokemon/ability/([^/]+)$} %>
+	<% when %r{^/show/ability/([^/]+)$} %>
+		<title>Theriodex – Ability: <%= ability_name %></title>
+		<meta name="description" content="<%= ability_name %>: <%= ability_information %>">
+		<meta property="og:title" content="All Pokémon with ability <%= ability_name %>.">
+		<meta property="og:description" content="<%= ability_name %>: <%= ability_information %>">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": request.base_url + request.path_info,
+				"name": "Theriodex – Ability #{ability_name}",
+				"description": "#{ability_name} – #{ability_information}",
+			}.to_json %>
+		</script>
 
+	<% when %r{^/show/pokemon/moves/([^/]+)/gen/([^/]+)$} %>
+			<title>Theriodex – <%= name %>‘s moves in <%= moves[0][10] %></title>
+			<meta name="description" content="All the moves that <%= name %> learns in <%= moves[0][10] %>">
+			<meta property="og:title" content="<%= name %>‘s moves in <%= moves[0][10] %>">
+			<meta property="og:description" content="All the moves that <%= name %> learns in <%= moves[0][10] %>">
+			<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+			<script type="application/ld+json">
+				<%= {
+					"@context": "https://schema.org",
+					"@type": "WebPage",
+					"url": request.base_url + request.path_info,
+					"name": "Theriodex – #{name}‘s moves in #{moves[0][10]}",
+					"description": "All the moves that #{name} learns in #{moves[0][10]}",
+				}.to_json %>
+			</script>
 	<% else %>
 		<title>Theriodex</title>
-		<meta name="description" content="Theriodex is a small website for displaying information about either specific Pokémon or a random one – an open-source Pokédex made by Hexaitos.">
+		<meta name="description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
 	<% end %>
 
 	<link rel="preload" as="style" href="/css/styles.css">
