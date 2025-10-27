@@ -1112,6 +1112,7 @@ summary {
 }
 
 summary:hover {
+	cursor: pointer;
 	transition: 0.5s;
 	background-color: var(--color-primary-hover);
 }

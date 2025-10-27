@@ -5,7 +5,11 @@
 		</caption>
 			<thead>
 			<tr>
-				<th scope="col" onclick="sortTable(0)">Lvl.<span class="sort-arrow"> ↓</span></th>
+				<% unless defined?(machine) %>
+					<th scope="col" onclick="sortTable(0)">Lvl.<span class="sort-arrow"> ↓</span></th>
+				<% else %>
+					<th scope="col" onclick="sortTable(0)">HM/TM<span class="sort-arrow"> ↓</span></th>
+				<% end %>
 				<th scope="col" onclick="sortTable(1)">Name<span class="sort-arrow"> ↕</span></th>
 				<th scope="col" onclick="sortTable(2)">Type<span class="sort-arrow"> ↕</span></th>
 				<th scope="col" onclick="sortTable(3)">Cat.<span class="sort-arrow"> ↕</span></th>
