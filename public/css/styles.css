@@ -615,7 +615,7 @@ div.browse-type div.move-type-card:before,
 h1 div.move-type-card:before {
 	left: 4px;
 	position: absolute;
-	transform: translateY(5px);
+	transform: translateY(8px);
 }
 
 div.move-type-card:before {
@@ -627,147 +627,146 @@ div.move-type-card:before {
 	margin-right: 3px;
 	vertical-align: middle;
 	margin-bottom: 3px;
-	transform: translateY(1px);
 }
 
 div.move-type-card#\31 {
 	background: #a8a77a;
-	--type-name: "Normal";
+	--type-name: "NORMAL";
 } /* Normal */
 div.move-type-card#\31:before {
 	background-image: url("/types/normal.svg");
 }
 div.move-type-card#\32 {
 	background: #c22e28;
-	--type-name: "Fighting";
+	--type-name: "FIGHTING";
 } /* Fighting */
 div.move-type-card#\32:before {
 	background-image: url("/types/fighting.svg");
 }
 div.move-type-card#\33 {
 	background: #90bee8;
-	--type-name: "Flying";
+	--type-name: "FLYING";
 } /* Flying */
 div.move-type-card#\33:before {
 	background-image: url("/types/flying.svg");
 }
 div.move-type-card#\34 {
 	background: #a33ea1;
-	--type-name: "Poison";
+	--type-name: "POISON";
 } /* Poison */
 div.move-type-card#\34:before {
 	background-image: url("/types/poison.svg");
 }
 div.move-type-card#\35 {
 	background: #e2bf65;
-	--type-name: "Ground";
+	--type-name: "GROUND";
 } /* Ground */
 div.move-type-card#\35:before {
 	background-image: url("/types/ground.svg");
 }
 div.move-type-card#\36 {
 	background: #b6a136;
-	--type-name: "Rock";
+	--type-name: "ROCK";
 } /* Rock */
 div.move-type-card#\36:before {
 	background-image: url("/types/rock.svg");
 }
 div.move-type-card#\37 {
 	background: #a6b91a;
-	--type-name: "Bug";
+	--type-name: "BUG";
 } /* Bug */
 div.move-type-card#\37:before {
 	background-image: url("/types/bug.svg");
 }
 div.move-type-card#\38 {
 	background: #735797;
-	--type-name: "Ghost";
+	--type-name: "GHOST";
 } /* Ghost */
 div.move-type-card#\38:before {
 	background-image: url("/types/ghost.svg");
 }
 div.move-type-card#\39 {
 	background: #b7b7ce;
-	--type-name: "Steel";
+	--type-name: "STEEL";
 } /* Steel */
 div.move-type-card#\39:before {
 	background-image: url("/types/steel.svg");
 }
 div.move-type-card#\31\30 {
 	background: #ee8130;
-	--type-name: "Fire";
+	--type-name: "FIRE";
 } /* Fire */
 div.move-type-card#\31\30:before {
 	background-image: url("/types/fire.svg");
 }
 div.move-type-card#\31\31 {
 	background: #6390f0;
-	--type-name: "Water";
+	--type-name: "WATER";
 } /* Water */
 div.move-type-card#\31\31:before {
 	background-image: url("/types/water.svg");
 }
 div.move-type-card#\31\32 {
 	background: #7ac74c;
-	--type-name: "Grass";
+	--type-name: "GRASS";
 } /* Grass */
 div.move-type-card#\31\32:before {
 	background-image: url("/types/grass.svg");
 }
 div.move-type-card#\31\33 {
 	background: #f7d02c;
-	--type-name: "Electric";
+	--type-name: "ELECTRIC";
 } /* Electric */
 div.move-type-card#\31\33:before {
 	background-image: url("/types/electric.svg");
 }
 div.move-type-card#\31\34 {
 	background: #f95587;
-	--type-name: "Psychic";
+	--type-name: "PSYCHIC";
 } /* Psychic */
 div.move-type-card#\31\34:before {
 	background-image: url("/types/psychic.svg");
 }
 div.move-type-card#\31\35 {
 	background: #96d9d6;
-	--type-name: "Ice";
+	--type-name: "ICE";
 } /* Ice */
 div.move-type-card#\31\35:before {
 	background-image: url("/types/ice.svg");
 }
 div.move-type-card#\31\36 {
 	background: #6f35fc;
-	--type-name: "Dragon";
+	--type-name: "DRAGON";
 } /* Dragon */
 div.move-type-card#\31\36:before {
 	background-image: url("/types/dragon.svg");
 }
 div.move-type-card#\31\37 {
 	background: #705746;
-	--type-name: "Dark";
+	--type-name: "DARK";
 } /* Dark */
 div.move-type-card#\31\37:before {
 	background-image: url("/types/dark.svg");
 }
 div.move-type-card#\31\38 {
 	background: #d685ad;
-	--type-name: "Fairy";
+	--type-name: "FAIRY";
 } /* Fairy */
 div.move-type-card#\31\38:before {
 	background-image: url("/types/fairy.svg");
 }
 
 div.move-type-card-name:after {
+	display: inline-flex;
 	content: var(--type-name);
-	text-align: center;
 	font-weight: bold;
 	color: white;
-	margin-top: 4px; /* Space between icon and text */
+	margin-top: 4px;
 }
 
 .rounded {
 	font-size: 10px;
-	min-width: 64px;
+	min-width: 67px;
 	max-width: 80px;
 	border-radius: 5px;
 	padding: 0 !important;
