@@ -987,6 +987,11 @@ div.pokemon-list {
 	flex-wrap: wrap;
 }
 
+div.pokemon-list img,
+div.item-list img {
+	image-rendering: pixelated;
+}
+
 div.item-list {
 	justify-content: space-evenly;
 	max-height: 500px;
