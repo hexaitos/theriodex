@@ -6,7 +6,6 @@
 		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :direct_link) %></a>
 		<form action="/show/<%= id %>" method="get" id="language_select">
 	<% end %>
-	<form action="<%= request.fullpath %>" method="get" id="language_select">
 		<select id="lang-select" name="lang" required>
 			<option value="en">🌐 English</option>
 			<option value="de">🌐 Deutsch</option>
@@ -23,7 +22,7 @@
 
 <script>
 document.querySelector('#language_select').addEventListener("change", (event) => {
-	document.querySelector('#language_select').submit(); 
+	document.querySelector('#language_select').submit();
 });
 
 window.onload = () => {
