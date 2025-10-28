@@ -117,8 +117,18 @@
 				}.to_json %>
 			</script>
 	<% else %>
-		<title>Theriodex</title>
+		<title>Theriodex - An Open-Source Pokédex</title>
 		<meta name="description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
+
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": request.base_url + request.path_info,
+				"name": "Theriodex - An Open-Source Pokédex",
+				"description": "Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.",
+			}.to_json %>
+		</script>
 	<% end %>
 
 	<link rel="preload" as="style" href="/css/styles.css">
