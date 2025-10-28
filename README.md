@@ -4,9 +4,9 @@
 
 ![CI Status](https://ci.codeberg.org/api/badges/15226/status.svg)
 
-This is just a silly thing I am working on and I am not even entirely sure what the scope will end up being. It displays a random Pokémon with some details on the homepage and has a fuzzy search so you can search for and display the information for a particular Pokémon. Refer to the `TODO` section of this README for more information about what other features are planned. You can try it out over on [btlr.sh](https://btlr.sh).
+**Theriodex** is an open-source Pokédex written in Ruby! Displays a random Pokémon with a bunch of information on the homepage but also has information about Pokémons’ moves, their abilties, evolutions and more ! It even has a small Pokémon guessing game. Refer to the `TODO` section of this README for more information about what other features are planned. You can try it out over on [theriodex.net](https://theriodex.net)!
 
-Very much a work in progress and not done yet. I am not sure about the name yet, but I quite like the name `Theriodex` so far, wherein `therio-` is a prefix from the Ancient Greek word for "animal" or "beast" and `-dex` is a reference to the Pokédex. Name is subject to change, however.
+This is still very much a work in progress and not done yet, so expect lots of bugs, breakages, maybe incorrect data and frequent updates. The name _Theriodex_ comes from `therio-`, which is a prefix from the Ancient Greek word for "animal" or "beast", and `-dex`, which is a reference to the Pokédex.
 
 This is based off of [PokeAPI](https://github.com/PokeAPI/pokeapi) which, in turn, takes a lot of its data from [Veekun's Pokédex](https://github.com/veekun/pokedex). However, I am not using their API or hosting it myself, I simply built the database which the API uses (`db.sqlite3` in this repository) and am querying it manually from within Ruby.
 
@@ -119,7 +119,9 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 
 - [x] Display names and flavour text in other languages (maybe with a `?lang=` query and a select box) (fully localised as of `636b1aeca2`)
 - [ ] Pit two Pokémon against one another to compare?
-- [ ] Shows moves. Clickable with more info on each move on each click
+- [x] Shows moves. Clickable with more info on each move on each click
+  - Still somewhat WIP, but basic functionality is there.
+  - [ ] Make it so that each move has its own information page still needs to be done
 - [x] Show evolutions (added in `fe4698bfa8`)
 - [x] Show shiny sprites (added in `777ddeb95c`)
 - [x] Height, weight, genus, species information (added in `44e722b409`)
@@ -133,12 +135,12 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Add info what generation a Pokémon first appeared in
 - [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
 - [x] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
-- [ ] Maybe add berries?
+- [x] Maybe add berries?
 - [ ] Maybe add characteristic?
 - [x] Add cries? (added in `a7946dd1dd`)
-- [ ] View Pokémon by type
-- [ ] Show Pokémon by type sorted by generation
-- [ ] Show Pokémon by generation sorted by type
+- [x] View Pokémon by type
+- [x] Show Pokémon by type sorted by generation
+- [x] Show Pokémon by generation sorted by type
 
 # Acknowledgements
 
