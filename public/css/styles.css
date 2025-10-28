@@ -134,13 +134,6 @@ div.search div a {
 		transform 0.5s;
 }
 
-div.search div a:hover,
-div.search div a:active {
-	color: transparent;
-	transition-duration: 0.5s;
-	transform: scale(2);
-}
-
 div.search_bar {
 	margin-bottom: 50px;
 	display: flex;
@@ -565,6 +558,13 @@ div.move-type-card:hover {
 	filter: brightness(110%);
 }
 
+.rounded:hover {
+	color: transparent;
+	transition-duration: 0.5s;
+	transform: scale(2);
+	z-index: 100;
+}
+
 .hm-details {
 	border: 5px double var(--color-accent-border);
 	border-radius: 5px;
@@ -589,18 +589,10 @@ div.move-type-card-name {
 	padding-left: 1em;
 }
 
-div.move-type-card .big {
-}
-
-div.move-type-card-name:before {
-	content: "";
-	display: inline-block;
-	width: 10px;
-	height: 10px;
-	background-size: 10px 10px;
-	margin-right: 3px;
-	vertical-align: middle;
-	margin-bottom: 3px;
+.rounded {
+	transition:
+		color 0.5s,
+		transform 0.5s;
 }
 
 .underline {
