@@ -199,7 +199,8 @@ img.types-browse:hover {
 div.browse-type {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-evenly;
+	gap: 0.2em;
 }
 
 div.browse-gen {
@@ -469,6 +470,17 @@ a.a-btn-3 {
 	flex: 1 1 0;
 }
 
+a.browse {
+	flex: 1 1 0;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	padding: 0 16px;
+	text-align: center;
+	margin: 0 auto;
+	justify-content: center;
+}
+
 a.a-btn-4 {
 	padding: 5px;
 	background: var(--color-primary);
@@ -589,12 +601,6 @@ div.move-type-card-name {
 	padding-left: 1em;
 }
 
-.rounded {
-	transition:
-		color 0.5s,
-		transform 0.5s;
-}
-
 .underline {
 	text-decoration: underline;
 }
@@ -603,6 +609,13 @@ td div.move-type-card:before {
 	left: 4px;
 	position: absolute;
 	transform: translateY(2px);
+}
+
+div.browse-type div.move-type-card:before,
+h1 div.move-type-card:before {
+	left: 4px;
+	position: absolute;
+	transform: translateY(5px);
 }
 
 div.move-type-card:before {
@@ -759,6 +772,19 @@ div.move-type-card-name:after {
 	border-radius: 5px;
 	padding: 0 !important;
 	margin: 0 auto;
+	transition:
+		color 0.5s,
+		transform 0.5s;
+}
+
+.rounded-big {
+	width: 128px;
+	font-size: 20px;
+	border-radius: 5px;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin: 0 auto;
+	display: inline-block;
 }
 
 div.efficacy-type .rounded {
@@ -875,16 +901,6 @@ select#lang-select {
 	font-size: 12px;
 }
 
-div.browse-gen-type select {
-	min-width: 49% !important;
-	max-width: 200px;
-}
-
-div.browse-gen-type button {
-	margin-top: 10px;
-	width: 98.9%;
-}
-
 select#difficulty,
 select#generation,
 select#type {
@@ -896,6 +912,19 @@ select#type {
 	width: 200px;
 	margin-top: 10px;
 	border: none;
+	flex: auto;
+}
+
+div.browse-gen-type select {
+	margin: 0 !important;
+}
+
+div.browse-gen-type form {
+	margin-top: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	justify-content: center;
 }
 
 .difficulty-select {

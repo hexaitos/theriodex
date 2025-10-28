@@ -2,17 +2,17 @@
 
 <h1>Browse database</h1>
 <div class="browse-gen">
-	<a class="a-btn-3" href="#type">Pokémon by Type</a>
-	<a class="a-btn-3" href="#gen">Pokémon by Generation</a>
-	<a class="a-btn-3" href="#gen-type">Pokémon by Type and Generation</a>
-	<a class="a-btn-3" href="#items">Items</a>
+	<a class="a-btn-3 browse" href="#type">Pokémon by Type</a>
+	<a class="a-btn-3 browse" href="#gen">Pokémon by Generation</a>
+	<a class="a-btn-3 browse" href="#gen-type">Pokémon by Type and Generation</a>
+	<a class="a-btn-3 browse" href="#items">Items</a>
 </div>
 
 <hr>
 <h2 id="type">Browse Pokémon – By Type</h2>
 <div class="browse-type">
 	<% 18.times do |num| %>
-		<a href="/show/pokemon/type/<%= num + 1 %>?lang=<%= lang %>"><img class="types-browse" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></a>
+		<a href="/show/pokemon/type/<%= num + 1 %>"><div id="<%= num + 1%>" class="move-type-card move-type-card-name rounded-big"></div></a>
 	<% end %>
 </div>
 
@@ -20,7 +20,7 @@
 <h2 id="gen">Browse Pokémon – By Generation</h2>
 <div class="browse-gen">
 	<% gens.each do | name, num | %>
-		<a class="a-btn-3" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %><img style="width: 64px; vertical-align: middle;" src="<%= GEN_SPRITES[num] %>"></a>
+		<a class="a-btn-3 browse" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %><img style="width: 64px; vertical-align: middle;" src="<%= GEN_SPRITES[num] %>"></a>
 	<% end %>
 </div>
 <hr>
@@ -71,6 +71,6 @@
 <h2 id="items">Browse Items – By Pocket</h2>
 <div class="browse-gen">
 	<% pocket_ids_and_names.each do | id, name | %>
-		<a class="a-btn-3" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><img style="width: 32px; vertical-align: middle;" src="<%= POCKET_SPRITES[id] %>"></a>
+		<a class="a-btn-3 browse" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><img style="width: 32px; vertical-align: middle;" src="<%= POCKET_SPRITES[id] %>"></a>
 	<% end %>
 </div>
