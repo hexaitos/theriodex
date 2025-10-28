@@ -5,7 +5,7 @@
 		<thead>
 		<tr>
 		<% 18.times do |num| %>
-			<th><img src="/sprites/types/generation-vi/x-y/<%= num  + 1 %>.png" alt="Pokémon type <%= num + 1 %>"></th>
+			<th><div id="<%= num + 1 %>" class="move-type-card move-type-card-name rounded"></div></th>
 		<% end %>
 		</tr></thead>
 		<tbody>
