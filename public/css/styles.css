@@ -765,6 +765,10 @@ div.move-type-card-name:after {
 	margin-top: 4px;
 }
 
+th .rounded {
+	font-size: 9px;
+}
+
 .rounded {
 	font-size: 10px;
 	min-width: 67px;
