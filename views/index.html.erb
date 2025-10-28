@@ -5,11 +5,13 @@
 		<%= name %>
 		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()">
 	</h1>
+	<div class="type-container">
 	<% types.each do |type| %>
 		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>">
-			<img class="types" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= type.first.to_s %>.png" alt="Pokémon type <%= type.first.to_s %>">
+		<div id="<%= type.first.to_s %>" class="move-type-card move-type-card-name rounded"></div>
 		</a>
 	<% end %>
+	</div>
 	<hr class="small">
 	<span>
 		<%= weight / 10 %> kg •

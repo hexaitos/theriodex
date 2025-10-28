@@ -1,7 +1,7 @@
 <div class="efficacy">
 	<% damage_info.each do | type, damage | %>
 		<div class="efficacy-type">
-			<a href="/show/pokemon/type/<%= type %>?lang<%= lang %>"><img class="types" style="width: 64px; vertical-align: middle;" src="/sprites/types/generation-ix/scarlet-violet/Tera/<%= type %>.png" alt="Pokémon type <%= type %>"></a><br>
+			<a href="/show/pokemon/type/<%= type %>?lang<%= lang %>"><div id="<%= type %>" class="move-type-card move-type-card-name rounded"></div></a>
 			<span><%= convert_damage(damage) %>x</span>
 		</div>
 	<% end %>

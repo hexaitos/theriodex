@@ -174,6 +174,7 @@ div.privacy code {
 
 .pokemon-title {
 	transform: translateX(11px);
+	margin-bottom: 0;
 }
 
 div.types {
@@ -215,9 +216,9 @@ div.browse-gen {
 	gap: 7px;
 }
 
-div.types h1 {
-	padding: 0;
-	margin: 0;
+div.type-container {
+	display: inline-flex;
+	gap: 5px;
 }
 
 div.types span {
@@ -561,8 +562,7 @@ div.category#\33 {
 }
 
 div.move-type-card:hover {
-	filter: brightness(140%);
-	color: black;
+	filter: brightness(110%);
 }
 
 .hm-details {
@@ -580,66 +580,201 @@ div.category {
 td div.move-type-card,
 td div.category {
 	border-radius: 5px;
+	min-width: 90px;
+}
+
+td div.move-type-card,
+div.move-type-card-name {
+	position: relative;
+	padding-left: 1em;
+}
+
+div.move-type-card .big {
+}
+
+div.move-type-card-name:before {
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-size: 10px 10px;
+	margin-right: 3px;
+	vertical-align: middle;
+	margin-bottom: 3px;
 }
 
 .underline {
 	text-decoration: underline;
 }
 
+td div.move-type-card:before {
+	left: 4px;
+	position: absolute;
+	transform: translateY(2px);
+}
+
+div.move-type-card:before {
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background-size: 14px 14px;
+	margin-right: 3px;
+	vertical-align: middle;
+	margin-bottom: 3px;
+	transform: translateY(1px);
+}
+
 div.move-type-card#\31 {
 	background: #a8a77a;
+	--type-name: "Normal";
 } /* Normal */
+div.move-type-card#\31:before {
+	background-image: url("/types/normal.svg");
+}
 div.move-type-card#\32 {
 	background: #c22e28;
+	--type-name: "Fighting";
 } /* Fighting */
+div.move-type-card#\32:before {
+	background-image: url("/types/fighting.svg");
+}
 div.move-type-card#\33 {
 	background: #90bee8;
+	--type-name: "Flying";
 } /* Flying */
+div.move-type-card#\33:before {
+	background-image: url("/types/flying.svg");
+}
 div.move-type-card#\34 {
 	background: #a33ea1;
+	--type-name: "Poison";
 } /* Poison */
+div.move-type-card#\34:before {
+	background-image: url("/types/poison.svg");
+}
 div.move-type-card#\35 {
 	background: #e2bf65;
+	--type-name: "Ground";
 } /* Ground */
+div.move-type-card#\35:before {
+	background-image: url("/types/ground.svg");
+}
 div.move-type-card#\36 {
 	background: #b6a136;
+	--type-name: "Rock";
 } /* Rock */
+div.move-type-card#\36:before {
+	background-image: url("/types/rock.svg");
+}
 div.move-type-card#\37 {
 	background: #a6b91a;
+	--type-name: "Bug";
 } /* Bug */
+div.move-type-card#\37:before {
+	background-image: url("/types/bug.svg");
+}
 div.move-type-card#\38 {
 	background: #735797;
+	--type-name: "Ghost";
 } /* Ghost */
+div.move-type-card#\38:before {
+	background-image: url("/types/ghost.svg");
+}
 div.move-type-card#\39 {
 	background: #b7b7ce;
+	--type-name: "Steel";
 } /* Steel */
+div.move-type-card#\39:before {
+	background-image: url("/types/steel.svg");
+}
 div.move-type-card#\31\30 {
 	background: #ee8130;
+	--type-name: "Fire";
 } /* Fire */
+div.move-type-card#\31\30:before {
+	background-image: url("/types/fire.svg");
+}
 div.move-type-card#\31\31 {
 	background: #6390f0;
+	--type-name: "Water";
 } /* Water */
+div.move-type-card#\31\31:before {
+	background-image: url("/types/water.svg");
+}
 div.move-type-card#\31\32 {
 	background: #7ac74c;
+	--type-name: "Grass";
 } /* Grass */
+div.move-type-card#\31\32:before {
+	background-image: url("/types/grass.svg");
+}
 div.move-type-card#\31\33 {
 	background: #f7d02c;
+	--type-name: "Electric";
 } /* Electric */
+div.move-type-card#\31\33:before {
+	background-image: url("/types/electric.svg");
+}
 div.move-type-card#\31\34 {
 	background: #f95587;
+	--type-name: "Psychic";
 } /* Psychic */
+div.move-type-card#\31\34:before {
+	background-image: url("/types/psychic.svg");
+}
 div.move-type-card#\31\35 {
 	background: #96d9d6;
+	--type-name: "Ice";
 } /* Ice */
+div.move-type-card#\31\35:before {
+	background-image: url("/types/ice.svg");
+}
 div.move-type-card#\31\36 {
 	background: #6f35fc;
+	--type-name: "Dragon";
 } /* Dragon */
+div.move-type-card#\31\36:before {
+	background-image: url("/types/dragon.svg");
+}
 div.move-type-card#\31\37 {
 	background: #705746;
+	--type-name: "Dark";
 } /* Dark */
+div.move-type-card#\31\37:before {
+	background-image: url("/types/dark.svg");
+}
 div.move-type-card#\31\38 {
 	background: #d685ad;
+	--type-name: "Fairy";
 } /* Fairy */
+div.move-type-card#\31\38:before {
+	background-image: url("/types/fairy.svg");
+}
+
+div.move-type-card-name:after {
+	content: var(--type-name);
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	margin-top: 4px; /* Space between icon and text */
+}
+
+.rounded {
+	font-size: 10px;
+	min-width: 64px;
+	max-width: 80px;
+	border-radius: 5px;
+	padding: 0 !important;
+	margin: 0 auto;
+}
+
+div.efficacy-type .rounded {
+	margin-bottom: 5px;
+}
+
+div.move-type-card-name .small {
+}
 
 div.damage_taken td {
 	font-size: small;
@@ -874,6 +1009,10 @@ div.item-list {
 	border: 2px solid var(--color-accent-border);
 	border-radius: 5px;
 	padding: 5px;
+}
+
+div.efficacy-type a {
+	text-decoration: none;
 }
 
 div.id-container {
