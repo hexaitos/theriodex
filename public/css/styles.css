@@ -42,12 +42,36 @@ body {
 	color: #ffffff;
 	background-color: var(--color-primary);
 	flex: 1 1 0;
-	flex-basis: auto;
-	min-width: 7em;
+	min-width: 130px;
 }
 
 .menu a:hover {
 	background-color: var(--color-primary-hover);
+}
+
+.menu a:nth-child(1):before {
+	content: "🎲";
+	display: inline-block;
+}
+
+.menu a:nth-child(2):before {
+	content: "🔍";
+	display: inline-block;
+}
+
+.menu a:nth-child(3):before {
+	content: "🦎";
+	display: inline-block;
+}
+
+.menu a:nth-child(4):before {
+	content: "🕹️";
+	display: inline-block;
+}
+
+.menu a:nth-child(5):before {
+	content: "📋";
+	display: inline-block;
 }
 
 .menu {
@@ -826,6 +850,10 @@ a.corner:hover {
 	background-color: var(--color-primary-hover);
 }
 
+a.corner::before {
+	content: "🔗 ";
+}
+
 div.damage span {
 	font-size: 10px;
 	margin-bottom: 10px;
@@ -1278,6 +1306,10 @@ summary {
 	color: white;
 	margin-bottom: 10px;
 	transition: 0.5s;
+}
+
+summary.table:after {
+	content: " 📊";
 }
 
 summary:hover {

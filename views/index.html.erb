@@ -67,14 +67,14 @@
 
 			<br>
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
+				<a href="/show/<%= id %>?lang=<%= lang %>">⚪<%= get_localised_text(lang, :normal) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>">♀️<%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?animated=true&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+					<a href="/show/<%= id %>?animated=true&form=shiny&lang=<%= lang %>">⏯️<%= get_localised_text(lang, :toggle_animation) %></a>
 				<% end %>
 			</div>
 
@@ -87,14 +87,14 @@
 
 			<br>
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">💫<%= get_localised_text(lang, :shiny) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>">♀️<%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+					<a href="/show/<%= id %>?animated=true&lang=<%= lang %>">⏯️<%= get_localised_text(lang, :toggle_animation) %></a>
 				<% end %>
 			</div>
 
@@ -107,13 +107,13 @@
 
 			<br>
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
+				<a href="/show/<%= id %>?form=shiny&animated=true&lang=<%= lang %>">💫<%= get_localised_text(lang, :shiny) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+					<a href="/show/<%= id %>?s=female&lang=<%= lang %>">♀️<%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
-				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+				<a href="/show/<%= id %>?lang=<%= lang %>">⏯️<%= get_localised_text(lang, :toggle_animation) %></a>
 			</div>
 
 		<% elsif form == "shiny" and !front_shiny.nil? and animated %>
@@ -125,14 +125,14 @@
 
 			<br>
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?animated=true&lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
+				<a href="/show/<%= id %>?animated=true&lang=<%= lang %>">⚪<%= get_localised_text(lang, :normal) %></a>
 
 				<% unless front_shiny_female.nil? %>
-					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :female) %></a>
+					<a href="/show/<%= id %>?s=female&form=shiny&lang=<%= lang %>">♀️<%= get_localised_text(lang, :female) %></a>
 				<% end %>
 
 				<% unless animated_front.nil? %>
-					<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :toggle_animation) %></a>
+					<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">⏯️<%= get_localised_text(lang, :toggle_animation) %></a>
 				<% end %>
 			</div>
 		<% end %>
@@ -147,8 +147,8 @@
 
 			<br>
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?s=female&lang=<%= lang %>"><%= get_localised_text(lang, :normal) %></a>
-				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
+				<a href="/show/<%= id %>?s=female&lang=<%= lang %>">⚪<%= get_localised_text(lang, :normal) %></a>
+				<a href="/show/<%= id %>?form=shiny&lang=<%= lang %>">♂️<%= get_localised_text(lang, :male) %></a>
 			</div>
 		<% elsif form == "" or form == "normal" or form.nil? %>
 			<img src="<%= front_female %>" alt="Default front female sprite">
@@ -159,8 +159,8 @@
 
 			<br>
 			<div class="sprites-links">
-				<a href="/show/<%= id %>?form=shiny&s=female&lang=<%= lang %>"><%= get_localised_text(lang, :shiny) %></a>
-				<a href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :male) %></a>
+				<a href="/show/<%= id %>?form=shiny&s=female&lang=<%= lang %>">💫<%= get_localised_text(lang, :shiny) %></a>
+				<a href="/show/<%= id %>?lang=<%= lang %>">♂️<%= get_localised_text(lang, :male) %></a>
 			</div>
 		<% end %>
 	<% end %>
@@ -180,7 +180,7 @@
 </div>
 
 <details style="margin-top: 10px;">
-		<summary>Toggle table</summary>
+		<summary class="table">Toggle table</summary>
 		<%= partial :old_damage, damage_info: damage_taken, lang: lang %>
 </details>
 <hr>
@@ -200,7 +200,7 @@
 <h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
 <p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
 <details>
-	<summary>Toggle table</summary>
+	<summary class="table">Toggle table</summary>
 	<%= partial :move_table, moves: moves, lang: lang %>
 	<hr>
 </details>
