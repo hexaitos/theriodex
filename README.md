@@ -141,6 +141,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] View Pokémon by type
 - [x] Show Pokémon by type sorted by generation
 - [x] Show Pokémon by generation sorted by type
+- [ ] Add more evolution data (time of day, trigger, happiness etc.)
 
 # Acknowledgements
 
