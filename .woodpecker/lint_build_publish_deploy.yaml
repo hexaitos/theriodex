@@ -24,17 +24,3 @@ steps:
       username: ${CI_REPO_OWNER}
       password:
         from_secret: cb_token
-
-  deploy:
-    image: alpine
-    environment:
-      SCW_SECRET_KEY:
-        from_secret: scw_key
-      CONTAINER_REGION:
-        from_secret: container_region
-      CONTAINER_ID:
-        from_secret: container_id
-    commands:
-      - apk add --no-cache curl
-      - |
-        curl -X POST -H "X-Auth-Token: $SCW_SECRET_KEY" -H "Content-Type: application/json" -d '{}' "https://api.scaleway.com/containers/v1beta1/regions/$CONTAINER_REGION/containers/$CONTAINER_ID/deploy"

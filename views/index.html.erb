@@ -179,12 +179,14 @@
 	<%= partial :damage, damage_info: damage_taken, lang: lang %>
 </div>
 
+<!--
 <details style="margin-top: 10px;">
 		<summary class="table">Toggle table</summary>
 		<%= partial :old_damage, damage_info: damage_taken, lang: lang %>
 </details>
-<hr>
+--->
 
+<hr>
 <h3><%= name %> – Moves</h3>
 <% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
 	<%= partial :move_gens_type, gens: move_gens, id: pokemon_id, lang: lang %>
@@ -198,11 +200,19 @@
 <hr>
 
 <h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
-<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>)</p>
-<details>
-	<summary class="table">Toggle table</summary>
-	<%= partial :move_table, moves: moves, lang: lang %>
-	<hr>
-</details>
+<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>. Cards view works better on mobile, table view is better on desktop.)</p>
 
-<%= partial :move_cards, moves: moves, lang: lang %>
+<div class="tab table-cards-tabs">
+	<button class="tablinks" onclick="openTab(event, 'level-cards')">Cards View</button>
+	<button class="tablinks" onclick="openTab(event, 'level-table')">Table View</button>
+</div>
+
+<div id="level-cards" class="tabcontent">
+	<%= partial :move_cards, moves: moves, lang: lang %>
+</div>
+
+<div id="level-table" class="tabcontent">
+	<%= partial :move_table, moves: moves, lang: lang %>
+</div>
+
+<%= partial :tab_js %>

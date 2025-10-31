@@ -8,37 +8,42 @@
 <hr>
 
 <h2>Through level up</h2>
-<details>
-	<summary>Through level up</summary>
-	<details>
-		<summary class="table">Toggle table</summary>
-		<%= partial :move_table, moves: moves, lang: lang %>
-		<hr>
-	</details>
-	<%= partial :move_cards, moves: moves, lang: lang %>
-</details>
+<div class="tab">
+	<button class="tablinks" onclick="openTab(event, 'level-cards')">Cards View</button>
+	<button class="tablinks" onclick="openTab(event, 'level-table')">Table View</button>
+</div>
 
-<hr>
-<h2>Through HM/TM</h2>
-<details>
-	<summary>Through HM/TM</summary>
+<div id="level-cards" class="tabcontent">
+	<%= partial :move_cards, moves: moves, lang: lang %>
+</div>
+
+<div id="level-table" class="tabcontent">
+	<%= partial :move_table, moves: moves, lang: lang %>
+</div>
+
+<% grouped_moves = moves_hmtm.group_by { |move| move[1] } %>
+<% unless grouped_moves.size == 0 %>
+	<hr>
+	<h2>Through HM/TM</h2>
 	<p>Select a game</p>
-	<hr class="small">
-	<% grouped_moves = moves_hmtm.group_by { |move| move[1] } %>
+	<div class="tab">
 	<% grouped_moves.each do | version, moves | %>
 		<% moves.map! { |move| move.drop(2) } %>
-		<details>
-			<summary><%= version %></summary>
-			<div class="hm-details">
-				<h3><%= version %></h3>
-				<details>
-					<summary class="table">Toggle table</summary>
-					<%= partial :move_table, moves: moves, lang: lang, machine: true %>
-					<hr>
-				</details>
-				<%= partial :move_cards, moves: moves, lang: lang %>
-			</div>
-		</details>
+		<button class="tablinks" onclick="openTab(event, '<%= version %>')"><%= version %></button>
 	<% end %>
-	<br>
-</details>
+	</div>
+
+	<% grouped_moves.each do | version, moves | %>
+		<div id="<%= version %>" class="tabcontent">
+			<h3><%= version %></h3>
+			<details>
+				<summary class="table">Toggle table</summary>
+				<%= partial :move_table, moves: moves, lang: lang %>
+				<hr>
+			</details>
+			<%= partial :move_cards, moves: moves, lang: lang %>
+		</div>
+	<% end %>
+<% end %>
+
+<%= partial :tab_js %>
