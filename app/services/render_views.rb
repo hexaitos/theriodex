@@ -210,3 +210,14 @@ def move_view_details_by_gen(move_id, gen_id, language_id = 9)
 		move_info: move_info
 	}
 end
+
+def pokemon_view_by_moves_and_gen(move_id, gen_id, language_id)
+	language_id == "en" ? language_id = 9 : language_id
+
+	pokemon = get_pokemon_by_move(move_id, gen_id, language_id)
+
+	{
+		lang: LANGUAGE_CODES.key(language_id),
+		pokemon: pokemon
+	}
+end

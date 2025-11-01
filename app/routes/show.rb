@@ -11,6 +11,12 @@ namespace "/show" do
 		erb :move_details, locals: move_view_details_by_gen(params[:move_id], params[:gen_id], lang)
 	end
 
+	get "/pokemon/move/:move_id/gen/:gen_id" do
+		lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+
+		erb :pokemon_by_moves, locals: pokemon_view_by_moves_and_gen(params[:move_id], params[:gen_id], lang)
+	end
+
 	get "/ability/:id" do
 		lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 

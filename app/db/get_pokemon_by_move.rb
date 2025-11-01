@@ -37,6 +37,7 @@ def get_pokemon_by_move(move_id, generation_id, language_id = 9)
 		WHERE
 			vg.generation_id = ?
 			AND pokemonmove.move_id = ?
+			AND pokemonmove.pokemon_id <= 1024
 		ORDER BY
 			vn.name,
 			pokemonmove.move_learn_method_id,
