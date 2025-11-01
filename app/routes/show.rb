@@ -8,7 +8,7 @@ namespace "/show" do
 	get "/move/:move_id/gen/:gen_id" do
 		lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
-		"#{get_move_information_by_gen(params[:move_id], params[:gen_id])}"
+		erb :move_details, locals: move_view_details_by_gen(params[:move_id], params[:gen_id], lang)
 	end
 
 	get "/ability/:id" do

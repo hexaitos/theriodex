@@ -1,0 +1,41 @@
+<h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
+
+<div class="tab">
+<% versions.each_with_index do | version, index | %>
+	<% if index == 0 %>
+		<button class="tablinks" id="defaultOpen" onclick="openTab(event, '<%= version %>')"><%= version %></button>
+	<% else %>
+		<button class="tablinks" onclick="openTab(event, '<%= version %>')"><%= version %></button>
+	<% end %>
+<% end %>
+</div>
+
+<% move_info.each do | move | %>
+	<div id="<%= move["version_name"] %>" class="tabcontent">
+		<p>ID: <%= move["move_id"] %></p>
+		<p>Name: <%= move["name"] %></p>
+		<p>Type ID: <%= move["move_type_id"] %></p>
+		<p>Type Name: <%= move["move_type_name"] %></p>
+		<p>Damage Name: <%= move["move_damage_name"] %></p>
+		<p>Damage Class ID: <%= move["move_damage_class_id"] %></p>
+		<p>Power: <%= move["move_power"] %></p>
+		<p>Accuracy: <%= move["move_accuracy"] %></p>
+		<p>PP: <%= move["PP"] %></p>
+		<p>Effect Text: <%= move["move_effect_text"] %></p>
+		<p>Short Effect Text: <%= move["move_short_effect_text"] %></p>
+		<p>Ailment Chance: <%= move["chance"] %></p>
+		<p>Min Hits: <%= move["min_hits"] %></p>
+		<p>Max Hits: <%= move["max_hits"] %></p>
+		<p>Min Turns: <%= move["min_turns"] %></p>
+		<p>Max Turns: <%= move["max_turns"] %></p>
+		<p>Crit Rate: <%= move["crit_rate"] %></p>
+		<p>Drain: <%= move["drain"] %></p>
+		<p>Healing: <%= move["healing"] %></p>
+		<p>Descriptions: <%= move["description"] %></p>
+	</div>
+<% end %>
+
+<div id="level-table" class="tabcontent">
+</div>
+
+<%= partial :tab_js %>

@@ -185,3 +185,28 @@ def pokemon_view_items_by_pocket(pocket_id, language_id = 9)
 		lang: LANGUAGE_CODES.key(language_id)
 	}
 end
+
+def move_view_details_by_gen(move_id, gen_id, language_id = 9)
+	language_id == "en" ? language_id = 9 : language_id
+
+	move_info = get_move_information_by_gen(move_id, gen_id, language_id)
+	versions = []
+
+	move_info.each_with_index do | move, num |
+		chance = move["ailment_chance"] || move["flinch_chance"] || move["stat_chance"]
+
+		move_info[num]["move_effect_text"] = move_info[num]["move_effect_text"].gsub("$effect_chance%", "#{chance}%")
+
+		move_info[num]["move_short_effect_text"] = move_info[num]["move_effect_text"].gsub("$effect_chance%", "#{chance}%")
+
+		move_info[num]["chance"] = chance
+
+		versions << move["version_name"]
+	end
+
+	{
+		lang: LANGUAGE_CODES.key(language_id),
+		versions: versions,
+		move_info: move_info
+	}
+end

@@ -1,14 +1,16 @@
 <div class="move-cards">
-	<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name | %>
+	<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name, move_id | %>
 		<div class="move-card">
-			<div class="card-header">
-				<% if is_stab == 1 then %>
-					<span class="move-name underline"><%= name %></span>
-				<% else %>
-					<span class="move-name"><%= name %></span>
-				<% end %>
-				<span class="move-level">Lv. <%= level %></span>
-			</div>
+			<a href="/show/move/<%= move_id %>/gen/<%= generation_id %>">
+				<div class="card-header">
+					<% if is_stab == 1 then %>
+						<span class="move-name underline"><%= name %></span>
+					<% else %>
+						<span class="move-name"><%= name %></span>
+					<% end %>
+					<span class="move-level">Lv. <%= level %></span>
+				</div>
+			</a>
 		<div class="card-body">
 			<div id="<%= cat_id %>" class="category"><%= cat.upcase %></div>
 			<a href="/show/pokemon/type/<%= type_id %>" class="type-link"><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></a>

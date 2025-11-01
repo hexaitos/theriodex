@@ -1,5 +1,6 @@
 def get_move_information_by_gen(move_id, generation_id, language_id = 9)
-	DB.execute(<<-SQL, [ language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, move_id, generation_id ])
+	DB.results_as_hash = true
+	info = DB.execute(<<-SQL, [ language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, move_id, generation_id ])
 		SELECT
 			pokemonmove.move_id,
 			name.name,
@@ -17,7 +18,19 @@ def get_move_information_by_gen(move_id, generation_id, language_id = 9)
 			vn.name AS version_name,
 			move_effect.effect AS move_effect_text,
 			move_effect.short_effect AS move_short_effect_text,
-			meta.*,
+			meta.min_hits,
+			meta.max_hits,
+			meta.min_turns,
+			meta.max_turns,
+			meta.crit_rate,
+			NULLIF(meta.ailment_chance, 0) as ailment_chance,
+			NULLIF(meta.flinch_chance, 0) as flinch_chance,
+			NULLIF(meta.stat_chance, 0) as stat_chance,
+			meta.move_meta_category_id,
+			meta.move_id,
+			meta.move_meta_ailment_id,
+			meta.drain,
+			meta.healing,
 			meta_description.description,
 			meta_ailment.name AS meta_ailment_name,
 			meta_statchange.change AS meta_statchange,
@@ -71,4 +84,7 @@ def get_move_information_by_gen(move_id, generation_id, language_id = 9)
 			pokemonmove.move_id,
 			name.name ASC;
 	SQL
+	DB.results_as_hash = false
+
+	info
 end
