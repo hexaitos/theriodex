@@ -1,5 +1,6 @@
 <h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
 
+
 <div class="tab">
 <% versions.each_with_index do | version, index | %>
 	<% if index == 0 %>
@@ -10,32 +11,43 @@
 <% end %>
 </div>
 
-<% move_info.each do | move | %>
+
+<% move_info.each do |move| %>
 	<div id="<%= move["version_name"] %>" class="tabcontent">
-		<p>ID: <%= move["move_id"] %></p>
-		<p>Name: <%= move["name"] %></p>
-		<p>Type ID: <%= move["move_type_id"] %></p>
-		<p>Type Name: <%= move["move_type_name"] %></p>
-		<p>Damage Name: <%= move["move_damage_name"] %></p>
-		<p>Damage Class ID: <%= move["move_damage_class_id"] %></p>
-		<p>Power: <%= move["move_power"] %></p>
-		<p>Accuracy: <%= move["move_accuracy"] %></p>
-		<p>PP: <%= move["PP"] %></p>
-		<p>Effect Text: <%= move["move_effect_text"] %></p>
-		<p>Short Effect Text: <%= move["move_short_effect_text"] %></p>
-		<p>Ailment Chance: <%= move["chance"] %></p>
-		<p>Min Hits: <%= move["min_hits"] %></p>
-		<p>Max Hits: <%= move["max_hits"] %></p>
-		<p>Min Turns: <%= move["min_turns"] %></p>
-		<p>Max Turns: <%= move["max_turns"] %></p>
-		<p>Crit Rate: <%= move["crit_rate"] %></p>
-		<p>Drain: <%= move["drain"] %></p>
-		<p>Healing: <%= move["healing"] %></p>
-		<p>Descriptions: <%= move["description"] %></p>
+		<div class="move-info">
+			<h2 class="no-bottom-margin"><%= move['name'] %></h2>
+			<p class="info">(<%= move["description"] %>)</p>
+
+			<a href="/show/pokemon/type/<%= move["move_type_id"] %>" class="type-link"><div id="<%= move["move_type_id"] %>" class="move-type-card big"><%= move["move_type_name"].upcase %></div></a>
+			<div id="<%= move["move_damage_class_id"] %>" class="category big"><%= move["move_damage_name"].upcase %></div>
+
+			<p><strong>Power:</strong> <%= move['move_power'].to_i > 0 ? move['move_power'] : '—' %></p>
+			<p><strong>Accuracy:</strong> <%= move['move_accuracy'] ? "#{move['move_accuracy']}%" : '—' %></p>
+			<p><strong>PP:</strong> <%= move['PP'] || '—' %></p>
+
+			<p><strong>Effect:</strong> <%= move['move_short_effect_text'] || move['move_effect_text'] %></p>
+
+			<% if move['chance'].to_i > 0 %>
+				<p><strong>Effect Chance:</strong> <%= move['chance'] %>%</p>
+			<% end %>
+
+			<% rate = [] %>
+			<% CRIT[move["crit_rate"]].each do | gen | %>
+				<% if move["generation_id"] <= gen[0] then %>
+					<% rate << gen[1] %>
+				<% end %>
+			<% end %>
+
+			<p><strong>Crit Rate</strong>: <%= rate[0] %>%</p>
+
+			<details>
+				<summary>Technical game details</summary>
+				<p>ID: <%= move['move_id'] %></p>
+				<p>Type ID: <%= move['move_type_id'] %></p>
+				<p>Damage Class ID: <%= move['move_damage_class_id'] %></p>
+			</details>
+		</div>
 	</div>
 <% end %>
-
-<div id="level-table" class="tabcontent">
-</div>
 
 <%= partial :tab_js %>

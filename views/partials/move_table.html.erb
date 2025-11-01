@@ -18,13 +18,17 @@
 			</tr>
 			</thead>
 		<tbody>
-			<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name | %>
+			<% moves.each do |level, name, type_id, type_name, cat, cat_id, power, accuracy, is_stab, generation_id, generation_name, move_id | %>
 			<tr>
 				<th scope="row"><%= level %></th>
 				<% if is_stab == 1 then %>
-					<td class="underline"><%= name %></td>
+					<td class="underline name">
+						<a class="header" href="/show/move/<%= move_id %>/gen/<%= generation_id %>"><%= name %></a>
+					</td>
 				<% else %>
-					<td><%= name %></td>
+					<td class="name">
+						<a class="header" href="/show/move/<%= move_id %>/gen/<%= generation_id %>"><%= name %></a>
+					</td>
 				<% end %>
 				<td><a href="/show/pokemon/type/<%= type_id %>" class="type-link"><div id="<%= type_id %>" class="move-type-card"><%= type_name.upcase %></div></a></td>
 				<td><div id="<%= cat_id %>" class="category"><%= cat.upcase %></td>

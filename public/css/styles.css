@@ -683,6 +683,35 @@ td div.category {
 	min-width: 90px;
 }
 
+td.name {
+	position: relative;
+}
+
+td a.header {
+	display: inline-block;
+	padding-left: 20px;
+	text-decoration: none;
+	color: black;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+div.move-card a.header {
+	text-decoration: none;
+	color: black;
+}
+
+td a.header:before {
+	content: "🔗";
+	position: absolute;
+	left: 5%;
+}
+
+span.move-name:before {
+	content: "🔗";
+}
+
 td div.move-type-card,
 div.move-type-card-name {
 	position: relative;
@@ -858,7 +887,7 @@ th .rounded {
 
 .rounded {
 	font-size: 10px;
-	min-width: 67px;
+	min-width: 68px;
 	max-width: 80px;
 	border-radius: 5px;
 	padding: 0 !important;
@@ -882,7 +911,11 @@ div.efficacy-type .rounded {
 	margin-bottom: 5px;
 }
 
-div.move-type-card-name .small {
+div.move-type-card.big,
+div.category.big {
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px;
 }
 
 div.damage_taken td {
@@ -1260,6 +1293,12 @@ div.move-cards {
 	vertical-align: middle;
 }
 
+div.move-info {
+	padding: 10px;
+	border: 2px solid var(--color-accent-border);
+	border-radius: 5px;
+}
+
 .move-stats span {
 	display: block;
 	padding: 0.25rem 0;
@@ -1432,7 +1471,8 @@ summary:hover {
 	div.privacy,
 	div.id-container span,
 	div.price-container span,
-	div.item-text span.versions {
+	div.item-text span.versions,
+	td a.header {
 		color: white;
 	}
 
