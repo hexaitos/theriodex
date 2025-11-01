@@ -2,7 +2,8 @@
 
 <h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
 
-
+<a class="a-btn-3" href="/show/pokemon/move/<%= move_info[0]["move_id"] %>/gen/<%= move_info[0]["generation_id"] %>">Show all Pokémon that learn this move</a>
+<br>
 <div class="tab">
 <% versions.each_with_index do | version, index | %>
 	<% if index == 0 %>

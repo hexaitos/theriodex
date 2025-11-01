@@ -1,3 +1,44 @@
 <%= partial :lang_select %>
 
-<%= pokemon %>
+
+<% grouped_pokemon = pokemon.group_by { | entry | entry["version_name"] }%>
+
+<div class="tab">
+<% grouped_pokemon.keys.each do | version | %>
+	<button class="tablinks" id="defaultOpen" onclick="openTab(event, '<%= version %>')"><%= version %></button>
+<% end %>
+</div>
+
+<% grouped_pokemon.each do |version, entries| %>
+	<div id="<%= version %>" class="tabcontent">
+		<% grouped_pokemon2 = entries.group_by { | entry | entry["learn_method_name"]} %>
+
+		<% grouped_pokemon2.each do | method, entries | %>
+			<details>
+				<summary><%= method %></summary>
+				<div class="pokemom-list-container">
+					<div class="pokemon-list">
+						<% entries.each do |entry| %>
+						<div class="pokemon search">
+							<div class="id-container">
+								<% entry["pokemon_id"].to_s.chars.map(&:to_i).each do | num | %>
+									<span><%= num %></span>
+								<% end %>
+							</div>
+							<br>
+
+							<a href="/show/<%= entry["pokemon_id"] %>?lang=<%= lang %>"><img loading="lazy" src="<%= pokemon_sprite_url(entry) %>"><br><%= entry["pokemon_name"] %><br></a>
+							<br>
+
+							<p><%= entry["learn_method_name"] %>
+							<br></p>
+						</div>
+						<% end %>
+					</div>
+				</div>
+			</details>
+		<% end %>
+	</div>
+<% end %>
+
+<%= partial :tab_js %>
