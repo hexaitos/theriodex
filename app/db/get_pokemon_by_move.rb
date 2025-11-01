@@ -1,22 +1,30 @@
 def get_pokemon_by_move(move_id, generation_id, language_id = 9)
 	DB.results_as_hash = true
 	pokemon = DB.execute(<<-SQL, [ language_id, language_id, language_id, language_id, language_id, language_id, generation_id, move_id ])
-		SELECT DISTINCT
-			pokemonmove.pokemon_id,
-			name.name,
-			move.type_id,
-			typename.name AS type_name,
-			move.move_damage_class_id,
-			vg.generation_id,
-			genname.name as generation_name,
-			pokemonmove.move_id,
-			pokemonmove.move_learn_method_id,
-			learnmethodname.name AS learn_method_name,
-			vn.name AS version_name,
-			sprites.sprites,
-			vg.name as version_db,
-			gen.name as gen_db,
-			pokemon_species.name as pokemon_name
+
+	SELECT
+		pokemonmove.pokemon_id,
+		name.name,
+		move.type_id,
+		typename.name AS type_name,
+		move.move_damage_class_id,
+		vg.generation_id,
+		genname.name AS generation_name,
+		pokemonmove.move_id,
+		pokemonmove.move_learn_method_id,
+		learnmethodname.name AS learn_method_name,
+		vn.name AS version_name,
+		sprites.sprites,
+		vg.name AS version_db,
+		gen.name AS gen_db,
+		pokemon_species.name AS pokemon_name,
+		(SELECT GROUP_CONCAT(type_id, ',')
+			 FROM (SELECT type_id
+						 FROM pokemon_v2_pokemontype
+						 WHERE pokemon_id = pokemonmove.pokemon_id
+						 ORDER BY id
+						 LIMIT 2)) AS pokemon_type_ids
+
 		FROM pokemon_v2_pokemonmove pokemonmove
 		JOIN pokemon_v2_move move
 			ON move.id = pokemonmove.move_id
@@ -46,10 +54,28 @@ def get_pokemon_by_move(move_id, generation_id, language_id = 9)
 		JOIN pokemon_v2_pokemonspeciesname pokemon_species
 			ON pokemon_species.pokemon_species_id = pokemonmove.pokemon_id
 			AND pokemon_species.language_id = ?
+		JOIN pokemon_v2_pokemontype pokemon_type
+			ON pokemon_type.pokemon_id = pokemonmove.pokemon_id
 		WHERE
 			vg.generation_id = ?
 			AND pokemonmove.move_id = ?
 			AND pokemonmove.pokemon_id <= 1024
+		GROUP BY
+			pokemonmove.pokemon_id,
+			name.name,
+			move.type_id,
+			typename.name,
+			move.move_damage_class_id,
+			vg.generation_id,
+			genname.name,
+			pokemonmove.move_id,
+			pokemonmove.move_learn_method_id,
+			learnmethodname.name,
+			vn.name,
+			sprites.sprites,
+			vg.name,
+			gen.name,
+			pokemon_species.name
 		ORDER BY
 			vn.name,
 			pokemonmove.move_learn_method_id,

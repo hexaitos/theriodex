@@ -1,5 +1,8 @@
 <%= partial :lang_select %>
 
+<h1>Pokémon in <%= pokemon[0]["generation_name"] %> that learn <%= pokemon[0]["name"] %></h1>
+<a class="a-btn-3 full" href="/show/move/<%= pokemon[0]["move_id"] %>/gen/<%= pokemon[0]["generation_id"] %>">Show move details (power, accuracy, etc.)</a>
+<br>
 
 <% grouped_pokemon = pokemon.group_by { | entry | entry["version_name"] }%>
 
@@ -15,7 +18,7 @@
 
 		<% grouped_pokemon2.each do | method, entries | %>
 			<details>
-				<summary><%= method %></summary>
+				<summary>By <%= method %></summary>
 				<div class="pokemom-list-container">
 					<div class="pokemon-list">
 						<% entries.each do |entry| %>
@@ -25,13 +28,18 @@
 									<span><%= num %></span>
 								<% end %>
 							</div>
+							<div class="type-container">
+							<% entry["pokemon_type_ids"].split(',').each do | id | %>
+								<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>">
+								<div id="<%= id %>" class="move-type-card move-type-card-name rounded"></div>
+								</a>
+							<% end %>
+							</div>
+							<%=  %>
 							<br>
 
-							<a href="/show/<%= entry["pokemon_id"] %>?lang=<%= lang %>"><img loading="lazy" src="<%= pokemon_sprite_url(entry) %>"><br><%= entry["pokemon_name"] %><br></a>
+							<a href="/show/<%= entry["pokemon_id"] %>?lang=<%= lang %>"><img loading="lazy" class="move-pokemon" src="<%= pokemon_sprite_url(entry) %>"><br><%= entry["pokemon_name"] %><br></a>
 							<br>
-
-							<p><%= entry["learn_method_name"] %>
-							<br></p>
 						</div>
 						<% end %>
 					</div>

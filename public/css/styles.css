@@ -984,6 +984,7 @@ form.save-in-leaderboard a {
 
 .full {
 	width: 100%;
+	display: block;
 }
 
 div.game-start-buttons {
@@ -1139,6 +1140,10 @@ div.pokemon-list {
 div.pokemon-list img,
 div.item-list img {
 	image-rendering: pixelated;
+}
+
+div.pokemon-list img.move-pokemon {
+	width: 64px;
 }
 
 div.item-list {
