@@ -1513,7 +1513,8 @@ summary:hover {
 	}
 
 	div.flavour,
-	p.ability {
+	p.ability,
+	p.move-details {
 		text-align: justify;
 	}
 

@@ -23,7 +23,8 @@
 		<div class="move-info">
 			<h2 class="no-bottom-margin"><%= move['name'] %></h2>
 
-			<% get_move_old_stats(move["move_id"]).group_by { | entry | entry["version_group_id"] }.each do | version, entry | %>
+			<% old_move_stats = get_move_old_stats(move["move_id"]).group_by { | entry | entry["version_group_id"] } %>
+			<% old_move_stats.each do | version, entry | %>
 				<% if move["version_group_id"] < version || (version == "1" && move["version_group_id"] == "1") %>
 					<% move["move_power"] %>
 					<% power ||= entry.first["power"] %>
@@ -63,7 +64,7 @@
 				<div><strong>Crit Rate</strong><br> <%= rate[0] %>%</div>
 			</div>
 
-			<p><strong>Effect:</strong> <%= move['move_short_effect_text'] || move['move_effect_text'] %></p>
+			<p class="move-details"><strong>Effect:</strong> <%= move['move_short_effect_text'] || move['move_effect_text'] %></p>
 
 			<hr>
 			<h3>Pokémon that learn this move in this version</h3>
