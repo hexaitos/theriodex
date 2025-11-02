@@ -4,12 +4,12 @@ vg.id AS version_group_id,
 vn.name,
 machine.machine_number,
 name.name,
-move.type_id,
+COALESCE(move_change.type_id, move.type_id) AS type_id,
 typename.name,
 movedmgname.name,
 move.move_damage_class_id,
-move.power,
-move.accuracy,
+COALESCE(move_change.power, move.power) AS power,
+COALESCE(move_change.accuracy, move.accuracy) AS accuracy,
 (movedmgname.move_damage_class_id <> 1 and move.type_id in (select type_id from pokemon_v2_pokemontype where pokemon_id = ?)) as is_stab,
 vg.generation_id,
 genname.name,
@@ -30,7 +30,7 @@ JOIN pokemon_v2_generationname genname
 	ON genname.generation_id = vg.generation_id
 	AND genname.language_id = ?
 JOIN pokemon_v2_typename typename
-	ON typename.type_id = move.type_id
+	ON typename.type_id = COALESCE(move_change.type_id, move.type_id)
 	AND typename.language_id = ?
 JOIN pokemon_v2_machine machine
 	ON machine.move_id = pokemonmove.move_id
@@ -39,7 +39,14 @@ JOIN pokemon_v2_version version
 	ON version.version_group_id = machine.version_group_id
 JOIN pokemon_v2_versionname vn
 	ON vn.version_id = version.id AND vn.language_id = ?
-
+LEFT JOIN pokemon_v2_movechange move_change
+	ON move_change.move_id = pokemonmove.move_id
+	AND move_change.version_group_id = (
+			SELECT MIN(version_group_id)
+			FROM pokemon_v2_movechange
+			WHERE move_id = pokemonmove.move_id
+				AND version_group_id > pokemonmove.version_group_id
+	)
 WHERE
 	pokemonmove.pokemon_id = ?
 	AND pokemonmove.move_learn_method_id = 4

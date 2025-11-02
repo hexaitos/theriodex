@@ -18,28 +18,15 @@
 
 
 <% move_info.each do |move| %>
-	<% power, accuracy, pp, chance, type_id = nil %>
 	<div id="<%= move["version_name"] %>" class="tabcontent">
 		<div class="move-info">
 			<h2 class="no-bottom-margin"><%= move['name'] %></h2>
-
-			<% old_move_stats = get_move_old_stats(move["move_id"]).group_by { | entry | entry["version_group_id"] } %>
-			<% old_move_stats.each do | version, entry | %>
-				<% if move["version_group_id"] < version || (version == "1" && move["version_group_id"] == "1") %>
-					<% move["move_power"] %>
-					<% power ||= entry.first["power"] %>
-					<% accuracy ||= entry.first["accuracy"] %>
-					<% pp ||= entry.first["pp"] %>
-					<% chance ||= entry.first["move_effect_chance"] %>
-					<% type_id ||= entry.first["type_id"] %>
-				<% end %>
-			<% end %>
 			<%
-				power = power || move["move_power"].to_i
-				accuracy = accuracy || move["move_accuracy"]
-				pp = pp || move["PP"]
-				chance = chance || move["chance"].to_i
-				type_id = type_id || move["move_type_id"]
+				power =  move["move_power"].to_i
+				accuracy = move["move_accuracy"]
+				pp =  move["PP"]
+				chance = move["chance"].to_i
+				type_id =  move["move_type_id"]
 			%>
 
 			<a href="/show/pokemon/type/<%= type_id %>/gen/<%= move["generation_id"] %>" class="type-link"><div id="<%= type_id %>" class="move-type-card move-type-card-name big"></div></a>
