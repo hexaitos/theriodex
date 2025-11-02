@@ -120,8 +120,14 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Display names and flavour text in other languages (maybe with a `?lang=` query and a select box) (fully localised as of `636b1aeca2`)
 - [ ] Pit two Pokémon against one another to compare?
 - [x] Shows moves. Clickable with more info on each move on each click
-  - Still somewhat WIP, but basic functionality is there.
-  - [ ] Make it so that each move has its own information page still needs to be done
+  - [x] Make it so that each move has its own information page
+  - [ ] Target information in move information
+  - [ ] When looking at all moves a particular Pokémon of a particular generation learns, show that generation's sprites at the top
+  - [ ] Better move overview
+  - [ ] Sometimes move differ from game to game in a particular gen (Vaporeon, Gen I). Fix it so that this is properly displayed
+  - [ ] In the view showing all Pokémon that can learn a particular move, add the level at which they learn it / the HM/TM by which they learn it
+  - [ ] Browsable moves / searchable moves
+  - [ ] Maybe add the "Pokémon that can learn this move" stuff into the same view as the move itself?
 - [x] Show evolutions (added in `fe4698bfa8`)
 - [x] Show shiny sprites (added in `777ddeb95c`)
 - [x] Height, weight, genus, species information (added in `44e722b409`)
@@ -142,7 +148,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Show Pokémon by type sorted by generation
 - [x] Show Pokémon by generation sorted by type
 - [ ] Add more evolution data (time of day, trigger, happiness etc.)
-- [ ] Add mega evolutions
+  - [ ] Add mega evolutions
 
 # Acknowledgements
 
