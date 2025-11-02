@@ -90,10 +90,11 @@ def pokemon_view_gen(gen, language_id = 9)
 		generation ||= get_pokemon_generation(pokemon.first, language_id)
 		pokemon_of_gen[pokemon.first] = {}
 		pokemon_of_gen[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
-		pokemon_of_gen[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		pokemon_of_gen[pokemon.first][:sprite] = get_random_sprite_from_gen(get_all_pokemon_sprites(pokemon), generation.first)
 		pokemon_of_gen[pokemon.first][:types] = get_pokemon_types(pokemon)
 		pokemon_of_gen[pokemon.first][:gen] = get_pokemon_generation(pokemon, language_id)
 	end
+
 
 	{
 		pokemon_of_gen: pokemon_of_gen,
@@ -122,10 +123,15 @@ def pokemon_view_type(type, language_id = 9, gen = nil)
 	pokemon_of_type_raw.each do | pokemon |
 		pokemon_of_type[pokemon.first] = {}
 		pokemon_of_type[pokemon.first][:name] = get_pokemon_name(pokemon.first, language_id)
-		pokemon_of_type[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		if gen.nil?
+			pokemon_of_type[pokemon.first][:sprite] = get_pokemon_sprites(pokemon.first)[:front_sprite]
+		else
+			pokemon_of_type[pokemon.first][:sprite] = get_random_sprite_from_gen(get_all_pokemon_sprites(pokemon), GENS[gen.to_i])
+		end
 		pokemon_of_type[pokemon.first][:types] = get_pokemon_types(pokemon)
 		pokemon_of_type[pokemon.first][:gen] = get_pokemon_generation(pokemon.first, language_id)
 	end
+
 
 	{
 		type_num: type,
@@ -207,6 +213,7 @@ def move_view_details_by_gen(move_id, gen_id, language_id = 9)
 	{
 		lang: LANGUAGE_CODES.key(language_id),
 		versions: versions,
+		pokemon: get_pokemon_by_move(move_id, gen_id, language_id),
 		move_info: move_info
 	}
 end

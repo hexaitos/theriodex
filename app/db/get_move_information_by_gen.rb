@@ -33,7 +33,8 @@ SELECT
 	meta_ailment.name AS meta_ailment_name,
 	meta_statchange.change AS meta_statchange,
 	meta_statname.name AS meta_statname,
-	version.id AS version_id
+	version.id AS version_id,
+	version.name as version_db
 FROM (
 	SELECT DISTINCT move_id, version_group_id
 	FROM pokemon_v2_pokemonmove

@@ -3,6 +3,12 @@
 <h1 class="no-bottom-margin"><%= name %> moves in <%= moves[0][10] %></h3>
 <p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns in <%= moves[0][10] %>)</p>
 
+<div class="sprites">
+	<% get_sprites_from_gen(moves[0][13], moves[0][12]).each do | sprite | %>
+		<img src="<%= sprite %>">
+	<% end %>
+</div>
+
 <%= partial :move_gens_type, gens: gens, lang: lang, id: id %>
 <p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
 <hr>

@@ -1,4 +1,5 @@
 <%= partial :lang_select %>
+<% grouped_pokemon = pokemon.group_by { | entry | entry["version_name"] }%>
 
 <h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
 
@@ -43,12 +44,38 @@
 
 			<p><strong>Crit Rate</strong>: <%= rate[0] %>%</p>
 
-			<details>
-				<summary>Technical game details</summary>
-				<p>ID: <%= move['move_id'] %></p>
-				<p>Type ID: <%= move['move_type_id'] %></p>
-				<p>Damage Class ID: <%= move['move_damage_class_id'] %></p>
-			</details>
+			<hr>
+			<h3>Pokémon that learn this move in this version</h3>
+			<% grouped_pokemon[move["version_name"]].group_by { | entry | entry["learn_method_name"]}.each do | method, entries | %>
+				<details class="pokemon-learning-move">
+					<summary>By <%= method %></summary>
+					<div class="pokemom-list-container">
+						<div class="pokemon-list">
+							<% entries.each do |entry| %>
+							<div class="pokemon search">
+								<div class="id-container">
+									<% entry["pokemon_id"].to_s.chars.map(&:to_i).each do | num | %>
+										<span><%= num %></span>
+									<% end %>
+								</div>
+								<div class="type-container">
+								<% entry["pokemon_type_ids"].split(',').each do | id | %>
+									<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>">
+									<div id="<%= id %>" class="move-type-card move-type-card-name rounded"></div>
+									</a>
+								<% end %>
+								</div>
+								<%=  %>
+								<br>
+
+								<a href="/show/<%= entry["pokemon_id"] %>?lang=<%= lang %>"><img loading="lazy" class="move-pokemon" src="<%= pokemon_sprite_url(entry) %>"><br><%= entry["pokemon_name"] %><br></a>
+								<br>
+							</div>
+							<% end %>
+						</div>
+					</div>
+				</details>
+			<% end %>
 		</div>
 	</div>
 <% end %>

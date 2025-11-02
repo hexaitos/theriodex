@@ -108,7 +108,7 @@ footer {
 }
 
 footer img {
-	image-rendering: pixelated;
+	image-rendering: auto;
 	margin-top: 10px;
 	margin-right: 5px;
 }
@@ -541,7 +541,7 @@ a.a-btn-4:hover {
 
 div.guess img {
 	width: 256px;
-	image-rendering: pixelated;
+	image-rendering: auto;
 }
 
 button {
@@ -1137,9 +1137,14 @@ div.pokemon-list {
 	flex-wrap: wrap;
 }
 
+details.pokemon-learning-move .pokemon-list {
+	margin-bottom: 10px !important;
+}
+
 div.pokemon-list img,
 div.item-list img {
-	image-rendering: pixelated;
+	image-rendering: auto;
+	width: 96px;
 }
 
 div.pokemon-list img.move-pokemon {
@@ -1403,7 +1408,7 @@ div.difficulty-select a.a-btn-2 {
 }
 
 .guess-results img {
-	image-rendering: pixelated;
+	image-rendering: auto;
 	width: 128px;
 }
 

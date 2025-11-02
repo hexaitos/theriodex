@@ -19,10 +19,14 @@ def get_pokemon_moves_by_gen(pokemon_id, generation_id, language_id = 9)
 			)) AS is_stab,
 			vg.generation_id,
 			genname.name,
-			pokemonmove.move_id
+			pokemonmove.move_id,
+			gen_db.name as gen_db_name,
+			sprites.sprites as sprites
 		FROM pokemon_v2_pokemonmove pokemonmove
 		JOIN pokemon_v2_move move
 			ON move.id = pokemonmove.move_id
+		JOIN pokemon_v2_pokemonsprites sprites
+			on sprites.pokemon_id = pokemonmove.pokemon_id
 		JOIN pokemon_v2_movename name
 			ON name.move_id = move.id
 			AND name.language_id = ?
@@ -33,6 +37,8 @@ def get_pokemon_moves_by_gen(pokemon_id, generation_id, language_id = 9)
 			ON vg.id = pokemonmove.version_group_id
 		JOIN pokemon_v2_generationname genname
 			ON genname.generation_id = vg.generation_id
+		JOIN pokemon_v2_generation gen_db
+			ON gen_db.id = genname.generation_id
 		JOIN pokemon_v2_typename typename
 			ON typename.type_id = move.type_id
 		WHERE
