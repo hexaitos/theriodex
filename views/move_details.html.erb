@@ -3,7 +3,6 @@
 
 <h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
 
-<a class="a-btn-3 full" href="/show/pokemon/move/<%= move_info[0]["move_id"] %>/gen/<%= move_info[0]["generation_id"] %>">Show all Pokémon that learn this move</a>
 <br>
 <div class="tab">
 
@@ -42,7 +41,7 @@
 				type_id = type_id || move["move_type_id"]
 			%>
 
-			<a href="/show/pokemon/type/<%= type_id %>" class="type-link"><div id="<%= type_id %>" class="move-type-card move-type-card-name big"></div></a>
+			<a href="/show/pokemon/type/<%= type_id %>/gen/<%= move["generation_id"] %>" class="type-link"><div id="<%= type_id %>" class="move-type-card move-type-card-name big"></div></a>
 			<div id="<%= move["move_damage_class_id"] %>" class="category big"><%= move["move_damage_name"].upcase %></div>
 
 			<div class="move-details">

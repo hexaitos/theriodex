@@ -1,0 +1,20 @@
+<%= partial :lang_select %>
+
+<h1>“<div id="<%= type_num %>" class="move-type-card move-type-card-name rounded-big"></div>” Pokémon in <%= pokemon_of_type.first[1][:gen][0] %></h1>
+
+<p>Number of Pokémon: <%= num_of_pokemon %></p>
+
+<hr>
+<h2 class="no-bottom-margin">Damage against other types</h2>
+<p class="info">(The amount of damage this type does against Pokémon of other types)</p>
+<%= partial :damage, damage_info: efficacy_weakness[:efficacy], lang: lang %>
+<hr>
+
+<h2 class="no-bottom-margin">Damage from other types</h3>
+<p class="info">(The amount of damage that a Pokémon of this type receives from other types)</p>
+<%= partial :damage, damage_info: efficacy_weakness[:weakness], lang: lang %>
+
+<hr>
+<h2>All Pokémon with this type</h2>
+
+<%= partial :view_pokemon_by_x, list: pokemon_of_type, lang: lang %>
