@@ -207,7 +207,7 @@ def move_view_details_by_gen(move_id, gen_id, language_id = 9)
 
 		move_info[num]["chance"] = chance
 
-		versions << move["version_name"]
+		versions << move["version_name"] unless versions.include?(move["version_name"])
 	end
 
 	{

@@ -708,6 +708,20 @@ td a.header:before {
 	left: 5%;
 }
 
+div.move-details div {
+	border: 2px solid var(--color-accent-border);
+	margin: 5p;
+	flex: auto;
+	border-radius: 5px;
+}
+
+div.move-details {
+	display: flex;
+	gap: 5px;
+	margin: 5px;
+	flex-wrap: wrap;
+}
+
 span.move-name:before {
 	content: "🔗";
 }

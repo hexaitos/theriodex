@@ -31,8 +31,8 @@ SELECT
 	meta.healing,
 	meta_description.description,
 	meta_ailment.name AS meta_ailment_name,
-	meta_statchange.change AS meta_statchange,
-	meta_statname.name AS meta_statname,
+	--meta_statchange.change AS meta_statchange,
+	--meta_statname.name AS meta_statname,
 	version.id AS version_id,
 	version.name as version_db
 FROM (

@@ -6,8 +6,10 @@
 <a class="a-btn-3 full" href="/show/pokemon/move/<%= move_info[0]["move_id"] %>/gen/<%= move_info[0]["generation_id"] %>">Show all Pokémon that learn this move</a>
 <br>
 <div class="tab">
+
 <% versions.each_with_index do | version, index | %>
 	<% if index == 0 %>
+		<%# for some reason Ancient Power gives me a billion version why pls fix %>
 		<button class="tablinks" id="defaultOpen" onclick="openTab(event, '<%= version %>')"><%= version %></button>
 	<% else %>
 		<button class="tablinks" onclick="openTab(event, '<%= version %>')"><%= version %></button>
@@ -17,32 +19,52 @@
 
 
 <% move_info.each do |move| %>
+	<% power, accuracy, pp, chance, type_id = nil %>
 	<div id="<%= move["version_name"] %>" class="tabcontent">
 		<div class="move-info">
 			<h2 class="no-bottom-margin"><%= move['name'] %></h2>
-			<p class="info">(<%= move["description"] %>)</p>
 
-			<a href="/show/pokemon/type/<%= move["move_type_id"] %>" class="type-link"><div id="<%= move["move_type_id"] %>" class="move-type-card big"><%= move["move_type_name"].upcase %></div></a>
-			<div id="<%= move["move_damage_class_id"] %>" class="category big"><%= move["move_damage_name"].upcase %></div>
-
-			<p><strong>Power:</strong> <%= move['move_power'].to_i > 0 ? move['move_power'] : '—' %></p>
-			<p><strong>Accuracy:</strong> <%= move['move_accuracy'] ? "#{move['move_accuracy']}%" : '—' %></p>
-			<p><strong>PP:</strong> <%= move['PP'] || '—' %></p>
-
-			<p><strong>Effect:</strong> <%= move['move_short_effect_text'] || move['move_effect_text'] %></p>
-
-			<% if move['chance'].to_i > 0 %>
-				<p><strong>Effect Chance:</strong> <%= move['chance'] %>%</p>
-			<% end %>
-
-			<% rate = [] %>
-			<% CRIT[move["crit_rate"]].each do | gen | %>
-				<% if move["generation_id"] <= gen[0] then %>
-					<% rate << gen[1] %>
+			<% get_move_old_stats(move["move_id"]).group_by { | entry | entry["version_group_id"] }.each do | version, entry | %>
+				<% if move["version_group_id"] < version || (version == "1" && move["version_group_id"] == "1") %>
+					<% move["move_power"] %>
+					<% power ||= entry.first["power"] %>
+					<% accuracy ||= entry.first["accuracy"] %>
+					<% pp ||= entry.first["pp"] %>
+					<% chance ||= entry.first["move_effect_chance"] %>
+					<% type_id ||= entry.first["type_id"] %>
 				<% end %>
 			<% end %>
+			<%
+				power = power || move["move_power"].to_i
+				accuracy = accuracy || move["move_accuracy"]
+				pp = pp || move["PP"]
+				chance = chance || move["chance"].to_i
+				type_id = type_id || move["move_type_id"]
+			%>
 
-			<p><strong>Crit Rate</strong>: <%= rate[0] %>%</p>
+			<a href="/show/pokemon/type/<%= type_id %>" class="type-link"><div id="<%= type_id %>" class="move-type-card move-type-card-name big"></div></a>
+			<div id="<%= move["move_damage_class_id"] %>" class="category big"><%= move["move_damage_name"].upcase %></div>
+
+			<div class="move-details">
+
+				<div><strong>Power</strong><br> <%= power > 0 ? power : '—' %></div>
+				<div><strong>Accuracy</strong><br> <%= accuracy ? "#{accuracy}%" : '—' %></div>
+				<div><strong>PP</strong><br> <%= pp || '—' %></div>
+				<% if chance > 0 %>
+					<div><strong>Effect Chance</strong><br><%= chance %>%</div>
+				<% end %>
+
+				<% rate = [] %>
+				<% CRIT[move["crit_rate"]].each do | gen | %>
+					<% if move["generation_id"] <= gen[0] then %>
+						<% rate << gen[1] %>
+					<% end %>
+				<% end %>
+
+				<div><strong>Crit Rate</strong><br> <%= rate[0] %>%</div>
+			</div>
+
+			<p><strong>Effect:</strong> <%= move['move_short_effect_text'] || move['move_effect_text'] %></p>
 
 			<hr>
 			<h3>Pokémon that learn this move in this version</h3>
