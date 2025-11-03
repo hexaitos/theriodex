@@ -3,13 +3,19 @@ def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 	language_id == "en" ? language_id = 9 : language_id
 	if !pokemon_id.is_integer? then pokemon_id = get_pokemon_id_from_name(pokemon_id, language_id) end
 
+	moves = get_pokemon_moves_by_gen2(pokemon_id, gen_id, language_id).group_by { | entry| entry["version_name"]}
+
+	puts moves.values.first.first["name"]
+
 	{
 		id: pokemon_id,
-		moves: get_pokemon_moves_by_gen(pokemon_id, gen_id, language_id),
+		gen_name: moves.values.first.first["gen_name"],
+		moves: moves,
 		moves_hmtm: get_pokemon_moves_hmtm(pokemon_id, gen_id, language_id),
 		gens: get_pokemon_move_versions(pokemon_id).flatten,
 		name: get_pokemon_name(pokemon_id, language_id),
-		lang: language_id
+		lang: language_id,
+		sprite: get_random_sprite_from_gen(get_all_pokemon_sprites(pokemon_id), moves.values.first.first["gen_db_name"])
 	}
 end
 

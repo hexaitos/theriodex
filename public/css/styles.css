@@ -43,6 +43,7 @@ body {
 	background-color: var(--color-primary);
 	flex: 1 1 0;
 	min-width: 130px;
+	box-sizing: content-box;
 }
 
 .menu a:hover {
@@ -646,6 +647,7 @@ div.table-cards-tabs button:nth-of-type(2):before {
 	background-color: var(--color-primary);
 	margin: 10px;
 	flex: 1 1 0;
+	min-width: 90px;
 }
 
 /* Style the buttons that are used to open the tab content */

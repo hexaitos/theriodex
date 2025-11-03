@@ -1,0 +1,86 @@
+<div class="move-table">
+	<table>
+		<caption>
+
+		</caption>
+			<thead>
+			<tr>
+				<% unless defined?(machine) %>
+					<th scope="col" onclick="sortTable(0)">Lvl.<span class="sort-arrow"> ↓</span></th>
+				<% else %>
+					<th scope="col" onclick="sortTable(0)">HM/TM<span class="sort-arrow"> ↓</span></th>
+				<% end %>
+				<th scope="col" onclick="sortTable(1)">Name<span class="sort-arrow"> ↕</span></th>
+				<th scope="col" onclick="sortTable(2)">Type<span class="sort-arrow"> ↕</span></th>
+				<th scope="col" onclick="sortTable(3)">Cat.<span class="sort-arrow"> ↕</span></th>
+				<th scope="col" onclick="sortTable(4)">Pwr.<span class="sort-arrow"> ↕</span></th>
+				<th scope="col" onclick="sortTable(5)">Acc.<span class="sort-arrow"> ↕</span></th>
+			</tr>
+			</thead>
+		<tbody>
+			<% moves.each do | move | %>
+			<tr>
+				<th scope="row"><%= move["level"] %></th>
+				<% if move["is_stab"] == 1 then %>
+					<td class="underline name">
+						<a class="header" href="/show/move/<%= move["move_id"] %>/gen/<%= move["generation_id"] %>"><%= move["move_name"] %></a>
+					</td>
+				<% else %>
+					<td class="name">
+						<a class="header" href="/show/move/<%= move["move_id"] %>/gen/<%= move["generation_id"] %>"><%= move["move_name"] %></a>
+					</td>
+				<% end %>
+				<td><a href="/show/pokemon/type/<%= move["type_id"] %>" class="type-link"><div id="<%= move["type_id"] %>" class="move-type-card"><%= move["type_name"].upcase %></div></a></td>
+				<td><div id="<%= move["cat_id"] %>" class="category"><%= move["cat"].upcase %></td>
+				<td><%= move["power"] || "—" %></td>
+				<td><%= move["accuracy"] || "—" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<script>
+	let sortDirections = ['desc', null, null, null, null, null];
+
+	document.addEventListener('DOMContentLoaded', updateArrows);
+
+	function sortTable(n) {
+		const table = document.querySelector('.move-table table');
+		const tbody = table.tBodies[0];
+		const rows = Array.from(tbody.rows);
+		const isNumeric = [0, 4, 5].includes(n);
+
+		const currentDirection = sortDirections[n];
+		const newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
+
+		sortDirections.fill(null);
+		sortDirections[n] = newDirection;
+		const direction = newDirection === 'asc' ? 1 : -1;
+
+		rows.sort((a, b) => {
+			let aVal = a.cells[n].textContent.trim().replace('—', '0');
+			let bVal = b.cells[n].textContent.trim().replace('—', '0');
+
+			if (isNumeric) {
+				return (parseFloat(aVal) - parseFloat(bVal)) * direction;
+			}
+
+		return aVal.localeCompare(bVal) * direction;
+		});
+
+	rows.forEach(row => tbody.appendChild(row));
+		updateArrows();
+	}
+
+	function updateArrows() {
+		document.querySelectorAll('th[onclick] .sort-arrow').forEach((arrow, index) => {
+			if (sortDirections[index] === 'asc') {
+				arrow.textContent = ' ↑';
+			} else if (sortDirections[index] === 'desc') {
+				arrow.textContent = ' ↓';
+			} else {
+			arrow.textContent = ' ↓↑';
+			}
+		});
+	}
+</script>

@@ -102,18 +102,18 @@
 		</script>
 
 	<% when %r{^/show/pokemon/moves/([^/]+)/gen/([^/]+)$} %>
-			<title>Theriodex – <%= name %>‘s moves in <%= moves[0][10] %></title>
-			<meta name="description" content="All the moves that <%= name %> learns in <%= moves[0][10] %>">
-			<meta property="og:title" content="<%= name %>‘s moves in <%= moves[0][10] %>">
-			<meta property="og:description" content="All the moves that <%= name %> learns in <%= moves[0][10] %>">
+			<title>Theriodex – <%= name %>‘s moves in <%= gen_name %></title>
+			<meta name="description" content="All the moves that <%= name %> learns in <%= gen_name %>">
+			<meta property="og:title" content="<%= name %>‘s moves in <%= gen_name %>">
+			<meta property="og:description" content="All the moves that <%= name %> learns in <%= gen_name %>">
 			<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
 			<script type="application/ld+json">
 				<%= {
 					"@context": "https://schema.org",
 					"@type": "WebPage",
 					"url": request.base_url + request.path_info,
-					"name": "Theriodex – #{name}‘s moves in #{moves[0][10]}",
-					"description": "All the moves that #{name} learns in #{moves[0][10]}",
+					"name": "Theriodex – #{name}‘s moves in #{gen_name}",
+					"description": "All the moves that #{name} learns in #{gen_name}",
 				}.to_json %>
 			</script>
 	<% else %>

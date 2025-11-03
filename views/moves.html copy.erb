@@ -1,32 +1,29 @@
 <%= partial :lang_select, id: id, lang: lang %>
 
-<h1 class="no-bottom-margin"><%= name %> moves in <%= gen_name %></h1>
-<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns in <%= gen_name %></p>
+<h1 class="no-bottom-margin"><%= name %> moves in <%= moves[0][10] %></h3>
+<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns in <%= moves[0][10] %>)</p>
 
 <div class="sprites">
-	<img src="<%= sprite %>">
+	<img src="<%= get_random_sprite_from_gen(moves[0][13], moves[0][12]) %>">
 </div>
 
 <%= partial :move_gens_type, gens: gens, lang: lang, id: id %>
 <p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
 <hr>
 
+<h2>Through level up</h2>
 <div class="tab">
-	<% moves.each do | version, moves | %>
-		<button class="tablinks" onclick="openTab(event, '<%= version %>-level')"><%= version %></button>
-	<% end %>
+	<button class="tablinks" onclick="openTab(event, 'level-cards')">Cards View</button>
+	<button class="tablinks" onclick="openTab(event, 'level-table')">Table View</button>
 </div>
-<% moves.each do | version, moves | %>
-	<div id="<%= version %>-level" class="tabcontent">
-		<h3><%= version %></h3>
-		<details>
-			<summary class="table">Toggle table</summary>
-			<%= partial :move_table_hash, moves: moves, lang: lang %>
-			<hr>
-		</details>
-		<%= partial :move_cards_hash, moves: moves, lang: lang %>
-	</div>
-<% end %>
+
+<div id="level-cards" class="tabcontent">
+	<%= partial :move_cards, moves: moves, lang: lang %>
+</div>
+
+<div id="level-table" class="tabcontent">
+	<%= partial :move_table, moves: moves, lang: lang %>
+</div>
 
 <% grouped_moves = moves_hmtm.group_by { |move| move[1] } %>
 <% unless grouped_moves.size == 0 %>
