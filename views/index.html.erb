@@ -12,24 +12,28 @@
 		</a>
 	<% end %>
 	</div>
+	<div class="generation-index">
+	</div>
 	<hr class="small">
-	<span>
-		<%= weight / 10 %> kg •
-		<%= height / 10 %> m •
-		<%= species_name %> •
-		<a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a>
-	</span>
-	<span>
-		<%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %> •
-		<%= get_localised_text(lang, :atk) %>: <%= stats[:atk] %> •
-		<%= get_localised_text(lang, :def) %>: <%= stats[:def] %> •
-		<%= get_localised_text(lang, :spatk) %>: <%= stats[:spatk] %> •
-		<%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %> •
-		<%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %>
-</span>
+	<div class="stats">
+		<span><%= weight / 10 %> kg</span>
+		<span><%= height / 10 %> m</span>
+		<span><%= species_name %></span>
+	</div>
+	<div class="stats">
+		<span><%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %></span>
+		<span><%= get_localised_text(lang, :atk) %>: <%= stats[:atk] %></span>
+		<span><%= get_localised_text(lang, :def) %>: <%= stats[:def] %></span>
+		<span><%= get_localised_text(lang, :spatk) %>: <%= stats[:spatk] %></span>
+		<span><%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %></span>
+		<span><%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %></span>
+	</div>
+	<div class="stats">
+		<span>Introduced in: <a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a></span>
+	</div>
 
 <hr class="small">
-<span><%= get_localised_text(lang, :abilities) %>:</span>
+<span><%= get_localised_text(lang, :abilities) %></span>
 <div class="evolutions">
 <% abilities.each do | name, hidden, slot, id, unformatted | %>
 	<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
@@ -38,7 +42,7 @@
 
 <% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
 	<hr class="small">
-	<span><%= get_localised_text(lang, :evolutions) %>:</span>
+	<span><%= get_localised_text(lang, :evolutions) %></span>
 <% end %>
 
 <div class="evolutions">

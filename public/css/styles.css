@@ -119,6 +119,39 @@ footer span {
 	font-size: 11px;
 }
 
+div.stats span {
+	font-size: small;
+	display: inline;
+}
+
+div.stats span:after,
+footer span a:after {
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-size: 1em 1em;
+	margin-left: 3px;
+	vertical-align: middle;
+	margin-bottom: 2px;
+	background-image: url("/icons/ball.svg");
+}
+
+div.stats span:last-of-type:after,
+footer span a:last-of-type:after {
+	background-image: none;
+}
+
+img.ball {
+	width: 1em;
+	vertical-align: bottom;
+	transform: translateX(0.15em);
+	transform: translateY(-0.1em, 0.1em);
+	/* transform: translateY(10px); */
+	padding: 0;
+	margin-bottom: 0.1em;
+}
+
 div.main {
 	padding: 50px;
 	/*background-color: #f6fbfc;*/
@@ -251,9 +284,7 @@ div.type-container {
 }
 
 div.types span {
-	font-size: small;
 	margin-top: 10px;
-	display: block;
 }
 
 hr.small {
