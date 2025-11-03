@@ -296,15 +296,23 @@ LOCALISED_TEXT = {
 	},
 
 	footer: {
-		"en" => "Made by <a href='https://hexaitos.eu'>Hexaitos</a> with Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>source code</a>). Pokémon and Pokémon character names are trademarks of Nintendo.",
-		"de" => "Erstellt von <a href='https://hexaitos.eu'>Hexaitos</a> mit Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>Quellcode</a>). „Pokémon“ und die Namen der Pokémon‑Charaktere sind Marken von Nintendo.",
-		"ja" => "<a href='https://hexaitos.eu'>Hexaitos</a> が Sinatra を使って作成しました（<a href='https://codeberg.org/hexaitos/theriodex'>ソースコード</a>）。ポケモンおよびポケモンのキャラクター名は任天堂の商標です。",
-		"ko" => "<a href='https://hexaitos.eu'>Hexaitos</a>가 Sinatra로 제작했습니다（<a href='https://codeberg.org/hexaitos/theriodex'>소스 코드</a>）。포켓몬 및 포켓몬 캐릭터 이름은 닌텐도의 상표입니다.",
-		"fr" => "Créé par <a href='https://hexaitos.eu'>Hexaitos</a> avec Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>code source</a>). Pokémon et les noms des personnages Pokémon sont des marques de Nintendo.",
-		"it" => "Creato da <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>codice sorgente</a>). Pokémon e i nomi dei personaggi Pokémon sono marchi di Nintendo.",
-		"es" => "Creado por <a href='https://hexaitos.eu'>Hexaitos</a> con Sinatra (<a href='https://codeberg.org/hexaitos/theriodex'>código fuente</a>). Pokémon y los nombres de los personajes Pokémon son marcas registradas de Nintendo.",
-		"zh-cn" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 制作（<a href='https://codeberg.org/hexaitos/theriodex'>源代码</a>）。“宝可梦”及宝可梦角色名称为任天堂的商标。",
-		"zh-tw" => "由 <a href='https://hexaitos.eu'>Hexaitos</a> 使用 Sinatra 製作（<a href='https://codeberg.org/hexaitos/theriodex'>原始程式碼</a>）。「寶可夢」及寶可夢角色名稱為任天堂的商標。"
+		"en" => "Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak, and Creatures Inc. Theriodex is not affiliated with, authorised, or endorsed by The Pokémon Company, Game Freak, Creatures, or Nintendo.",
+
+		"de" => "„Pokémon“ und die Namen der Pokémon‑Charaktere sind Marken von Nintendo, Game Freak und Creatures Inc. Theriodex ist weder mit The Pokémon Company, Game Freak, Creatures noch mit Nintendo verbunden, oder von diesen autorisiert und wird auch nicht von diesen unterstützt.",
+
+		"ja" => "ポケモンおよびポケモンのキャラクター名は任天堂、Game Freak、およびCreatures Inc.の商標です。Theriodexはポケモンカンパニー、Game Freak、Creatures、任天堂のいずれとも提携しておらず、またそれらの認可や支持を受けていません。",
+
+		"ko" => "포켓몬 및 포켓몬 캐릭터 이름은 닌텐도, Game Freak, Creatures Inc.의 상표입니다。Theriodex는 포켓몬 컴퍼니, Game Freak, Creatures, 닌텐도와 제휴하거나 그들의 승인이나 지원을 받은 바 없습니다。",
+
+		"fr" => "Pokémon et les noms des personnages Pokémon sont des marques de Nintendo, Game Freak et Creatures Inc. Theriodex n'est pas affilié à, autorisé ou soutenu par The Pokémon Company, Game Freak, Creatures ou Nintendo.",
+
+		"it" => "Pokémon e i nomi dei personaggi Pokémon sono marchi di Nintendo, Game Freak e Creatures Inc. Theriodex non è affiliato, autorizzato o supportato da The Pokémon Company, Game Freak, Creatures o Nintendo.",
+
+		"es" => "Pokémon y los nombres de los personajes Pokémon son marcas registradas de Nintendo, Game Freak y Creatures Inc. Theriodex no está afiliado, autorizado ni respaldado por The Pokémon Company, Game Freak, Creatures o Nintendo.",
+
+		"zh-cn" => "“宝可梦”及宝可梦角色名称为任天堂、Game Freak和Creatures Inc.的商标。Theriodex与宝可梦公司、Game Freak、Creatures或任天堂均无关联，亦未获得其授权或支持。",
+
+		"zh-tw" => "「寶可夢」及寶可夢角色名稱為任天堂、Game Freak和Creatures Inc.的商標。Theriodex與寶可夢公司、Game Freak、Creatures或任天堂均無關聯，亦未獲得其授權或支持。"
 	},
 
 	game: {
