@@ -1217,7 +1217,7 @@ div.item-list {
 }
 
 .efficacy-type {
-	flex: 1;
+	flex: auto;
 	border: 2px solid var(--color-accent-border);
 	border-radius: 5px;
 	padding: 5px;
