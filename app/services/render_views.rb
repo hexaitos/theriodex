@@ -23,6 +23,7 @@ def pokemon_view_search(query, language_id = 9)
 	query = Sanitize.fragment(query)
 	{
 		search_results: search_for_pokemon(query, language_id),
+		move_results: search_for_moves(query, language_id),
 		lang: LANGUAGE_CODES.key(language_id)
 	}
 end

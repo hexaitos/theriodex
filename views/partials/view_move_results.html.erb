@@ -1,0 +1,22 @@
+<div class="pokemom-list-container">
+	<div class="pokemon-list">
+		<% list.each do | move | %>
+			<div class="pokemon search">
+				<div class="id-container">
+					<% move["move_id"].to_s.chars.map(&:to_i).each do | num | %>
+						<span><%= num %></span>
+					<% end %>
+				</div>
+				<div class="type-container">
+				<a style="text-decoration: none;" href="/show/pokemon/type/<%= move["type_id"] %>?lang=<%= lang %>">
+				<div id="<%= move["type_id"] %>" class="move-type-card move-type-card-name rounded"></div>
+				</a>
+				</div>
+				<br>
+				<a href="/show/move/<%= move["move_id"] %>/gen/<%= move["latest_generation_id"] %>?lang=<%= lang %>">
+				<br><%= move["name"] %><br></a>
+				<br>
+			</div>
+		<% end %>
+	</div>
+</div>

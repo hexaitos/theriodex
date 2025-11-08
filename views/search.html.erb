@@ -1,5 +1,6 @@
 <%= partial :lang_select %>
-<h1>Pokémon Search</h1>
+<h1 class="no-bottom-margin">Search</h1>
+<p class="info">(This form allows you to search for a Pokémon or a move by name. You can then click the link of the move or Pokémon you wish to know more about and you will be redirected to a new page with more info.)</p>
 
 <div class="search_bar">
 	<form action="/search" method="GET">
@@ -10,5 +11,13 @@
 </div>
 
 <% unless search_results.size == 0 %>
+	<hr>
+	<h2>Pokémon found</h2>
 	<%= partial :view_pokemon_by_x, list: search_results, lang: lang %>
+<% end %>
+
+<% unless move_results.size == 0 %>
+	<hr>
+	<h2>Moves found</h2>
+	<%= partial :view_move_results, list: move_results, lang: lang %>
 <% end %>

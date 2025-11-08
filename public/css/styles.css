@@ -208,6 +208,17 @@ div.search_bar {
 	justify-content: safe center;
 }
 
+div.search_bar form {
+	display: flex;
+	gap: 10px;
+	flex: auto;
+}
+
+div.search_bar form input {
+	margin-bottom: 0;
+	flex: auto;
+}
+
 div.privacy {
 	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
@@ -1530,7 +1541,8 @@ summary:hover {
 	div.id-container span,
 	div.price-container span,
 	div.item-text span.versions,
-	td a.header {
+	td a.header,
+	div.move-details div {
 		color: white;
 	}
 

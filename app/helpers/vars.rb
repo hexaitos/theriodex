@@ -8,6 +8,9 @@ class String
 	end
 end
 
+$move_cache ||= {}
+$pokemon_cache ||= {}
+
 CRIT = {
 	0 => {2 => 6.64, 6 => 6.25, 9 => 4.17},
 	1 => {9 => 12.5},
@@ -284,7 +287,7 @@ LOCALISED_TEXT = {
 	},
 
 	enter_pokemon_name: {
-		"en" => "Enter name of a Pokémon",
+		"en" => "Enter name of a Pokémon / move",
 		"de" => "Namen eines Pokémon eingeben",
 		"ja" => "ポケモンの名前を入力",
 		"ko" => "포켓몬 이름 입력",

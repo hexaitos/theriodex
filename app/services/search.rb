@@ -1,7 +1,12 @@
 def search_for_pokemon(query, language_id = 9)
 	search_results = {}
 	language_id == "en" ? language_id = 9 : language_id
-	pokemon_names = DB.execute("select name from pokemon_v2_pokemonspeciesname where language_id = ? ", language_id)
+	pokemon_names = $pokemon_cache[language_id]
+	if pokemon_names.nil?
+		pokemon_names = DB.execute("select name from pokemon_v2_pokemonspeciesname where language_id = ? ", language_id)
+		$pokemon_cache[language_id] = pokemon_names
+	end
+
 	matches = FuzzyMatch.new(pokemon_names, find_all_with_score: true).find(query)
 
 	matches.each do |key, value|
@@ -22,6 +27,29 @@ def search_for_pokemon(query, language_id = 9)
 			}
 		end
 	end
+
+	search_results
+end
+
+def search_for_moves(query, language_id = 9)
+	search_results = []
+	language_id == "en" ? language_id = 9 : language_id
+	moves = $move_cache[language_id]
+	if moves.nil?
+		moves = get_all_moves(language_id)
+		$move_cache[language_id] = moves
+	end
+
+	move_names = moves.map { |move| move["name"] }
+	matches = FuzzyMatch.new(move_names, find_all_with_score: true).find(query)
+
+	matches.each do |key, value|
+		if value >= 0.30 then
+			search_results << moves.find { |move| move["name"] == key }
+		end
+	end
+
+	puts search_results
 
 	search_results
 end
