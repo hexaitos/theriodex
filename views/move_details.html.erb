@@ -3,12 +3,14 @@
 
 <h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
 
+<%= partial :move_gens_type_move, gens: gens, lang: lang, id: move_info[0]["move_id"].to_s %>
+<p class="info">(Click the button to view this move in another generation)</p>
+
+<hr>
 <br>
 <div class="tab">
-
 <% versions.each_with_index do | version, index | %>
 	<% if index == 0 %>
-		<%# for some reason Ancient Power gives me a billion version why pls fix %>
 		<button class="tablinks" id="defaultOpen" onclick="openTab(event, '<%= version %>')"><%= version %></button>
 	<% else %>
 		<button class="tablinks" onclick="openTab(event, '<%= version %>')"><%= version %></button>

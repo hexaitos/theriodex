@@ -219,6 +219,7 @@ def move_view_details_by_gen(move_id, gen_id, language_id = 9)
 	{
 		lang: LANGUAGE_CODES.key(language_id),
 		versions: versions,
+		gens: get_gens_of_move(move_id),
 		pokemon: get_pokemon_by_move(move_id, gen_id, language_id),
 		move_info: move_info
 	}
