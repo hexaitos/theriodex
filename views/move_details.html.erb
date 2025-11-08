@@ -31,8 +31,10 @@
 				type_id =  move["move_type_id"]
 			%>
 
-			<a href="/show/pokemon/type/<%= type_id %>/gen/<%= move["generation_id"] %>" class="type-link"><div id="<%= type_id %>" class="move-type-card move-type-card-name big"></div></a>
-			<div id="<%= move["move_damage_class_id"] %>" class="category big"><%= move["move_damage_name"].upcase %></div>
+			<div class="move-type-and-cat">
+				<a href="/show/pokemon/type/<%= type_id %>/gen/<%= move["generation_id"] %>" class="type-link"><div id="<%= type_id %>" class="move-type-card move-type-card-name big"></div></a>
+				<div id="<%= move["move_damage_class_id"] %>" class="category big"><%= move["move_damage_name"].upcase %></div>
+			</div>
 
 			<div class="move-details">
 

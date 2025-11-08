@@ -977,6 +977,10 @@ div.category.big {
 	margin: 5px;
 }
 
+div.move-type-and-cat .move-type-card-name:after {
+	margin: 0;
+}
+
 div.damage_taken td {
 	font-size: small;
 }
