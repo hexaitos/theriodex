@@ -935,7 +935,7 @@ div.move-type-card#\31\38:before {
 div.move-type-card-name:after {
 	display: inline-flex;
 	content: var(--type-name);
-	font-weight: bold;
+	/*font-weight: bold;*/
 	color: white;
 	margin-top: 4px;
 }
