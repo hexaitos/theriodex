@@ -4,7 +4,7 @@
 
 Theriodex is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial!
 
-It is a small little project that I – [Hexaitos](https://hexaitos.eu) – am working on in my free time mostly as a programming exercise and because I am a Pokémon myself! (two, to be precise, namely [Vaporeon](/show/pokemon/vaporeon) and [Miraidon](/show/pokemon/miraidon).
+It is a small little project that I – [Hexaitos](https://hexaitos.com) – am working on in my free time mostly as a programming exercise and because I am a Pokémon myself! (several actually).
 
 A lot of features have already been implement but I would still not recommend using this for any particularly important Pokémon run or anything of the like! The start page will show a random Pokémon and will also show some information about this particular Pokémon’s weaknesses. You can click on the name of the generation in which this Pokémon first appeared or on the sprite showing the Pokémon’s types and you will automatically be redirected to a new site that shows you all Pokémon of that particular generation / type. A new random entry from the Pokédex is loaded every time you load the page of a Pokémon. You can view the Pokémon’s abilities and their evolution and – sometime down the line – you will also have the option to see their moves! There is also a fuzzy search and a game you can play where you have to guess the name of a Pokémon! Try it out and see how many Pokémon you are able to guess correctly!
 
