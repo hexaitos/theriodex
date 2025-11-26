@@ -58,6 +58,30 @@
 		</script>
 
 	<% when %r{^/show/pokemon/type/([^/]+)$} %>
+		<title>Theriodex – All <%= type_name %>-type Pokeḿon</title>
+		<meta name="description" content="">
+		<meta property="og:title" content="Theriodex – All Pokémon of type <%= type_name %>">
+		<meta property="og:description" content="This page shows all <%= type_name %>-type Pokémon and their strengths and weaknesses.">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %>/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/<%= type_num %>.png">
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": request.base_url + request.path_info,
+				"name": "Theriodex – All #{type_name}-type Pokeḿon",
+				"description": "This page shows all #{type_name}-type Pokémon and their strengths and weaknesses.",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + "/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/#{type_num}.png",
+					"contentUrl": request.base_url + "/sprites/types/generation-viii/brilliant-diamond-and-shining-pearl/#{type_num}.png",
+					"width": 128,
+					"height": 128,
+					"caption": "#{type_name} sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
 
 	<% when %r{^/show/pokemon/gen/([^/]+)$} %>
 		<title>Theriodex – <%= gen[0] %></title>
@@ -102,31 +126,168 @@
 		</script>
 
 	<% when %r{^/show/pokemon/moves/([^/]+)/gen/([^/]+)$} %>
-			<title>Theriodex – <%= name %>‘s moves in <%= gen_name %></title>
-			<meta name="description" content="All the moves that <%= name %> learns in <%= gen_name %>">
-			<meta property="og:title" content="<%= name %>‘s moves in <%= gen_name %>">
-			<meta property="og:description" content="All the moves that <%= name %> learns in <%= gen_name %>">
-			<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
-			<script type="application/ld+json">
-				<%= {
-					"@context": "https://schema.org",
-					"@type": "WebPage",
-					"url": request.base_url + request.path_info,
-					"name": "Theriodex – #{name}‘s moves in #{gen_name}",
-					"description": "All the moves that #{name} learns in #{gen_name}",
-				}.to_json %>
-			</script>
-	<% else %>
-		<title>Theriodex - An Open-Source Pokédex</title>
-		<meta name="description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
+		<title>Theriodex – <%= name %>’s moves in <%= gen_name %></title>
+		<meta name="description" content="Discover all moves <%= name %> can learn in <%= gen_name %>: level-up, TMs, HMs, breeding, and tutoring!">
+		<meta property="og:title" content="Theriodex – <%= name %>’s moves in <%= gen_name %>.">
+		<meta property="og:description" content="Discover all moves <%= name %> can learn in <%= gen_name %>: level-up, TMs, HMs, breeding, and tutoring!">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %><%= sprite %>">
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"url": request.base_url + request.path_info,
+				"name": "Theriodex – #{name}’s moves in #{gen_name}",
+				"description": "Discover all moves #{name} can learn in #{gen_name}: level-up, TMs, HMs, breeding, and tutoring!",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + sprite,
+					"contentUrl": request.base_url + sprite,
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
+
+	<% when %r{^/browse$} %>
+		<title>Theriodex - Browse Theriodex</title>
+		<meta name="description" content="Browse Pokémon by generation, type, or combo (and also items) in the complete Theriodex database.">
+
+		<meta property="og:title" content="Theriodex - Browse Theriodex">
+		<meta property="og:description" content="Browse Pokémon by generation, type, or combo (and also items) in the complete Theriodex database.">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %>/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png">
+
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"name": "Theriodex - Browse Theriodex",
+				"url": request.base_url + request.path_info,
+				"description": "Browse Pokémon by generation, type, or combo (and also items) in the complete Theriodex database.",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"contentUrl": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
+
+	<% when %r{^/search(\?.*)?$} %>
+		<title>Theriodex - Search Theriodex (Pokédex search)</title>
+		<meta name="description" content="Search the full Pokédex and explore Pokémon moves with detailed information, all in one place.">
+
+		<meta property="og:title" content="Theriodex - Search Theriodex (Pokédex search)">
+		<meta property="og:description" content="Search the full Pokédex and explore Pokémon moves with detailed information, all in one place.">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %>/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png">
+
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"name": "Theriodex - Search Theriodex (Pokédex search)",
+				"url": request.base_url + request.path_info,
+				"description": "Search the full Pokédex and explore Pokémon moves with detailed information, all in one place.",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"contentUrl": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
+
+	<% when %r{^/game(/.*)?(\?.*)?$} %>
+		<title>Theriodex - Pokémon Guessing Game (Who’s That Pokémon?)</title>
+		<meta name="description" content="Can you guess Pokémon from blurred sprites? Adjust difficulty, reveal hints and track your score. How many can you guess? Will you top the leaderboard?">
+
+		<meta property="og:title" content="Theriodex - Pokémon Guessing Game (Who’s That Pokémon?)">
+		<meta property="og:description" content="Play the Pokémon Guessing Game – Can you identify Pokémon from their blurred sprites? Increase the difficulty, test your knowledge and track your score as you reveal and guess each Pokémon. You can also choose to only guess Pokémon of a particular generation and you can even save your score in the leaderboard!">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %>/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png">
+
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"name": "Theriodex - Pokémon Guessing Game (Who’s That Pokémon?)",
+				"url": request.base_url + request.path_info,
+				"description": "Play the Pokémon Guessing Game – Can you identify Pokémon from their blurred sprites? Increase the difficulty, test your knowledge and track your score as you reveal and guess each Pokémon. You can also choose to only guess Pokémon of a particular generation and you can even save your score in the leaderboard!",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"contentUrl": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
+
+	<% when %r{^/show/move/(\d+)/gen/(\d+)$} %>
+		<title>Theriodex – Pokémon move <%= move_info[0]["name"] %> in <%=  move_info[0]["gen_name"] %></title>
+		<meta name="description" content="Complete details for the move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %>: type, power, accuracy, effect, and all Pokémon that can learn it.">
+		<meta property="og:title" content="Theriodex – Pokémon move <%= move_info[0]["name"] %> in <%=  move_info[0]["gen_name"] %>">
+		<meta property="og:description" content="Complete details for the move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %>: type, power, accuracy, effect, and all Pokémon that can learn it.">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %>/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png">
 
 		<script type="application/ld+json">
 			<%= {
 				"@context": "https://schema.org",
 				"@type": "WebPage",
 				"url": request.base_url + request.path_info,
+				"name": "Pokémon Move: #{move_info[0]['name']} in #{move_info[0]['gen_name']}",
+				"description": "Complete details for the move #{move_info[0]['name']} in #{move_info[0]['gen_name']}: type, power, accuracy, effect, and all Pokémon that can learn it.",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"contentUrl": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
+			}.to_json %>
+		</script>
+
+	<% else %>
+		<title>Theriodex - An Open-Source Pokédex</title>
+		<meta name="description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
+
+		<meta property="og:title" content="Theriodex - An Open-Source Pokédex">
+		<meta property="og:description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
+		<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+		<meta property="og:image" content="<%= request.base_url %>/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png">
+
+		<script type="application/ld+json">
+			<%= {
+				"@context": "https://schema.org",
+				"@type": "WebPage",
+				"name": "Theriodex – An Open-Source Pokédex",
+				"url": request.base_url + request.path_info,
 				"name": "Theriodex - An Open-Source Pokédex",
 				"description": "Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.",
+				"image": {
+					"@type": "ImageObject",
+					"url": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"contentUrl": request.base_url + "/sprites/pokemon/versions/generation-iv/diamond-pearl/shiny/134.png",
+					"width": 128,
+					"height": 128,
+					"caption": "Sprite",
+					"representativeOfPage": true,
+				}
 			}.to_json %>
 		</script>
 	<% end %>

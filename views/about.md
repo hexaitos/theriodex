@@ -2,7 +2,7 @@
 
 ![](/button_theriodex.gif)
 
-Theriodex is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial!
+Theriodex is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial! Its aim is to provide you with the most important information you need at a glance!
 
 It is a small little project that I – [Hexaitos](https://hexaitos.com) – am working on in my free time mostly as a programming exercise and because I am a Pokémon myself! (several actually).
 
