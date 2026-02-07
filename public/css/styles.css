@@ -51,7 +51,6 @@
 * {
 	box-sizing: border-box;
 	letter-spacing: 0.5pt;
-	/*cursor: url("/cursors/miraidon.png"), auto;*/
 }
 
 body {
@@ -756,6 +755,7 @@ div.table-cards-tabs button:nth-of-type(2):before {
 div.move-type-card,
 div.category {
 	color: white;
+	padding-top: 0.3em;
 }
 
 td div.move-type-card,
