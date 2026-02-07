@@ -8,18 +8,27 @@
 	--color-th: #9ed7e2;
 	--color-td: white;
 
-	--font-primary: "Pixelated", system-ui, sans-serif;
+	--font-primary: "Pixelated";
 	--font-mono: monospace;
 
-	--font-size-base: 16px;
+	--font-size-base: 14px;
+	/* For PixeloidSans
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.875rem;
+	--font-size-md: 1rem;
+	--font-size-lg: 1.25rem;
+	--font-size-xl: 1.5rem;
+	--font-size-xxl: 1.875rem;
+	--font-size-xxxl: 2.25rem;
+	*/
 
-	--font-size-xs: 0.75rem; /* 12px */
-	--font-size-sm: 0.875rem; /* 14px */
-	--font-size-md: 1rem; /* 16px */
-	--font-size-lg: 1.25rem; /* 20px */
-	--font-size-xl: 1.5rem; /* 24px */
-	--font-size-xxl: 1.875rem; /* 30px */
-	--font-size-xxxl: 2.25rem; /* 36px */
+	--font-size-xs: 0.55rem;
+	--font-size-sm: 0.675rem;
+	--font-size-md: 1rem;
+	--font-size-lg: 1.25rem;
+	--font-size-xl: 1.5rem;
+	--font-size-xxl: 1.875rem;
+	--font-size-xxxl: 2.25rem;
 
 	--font-size-body: var(--font-size-md);
 	--font-size-small: var(--font-size-sm);
@@ -33,7 +42,7 @@
 
 @font-face {
 	font-family: "Pixelated";
-	src: url("/fonts/PixeloidSans.ttf") format("truetype");
+	src: url("/fonts/Logic_Loop.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -41,6 +50,7 @@
 
 * {
 	box-sizing: border-box;
+	letter-spacing: 0.5pt;
 	/*cursor: url("/cursors/miraidon.png"), auto;*/
 }
 
@@ -240,7 +250,7 @@ div.search_bar form {
 
 div.search_bar form input {
 	margin-bottom: 0;
-	font-size: var(--font-size-md);
+	font-size: var(--font-size-xs);
 	flex: auto;
 }
 
@@ -1015,6 +1025,11 @@ div.about {
 	text-align: justify;
 }
 
+sup,
+sub {
+	font-size: var(--font-size-xs);
+}
+
 a.corner {
 	position: absolute;
 	top: 0.5rem;
@@ -1374,11 +1389,11 @@ div.move-cards {
 
 .move-name {
 	font-weight: bold;
-	font-size: var(--font-size-lg);
+	font-size: var(--font-size-base);
 }
 
 .move-level {
-	font-size: var(--font-size-lg);
+	font-size: var(--font-size-sm);
 }
 
 .type-icon {
