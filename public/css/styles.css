@@ -7,11 +7,33 @@
 	--color-links: #10378d;
 	--color-th: #9ed7e2;
 	--color-td: white;
+
+	--font-primary: "Pixelated", system-ui, sans-serif;
+	--font-mono: monospace;
+
+	--font-size-base: 16px;
+
+	--font-size-xs: 0.75rem; /* 12px */
+	--font-size-sm: 0.875rem; /* 14px */
+	--font-size-md: 1rem; /* 16px */
+	--font-size-lg: 1.25rem; /* 20px */
+	--font-size-xl: 1.5rem; /* 24px */
+	--font-size-xxl: 1.875rem; /* 30px */
+	--font-size-xxxl: 2.25rem; /* 36px */
+
+	--font-size-body: var(--font-size-md);
+	--font-size-small: var(--font-size-sm);
+	--font-size-micro: var(--font-size-xs);
+	--font-size-heading: var(--font-size-xl);
+	--font-size-title: var(--font-size-xxl);
+
+	--line-height-base: 1.5;
+	--line-height-heading: 1.2;
 }
 
 @font-face {
 	font-family: "Pixelated";
-	src: url("/fonts/PixeloidSans.ttf") format("truetype");
+	src: url("/fonts/Tomorrow_Night.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -23,7 +45,9 @@
 }
 
 body {
-	font-family: "Pixelated";
+	font-family: var(--font-primary);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
 	margin-left: 20%;
 	margin-right: 20%;
 	text-align: center;
@@ -102,7 +126,7 @@ footer {
 	padding: 30px;
 	background-color: var(--color-accent);
 	border-radius: 5px;
-	font-size: smaller;
+	font-size: var(--font-size-sm);
 	display: flex;
 	flex-flow: wrap;
 	justify-content: center;
@@ -116,11 +140,11 @@ footer img {
 
 footer span {
 	width: 100%;
-	font-size: 11px;
+	font-size: var(--font-size-xs);
 }
 
 div.stats span {
-	font-size: small;
+	font-size: var(--font-size-sm);
 	display: inline;
 }
 
@@ -178,7 +202,7 @@ div.sprites-links {
 }
 
 div.sprites a {
-	font-size: small;
+	font-size: var(--font-size-sm);
 	padding: 5px;
 	background: var(--color-primary);
 	color: white;
@@ -216,12 +240,14 @@ div.search_bar form {
 
 div.search_bar form input {
 	margin-bottom: 0;
+	font-size: var(--font-size-md);
 	flex: auto;
 }
 
 div.privacy {
 	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: var(--font-size-sm);
 }
 
 div.privacy code {
@@ -316,7 +342,7 @@ a {
 }
 
 div.evolutions {
-	font-size: small;
+	font-size: var(--font-size-sm);
 	/* margin: 5px; */
 	display: flex;
 	flex-wrap: wrap;
@@ -507,7 +533,7 @@ a:hover {
 }
 
 input {
-	font-family: "Pixelated";
+	font-family: var(--font-primary);
 	border-radius: 5px;
 	border: 2px solid var(--color-primary);
 	padding: 10px;
@@ -517,7 +543,7 @@ input {
 }
 
 a.a-btn-1 {
-	font-size: small;
+	font-size: var(--font-size-sm);
 	padding: 5px;
 	background: var(--color-primary);
 	color: white;
@@ -527,7 +553,7 @@ a.a-btn-1 {
 }
 
 a.a-btn-2 {
-	font-size: small;
+	font-size: var(--font-size-sm);
 	padding: 12px;
 	background: var(--color-primary);
 	color: white;
@@ -589,8 +615,8 @@ div.guess img {
 }
 
 button {
-	font-family: "Pixelated";
-	font-size: small;
+	font-family: var(--font-primary);
+	font-size: var(--font-size-sm);
 	padding: 12px;
 	background-color: var(--color-primary);
 	border-radius: 5px;
@@ -941,11 +967,11 @@ div.move-type-card-name:after {
 }
 
 th .rounded {
-	font-size: 9px;
+	font-size: var(--font-size-xs);
 }
 
 .rounded {
-	font-size: 10px;
+	font-size: var(--font-size-xs);
 	min-width: 68px;
 	max-width: 80px;
 	border-radius: 5px;
@@ -958,7 +984,7 @@ th .rounded {
 
 .rounded-big {
 	width: 128px;
-	font-size: 20px;
+	font-size: var(--font-size-lg);
 	border-radius: 5px;
 	padding-left: 2px;
 	padding-right: 2px;
@@ -982,7 +1008,7 @@ div.move-type-and-cat .move-type-card-name:after {
 }
 
 div.damage_taken td {
-	font-size: small;
+	font-size: var(--font-size-sm);
 }
 
 div.about {
@@ -995,7 +1021,7 @@ a.corner {
 	left: 0.5rem;
 	z-index: 10;
 	padding: 5px;
-	font-size: 12px;
+	font-size: var(--font-size-xs);
 	margin-left: 10px;
 	margin-bottom: 20px;
 	border-radius: 5px;
@@ -1014,7 +1040,7 @@ a.corner::before {
 }
 
 div.damage span {
-	font-size: 10px;
+	font-size: var(--font-size-xs);
 	margin-bottom: 10px;
 }
 
@@ -1031,7 +1057,7 @@ p.block {
 }
 
 div.diff-hint {
-	font-size: small;
+	font-size: var(--font-size-sm);
 }
 
 form.save-in-leaderboard {
@@ -1071,7 +1097,7 @@ select,
 select {
 	-webkit-appearance: none;
 	text-align-last: center;
-	font-family: "Pixelated";
+	font-family: var(--font-primary);
 }
 
 select#lang-select {
@@ -1090,7 +1116,7 @@ select#lang-select {
 	z-index: 10;
 	width: 110px;
 	border: none;
-	font-size: 12px;
+	font-size: var(--font-size-xs);
 }
 
 select#difficulty,
@@ -1272,19 +1298,19 @@ div.item-text {
 
 div.item-text span.versions {
 	color: grey;
-	font-size: 9px;
+	font-size: var(--font-size-xs);
 }
 
 div.id-container,
 div.price-container span {
-	font-size: 10px;
-	line-height: 10px;
+	font-size: var(--font-size-xs);
+	line-height: var(--font-size-xs);
 	color: grey;
 }
 
 p.info {
 	margin-top: 0;
-	font-size: 10px;
+	font-size: var(--font-size-xs);
 }
 
 hr {
@@ -1348,11 +1374,11 @@ div.move-cards {
 
 .move-name {
 	font-weight: bold;
-	font-size: 15px;
+	font-size: var(--font-size-lg);
 }
 
 .move-level {
-	font-size: 15px;
+	font-size: var(--font-size-lg);
 }
 
 .type-icon {
@@ -1375,7 +1401,7 @@ div.move-info {
 .move-stats span {
 	display: block;
 	padding: 0.25rem 0;
-	font-size: 0.9rem;
+	font-size: var(--font-size-sm);
 }
 
 div.search {
@@ -1383,7 +1409,7 @@ div.search {
 }
 
 a.test {
-	font-size: 10px;
+	font-size: var(--font-size-xs);
 }
 
 div.pokemon {
@@ -1420,7 +1446,7 @@ div.item-container p {
 }
 
 div.item-container span {
-	font-size: small;
+	font-size: var(--font-size-sm);
 	text-align: justify;
 }
 
@@ -1448,7 +1474,7 @@ form {
 
 .guess-results p {
 	margin: 0;
-	font-size: small;
+	font-size: var(--font-size-sm);
 }
 
 .print {
@@ -1514,8 +1540,8 @@ summary:hover {
 	}
 
 	.sound-btn:hover {
-		filter: brightness(0) saturate(100%) invert(79%) sepia(14%)
-			saturate(4587%) hue-rotate(326deg) brightness(82%) contrast(85%);
+		filter: brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(4587%)
+			hue-rotate(326deg) brightness(82%) contrast(85%);
 	}
 
 	:root {
