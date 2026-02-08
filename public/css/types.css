@@ -1,0 +1,316 @@
+div.types {
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+
+img.types {
+	width: 64px;
+	margin-top: 5px;
+	transition: transform 0.5s;
+}
+
+img.types:hover {
+	transform: scale(2);
+}
+
+img.types-browse {
+	width: 128px;
+	margin-top: 5px;
+	transition: transform 0.5s;
+}
+
+img.types-browse:hover {
+	transform: scale(2);
+}
+
+div.type-container {
+	display: inline-flex;
+	gap: 5px;
+}
+
+div.types span {
+	margin-top: 10px;
+}
+
+div.move-type-card,
+div.category {
+	color: white;
+	padding-top: 0.3em;
+}
+
+td div.move-type-card,
+td div.category {
+	border-radius: 5px;
+	min-width: 90px;
+}
+
+div.category#\32 {
+	background: orange;
+}
+
+div.category#\31 {
+	background: grey;
+}
+
+div.category#\33 {
+	background: steelblue;
+}
+
+div.move-type-card:hover {
+	filter: brightness(110%);
+}
+
+td div.move-type-card,
+div.move-type-card-name {
+	position: relative;
+	padding-left: 1em;
+}
+
+td div.move-type-card:before {
+	left: 4px;
+	position: absolute;
+	transform: translateY(-0.1em);
+}
+
+div.browse-type div.move-type-card:before,
+h1 div.move-type-card:before {
+	left: 4px;
+	position: absolute;
+	transform: translateY(8px);
+}
+
+div.move-type-card:before {
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background-size: 14px 14px;
+	margin-right: 3px;
+	vertical-align: middle;
+	margin-bottom: 3px;
+}
+
+div.move-type-card#\31 {
+	background: #a8a77a;
+	--type-name: "NORMAL";
+}
+
+div.move-type-card#\31:before {
+	background-image: url("/types/normal.svg");
+}
+
+div.move-type-card#\32 {
+	background: #c22e28;
+	--type-name: "FIGHTING";
+}
+
+div.move-type-card#\32:before {
+	background-image: url("/types/fighting.svg");
+}
+
+div.move-type-card#\33 {
+	background: #90bee8;
+	--type-name: "FLYING";
+}
+
+div.move-type-card#\33:before {
+	background-image: url("/types/flying.svg");
+}
+
+div.move-type-card#\34 {
+	background: #a33ea1;
+	--type-name: "POISON";
+}
+
+div.move-type-card#\34:before {
+	background-image: url("/types/poison.svg");
+}
+
+div.move-type-card#\35 {
+	background: #e2bf65;
+	--type-name: "GROUND";
+}
+
+div.move-type-card#\35:before {
+	background-image: url("/types/ground.svg");
+}
+
+div.move-type-card#\36 {
+	background: #b6a136;
+	--type-name: "ROCK";
+}
+
+div.move-type-card#\36:before {
+	background-image: url("/types/rock.svg");
+}
+
+div.move-type-card#\37 {
+	background: #a6b91a;
+	--type-name: "BUG";
+}
+
+div.move-type-card#\37:before {
+	background-image: url("/types/bug.svg");
+}
+
+div.move-type-card#\38 {
+	background: #735797;
+	--type-name: "GHOST";
+}
+
+div.move-type-card#\38:before {
+	background-image: url("/types/ghost.svg");
+}
+
+div.move-type-card#\39 {
+	background: #b7b7ce;
+	--type-name: "STEEL";
+}
+
+div.move-type-card#\39:before {
+	background-image: url("/types/steel.svg");
+}
+
+div.move-type-card#\31\30 {
+	background: #ee8130;
+	--type-name: "FIRE";
+}
+
+div.move-type-card#\31\30:before {
+	background-image: url("/types/fire.svg");
+}
+
+div.move-type-card#\31\31 {
+	background: #6390f0;
+	--type-name: "WATER";
+}
+
+div.move-type-card#\31\31:before {
+	background-image: url("/types/water.svg");
+}
+
+div.move-type-card#\31\32 {
+	background: #7ac74c;
+	--type-name: "GRASS";
+}
+
+div.move-type-card#\31\32:before {
+	background-image: url("/types/grass.svg");
+}
+
+div.move-type-card#\31\33 {
+	background: #f7d02c;
+	--type-name: "ELECTRIC";
+}
+
+div.move-type-card#\31\33:before {
+	background-image: url("/types/electric.svg");
+}
+
+div.move-type-card#\31\34 {
+	background: #f95587;
+	--type-name: "PSYCHIC";
+}
+
+div.move-type-card#\31\34:before {
+	background-image: url("/types/psychic.svg");
+}
+
+div.move-type-card#\31\35 {
+	background: #96d9d6;
+	--type-name: "ICE";
+}
+
+div.move-type-card#\31\35:before {
+	background-image: url("/types/ice.svg");
+}
+
+div.move-type-card#\31\36 {
+	background: #6f35fc;
+	--type-name: "DRAGON";
+}
+
+div.move-type-card#\31\36:before {
+	background-image: url("/types/dragon.svg");
+}
+
+div.move-type-card#\31\37 {
+	background: #705746;
+	--type-name: "DARK";
+}
+
+div.move-type-card#\31\37:before {
+	background-image: url("/types/dark.svg");
+}
+
+div.move-type-card#\31\38 {
+	background: #d685ad;
+	--type-name: "FAIRY";
+}
+
+div.move-type-card#\31\38:before {
+	background-image: url("/types/fairy.svg");
+}
+
+div.move-type-card-name:after {
+	display: inline-flex;
+	content: var(--type-name);
+	color: white;
+	margin-top: 4px;
+}
+
+.rounded {
+	font-size: var(--font-size-xs);
+	min-width: 68px;
+	max-width: 80px;
+	border-radius: 5px;
+	padding: 0 !important;
+	margin: 0 auto;
+	transition:
+		color 0.5s,
+		transform 0.5s;
+}
+
+th .rounded {
+	font-size: var(--font-size-xs);
+}
+
+.rounded:hover {
+	color: transparent;
+	transition-duration: 0.5s;
+	transform: scale(2);
+	z-index: 100;
+}
+
+.rounded-big {
+	width: 128px;
+	font-size: var(--font-size-md);
+	border-radius: 5px;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+div.move-type-card.big,
+div.category.big {
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+div.move-type-and-cat .move-type-card-name:after {
+	margin: 0;
+}
+
+a.type-link {
+	text-decoration: none;
+}
+
+div.type-move-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-bottom: 5px;
+	justify-content: center;
+}

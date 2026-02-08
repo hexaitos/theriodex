@@ -1,0 +1,33 @@
+div.browse-type {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 0.2em;
+}
+
+div.browse-gen {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 7px;
+}
+
+div.browse-gen-type select {
+	margin: 0 !important;
+}
+
+div.browse-gen-type form {
+	margin-top: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	justify-content: center;
+}
+
+a.current {
+	background-color: black !important;
+}
+
+a.test {
+	font-size: var(--font-size-xs);
+}

@@ -1,0 +1,60 @@
+.menu {
+	margin-top: 40px;
+	margin-bottom: 30px;
+	padding: 3%;
+	background-color: var(--color-accent);
+	border-radius: 5px;
+	display: flex;
+	overflow: auto;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.menu a {
+	padding: 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: var(--color-primary);
+	flex: 1 1 0;
+	min-width: 100px;
+	box-sizing: content-box;
+}
+
+.menu a:hover {
+	background-color: var(--color-primary-hover);
+}
+
+.menu a:before,
+div.table-cards-tabs button:before {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-size: 16px 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+	margin-bottom: 2.5px;
+	filter: invert(100%);
+}
+
+.menu a:nth-child(1):before {
+	background-image: url("/icons/dice-five.svg");
+}
+
+.menu a:nth-child(2):before {
+	background-image: url("/icons/database-search.svg");
+}
+
+.menu a:nth-child(3):before {
+	background-image: url("/icons/safari.svg");
+}
+
+.menu a:nth-child(4):before {
+	background-image: url("/icons/gamepad.svg");
+}
+
+.menu a:nth-child(5):before {
+	background-image: url("/icons/info-circle.svg");
+}

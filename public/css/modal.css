@@ -1,0 +1,27 @@
+.modal {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+}
+
+.modal[hidden] {
+	display: none;
+}
+
+.modal-inner {
+	background: #fff;
+	padding: 1rem;
+	max-width: 480px;
+	width: 90%;
+	border-radius: 6px;
+}
+
+.modal-actions {
+	margin-top: 0.75rem;
+	display: flex;
+	gap: 0.5rem;
+	justify-content: flex-end;
+}

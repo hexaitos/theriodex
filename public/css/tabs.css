@@ -1,0 +1,50 @@
+div.table-cards-tabs button:nth-of-type(1):before {
+	background-image: url("/icons/cards.svg");
+}
+
+div.table-cards-tabs button:nth-of-type(2):before {
+	background-image: url("/icons/table2-columns.svg");
+}
+
+.tab {
+	overflow: hidden;
+	border: 2px solid var(--color-accent-border);
+	border-radius: 5px;
+	display: inline-flex;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: 0.3s;
+	flex: auto;
+	background-color: var(--color-primary);
+	margin: 10px;
+	flex: 1 1 0;
+	min-width: 90px;
+}
+
+.tab button.tab-big {
+	flex: 1 1 270px;
+}
+
+.tab button:hover {
+	background-color: var(--color-primary-hover);
+}
+
+.tab button.active {
+	background-color: var(--color-primary-hover);
+	box-shadow: inset 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.tabcontent {
+	display: none;
+	border-radius: 5px;
+	padding-top: 10px;
+	border-top: none;
+}

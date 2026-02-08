@@ -1,0 +1,52 @@
+@media (prefers-color-scheme: dark) {
+	body,
+	.modal-inner {
+		background-color: black;
+	}
+
+	.sound-btn {
+		filter: invert(100);
+	}
+
+	.sound-btn:hover {
+		filter: brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(4587%)
+			hue-rotate(326deg) brightness(82%) contrast(85%);
+	}
+
+	:root {
+		--color-primary: #96311d;
+		--color-primary-hover: #c58043;
+		--color-accent: #162225;
+		--color-accent-border: #b5dbe2;
+		--color-bg: #162225;
+		--color-links: #c58043;
+		--color-th: #96311d;
+		--color-td: black;
+	}
+
+	select.username-select {
+		background-color: black;
+		color: white;
+	}
+
+	p,
+	span,
+	h1,
+	h2,
+	h3,
+	tr,
+	a.current,
+	div.privacy,
+	div.id-container span,
+	div.price-container span,
+	div.item-text span.versions,
+	td a.header,
+	div.move-details div {
+		color: white;
+	}
+
+	input {
+		background-color: black;
+		color: white;
+	}
+}

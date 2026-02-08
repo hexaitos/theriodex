@@ -1,0 +1,113 @@
+button {
+	font-family: var(--font-primary);
+	font-size: var(--font-size-sm);
+	padding: 12px;
+	background-color: var(--color-primary);
+	border-radius: 5px;
+	color: #ffffff;
+	border: none;
+	transition: 0.3s;
+	min-width: 80px;
+}
+
+button:hover {
+	background-color: var(--color-primary-hover);
+}
+
+a.a-btn-1 {
+	font-size: var(--font-size-sm);
+	padding: 5px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 2px;
+}
+
+a.a-btn-2 {
+	font-size: var(--font-size-sm);
+	padding: 12px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	display: inline-block;
+	min-width: 80px;
+}
+
+a.a-btn-3 {
+	padding: 5px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	min-width: 200px;
+	flex: 1 1 0;
+}
+
+a.browse {
+	flex: 1 1 0;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	padding: 0 16px;
+	text-align: center;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+a.a-btn-4 {
+	padding: 5px;
+	background: var(--color-primary);
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	flex: 1 1 0;
+}
+
+a.a-btn-1:hover,
+a.a-btn-2:hover,
+a.a-btn-3:hover,
+a.a-btn-4:hover {
+	background-color: var(--color-primary-hover);
+}
+
+.sound-btn {
+	vertical-align: super;
+	margin: 0;
+	width: 16px;
+	transform: translateX(-8px);
+}
+
+.sound-btn:hover {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(95%) saturate(7003%)
+		hue-rotate(223deg) brightness(110%) contrast(102%);
+}
+
+summary {
+	background-color: var(--color-primary);
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+	margin-bottom: 10px;
+	transition: 0.5s;
+}
+
+summary.table:after {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-size: 16px 16px;
+	margin-left: 3px;
+	vertical-align: middle;
+	margin-bottom: 2px;
+	filter: invert(100%);
+	background-image: url("/icons/table2-columns.svg");
+}
+
+summary:hover {
+	cursor: pointer;
+	transition: 0.5s;
+	background-color: var(--color-primary-hover);
+}

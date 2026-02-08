@@ -1,0 +1,30 @@
+@media screen and (max-width: 900px) {
+	body {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+	div.flavour,
+	p.ability,
+	p.move-details {
+		text-align: justify;
+	}
+
+	div.main {
+		padding: 20px;
+	}
+
+	div.item {
+		min-width: 100%;
+		margin: 0px;
+		border: 0px;
+		border-radius: 0;
+		border-bottom: 2px solid var(--color-accent-border);
+	}
+}
+
+@media screen and (max-width: 500px) {
+	div.sprites img {
+		width: 116px;
+	}
+}
