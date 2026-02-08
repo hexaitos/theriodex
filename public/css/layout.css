@@ -100,9 +100,9 @@ a.corner::before {
 	background-image: url("/icons/link.svg");
 	content: "";
 	display: inline-block;
-	width: 16px;
-	height: 16px;
-	background-size: 16px 16px;
+	width: 14px;
+	height: 14px;
+	background-size: 14px 14px;
 	margin-right: 4px;
 	vertical-align: middle;
 	margin-bottom: 2.5px;
