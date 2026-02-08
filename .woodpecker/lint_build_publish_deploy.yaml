@@ -14,7 +14,7 @@ steps:
       - rubocop -A
 
   build_and_publish_to_codeberg:
-    image: woodpeckerci/plugin-docker-buildx:6
+    image: woodpeckerci/plugin-docker-buildx:6.0.3
     settings:
       registry: codeberg.org
       dockerfile: *file
