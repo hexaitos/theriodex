@@ -5,6 +5,7 @@
 		<%= name %>
 		<img class="sound-btn" src="/sound.svg" alt="A button showing a speaker" onclick="new Audio('<%= calls %>').play()">
 	</h1>
+
 	<div class="type-container">
 	<% types.each do |type| %>
 		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>" aria-label="Pokémon type <%= type.first.to_s %>">
@@ -12,14 +13,18 @@
 		</a>
 	<% end %>
 	</div>
+
 	<div class="generation-index">
 	</div>
+
 	<hr class="small">
+
 	<div class="stats">
 		<span><%= weight / 10 %> kg</span>
 		<span><%= height / 10 %> m</span>
 		<span><%= species_name %></span>
 	</div>
+
 	<div class="stats">
 		<span><%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %></span>
 		<span><%= get_localised_text(lang, :atk) %>: <%= stats[:atk] %></span>
@@ -28,25 +33,27 @@
 		<span><%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %></span>
 		<span><%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %></span>
 	</div>
+
 	<div class="stats">
 		<span>Introduced in: <a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a></span>
 	</div>
 
-<hr class="small">
-<span><%= get_localised_text(lang, :abilities) %></span>
-<div class="evolutions">
-<% abilities.each do | name, hidden, slot, id, unformatted | %>
-	<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
-<% end %>
-</div>
-
-<% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
 	<hr class="small">
-	<span><%= get_localised_text(lang, :evolutions) %></span>
-<% end %>
+	<span><%= get_localised_text(lang, :abilities) %></span>
+	<div class="evolutions">
+		<% abilities.each do | name, hidden, slot, id, unformatted | %>
+			<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
+		<% end %>
+	</div>
 
-<div class="evolutions">
+	<% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
+		<hr class="small">
+		<span><%= get_localised_text(lang, :evolutions) %></span>
+	<% end %>
+
+	<div class="evolutions">
 		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
+			<%# nothing happens %>
 		<% else %>
 			<% evolutions.each do | evolution | %>
 				<% if evolutions_formatted[evolution] == name then %>
