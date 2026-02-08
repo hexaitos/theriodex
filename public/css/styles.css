@@ -1072,8 +1072,7 @@ sub {
 }
 
 sub {
-	margin-left: 1pt;
-	margin-right: 1pt;
+	margin-left: -2pt;
 }
 
 a.corner {
