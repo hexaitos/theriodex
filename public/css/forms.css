@@ -16,7 +16,7 @@ select {
 	-webkit-appearance: none;
 	text-align-last: center;
 	font-family: var(--font-primary);
-	font-size: var(--font-primary);
+	font-size: var(--font-size-sm);
 }
 
 select#lang-select {
