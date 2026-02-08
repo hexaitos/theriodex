@@ -28,5 +28,6 @@
 
 	--line-height-base: 1.4;
 	--line-height-p: 1.6;
-	--line-height-heading: 1.7;
+	--line-height-heading: 2;
+	--line-height-button: 1.6;
 }

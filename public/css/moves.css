@@ -61,6 +61,7 @@ div.move-details div {
 	margin: 5p;
 	flex: auto;
 	border-radius: 5px;
+	padding: 5px;
 }
 
 div.move-details {
@@ -115,6 +116,13 @@ div.move-table th {
 .move-cards {
 	gap: 1rem;
 	padding: 1rem;
+}
+
+div.move-cards {
+	margin-top: 10px;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .move-card {
