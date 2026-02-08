@@ -11,6 +11,8 @@ require 'redis'
 require 'digest'
 require 'erubi'
 require 'redcarpet'
+require 'sinatra/static_assets'
+
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'
 use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400

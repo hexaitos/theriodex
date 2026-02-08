@@ -6,7 +6,7 @@
 		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :direct_link) %></a>
 		<form action="/show/<%= id %>" method="get" id="language_select">
 	<% end %>
-		<select id="lang-select" name="lang" required>
+		<select aria-label="Select language" id="lang-select" name="lang" required>
 			<option value="en">🌐 English</option>
 			<option value="de">🌐 Deutsch</option>
 			<option value="fr">🌐 Français</option>

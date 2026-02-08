@@ -3,11 +3,11 @@
 <div class="types">
 	<h1 class="pokemon-title">
 		<%= name %>
-		<img class="sound-btn" src="/sound.svg" onclick="new Audio('<%= calls %>').play()">
+		<img class="sound-btn" src="/sound.svg" alt="A button showing a speaker" onclick="new Audio('<%= calls %>').play()">
 	</h1>
 	<div class="type-container">
 	<% types.each do |type| %>
-		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>">
+		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>" aria-label="Pokémon type <%= type.first.to_s %>">
 		<div id="<%= type.first.to_s %>" class="move-type-card move-type-card-name rounded"></div>
 		</a>
 	<% end %>
@@ -60,10 +60,10 @@
 </div>
 
 <div class="sprites">
-	<img src="<%= formatted_sprites[:front] %>" alt="<%= name %> front sprite">
+	<%= image_tag formatted_sprites[:front], alt: "#{name} front sprite" %>
 
 	<% if formatted_sprites[:back] %>
-	<img src="<%= formatted_sprites[:back] %>" alt="<%= name %> back sprite">
+		<%= image_tag formatted_sprites[:back], alt: "#{name} back sprite" %>
 	<% end %>
 
 	<br>
