@@ -11,7 +11,7 @@
 	--font-primary: "Pixelated";
 	--font-mono: monospace;
 
-	--font-size-base: 14px;
+	--font-size-base: 12px;
 	/* For PixeloidSans
 	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.875rem;
@@ -36,31 +36,63 @@
 	--font-size-heading: var(--font-size-xl);
 	--font-size-title: var(--font-size-xxl);
 
-	--line-height-base: 1.5;
-	--line-height-heading: 1.2;
+	--line-height-base: 1.4;
+	--line-height-p: 1.6;
+	--line-height-heading: 1.7;
 }
 
 @font-face {
 	font-family: "Pixelated";
-	src: url("/fonts/Logic_Loop.ttf") format("truetype");
+	src: url("/fonts/Logic_Loop_Extra_Letter_Space.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Quotes";
+	src: url("/fonts/PixeloidSans.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+201C, U+201D, U+2018, U+2019, U+2013, U+2014;
+}
+
 * {
 	box-sizing: border-box;
-	letter-spacing: 0.5pt;
+	*::selection {
+		background: var(--color-th);
+		color: #ffffff;
+	}
+	*::-moz-selection {
+		background: var(--color-th);
+		color: #ffffff;
+	}
+	*::-webkit-selection {
+		background: var(--color-th);
+		color: #ffffff;
+	}
 }
 
 body {
-	font-family: var(--font-primary);
+	font-family: "Quotes", var(--font-primary);
 	font-size: var(--font-size-base);
 	line-height: var(--line-height-base);
 	margin-left: 20%;
 	margin-right: 20%;
 	text-align: center;
 	background-color: #b5dbe27a;
+}
+
+p {
+	line-height: var(--line-height-p);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	line-height: var(--line-height-heading);
 }
 
 .no-bottom-margin {
@@ -256,7 +288,7 @@ div.search_bar form input {
 div.privacy {
 	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: var(--font-size-sm);
+	font-size: 15px;
 }
 
 div.privacy code {
@@ -804,7 +836,16 @@ div.move-details {
 }
 
 span.move-name:before {
-	content: "🔗";
+	background-image: url("/icons/link.svg");
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-size: 16px 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+	margin-bottom: 2.5px;
+	filter: invert(100%);
 }
 
 td div.move-type-card,
@@ -820,7 +861,7 @@ div.move-type-card-name {
 td div.move-type-card:before {
 	left: 4px;
 	position: absolute;
-	transform: translateY(2px);
+	transform: translateY(-0.1em);
 }
 
 div.browse-type div.move-type-card:before,
@@ -994,7 +1035,7 @@ th .rounded {
 
 .rounded-big {
 	width: 128px;
-	font-size: var(--font-size-lg);
+	font-size: var(--font-size-md);
 	border-radius: 5px;
 	padding-left: 2px;
 	padding-right: 2px;
@@ -1030,6 +1071,11 @@ sub {
 	font-size: var(--font-size-xs);
 }
 
+sub {
+	margin-left: 1pt;
+	margin-right: 1pt;
+}
+
 a.corner {
 	position: absolute;
 	top: 0.5rem;
@@ -1051,7 +1097,16 @@ a.corner:hover {
 }
 
 a.corner::before {
-	content: "🔗 ";
+	background-image: url("/icons/link.svg");
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-size: 16px 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+	margin-bottom: 2.5px;
+	filter: invert(100%);
 }
 
 div.damage span {
@@ -1113,6 +1168,7 @@ select {
 	-webkit-appearance: none;
 	text-align-last: center;
 	font-family: var(--font-primary);
+	font-size: var(--font-primary);
 }
 
 select#lang-select {
@@ -1293,6 +1349,10 @@ div.id-container {
 	left: 0;
 	right: 0;
 	padding-left: 5px;
+}
+
+div.id-container span {
+	margin-bottom: 1pt;
 }
 
 div.price-container {
