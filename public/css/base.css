@@ -62,10 +62,6 @@ sub {
 	font-size: var(--font-size-xs);
 }
 
-sub {
-	margin-left: -2pt;
-}
-
 img.ball {
 	width: 1em;
 	vertical-align: bottom;
