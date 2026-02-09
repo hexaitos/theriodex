@@ -1,10 +1,10 @@
 # Theriodex – An Open-Source Pokédex Written In Ruby
 
-![Theriodex 88x31 button](/public/button_theriodex.gif)
+![Screenshot of Theriodex showing Vaporeon](screenshot.png)
 
-![CI Status](https://ci.codeberg.org/api/badges/15226/status.svg)
+---
 
-**Theriodex** is an open-source Pokédex written in Ruby! Displays a random Pokémon with a bunch of information on the homepage but also has information about Pokémons’ moves, their abilties, evolutions and more ! It even has a small Pokémon guessing game. Refer to the `TODO` section of this README for more information about what other features are planned. You can try it out over on [theriodex.net](https://theriodex.net)!
+**Theriodex** is an open-source Pokédex written in Ruby! Displays a random Pokémon with a bunch of information on the homepage but also has information about Pokémons’ moves, their abilties, evolutions and more! It even has a small Pokémon guessing game. It is designed to be reasonably fast, give you the most important information at a glance and work well on both mobile and desktop. Refer to the `TODO.md` file in this repository for more information about what other features are planned. You can try it out over on [theriodex.net](https://theriodex.net)!
 
 This is still very much a work in progress and not done yet, so expect lots of bugs, breakages, maybe incorrect data and frequent updates. The name _Theriodex_ comes from `therio-`, which is a prefix from the Ancient Greek word for "animal" or "beast", and `-dex`, which is a reference to the Pokédex.
 
@@ -16,25 +16,63 @@ The sprites and cries are fetched not from GitHub but from local storage instead
 
 Please do the same for the `cries` folder from [this](https://github.com/PokeAPI/cries) repository. The cries are much smaller in size, only about 30 MB.
 
+You can, theoretically, use this without any sprites and it _should_ work fine and simply not display the images.
+
 # Database information
 
 No changes have been made to the database and you can also build the database yourself by looking at the instructions in the above-mentioned PokeAPI repository and simply replace the database included herein with your own build - it should work without any problems. However, I am planning on modifying the database at some point and that may require you to run a migration script that will then be included in this repository.
 
 # Installation
 
+This section details the ways you can install and run Theriodex – you can either install it via source or you can run it in a Docker container.
+
+## Via source
+
 Requires Ruby and Bundler. Tested with Ruby `3.4.5`. Run `bundle install` in the cloned repository to download all required gems. Ensure you have placed the `sprites` folder in the correct location as mentioned above (`/public/sprites`). You can then start the server by running `ruby server.rb`.
 
 You may want to run the server in production instead of development mode. To do so, you can start the server by running `APP_ENV=production ruby server.rb`. You may also wish to change the address to which the server listens because, by default, it only listens to `localhost` (so you would be unable to reach the website from anywhere but the machine you are running the server on). To do so, you can add the `-o` flag followed by the IP you wish for the server to listen on. For example, the command `ruby server.rb -o0.0.0.0` would make the server listen to any IP.
 
-You can also start the server in production mode by running `ruby server.rb -e production` – this will also automatically make the server listen to `0.0.0.0`.
+You can also start the server in production mode by running `ruby server.rb -e production` – this will also automatically make the server listen to `0.0.0.0`. By default, the server listens to port `4567`. To change the port the server listens to, use the `-p` flag followed by the port as follows: `server.rb -p 8080`.
 
-By default, the server listens to port `4567`. To change the port the server listens to, use the `-p` flag followed by the port as follows: `server.rb -p 8080`.
+Updating Theriodex to the latest version should be quite simple: just run a `git pull` command in the directory and restart the server! Alternatively, if you want to run the latest development version, switch to the `dev` branch by running `git checkout dev` and then restarting the server. Updating the dev branch works the same way, simply run `git pull` and then restart. To switch back to the stable version, run `git checkout main` and restart.
+
+## Via Docker
+
+If you wish to run Theriodex via Docker, there are two options: you can either use the pre-built Docker container from the Codeberg Docker repository, or you can build the container yourself using the provided `Dockerfile`. Please follow the instructions on how to install Docker on your Linux distribution of choice – it should work on macOS too!
+
+### Via Codeberg repository
+
+Once you have installed Docker, you should be able to run the following command to start Theriodex on your machine.
+
+```bash
+(sudo) docker run \
+  --name theriodex \
+  -e REDIS_HOST=REDIS_HOST_HERE \
+  -p 5678:5678 \
+  -d \
+  codeberg.org/hexaitos/theriodex:latest
+```
+
+Once you have done so, Theriodex will run on `localhost:5678`. The docker container is `amd64`.
 
 ## Leaderboard
 
 Theriodex comes with a small leaderboard that allows users to save their game data (from the Pokémon guessing game) in a Redis / Valkey database. Entries are saved into the sorted set `score` with the username in the following format: `ABC-20250911143250>123001238592` wherein the string after `-` is the date and time of the submission and the string after `>` is a randomly generated hash.
 
 To specify the host of the Redis database, you need to set the environment variable `REDIS_HOST` to the correct value. For example, if the database is running on the same machine as Theriodex, you can do the following: `REDIS_HOST="localhost" ruby server.rb -e production`.
+
+## Reverse proxy
+
+To make your version of Theriodex publically accessible, you will most likely want to put it behind a reverse proxy. My preferred method of doing so is by using Caddy, as it makes the whole process rather simple! Let us assume that you have a server or other device which has a public IP and which is currently not hosting anything else – ports 80 and 443 are available and open to the public; let us also assume that you own the domain `theriodex.net` and have entered your servers public IP addresses into your domain registrar so that `theriodex.net` points to the public IP address(es) of your server. You can, then, simply install Caddy and use the following configuration assuming that you use the default port of `5678`:
+
+```Caddyfile
+theriodex.net {
+	reverse_proxy localhost:5678
+	encode zstd gzip
+}
+```
+
+Caddy will automatically obtain an SSL certificate for you and in just a few moments, your website should be available under `theriodex.net` and have HTTPS enabled!
 
 ## Privacy policy
 
@@ -113,49 +151,22 @@ _It is important to note, however_ that `rack-cache`'s memory storage does not f
 
 Please also check the `rack-cache` [documentation](https://rtomayko.github.io/rack-cache/storage) for further information.
 
-# TODO / Ideas
-
-Non-exhaustive list, may not all get implemented and other stuff not here may get implemented.
-
-- [x] Display names and flavour text in other languages (maybe with a `?lang=` query and a select box) (fully localised as of `636b1aeca2`)
-- [ ] Pit two Pokémon against one another to compare?
-- [x] Shows moves. Clickable with more info on each move on each click
-  - [x] Make it so that each move has its own information page
-  - [ ] Target information in move information
-  - [x] When looking at all moves a particular Pokémon of a particular generation learns, show that generation's sprites at the top
-  - [x] Better move overview
-  - [x] Sometimes move differ from game to game in a particular gen (Vaporeon, Gen I). Fix it so that this is properly displayed
-  - [ ] In the view showing all Pokémon that can learn a particular move, add the level at which they learn it / the HM/TM by which they learn it
-  - [ ] Browsable moves / searchable moves
-  - [x] Maybe add the "Pokémon that can learn this move" stuff into the same view as the move itself?
-- [x] Show evolutions (added in `fe4698bfa8`)
-- [x] Show shiny sprites (added in `777ddeb95c`)
-- [x] Height, weight, genus, species information (added in `44e722b409`)
-- [x] Show abilities (added in `3526d228dd`)
-- [x] Show base stats (added in `23481c26f7`)
-- [ ] Show even special varieties (like Oricorio baile and its other forms)
-- [ ] Edit database so that the GitHub links are replaced with links to local files (and have a script that you can run that automatically adjusts the database generated from PokeAPI)
-- [x] Add button to toggle between male and female forms if they exist (added in `d3678fed04`)
-- [x] Ability to show animated sprites if there is one (maybe also with button, maybe display at random) (added in `f1782528cb`)
-- [ ] Clean up index.erb with some helper functions perhaps?
-- [x] Add info what generation a Pokémon first appeared in
-- [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
-- [x] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
-- [x] Maybe add berries?
-- [ ] Maybe add characteristic?
-- [x] Add cries? (added in `a7946dd1dd`)
-- [x] View Pokémon by type
-- [x] Show Pokémon by type sorted by generation
-- [x] Show Pokémon by generation sorted by type
-- [ ] Add more evolution data (time of day, trigger, happiness etc.)
-  - [ ] Add mega evolutions
-
 # Acknowledgements
 
-I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun's Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository's database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using.
+I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun’s Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository’s database. Thanks also to [GGBotNet](https://www.ggbot.net/) and [VEXED](https://v3x3d.itch.io/) for creating the fantastic pixel fonts I am using. Icons are from [Iconoir](https://iconoir.com/).
 
-A special thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn't been for them. Thanks 🩵
+A special and immense thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thanks 🩵
 
-# Copyright notice
+If you enjoy any of the fonts or icons and wish to use them yourself, please do consider not simply taking them from Theriodex, but going to their respective sites and either buying it from them or donating to them – just as I did, too.
 
-Pokémon and Pokémon character names are trademarks of Nintendo. The rest of this project is licensed under the [3-Clause BSD Licence](https://opensource.org/license/bsd-3-clause).
+# Copyright notices and attributions
+
+Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak, and Creatures Inc. Theriodex not affiliated with, authorised, or endorsed by The Pokémon Company, Game Freak, Creatures, or Nintendo.
+
+The rest of this project is licensed under the [3-Clause BSD licence](https://opensource.org/license/bsd-3-clause). The main font used on by Theriodex (Logic Loop) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and was made by [VEXED](https://v3x3d.itch.io/). A few glyphs are from [GGBotNet](https://www.ggbot.net/)'s Pixeloid font which is licensed under [CC0](https://creativecommons.org/public-domain/cc0/). Icons are from [Iconoir](https://iconoir.com/) and licensed under the MIT license.
+
+---
+
+![Theriodex 88x31 button](public/button_theriodex.gif)
+
+![CI Status](https://ci.codeberg.org/api/badges/15226/status.svg)

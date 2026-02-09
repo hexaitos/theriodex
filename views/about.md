@@ -6,15 +6,17 @@ Theriodex is an open-source Pokédex written in Ruby using [Sinatra](https://sin
 
 It is a small little project that I – [Hexaitos](https://hexaitos.com) – am working on in my free time mostly as a programming exercise and because I am a Pokémon myself! (several actually).
 
-A lot of features have already been implement but I would still not recommend using this for any particularly important Pokémon run or anything of the like! The start page will show a random Pokémon and will also show some information about this particular Pokémon’s weaknesses. You can click on the name of the generation in which this Pokémon first appeared or on the sprite showing the Pokémon’s types and you will automatically be redirected to a new site that shows you all Pokémon of that particular generation / type. A new random entry from the Pokédex is loaded every time you load the page of a Pokémon. You can view the Pokémon’s abilities and their evolution and – sometime down the line – you will also have the option to see their moves! There is also a fuzzy search and a game you can play where you have to guess the name of a Pokémon! Try it out and see how many Pokémon you are able to guess correctly!
+A lot of features have already been implement but I would still not recommend using this for any particularly important Pokémon run or anything of the like! The start page will show a random Pokémon and will also show some information about this particular Pokémon’s weaknesses. You can click on the name of the generation in which this Pokémon first appeared or on the sprite showing the Pokémon’s types and you will automatically be redirected to a new site that shows you all Pokémon of that particular generation / type. A new random entry from the Pokédex is loaded every time you load the page of a Pokémon. You can view the Pokémon’s abilities and their evolution and you also have the option to see their moves! There is also a fuzzy search and a game you can play where you have to guess the name of a Pokémon! Try it out and see how many Pokémon you are able to guess correctly!
 
 I highly recommend checking out this project’s official [git repository](https://codeberg.org/hexaitos/theriodex), as you will be able to find the project’s README there which contains a bunch of planned features as well as instructions on how to run this yourself, if you so wish.
 
 ## Acknowledgements
 
-I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun’s Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository’s database. Thanks also to [GGBotNet](https://www.ggbot.net/) for creating the fantastic pixel fonts I am using. Icons are from [Iconoir](https://iconoir.com/).
+I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun’s Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository’s database. Thanks also to [GGBotNet](https://www.ggbot.net/) and [VEXED](https://v3x3d.itch.io/) for creating the fantastic pixel fonts I am using. Icons are from [Iconoir](https://iconoir.com/).
 
-A special thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thanks 🩵
+A special and immense thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thanks 🩵
+
+If you enjoy any of the fonts or icons and wish to use them yourself, please do consider not simply taking them from Theriodex, but going to their respective sites and either buying it from them or donating to them – just as I did, too.
 
 ## Tech
 
@@ -22,8 +24,8 @@ Theriodex is powered – in one way or another – by OpenBSD, Debian, Docker, N
 
 I used to mainly write my code in Doom Emacs but moved to VS Code and now mostly Zed mostly either on Linux (Fedora on my Framework 12) or macOS (on my M4 MacBook Pro).
 
-## Copyright notice
+## Copyright notices and attributions
 
 Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak, and Creatures Inc. Theriodex not affiliated with, authorised, or endorsed by The Pokémon Company, Game Freak, Creatures, or Nintendo.
 
-The rest of this project is licensed under the [3-Clause BSD licence](https://opensource.org/license/bsd-3-clause).
+The rest of this project is licensed under the [3-Clause BSD licence](https://opensource.org/license/bsd-3-clause). The main font used on by Theriodex (Logic Loop) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and was made by [VEXED](https://v3x3d.itch.io/). A few glyphs are from [GGBotNet](https://www.ggbot.net/)'s Pixeloid font which is licensed under [CC0](https://creativecommons.org/public-domain/cc0/). Icons are from [Iconoir](https://iconoir.com/) and licensed under the MIT license.
