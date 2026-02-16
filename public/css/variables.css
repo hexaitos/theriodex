@@ -8,26 +8,9 @@
 	--color-th: #9ed7e2;
 	--color-td: white;
 
-	--font-primary: "Pixelated";
-	--font-mono: monospace;
-
-	--font-size-base: 12px;
-	--font-size-xs: 0.55rem;
-	--font-size-sm: 0.675rem;
-	--font-size-md: 1rem;
-	--font-size-lg: 1.25rem;
-	--font-size-xl: 1.5rem;
-	--font-size-xxl: 1.875rem;
-	--font-size-xxxl: 2.25rem;
-
 	--font-size-body: var(--font-size-md);
 	--font-size-small: var(--font-size-sm);
 	--font-size-micro: var(--font-size-xs);
 	--font-size-heading: var(--font-size-xl);
 	--font-size-title: var(--font-size-xxl);
-
-	--line-height-base: 1.4;
-	--line-height-p: 1.6;
-	--line-height-heading: 2;
-	--line-height-button: 1.6;
 }

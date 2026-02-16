@@ -14,3 +14,21 @@
 	font-display: swap;
 	unicode-range: U+201C, U+201D, U+2018, U+2019, U+2013, U+2014, U+002F, U+003A;
 }
+
+/* Custom fonts a user can select if they want to */
+
+@font-face {
+	font-family: "Bubbly Bold";
+	src: url("/fonts/Bubbly_Bold.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Modern Macro";
+	src: url("/fonts/Modern_Macro.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}

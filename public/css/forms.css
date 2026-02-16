@@ -40,7 +40,8 @@ select#lang-select {
 
 select#difficulty,
 select#generation,
-select#type {
+select#type,
+select#font {
 	padding: 10px 20px 10px 20px;
 	border-radius: 5px;
 	text-align: center;

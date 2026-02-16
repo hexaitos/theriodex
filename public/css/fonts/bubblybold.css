@@ -1,0 +1,18 @@
+:root {
+	--font-primary: "Bubbly Bold";
+	--font-mono: monospace;
+
+	--font-size-base: 11px;
+	--font-size-xs: 0.4rem;
+	--font-size-sm: 0.5rem;
+	--font-size-md: 0.8rem;
+	--font-size-lg: 1.25rem;
+	--font-size-xl: 1.5rem;
+	--font-size-xxl: 1.875rem;
+	--font-size-xxxl: 2.25rem;
+
+	--line-height-base: 1.4;
+	--line-height-p: 1.6;
+	--line-height-heading: 2;
+	--line-height-button: 1.6;
+}
