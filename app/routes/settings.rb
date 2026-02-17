@@ -3,7 +3,11 @@ get "/settings" do
 end
 
 post "/settings/select-font" do
-	session[:font] = params["font"]
+	if FONTS.include?(params["font"]) then
+		session[:font] = params["font"]
+	else
+		redirect back
+	end
 	redirect back
 end
 
