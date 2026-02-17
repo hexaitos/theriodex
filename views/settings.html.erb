@@ -3,25 +3,17 @@
 		<fieldset>
 			<legend>Select a font</legend>
 			<div>
-				<div>
-					<input type="radio" id="default" name="font" value="default">
-					<label for=default">Default</label>
-				</div>
-
-				<div>
-					<input type="radio" id="bubblybold" bname="font" value="bubblybold">
-					<label for="bubblybold">Bubbly Bold</label>
-				</div>
-
-				<div>
-					<input type="radio" id="modernmacro" name="font" value="modernmacro">
-					<label for="modernmacro">Modern Macro</label>
-				</div>
-
-				<div>
-					<input type="radio" id="tomorrownight" name="font" value="tomorrownight">
-					<label for="tomorrownight">Tomorrow Night</label>
-				</div>
+				<% FONTS.each do | font | %>
+					<div>
+						<% if session[:font] == font or (!session[:font] and font == "default") then %>
+							<input type="radio" checked="checked" id="<%= font %>" name="font" value="<%= font %>">
+							<label for="<%= font %>"><%= font.gsub("-", " ").titleise %></label>
+						<% else %>
+							<input type="radio" id="<%= font %>" name="font" value="<%= font %>">
+							<label for="<%= font %>"><%= font.gsub("-", " ").titleise %></label>
+						<% end %>
+					</div>
+				<% end %>
 			</div>
 			<div>
 				<button class="full" type="submit">Select font</button>

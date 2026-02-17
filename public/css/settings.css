@@ -21,14 +21,18 @@ fieldset div div input {
 }
 */
 
-label[for="bubblybold"] {
+label[for="default"] {
+	font-family: "Pixelated";
+}
+
+label[for="bubbly-bold"] {
 	font-family: "Bubbly Bold";
 }
 
-label[for="modernmacro"] {
+label[for="modern-macro"] {
 	font-family: "Modern Macro";
 }
 
-label[for="tomorrownight"] {
+label[for="tomorrow-night"] {
 	font-family: "Tomorrow Night";
 }
