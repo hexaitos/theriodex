@@ -1,12 +1,31 @@
 <div class="browse-gen-type">
 	<form method="POST" action="/settings/select-font">
-		<select id="font" name="font" required>
-			<option value="">⬇️ Select Font</option>
-			<option value="default">Default</option>
-			<option value="bubblybold">Bubbly Bold</option>
-			<option value="modernmacro">Modern Macro</option>
-			<option value="tomorrownight">Tomorrow Night</option>
-		</select>
-		<button class="full" type="submit">Select font</button>
+		<fieldset>
+			<legend>Select a font</legend>
+			<div>
+				<div>
+					<input type="radio" id="default" name="font" value="default">
+					<label for=default">Default</label>
+				</div>
+
+				<div>
+					<input type="radio" id="bubblybold" bname="font" value="bubblybold">
+					<label for="bubblybold">Bubbly Bold</label>
+				</div>
+
+				<div>
+					<input type="radio" id="modernmacro" name="font" value="modernmacro">
+					<label for="modernmacro">Modern Macro</label>
+				</div>
+
+				<div>
+					<input type="radio" id="tomorrownight" name="font" value="tomorrownight">
+					<label for="tomorrownight">Tomorrow Night</label>
+				</div>
+			</div>
+			<div>
+				<button class="full" type="submit">Select font</button>
+			</div>
+		</fieldset>
 	</form>
 </div>

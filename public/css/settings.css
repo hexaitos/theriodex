@@ -1,0 +1,34 @@
+fieldset {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+fieldset div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	flex: 1 1 0;
+}
+
+/*
+fieldset div div label {
+	display: inline;
+}
+
+fieldset div div input {
+	width: auto;
+}
+*/
+
+label[for="bubblybold"] {
+	font-family: "Bubbly Bold";
+}
+
+label[for="modernmacro"] {
+	font-family: "Modern Macro";
+}
+
+label[for="tomorrownight"] {
+	font-family: "Tomorrow Night";
+}
