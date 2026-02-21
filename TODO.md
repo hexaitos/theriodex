@@ -34,3 +34,8 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Show Pokémon by generation sorted by type
 - [ ] Add more evolution data (time of day, trigger, happiness etc.)
   - [ ] Add mega evolutions
+- [ ] Customisation
+  - [ ] Fonts
+  - [ ] Backgrounds
+  - [ ] Cursors
+  - [ ] Themes
