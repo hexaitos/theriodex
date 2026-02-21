@@ -5,9 +5,8 @@ end
 post "/settings/select-font" do
 	if FONTS.include?(params["font"]) then
 		session[:font] = params["font"]
-	else
-		redirect back
 	end
+
 	redirect back
 end
 

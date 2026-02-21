@@ -1,12 +1,12 @@
 :root {
 	--color-primary: #a70b0b;
 	--color-primary-hover: #850a0a;
-	--color-accent: #f1ba0a;
+	--color-accent: #ffd23399;
 	--color-accent-border: #850a0a;
-	--color-bg: #f9dc5c5c;
+	--color-body: #f9dc5c5c;
 	--color-links: #a70b0b;
 	--color-th: #a70b0b;
-	--color-body: #fdf8e1;
+	--color-bg: #fdf8e1;
 	--color-td: white;
 
 	--font-size-body: var(--font-size-md);
