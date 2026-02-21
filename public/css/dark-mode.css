@@ -13,17 +13,6 @@
 			hue-rotate(326deg) brightness(82%) contrast(85%);
 	}
 
-	:root {
-		--color-primary: #96311d;
-		--color-primary-hover: #c58043;
-		--color-accent: #162225;
-		--color-accent-border: #b5dbe2;
-		--color-bg: #162225;
-		--color-links: #c58043;
-		--color-th: #96311d;
-		--color-td: black;
-	}
-
 	select.username-select {
 		background-color: black;
 		color: white;

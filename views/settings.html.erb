@@ -30,4 +30,23 @@
 			</div>
 		</fieldset>
 	</form>
+
+	<form method="POST" action="/settings/toggle-shiny">
+		<fieldset>
+			<legend>Select a theme</legend>
+			<div>
+				<div>
+					<input type="radio" id="normal" name="shiny-toggle" value="normal">
+					<label for="normal">Normal</label>
+				</div>
+				<div>
+					<input type="radio" id="shiny" name="shiny-toggle" value="shiny">
+					<label for="shiny">Shiny</label>
+				</div>
+			</div>
+			<div>
+				<button class="full" type="submit">Select theme</button>
+			</div>
+		</fieldset>
+	</form>
 </div>
