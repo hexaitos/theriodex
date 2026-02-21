@@ -41,7 +41,9 @@
 	div.price-container span,
 	div.item-text span.versions,
 	td a.header,
-	div.move-details div {
+	div.move-details div,
+	label,
+	legend {
 		color: white;
 	}
 
