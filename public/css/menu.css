@@ -17,8 +17,7 @@
 	text-decoration: none;
 	color: #ffffff;
 	background-color: var(--color-primary);
-	flex: 1 1 0;
-	min-width: 100px;
+	flex: 1 1 15%;
 	box-sizing: content-box;
 }
 
