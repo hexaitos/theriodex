@@ -56,5 +56,9 @@ div.table-cards-tabs button:before {
 }
 
 .menu a:nth-child(5):before {
+	background-image: url("/icons/settings.svg");
+}
+
+.menu a:nth-child(6):before {
 	background-image: url("/icons/info-circle.svg");
 }
