@@ -24,15 +24,3 @@ fieldset div div input {
 label[for="default"] {
 	font-family: "Pixelated";
 }
-
-label[for="bubbly-bold"] {
-	font-family: "Bubbly Bold";
-}
-
-label[for="modern-macro"] {
-	font-family: "Modern Macro";
-}
-
-label[for="tomorrow-night"] {
-	font-family: "Tomorrow Night";
-}

@@ -1,3 +1,13 @@
+<style>
+	<% FONTS.each do | font | %>
+		<% unless font == "default" %>
+			label[for="<%= font %>"] {
+				font-family: "<%= font.gsub("-", " ").titleise %>"
+			}
+		<% end %>
+	<% end %>
+</style>
+
 <div class="browse-gen-type">
 	<form method="POST" action="/settings/select-font">
 		<fieldset>
