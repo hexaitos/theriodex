@@ -1,0 +1,40 @@
+:root {
+	--color-primary: #4f518c;
+	--color-primary-hover: #7276c5;
+	--color-accent: #dabfff;
+	--color-accent-border: #4f518c;
+	--color-body: #4f518c;
+	--color-links: #e491c9;
+	--color-th: #4f518c;
+	--color-bg: #dabfff;
+	--color-td: white;
+
+	--font-size-body: var(--font-size-md);
+	--font-size-small: var(--font-size-sm);
+	--font-size-micro: var(--font-size-xs);
+	--font-size-heading: var(--font-size-xl);
+	--font-size-title: var(--font-size-xxl);
+}
+
+body {
+	background-image: url(/backgrounds/stars.svg);
+	background-repeat: space;
+	background-attachment: fixed;
+}
+
+th {
+	color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: #d8b02b;
+		--color-primary-hover: #af8e23;
+		--color-accent: #162225;
+		--color-accent-border: #b5dbe2;
+		--color-bg: #162225;
+		--color-links: #ffd233;
+		--color-th: #af8e23;
+		--color-td: black;
+	}
+}
