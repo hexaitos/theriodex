@@ -11,6 +11,13 @@ end
 $move_cache ||= {}
 $pokemon_cache ||= {}
 
+FONTS = Dir.children("#{Dir.pwd}/public/css/fonts").map { |e| e.gsub(".css", "") }
+THEMES = Dir.children("#{Dir.pwd}/public/css/themes")
+LOCKED_THEMES = {
+	"legendary.css" => 10
+}
+CURSORS = Dir.children("#{Dir.pwd}/public/cursors")
+
 CRIT = {
 	0 => {2 => 6.64, 6 => 6.25, 9 => 4.17},
 	1 => {9 => 12.5},

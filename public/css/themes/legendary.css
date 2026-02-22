@@ -28,13 +28,14 @@ th {
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-primary: #d8b02b;
-		--color-primary-hover: #af8e23;
-		--color-accent: #162225;
-		--color-accent-border: #b5dbe2;
-		--color-bg: #162225;
-		--color-links: #ffd233;
-		--color-th: #af8e23;
+		--color-primary: #4f518c;
+		--color-primary-hover: #7276c5;
+		--color-accent: #1a0636;
+		--color-accent-border: #4f518c;
+		--color-body: #25264f;
+		--color-links: #e491c9;
+		--color-th: #4f518c;
+		--color-bg: #1a0636;
 		--color-td: black;
 	}
 }

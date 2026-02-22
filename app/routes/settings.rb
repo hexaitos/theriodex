@@ -29,5 +29,5 @@ post "/settings/select-cursor" do
 end
 
 get "/settings/test" do
-	puts is_theme_unlocked?("legendary.css")
+	session[:theme] = "legendary.css"
 end
