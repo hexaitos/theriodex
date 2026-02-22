@@ -25,3 +25,7 @@ fieldset div div input {
 label[for="default"] {
 	font-family: "Pixelated";
 }
+
+input[type="radio"] {
+	height: 1rem;
+}

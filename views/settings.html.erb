@@ -3,7 +3,7 @@
 		<% unless font == "default" %>
 			label[for="<%= font %>"] {
 				font-family: "<%= font.gsub("-", " ").titleise %>"
-		}
+			}
 		<% end %>
 	<% end %>
 </style>
@@ -18,7 +18,7 @@
 				<% FONTS.each do | font | %>
 					<div>
 						<% if session[:font] == font or (!session[:font] and font == "default") then %>
-							<input type="radio" checked="checked" id="<%= font %>" name="font" value="<%= font %>">
+							<input type="radio" checked id="<%= font %>" name="font" value="<%= font %>">
 							<label for="<%= font %>"><%= font.gsub("-", " ").titleise %></label>
 						<% else %>
 							<input type="radio" id="<%= font %>" name="font" value="<%= font %>">
@@ -65,8 +65,8 @@
 				<% CURSORS.each do | cursor | %>
 					<% formatted_cursor = File.basename(cursor, ".*") %>
 					<div>
-						<input type="radio" id="cursor" name="cursor" value="<%= cursor %>">
-						<label for="<%= cursor %>"><%= formatted_cursor.titleise %></label>
+						<input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>">
+						<label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
 					</div>
 				<% end %>
 			</div>
