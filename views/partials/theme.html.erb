@@ -1,7 +1,7 @@
-<% if !session[:shiny] then %>
-	<link rel="preload" as="style" href="/css/variables.css">
-	<link rel="stylesheet" href="/css/variables.css">
+<% if !session[:theme] or session[:theme] == "default" then %>
+	<link rel="preload" as="style" href="/css/themes/default.css">
+	<link rel="stylesheet" href="/css/themes/default.css">
 <% else %>
-	<link rel="preload" as="style" href="/css/variables-legendary.css">
-	<link rel="stylesheet" href="/css/variables-legendary.css">
+	<link rel="preload" as="style" href="/css/themes/<%= session[:theme] %>">
+	<link rel="stylesheet" href="/css/themes/<%= session[:theme] %>">
 <% end %>

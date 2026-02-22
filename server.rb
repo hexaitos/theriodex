@@ -20,7 +20,11 @@ use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
 DB = SQLite3::Database.new "app/db/db.sqlite3"
 REDIS = Redis.new(host: ENV['REDIS_HOST'])
 FONTS = Dir.children("#{Dir.pwd}/public/css/fonts").map { |e| e.gsub(".css", "") }
-CURSORS = Dir.children("#{Dir.pwd}/public/cursors").map
+THEMES = Dir.children("#{Dir.pwd}/public/css/themes")
+LOCKED_THEMES = {
+	"legendary.css" => 10
+}
+CURSORS = Dir.children("#{Dir.pwd}/public/cursors")
 
 Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_helper }
 Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }

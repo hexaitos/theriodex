@@ -34,34 +34,32 @@
 	</form>
 
 	<br>
-
-	<form method="POST" action="/settings/toggle-shiny">
+	<form method="POST" action="/settings/select-theme">
 		<fieldset>
 			<legend>Select a theme</legend>
 			<div>
-				<div>
-					<input type="radio" id="normal" name="shiny-toggle" value="normal">
-					<label for="normal">Normal</label>
-				</div>
-				<div>
-					<input type="radio" id="shiny" name="shiny-toggle" value="shiny">
-					<label for="shiny">Shiny</label>
-				</div>
-
-				<div>
-					<% if session[:points] and session[:points]>= 1 then %>
-						<input type="radio" id="shiny" name="shiny-toggle" value="shiny">
-					<% else %>
-						<input type="radio" id="shiny" name="shiny-toggle" value="shiny" disabled>
-					<% end %>
-					<label for="shiny">Legendary</label>
-				</div>
+				<% THEMES.each do | theme | %>
+					<% formatted_theme = File.basename(theme, ".*") %>
+					<div>
+						<% if session[:theme] == theme or (!session[:theme] and theme == "default") then %>
+							<input type="radio" checked id="<%= theme %>" name="theme" value="<%= theme %>">
+							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
+						<% elsif !is_theme_unlocked?(theme) then %>
+							<input type="radio" id="<%= theme %>" name="theme" value="<%= theme %>" disabled>
+							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
+						<% else %>
+							<input type="radio" id="<%= theme %>" name="theme" value="<%= theme %>">
+							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
+						<% end %>
+					</div>
+				<% end %>
 			</div>
 			<div>
 				<button class="full" type="submit">Select theme</button>
 			</div>
 		</fieldset>
 	</form>
+
 	<br>
 	<form method="POST" action="/settings/select-cursor">
 		<fieldset>

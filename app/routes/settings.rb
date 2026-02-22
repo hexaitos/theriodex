@@ -20,6 +20,16 @@ post "/settings/toggle-shiny" do
 	redirect back
 end
 
+post "/settings/select-theme" do
+	if THEMES.include?(params["theme"]) then
+		session[:theme] = params["theme"]
+	end
+
+	puts session[:theme]
+
+	redirect back
+end
+
 post "/settings/select-cursor" do
 	if params["cursor"] != "none" then
 		session[:cursor] = params["cursor"]
@@ -31,4 +41,5 @@ post "/settings/select-cursor" do
 end
 
 get "/settings/test" do
+	puts is_theme_unlocked?("legendary.css")
 end
