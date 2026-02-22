@@ -40,6 +40,10 @@ input[type="radio"][disabled] {
 	display: block;
 }
 
+input[type="radio"][disabled] + label {
+	opacity: 20%;
+}
+
 input[type="radio"]:disabled + label::before {
 	content: "X";
 	display: block;

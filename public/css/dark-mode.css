@@ -31,8 +31,9 @@
 	td a.header,
 	div.move-details div,
 	label,
-	legend {
-		color: white;
+	legend,
+	input[type="radio"]:disabled + label::before {
+		color: white !important;
 	}
 
 	input {
