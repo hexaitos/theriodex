@@ -3,10 +3,12 @@
 		<% unless font == "default" %>
 			label[for="<%= font %>"] {
 				font-family: "<%= font.gsub("-", " ").titleise %>"
-			}
+		}
 		<% end %>
 	<% end %>
 </style>
+
+<h1>Settings</h1>
 
 <div class="browse-gen-type">
 	<form method="POST" action="/settings/select-font">
@@ -31,6 +33,8 @@
 		</fieldset>
 	</form>
 
+	<br>
+
 	<form method="POST" action="/settings/toggle-shiny">
 		<fieldset>
 			<legend>Select a theme</legend>
@@ -46,6 +50,28 @@
 			</div>
 			<div>
 				<button class="full" type="submit">Select theme</button>
+			</div>
+		</fieldset>
+	</form>
+	<br>
+	<form method="POST" action="/settings/select-cursor">
+		<fieldset>
+			<legend>Select a cursor</legend>
+			<div>
+				<div>
+					<input type="radio" id="cursor" name="cursor" value="reset">
+					<label for="cursor">None</label>
+				</div>
+				<% CURSORS.each do | cursor | %>
+					<% formatted_cursor = File.basename(cursor, ".*") %>
+					<div>
+						<input type="radio" id="cursor" name="cursor" value="<%= cursor %>">
+						<label for="<%= cursor %>"><%= formatted_cursor.titleise %></label>
+					</div>
+				<% end %>
+			</div>
+			<div>
+				<button class="full" type="submit">Select a cursor</button>
 			</div>
 		</fieldset>
 	</form>

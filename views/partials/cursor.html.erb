@@ -1,0 +1,7 @@
+<% if session[:cursor] then %>
+	<style>
+		* {
+			cursor: url("/cursors/<%= session[:cursor] %>"), auto;
+		}
+	</style>
+<% end %>

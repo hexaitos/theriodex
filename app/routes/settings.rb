@@ -20,6 +20,16 @@ post "/settings/toggle-shiny" do
 	redirect back
 end
 
+post "/settings/select-cursor" do
+	if params["cursor"] != "none" then
+		session[:cursor] = params["cursor"]
+	else
+		session[:cursor] = nil
+	end
+
+	redirect back
+end
+
 get "/settings/test" do
 	puts Dir.children("#{Dir.pwd}/public/css/fonts").map { |e| e.gsub(".css", "") }
 end
