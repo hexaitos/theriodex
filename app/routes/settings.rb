@@ -10,22 +10,10 @@ post "/settings/select-font" do
 	redirect back
 end
 
-post "/settings/toggle-shiny" do
-	if params["shiny-toggle"] == "normal" then
-		session[:shiny] = false
-	else
-		session[:shiny] = true
-	end
-
-	redirect back
-end
-
 post "/settings/select-theme" do
-	if THEMES.include?(params["theme"]) then
+	if THEMES.include?(params["theme"]) and is_theme_unlocked?(params["theme"]) then
 		session[:theme] = params["theme"]
 	end
-
-	puts session[:theme]
 
 	redirect back
 end
