@@ -28,4 +28,5 @@ label[for="default"] {
 
 input[type="radio"] {
 	height: 1rem;
+	accent-color: var(--color-primary);
 }
