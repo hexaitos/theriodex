@@ -30,3 +30,21 @@ input[type="radio"] {
 	height: 1rem;
 	accent-color: var(--color-primary);
 }
+
+input[type="radio"][disabled] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	all: unset;
+	display: block;
+}
+
+input[type="radio"]:disabled + label::before {
+	content: "X";
+	display: block;
+	font-weight: bold;
+	color: black;
+	pointer-events: none;
+	margin-bottom: 1rem;
+}
