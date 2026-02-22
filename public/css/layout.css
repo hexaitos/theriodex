@@ -108,3 +108,8 @@ a.corner::before {
 	margin-bottom: 2.5px;
 	filter: invert(100%);
 }
+
+div.notification {
+	border: 2px solid black;
+	background-color: cornsilk;
+}

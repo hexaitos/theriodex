@@ -12,6 +12,7 @@ require 'digest'
 require 'erubi'
 require 'redcarpet'
 require 'sinatra/static_assets'
+require 'sinatra/flash'
 
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'

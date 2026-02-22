@@ -1,5 +1,11 @@
 <%= partial :lang_select_game, id: id, lang: lang %>
 
+<% if flash[:notification] %>
+	<div class="notification">
+		<p><%= flash[:notification] %></p>
+	</div>
+<% end %>
+
 <div class="game">
 	<h1><%= get_localised_text(lang, :guess_the_pokemon) %></h1>
 	<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>

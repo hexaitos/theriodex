@@ -15,6 +15,12 @@ namespace "/game" do
 			redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
 		end
 
+		LOCKED_THEMES.each do | theme, points |
+			formatted_theme = File.basename(theme, ".*")
+
+			flash[:notification] = "You've unlocked the #{formatted_theme.titleise} theme! Go to the Settings to select it." if session[:points] and session[:points] >= points
+		end
+
 		erb :"game/game", locals: pokemon_view_game(get_random_game_pokemon(session[:gen].clean), lang, session[:difficulty].clean)
 	end
 

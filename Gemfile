@@ -15,3 +15,5 @@ gem "redis"
 gem "erubi"
 gem "redcarpet"
 gem "sinatra-static-assets", "~> 1.0"
+
+gem "sinatra-flash", "~> 0.3.0"
