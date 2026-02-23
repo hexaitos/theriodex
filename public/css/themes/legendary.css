@@ -19,7 +19,7 @@
 
 body {
 	background-image: url(/backgrounds/stars.svg);
-	background-repeat: space;
+	background-repeat: repeat;
 	background-attachment: fixed;
 }
 

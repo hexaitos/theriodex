@@ -308,6 +308,12 @@
 	<%= partial :menu %>
 
 	<div class="main">
+		<% if flash[:notification] %>
+			<div class="notification">
+				<p><%= flash[:notification] %></p>
+			</div>
+		<% end %>
+
 		<%= yield %>
 	</div>
 
