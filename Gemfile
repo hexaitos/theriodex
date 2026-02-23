@@ -17,3 +17,7 @@ gem "redcarpet"
 gem "sinatra-static-assets", "~> 1.0"
 
 gem "sinatra-flash", "~> 0.3.0"
+
+gem "securerandom", "~> 0.4.1"
+
+gem "pstore", "~> 0.2.1"

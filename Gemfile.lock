@@ -40,6 +40,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
+    pstore (0.2.1)
     puma (7.0.1)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -69,6 +70,7 @@ GEM
     sanitize (7.0.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.16.8)
+    securerandom (0.4.1)
     sinatra (4.1.1)
       logger (>= 1.6.0)
       mustermann (~> 3.0)
@@ -111,6 +113,7 @@ DEPENDENCIES
   erubi
   fuzzy_match
   json
+  pstore (~> 0.2.1)
   puma
   rack-cache
   rackup
@@ -118,6 +121,7 @@ DEPENDENCIES
   redis
   rerun
   sanitize
+  securerandom (~> 0.4.1)
   sinatra
   sinatra-contrib
   sinatra-flash (~> 0.3.0)

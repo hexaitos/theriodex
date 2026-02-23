@@ -13,6 +13,8 @@ require 'erubi'
 require 'redcarpet'
 require 'sinatra/static_assets'
 require 'sinatra/flash'
+require 'pstore'
+require 'securerandom'
 
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'
@@ -20,6 +22,7 @@ use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
 REDIS = Redis.new(host: ENV['REDIS_HOST'])
+SERIALS = PStore.new('serials')
 
 Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_helper }
 Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }

@@ -29,5 +29,19 @@ post "/settings/select-cursor" do
 end
 
 get "/settings/test" do
-	session[:theme] = "legendary.css"
+	session[:all_themes_unlocked] = true
+	puts generate_serial(10)
+end
+
+get "/settings/unlock/:serial" do
+	session[:unlocked_themes] ||= []
+
+	if is_serial_valid?(params[:serial]) then
+		serial_points = get_serial_points(params[:serial])
+		LOCKED_THEMES.each do | theme, points |
+			session[:unlocked_themes].push(theme) if (serial_points >= points) and (!session[:unlocked_themes].include?(theme))
+		end
+	end
+
+	redirect "/settings"
 end

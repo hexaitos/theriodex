@@ -17,8 +17,11 @@ namespace "/game" do
 
 		LOCKED_THEMES.each do | theme, points |
 			formatted_theme = File.basename(theme, ".*")
+			if session[:points] and session[:points] >= points
+				serial = generate_serial(points)
 
-			flash[:notification] = "You've unlocked the #{formatted_theme.titleise} theme! Go to the Settings to select it." if session[:points] and session[:points] >= points
+				flash[:notification] = "You've unlocked the #{formatted_theme.titleise} theme! Go to the Settings to select it. Your code is #{serial}."
+			end
 		end
 
 		erb :"game/game", locals: pokemon_view_game(get_random_game_pokemon(session[:gen].clean), lang, session[:difficulty].clean)
