@@ -31,7 +31,7 @@ Dir.glob("#{Dir.pwd}/app/helpers/game/*rb").each { | helper | require_relative h
 Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
 FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
-generate_serial(0) if !File.exist?("serials")
+init_serials() if !File.exist?("serials")
 
 configure :production do
 	set :static_cache_control, [ :public, max_age: 3600 ]
