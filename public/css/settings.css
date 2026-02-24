@@ -29,6 +29,7 @@ label[for="default"] {
 input[type="radio"] {
 	height: 1rem;
 	accent-color: var(--color-primary);
+	width: 100%;
 }
 
 input[type="radio"][disabled] {
