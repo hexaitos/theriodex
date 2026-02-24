@@ -16,6 +16,10 @@
 	--font-size-title: var(--font-size-xxl);
 }
 
+th {
+	color: white;
+}
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--color-primary: #d8b02b;
