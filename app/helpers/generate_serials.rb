@@ -1,10 +1,8 @@
 def generate_serial(points)
-	new_serial = SecureRandom.hex(6)
+	value = points.to_f / 2 * 28 / 4 * 3
+	puts value
 
-	SERIALS.transaction do
-		SERIALS[:valid] ||= {}
-		SERIALS[:valid][new_serial] = { points: points }
-	end
+	value = "#{value}%#{rand(0..200)}%#{points % 22}"
 
-	new_serial
+	Base64.encode64(value)
 end

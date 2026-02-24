@@ -13,8 +13,8 @@ require 'erubi'
 require 'redcarpet'
 require 'sinatra/static_assets'
 require 'sinatra/flash'
-require 'pstore'
 require 'securerandom'
+require 'base64'
 
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'
@@ -22,7 +22,6 @@ use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
 
 DB = SQLite3::Database.new "app/db/db.sqlite3"
 REDIS = Redis.new(host: ENV['REDIS_HOST'])
-SERIALS = PStore.new('serials')
 
 Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_helper }
 Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }
@@ -31,7 +30,6 @@ Dir.glob("#{Dir.pwd}/app/helpers/game/*rb").each { | helper | require_relative h
 Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
 
 FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
-init_serials() if !File.exist?("serials")
 
 configure :production do
 	set :static_cache_control, [ :public, max_age: 3600 ]
