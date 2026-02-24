@@ -111,5 +111,16 @@ a.corner::before {
 
 div.notification {
 	border: 2px solid black;
+	border-radius: 5px;
 	background-color: cornsilk;
+}
+
+div.notification p:first-of-type::before {
+	background-image: url("/icons/info-circle.svg");
+	content: "";
+	float: left;
+	width: 32px;
+	height: 32px;
+	background-size: 32px 32px;
+	transform: translateY(-20%);
 }

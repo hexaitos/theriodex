@@ -36,6 +36,14 @@
 		color: white !important;
 	}
 
+	div.notification p {
+		color: black !important;
+	}
+
+	div.notification {
+		border: 2px solid black !important;
+	}
+
 	input {
 		background-color: black;
 		color: white;
