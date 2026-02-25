@@ -37,7 +37,7 @@ end
 
 post "/settings/unlock" do
 	session[:unlocked_themes] ||= []
-	puts params["serial"]
+	puts is_serial_valid?(["serial"])
 
 	if is_serial_valid?(params["serial"]) then
 		serial_points = get_serial_points(params["serial"])
