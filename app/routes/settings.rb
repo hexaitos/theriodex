@@ -1,4 +1,6 @@
 get "/settings" do
+	flash[:notification] = "You've unlocked the #{session[:serial][:theme]} theme!. Your code is <code class='serial'>#{session[:serial][:serial]}</code>. Save this code so you can unlock this theme again next time without having to replay the game!" if session[:serial]
+
 	erb :settings
 end
 

@@ -15,14 +15,23 @@ namespace "/game" do
 			redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
 		end
 
+		session[:serial] ||= nil
+		notification = ""
+
 		LOCKED_THEMES.each do | theme, points |
 			formatted_theme = File.basename(theme, ".*")
 			if session[:points] and session[:points] >= points
-				serial = generate_serial(points)
+				if !session[:serial] or (is_serial_valid?(session[:serial][:serial]) and get_serial_points(session[:serial][:serial]) < points) then
+					session[:serial] = {}
 
-				flash[:notification] = "You've unlocked the #{formatted_theme.titleise} theme! Go to the Settings to select it. Your code is #{serial}."
+					session[:serial][:serial] = generate_serial(points).gsub(" ", "")
+					session[:serial][:theme] = formatted_theme
+				end
 			end
+
+
 		end
+		flash[:notification] = "You've unlocked the #{session[:serial][:theme]} theme! Go to the Settings to select it. Your code is <code class='serial'>#{session[:serial][:serial]}</code>" if session[:serial]
 
 		erb :"game/game", locals: pokemon_view_game(get_random_game_pokemon(session[:gen].clean), lang, session[:difficulty].clean)
 	end

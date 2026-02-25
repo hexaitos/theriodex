@@ -124,3 +124,11 @@ div.notification p:first-of-type::before {
 	background-size: 32px 32px;
 	transform: translateY(-20%);
 }
+
+div.notification code {
+	font-family: var(--font-primary);
+	background-color: var(--color-accent);
+	border-radius: 5px;
+	padding: 2px;
+	font-size: var(--font-size-base);
+}
