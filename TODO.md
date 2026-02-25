@@ -26,6 +26,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Add info what generation a Pokémon first appeared in
 - [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
 - [x] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
+  - [ ] Add a daily challenge mode?
 - [x] Maybe add berries?
 - [ ] Maybe add characteristic?
 - [x] Add cries? (added in `a7946dd1dd`)
