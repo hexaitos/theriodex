@@ -24,7 +24,7 @@ THEME_PASSWORDS = {
 }
 
 LOCKED_THEMES = {
-	"legendary.css" => 1
+	"legendary.css" => 10
 }
 
 CRIT = {
