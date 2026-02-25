@@ -56,3 +56,17 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+body,
+h1,
+h2,
+h3,
+p,
+span,
+button,
+a {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: 0 0.3px 0.1px currentColor;
+	font-variant-ligatures: none;
+}
