@@ -43,7 +43,7 @@
 				<% THEMES.each do | theme | %>
 					<% formatted_theme = File.basename(theme, ".*") %>
 					<div>
-						<% if session[:theme] == theme or (!session[:theme] and theme == "default") then %>
+						<% if session[:theme] == theme or (!session[:theme] and formatted_theme == "default") then %>
 							<input type="radio" checked id="<%= theme %>" name="theme" value="<%= theme %>">
 							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
 						<% elsif !is_theme_unlocked?(theme) then %>
@@ -68,14 +68,24 @@
 			<legend>Select a cursor</legend>
 			<div>
 				<div>
-					<input type="radio" id="cursor" name="cursor" value="reset">
-					<label for="cursor">None</label>
+					<% if !session[:cursor] then %>
+						<input type="radio" id="cursor" name="cursor" value="none" checked>
+						<label for="cursor">None</label>
+					<% else %>
+						<input type="radio" id="cursor" name="cursor" value="none">
+						<label for="cursor">None</label>
+					<% end %>
 				</div>
 				<% CURSORS.each do | cursor | %>
 					<% formatted_cursor = File.basename(cursor, ".*") %>
 					<div>
-						<input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>">
-						<label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
+						<% if session[:cursor] == cursor %>
+							<input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>" checked>
+							<label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
+						<% else %>
+							<input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>">
+							<label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
+						<% end %>
 					</div>
 				<% end %>
 			</div>

@@ -12,7 +12,11 @@ $move_cache ||= {}
 $pokemon_cache ||= {}
 
 FONTS = Dir.children("#{Dir.pwd}/public/css/fonts").map { |e| e.gsub(".css", "") }
+FONTS.unshift(FONTS.delete("default"))
+
 THEMES = Dir.children("#{Dir.pwd}/public/css/themes").reject { |e| File.basename(e).start_with?(".") }
+THEMES.unshift(THEMES.delete("default.css"))
+
 CURSORS = Dir.children("#{Dir.pwd}/public/cursors").reject { |e| File.basename(e).start_with?(".") }
 
 THEME_PASSWORDS = {
