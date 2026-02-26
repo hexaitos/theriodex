@@ -10,11 +10,13 @@ services:
       - redis
     volumes:
       - ./privacy.md:/usr/src/app/views/privacy.md
+    restart: unless-stopped
 
   redis:
     image: valkey/valkey:latest
     volumes:
       - redis_data:/data
+    restart: unless-stopped
 
 volumes:
   redis_data:
