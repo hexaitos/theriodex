@@ -1,5 +1,5 @@
 <div class="type-move-container">
 	<% gens.each do | move_gen | %>
-		<a class="a-btn-4" href="/show/pokemon/moves/<%= id %>/gen/<%= move_gen %>"><%= move_gen.romanise %></a>
+		<a class="a-btn-4" href="/show/pokemon/moves/<%= id %>/gen/<%= move_gen %>?lang=<%= lang %>"><%= move_gen.romanise %></a>
 	<% end %>
 </div>

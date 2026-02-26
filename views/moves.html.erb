@@ -1,14 +1,14 @@
 <%= partial :lang_select, id: id, lang: lang %>
 
 <h1 class="no-bottom-margin"><%= name %> moves in <%= gen_name %></h1>
-<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns in <%= gen_name %></p>
+<p class="info"><%= I18n.t(:moves_info_stab, gen: gen_name) %></p>
 
 <div class="sprites">
 	<img src="<%= sprite %>">
 </div>
 
 <%= partial :move_gens_type, gens: gens, lang: lang, id: id %>
-<p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
+<p class="info"><%= I18n.t(:view_moveset_generation) %></p>
 <hr>
 
 <h2>Through Level-Up</h2>
