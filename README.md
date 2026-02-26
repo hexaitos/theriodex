@@ -36,7 +36,7 @@ Try it out at [theriodex.net](https://theriodex.net)!
 - **Search**: Fast fuzzy search across Pokémon and moves
 - **Multilingual Support**: Interface localization with `lang` parameter support
 
-### Interactive Tools
+### Guessing Game
 
 - **"Who's That Pokémon?" Guessing Game**: Blurred sprite identification with adjustable difficulty
 - **Generation Filtering**: Practice specific generations (e.g., "Only Gen 3")
@@ -323,7 +323,7 @@ Fonts:
 
 Icons: [Iconoir](https://iconoir.com/)
 
-_Support the creators:_ If using the fonts or icons, consider purchasing or donating to the original creators rather than extracting them from Theriodex.
+> **Support the original creators!** Please consider donating to / buying the fonts and icons used in Theriodex if you are a frequent vistor of theriodex.net or if you wish to host it yourself.
 
 ## Copyright
 
