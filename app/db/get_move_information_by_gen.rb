@@ -179,7 +179,7 @@ TEXT
 GET_MOVE_INFORMATION_BY_GEN_Q = DB.prepare(GET_MOVE_INFORMATION_BY_GEN_QSTR)
 
 def get_move_information_by_gen(move_id, generation_id, language_id = 9)
-	rs = GET_MOVE_INFORMATION_BY_GEN_Q.execute(language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, move_id, generation_id)
+	rs = GET_MOVE_INFORMATION_BY_GEN_Q.execute(language_id, language_id, language_id, language_id, 9, 9, 9, language_id, language_id, move_id, generation_id)
 
 	omega_array = []
 
