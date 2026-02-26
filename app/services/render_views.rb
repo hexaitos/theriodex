@@ -1,6 +1,7 @@
 def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 	pokemon_id = Sanitize.fragment(pokemon_id)
 	language_id == "en" ? language_id = 9 : language_id
+
 	if !pokemon_id.is_integer? then pokemon_id = get_pokemon_id_from_name(pokemon_id, language_id) end
 
 	moves = get_pokemon_moves_by_gen2(pokemon_id, gen_id, language_id).group_by { | entry | entry["version_name"]}
@@ -14,7 +15,7 @@ def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 		moves_hmtm: get_pokemon_moves_hmtm(pokemon_id, gen_id, language_id),
 		gens: get_pokemon_move_versions(pokemon_id).flatten,
 		name: get_pokemon_name(pokemon_id, language_id),
-		lang: language_id,
+		lang: LANGUAGE_CODES.key(language_id),
 		sprite: format_sprite(get_random_sprite_from_gen(get_all_pokemon_sprites(pokemon_id), moves.values.first.first["gen_db_name"]))
 	}
 end

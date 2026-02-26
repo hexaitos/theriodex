@@ -4,7 +4,7 @@
 <h1>Pokémon move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %></h1>
 
 <%= partial :move_gens_type_move, gens: gens, lang: lang, id: move_info[0]["move_id"].to_s %>
-<p class="info">(Click the button to view this move in another generation)</p>
+<p class="info"><%= I18n.t(:view_moveset_generation) %></p>
 
 <hr>
 <br>
@@ -74,6 +74,7 @@
 								<div class="type-container">
 								<% entry["pokemon_type_ids"].split(',').each do | id | %>
 									<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>">
+
 									<div id="<%= id %>" class="move-type-card move-type-card-name rounded"></div>
 									</a>
 								<% end %>
