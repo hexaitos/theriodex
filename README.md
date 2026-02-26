@@ -58,7 +58,7 @@ Try it out at [theriodex.net](https://theriodex.net)!
 
 ## Quick Start
 
-**Prerequisites:** Docker and Docker Compose installed on a supported operating system – mostly Linux or macOS.
+**Prerequisites:** Docker and Docker Compose installed on a supported operating system – mostly Linux or macOS (Windows might be supported but no guarantees!)
 
 First, create a new folder with a `docker-compose.yml` file and edit it to include the following text. You may also use the `docker-compose.yml` file from this repository.
 
@@ -283,6 +283,8 @@ Tested on OpenBSD 7.6 and 7.7 with Ruby 3.3.5/3.4.2.
 
 #### Nokogiri Issues
 
+You should be able to install bundler itself without any problems, but when running `bundle install`, you may run into problems with installing `nokogiri`. To solve this, running the following commands should make it work:
+
 ```bash
 pkg_add libxml libxslt libiconv
 bundle config build.nokogiri --use-system-libraries
@@ -290,6 +292,8 @@ bundle install
 ```
 
 #### Permission Errors (Non-root)
+
+You may also have trouble installing the gems in the repository by running `bundle install` and will get permission errors, as Bundler is unable to write to the directories it wants to write to. A possible fix for this problem is changing the directory that Bundler installs its gems into to something that the current user can access, such as `~/.gem`. To do so, add the following to your `~/.profile`:
 
 Add to `~/.profile`:
 
