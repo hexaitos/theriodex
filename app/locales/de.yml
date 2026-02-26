@@ -1,0 +1,54 @@
+---
+de:
+  abilities: Fähigkeiten
+  evolutions: Entwicklungen
+  shiny: Schillernde Form
+  normal: Normale Form
+  female: Weibliche Form
+  male: Männliche Form
+  toggle_animation: Animation ein-/ausschalten
+  damage_taken_from_other_types: Schaden durch andere Typen
+  horizontally_scrollable_on_small_screens: auf kleinen Bildschirmen horizontal scrollbar
+  direct_link: Direkter Link
+  pokemon_with_this_ability: Pokémon mit dieser Fähigkeit
+  hp: KP
+  atk: Ang
+  def: Vert
+  spatk: Sp.-Ang
+  spdef: Sp.-Vert
+  speed: Init
+  random: Zufällig
+  about: Über
+  search: Suche
+  enter_pokemon_name: Namen eines Pokémon eingeben
+  footer: "„Pokémon“ und die Namen der Pokémon‑Charaktere sind Marken von Nintendo,
+    Game Freak und Creatures Inc. Theriodex ist weder mit The Pokémon Company, Game
+    Freak, Creatures noch mit Nintendo verbunden, oder von diesen autorisiert und
+    wird auch nicht von diesen unterstützt."
+  game: Ratespiel
+  guess_the_pokemon: Errate das Pokémon!
+  points: Punkte
+  reset: Zurücksetzen
+  enter_pokemon_name_game: Namen des Pokémon eingeben
+  guess_button: Raten
+  better_luck_next_time: Viel Glück beim nächsten Mal!
+  you_guessed_wrong: Du hast %{name} geraten, aber das Pokémon war %{name}
+  play_again: Nochmal spielen!
+  you_guessed_correctly: Du hast richtig geraten!
+  well_done: Du hast %{name} geraten und das Pokémon war %{name}. Gut gemacht!
+  skip: Überspringen
+  correct_guesses: Richtige Antworten
+  skipped: Übersprungen
+  first_letter_of_name: Anfangsbuchstabe
+  last_letter_of_name: Letzter Buchstabe
+  hints: Tips
+  decrease_blur: Weichzeichnung verringern
+  browse: Durchsuchen
+  settings: Einstellungen
+  damage_received_description: "(Die Menge an Schaden, die ein Pokémon dieses Typs – oder dieser Typenkombination – von anderen Typen erhält)"
+  view_moveset_generation: "(Klicke auf die Schaltfläche, um das Moveset dieses Pokémon in einer anderen Generation anzusehen)"
+  view_all_moves: "(Klicke auf die Schaltfläche, um alle Attacken anzusehen, die dieses Pokémon lernen kann – z. B. durch Maschinen erlernte Attacken)"
+  moves_info_stab: "(Unterstrichene Attacken sind STAB. Die Attacken, die dieses Pokémon durch Levelaufstieg in %{gen} lernt. Kartenansicht funktioniert besser auf Mobilgeräten, Tabellenansicht ist besser für Desktop.)"
+  moves_all_methods: "Auf allen Wegen erlernte Attacken"
+  cards_view: "Kartenansicht"
+  table_view: "Tabellenansicht"

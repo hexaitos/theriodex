@@ -1,0 +1,54 @@
+---
+it:
+  abilities: Abilità
+  evolutions: Evoluzioni
+  shiny: Mostra shiny
+  normal: Mostra normali
+  female: Mostra femmine
+  male: Mostra maschi
+  toggle_animation: Attiva/disattiva animazione
+  damage_taken_from_other_types: Danni subiti da altri tipi
+  horizontally_scrollable_on_small_screens: scorrevole orizzontalmente su schermi
+    piccoli
+  direct_link: Link diretto
+  pokemon_with_this_ability: Pokémon con questa abilità
+  hp: PS
+  atk: Att
+  def: Dif
+  spatk: Att. Sp
+  spdef: Dif. Sp
+  speed: Vel
+  random: Casuale
+  about: Informazioni
+  search: Cerca
+  enter_pokemon_name: Inserisci il nome del Pokémon
+  footer: Pokémon e i nomi dei personaggi Pokémon sono marchi di Nintendo, Game Freak
+    e Creatures Inc. Theriodex non è affiliato, autorizzato o supportato da The Pokémon
+    Company, Game Freak, Creatures o Nintendo.
+  game: Gioco
+  guess_the_pokemon: Indovina il Pokémon!
+  points: Punti
+  reset: Reimposta
+  enter_pokemon_name_game: Inserisci il nome del Pokémon
+  guess_button: Indovina
+  better_luck_next_time: Meglio la prossima volta!
+  you_guessed_wrong: Hai indovinato %{name}, ma il Pokémon era %{name}
+  play_again: Gioca di nuovo!
+  you_guessed_correctly: Hai indovinato!
+  well_done: Hai indovinato %{name} e il Pokémon era %{name}. Ben fatto!
+  skip: Salta
+  correct_guesses: Risposte corrette
+  skipped: Saltati
+  first_letter_of_name: Prima lettera del nome
+  last_letter_of_name: Ultima lettera del nome
+  hints: Indizi
+  decrease_blur: Riduci la sfocatura
+  browse: Sfoglia
+  damage_received_description: "(La quantità di danni che un Pokémon di questo tipo – o combinazione di tipi – riceve dagli altri tipi)"
+  view_moveset_generation: "(Clicca sul pulsante per vedere il moveset di questo Pokémon in un'altra generazione)"
+  view_all_moves: "(Clicca sul pulsante per vedere tutte le mosse che questo Pokémon può imparare – ad es. mosse apprese tramite macchine)"
+  moves_info_stab: "(Le mosse sottolineate sono STAB. Le mosse che questo Pokémon impara salendo di livello in %{gen}. La vista schede funziona meglio su mobile, la vista tabella è migliore su desktop.)"
+  moves_all_methods: "Mosse apprese con tutti i mezzi"
+  cards_view: "Vista schede"
+  table_view: "Vista tabella"
+  settings: "Impostazioni"

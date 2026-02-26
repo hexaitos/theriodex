@@ -21,3 +21,7 @@ gem "sinatra-flash", "~> 0.3.0"
 gem "securerandom", "~> 0.4.1"
 
 gem "pstore", "~> 0.2.1"
+
+gem "i18n", "~> 1.14"
+
+gem "yaml", "~> 0.4.0"

@@ -8,11 +8,11 @@
 		<a href="/about">About</a>
 	<% else %>
 		<% language = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>
-		<a href="/?lang=<%= language %>"><%= get_localised_text(language, :random) %></a>
-		<a href="/search?lang=<%= language %>"><%= get_localised_text(language, :search) %></a>
-		<a href="/browse?lang=<%= language %>"><%= get_localised_text(language, :browse) %></a>
-		<a href="/game?lang=<%= language %>"><%= get_localised_text(language, :game) %></a>
-		<a href="/settings">Settings</a>
-		<a href="/about?lang=<%= language %>"><%= get_localised_text(language, :about) %></a>
+		<a href="/?lang=<%= language %>"><%= I18n.t(:random) %></a>
+		<a href="/search?lang=<%= language %>"><%= I18n.t(:search) %></a>
+		<a href="/browse?lang=<%= language %>"><%= I18n.t(:browse) %></a>
+		<a href="/game?lang=<%= language %>"><%= I18n.t(:game) %></a>
+		<a href="/settings?lang=<%= language %>"><%= I18n.t(:settings) %></a>
+		<a href="/about?lang=<%= language %>"><%= I18n.t(:about) %></a>
 	<% end %>
 </div>

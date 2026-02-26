@@ -1,0 +1,51 @@
+---
+zh-tw:
+  abilities: 特性
+  evolutions: 進化
+  shiny: 顯示閃光
+  normal: 顯示普通
+  female: 顯示雌性
+  male: 顯示雄性
+  toggle_animation: 切換動畫
+  damage_taken_from_other_types: 來自其他屬性的傷害
+  horizontally_scrollable_on_small_screens: 在小螢幕上可橫向捲動
+  direct_link: 直接連結
+  pokemon_with_this_ability: 具有此特性的寶可夢
+  hp: HP
+  atk: 攻擊
+  def: 防禦
+  spatk: 特攻
+  spdef: 特防
+  speed: 速度
+  random: 隨機
+  about: 關於
+  search: 搜尋
+  enter_pokemon_name: 輸入寶可夢的名稱
+  footer: "「寶可夢」及寶可夢角色名稱為任天堂、Game Freak和Creatures Inc.的商標。Theriodex與寶可夢公司、Game Freak、Creatures或任天堂均無關聯，亦未獲得其授權或支持。"
+  game: 遊戲
+  guess_the_pokemon: 猜寶可夢！
+  points: 分數
+  reset: 重設
+  enter_pokemon_name_game: 輸入寶可夢名稱
+  guess_button: 猜
+  better_luck_next_time: 下次再加油！
+  you_guessed_wrong: 你猜的是 %{name}，但寶可夢是 %{name}
+  play_again: 再玩一次！
+  you_guessed_correctly: 你猜對了！
+  well_done: 你猜的是 %{name}，寶可夢是 %{name}。做得好！
+  skip: 跳過
+  correct_guesses: 猜對次數
+  skipped: 已跳過
+  first_letter_of_name: 名字的首字母
+  last_letter_of_name: 名字的尾字母
+  hints: 提示
+  decrease_blur: 減少模糊
+  browse: 瀏覽
+  damage_received_description: "（該類型（或類型組合）的寶可夢從其他類型受到的傷害量）"
+  view_moveset_generation: "（點擊按鈕查看此寶可夢在另一世代的招式配置）"
+  view_all_moves: "（點擊按鈕查看此寶可夢可以學習的所有招式 – 例如透過機器學習的招式）"
+  moves_info_stab: "（底線標註的招式為屬性一致加成（STAB）。此寶可夢在%{gen}透過升級學習的招式。卡片檢視在行動裝置上效果更好，表格檢視在桌面上效果更好。）"
+  moves_all_methods: "透過所有方式學習的招式"
+  cards_view: "卡片檢視"
+  table_view: "表格檢視"
+  settings: "設定"

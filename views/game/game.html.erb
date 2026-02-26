@@ -1,12 +1,12 @@
 <%= partial :lang_select_game, id: id, lang: lang %>
 
 <div class="game">
-	<h1><%= get_localised_text(lang, :guess_the_pokemon) %></h1>
-	<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= get_localised_text(lang, :correct_guesses) %>: <%= points %> / <%= guesses %> • <%= get_localised_text(lang, :skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
+	<h1><%= I18n.t(:guess_the_pokemon) %></h1>
+	<p>User: <%= session[:username] %> • Score: <%= calculate_game_score(points, guesses, skips) %> • <%= I18n.t(:correct_guesses) %>: <%= points %> / <%= guesses %> • <%= I18n.t(:skipped) %>: <%= skips %> • Difficulty: <%= session[:difficulty].capitalize %> • Gen: <%= session[:gen] %></p>
 
 	<div class="game-buttons">
-		<a class="a-btn-1" href="/game/reset/<%= lang %>"><%= get_localised_text(lang, :reset) %></a>
-		<a class="a-btn-1" id="dec" href="#"><%= get_localised_text(lang, :decrease_blur) %></a>
+		<a class="a-btn-1" href="/game/reset/<%= lang %>"><%= I18n.t(:reset) %></a>
+		<a class="a-btn-1" id="dec" href="#"><%= I18n.t(:decrease_blur) %></a>
 		<a class="a-btn-1" href="/game/results?lang=<%= lang %>">Results</a>
 		<a class="a-btn-1" href="/game/leaderboard/view?lang=<% lang %>">Leaderboard</a>
 		<br>
@@ -29,32 +29,32 @@
 	</script>
 
 	<form action="/game/play?lang=<%= lang %>" method="post">
-		<input name="guess" autocomplete="off" required placeholder="<%= get_localised_text(lang, :enter_pokemon_name_game) %>">
-		<button type="submit"><%= get_localised_text(lang, :guess_button) %></button>
-		<a class="a-btn-2" href="/game/skip/<%= lang %>"><%= get_localised_text(lang, :skip) %></a>
+		<input name="guess" autocomplete="off" required placeholder="<%= I18n.t(:enter_pokemon_name_game) %>">
+		<button type="submit"><%= I18n.t(:guess_button) %></button>
+		<a class="a-btn-2" href="/game/skip/<%= lang %>"><%= I18n.t(:skip) %></a>
 	</form>
 	<br>
 
 	<% unless !hints[:first_letter] and !hints[:last_letter] %>
 		<hr>
-		<h2><%= get_localised_text(lang, :hints) %></h2>
+		<h2><%= I18n.t(:hints) %></h2>
 	<% end %>
 
 	<% unless !hints[:first_letter] %>
 		<details>
 			<summary>
-			<%= get_localised_text(lang, :first_letter_of_name) %>
+			<%= I18n.t(:first_letter_of_name) %>
 			</summary>
-			<p><%= get_localised_text(lang, :first_letter_of_name) %>: <%= hints[:first_letter] %></p>
+			<p><%= I18n.t(:first_letter_of_name) %>: <%= hints[:first_letter] %></p>
 		</details>
 	<% end %>
 
 	<% unless !hints[:last_letter] %>
 		<details>
 			<summary>
-			<%= get_localised_text(lang, :last_letter_of_name) %>
+			<%= I18n.t(:last_letter_of_name) %>
 			</summary>
-			<p><%= get_localised_text(lang, :last_letter_of_name) %>: <%= hints[:last_letter] %></p>
+			<p><%= I18n.t(:last_letter_of_name) %>: <%= hints[:last_letter] %></p>
 		</details>
 	<% end %>
 </div>

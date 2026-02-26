@@ -1,0 +1,54 @@
+---
+fr:
+  abilities: Talent
+  evolutions: Évolutions
+  shiny: Afficher les chromatiques
+  normal: Afficher les normaux
+  female: Afficher les femelles
+  male: Afficher les mâles
+  toggle_animation: Basculer l'animation
+  damage_taken_from_other_types: Dégâts reçus des autres types
+  horizontally_scrollable_on_small_screens: défilable horizontalement sur les petits
+    écrans
+  direct_link: Lien direct
+  pokemon_with_this_ability: Pokémon ayant ce Talent
+  hp: PV
+  atk: Att
+  def: Déf
+  spatk: Att. Spé
+  spdef: Déf. Spé
+  speed: Vit
+  random: Aléatoire
+  about: À propos
+  search: Recherche
+  enter_pokemon_name: Entrez le nom d’un Pokémon
+  footer: Pokémon et les noms des personnages Pokémon sont des marques de Nintendo,
+    Game Freak et Creatures Inc. Theriodex n'est pas affilié à, autorisé ou soutenu
+    par The Pokémon Company, Game Freak, Creatures ou Nintendo.
+  game: Jeu
+  guess_the_pokemon: Devinez le Pokémon !
+  points: Points
+  reset: Réinitialiser
+  enter_pokemon_name_game: Entrez le nom du Pokémon
+  guess_button: Deviner
+  better_luck_next_time: Bonne chance la prochaine fois !
+  you_guessed_wrong: Vous avez deviné %{name}, mais le Pokémon était %{name}
+  play_again: Rejouer !
+  you_guessed_correctly: Bonne réponse !
+  well_done: Vous avez deviné %{name} et le Pokémon était %{name}. Bien joué !
+  skip: Passer
+  correct_guesses: Réponses correctes
+  skipped: Passés
+  first_letter_of_name: Première lettre du nom
+  last_letter_of_name: Dernière lettre du nom
+  hints: Indices
+  decrease_blur: Réduire le flou
+  browse: Parcourir
+  damage_received_description: "(Le montant des dégâts qu'un Pokémon de ce type – ou combinaison de types – reçoit des autres types)"
+  view_moveset_generation: "(Cliquez sur le bouton pour voir le moveset de ce Pokémon dans une autre génération)"
+  view_all_moves: "(Cliquez sur le bouton pour voir toutes les attaques que ce Pokémon peut apprendre – p. ex. les attaques apprises par machines)"
+  moves_info_stab: "(Les attaques soulignées sont STAB. Les attaques que ce Pokémon apprend en montant de niveau dans %{gen}. La vue cartes fonctionne mieux sur mobile, la vue tableau est meilleure sur ordinateur.)"
+  moves_all_methods: "Attaques apprises par tous les moyens"
+  cards_view: "Vue cartes"
+  table_view: "Vue tableau"
+  settings: "Paramètres"

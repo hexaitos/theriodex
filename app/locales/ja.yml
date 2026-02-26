@@ -1,0 +1,53 @@
+---
+ja:
+  abilities: 特性
+  evolutions: 進化
+  shiny: 色違いを表示
+  normal: 通常を表示
+  female: メスを表示
+  male: オスを表示
+  toggle_animation: アニメーション切替
+  damage_taken_from_other_types: 他のタイプから受けるダメージ
+  horizontally_scrollable_on_small_screens: 小さい画面で横にスクロール可能
+  direct_link: 直接リンク
+  pokemon_with_this_ability: この特性を持つポケモン
+  hp: HP
+  atk: 攻撃
+  def: 防御
+  spatk: 特攻
+  spdef: 特防
+  speed: 素早さ
+  random: ランダム
+  about: 概要
+  search: 検索
+  enter_pokemon_name: ポケモンの名前を入力
+  footer:
+    ポケモンおよびポケモンのキャラクター名は任天堂、Game Freak、およびCreatures Inc.の商標です。Theriodexはポケモンカンパニー、Game
+    Freak、Creatures、任天堂のいずれとも提携しておらず、またそれらの認可や支持を受けていません。
+  game: ゲーム
+  guess_the_pokemon: ポケモンを当てて！
+  points: ポイント
+  reset: リセット
+  enter_pokemon_name_game: ポケモン名を入力
+  guess_button: 予想
+  better_luck_next_time: 次は頑張ってね！
+  you_guessed_wrong: あなたは「%{name}」と入力しましたが、ポケモンは「%{name}」でした
+  play_again: もう一度遊ぶ！
+  you_guessed_correctly: 正解です！
+  well_done: あなたは「%{name}」と答え、ポケモンは「%{name}」でした。よくできました！
+  skip: スキップ
+  correct_guesses: 正解数
+  skipped: スキップ数
+  first_letter_of_name: 名前の頭文字
+  last_letter_of_name: 名前の最後の文字
+  hints: ヒント
+  decrease_blur: ぼかしを弱める
+  browse: 閲覧
+  damage_received_description: "（このタイプ（またはタイプの組み合わせ）のポケモンが他のタイプから受けるダメージの量）"
+  view_moveset_generation: "（ボタンをクリックして、このポケモンの技構成を別の世代で表示する）"
+  view_all_moves: "（ボタンをクリックして、このポケモンが覚えられるすべての技を表示する – 例：技マシンで覚える技など）"
+  moves_info_stab: "（下線付きの技はタイプ一致技（STAB）です。%{gen}でレベルアップにより覚える技。カード表示はモバイルで、テーブル表示はデスクトップでより見やすくなります。）"
+  moves_all_methods: "全ての方法で覚える技"
+  cards_view: "カード表示"
+  table_view: "テーブル表示"
+  settings: "設定"

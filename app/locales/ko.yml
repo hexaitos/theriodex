@@ -1,0 +1,53 @@
+---
+ko:
+  abilities: 특성
+  evolutions: 진화
+  shiny: 색이 다른 포켓몬 표시
+  normal: 일반 포켓몬 표시
+  female: 암컷 표시
+  male: 수컷 표시
+  toggle_animation: 애니메이션 전환
+  damage_taken_from_other_types: 다른 타입으로부터 받는 피해
+  horizontally_scrollable_on_small_screens: 작은 화면에서 가로로 스크롤 가능
+  direct_link: 직접 링크
+  pokemon_with_this_ability: 이 특성을 가진 포켓몬
+  hp: HP
+  atk: 공격
+  def: 방어
+  spatk: 특수공격
+  spdef: 특수방어
+  speed: 스피드
+  random: 무작위
+  about: 소개
+  search: 검색
+  enter_pokemon_name: 포켓몬 이름 입력
+  footer:
+    포켓몬 및 포켓몬 캐릭터 이름은 닌텐도, Game Freak, Creatures Inc.의 상표입니다。Theriodex는 포켓몬
+    컴퍼니, Game Freak, Creatures, 닌텐도와 제휴하거나 그들의 승인이나 지원을 받은 바 없습니다。
+  game: 게임
+  guess_the_pokemon: 포켓몬을 맞혀보세요!
+  points: 점수
+  reset: 초기화
+  enter_pokemon_name_game: 포켓몬 이름 입력
+  guess_button: 맞혀보기
+  better_luck_next_time: 다음에 더 잘할 거예요!
+  you_guessed_wrong: 당신은 %{name}라고 추측했지만 포켓몬은 %{name}이었어요
+  play_again: 다시 플레이!
+  you_guessed_correctly: 정답입니다!
+  well_done: 당신은 %{name}라고 추측했고 포켓몬은 %{name}이었습니다. 잘했어요!
+  skip: 건너뛰기
+  correct_guesses: 정답 수
+  skipped: 건너뛴 수
+  first_letter_of_name: 이름의 첫 글자
+  last_letter_of_name: 이름의 마지막 글자
+  hints: 힌트
+  decrease_blur: 블러 줄이기
+  browse: 둘러보기
+  damage_received_description: "(이 타입(또는 타입 조합)의 포켓몬이 다른 타입으로부터 받는 데미지의 양)"
+  view_moveset_generation: "(버튼을 클릭하여 이 포켓몬의 기술 구성을 다른 세대에서 보기)"
+  view_all_moves: "(버튼을 클릭하여 이 포켓몬이 배울 수 있는 모든 기술을 보기 – 예: 기계를 통해 배운 기술)"
+  moves_info_stab: "(밑줄 친 기술은 STAB입니다. %{gen}에서 레벨업으로 배우는 기술입니다. 카드 보기는 모바일에서, 테이블 보기는 데스크톱에서 더 잘 작동합니다.)"
+  moves_all_methods: "모든 방법으로 배운 기술"
+  cards_view: "카드 보기"
+  table_view: "테이블 보기"
+  settings: "설정"

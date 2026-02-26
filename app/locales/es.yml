@@ -1,0 +1,54 @@
+---
+es:
+  abilities: Habilidades
+  evolutions: Evoluciones
+  shiny: Mostrar variocolor
+  normal: Mostrar normal
+  female: Mostrar hembra
+  male: Mostrar macho
+  toggle_animation: Alternar animación
+  damage_taken_from_other_types: Daño recibido de otros tipos
+  horizontally_scrollable_on_small_screens: desplazable horizontalmente en pantallas
+    pequeñas
+  direct_link: Vínculo directo
+  pokemon_with_this_ability: Pokémon con esta habilidad
+  hp: PS
+  atk: Atq
+  def: Def
+  spatk: Atq. Esp
+  spdef: Def. Esp
+  speed: Vel
+  random: Aleatorio
+  about: Acerca de
+  search: Buscar
+  enter_pokemon_name: Introduce el nombre de un Pokémon
+  footer: Pokémon y los nombres de los personajes Pokémon son marcas registradas de
+    Nintendo, Game Freak y Creatures Inc. Theriodex no está afiliado, autorizado ni
+    respaldado por The Pokémon Company, Game Freak, Creatures o Nintendo.
+  game: Juego
+  guess_the_pokemon: "¡Adivina el Pokémon!"
+  points: Puntos
+  reset: Reiniciar
+  enter_pokemon_name_game: Introduce el nombre del Pokémon
+  guess_button: Adivinar
+  better_luck_next_time: "¡Mejor suerte la próxima vez!"
+  you_guessed_wrong: Adivinaste %{name}, pero el Pokémon era %{name}
+  play_again: "¡Juega de nuevo!"
+  you_guessed_correctly: "¡Has acertado!"
+  well_done: Adivinaste %{name} y el Pokémon era %{name}. ¡Bien hecho!
+  skip: Saltar
+  correct_guesses: Aciertos
+  skipped: Omitidos
+  first_letter_of_name: Primera letra del nombre
+  last_letter_of_name: Última letra del nombre
+  hints: Pistas
+  decrease_blur: Reducir el desenfoque
+  browse: Explorar
+  damage_received_description: "(La cantidad de daño que recibe un Pokémon de este tipo – o combinación de tipos – de otros tipos)"
+  view_moveset_generation: "(Haz clic en el botón para ver el moveset de este Pokémon en otra generación)"
+  view_all_moves: "(Haz clic en el botón para ver todos los movimientos que este Pokémon puede aprender – p. ej., movimientos aprendidos mediante máquinas)"
+  moves_info_stab: "(Los movimientos subrayados son STAB. Los movimientos que este Pokémon aprende al subir de nivel en %{gen}. La vista de tarjetas funciona mejor en móviles, la vista de tabla es mejor para escritorio.)"
+  moves_all_methods: "Movimientos aprendidos por todos los medios"
+  cards_view: "Vista de tarjetas"
+  table_view: "Vista de tabla"
+  settings: "Ajustes"

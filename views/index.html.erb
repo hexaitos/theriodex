@@ -26,12 +26,12 @@
 	</div>
 
 	<div class="stats">
-		<span><%= get_localised_text(lang, :hp) %>: <%= stats[:hp] %></span>
-		<span><%= get_localised_text(lang, :atk) %>: <%= stats[:atk] %></span>
-		<span><%= get_localised_text(lang, :def) %>: <%= stats[:def] %></span>
-		<span><%= get_localised_text(lang, :spatk) %>: <%= stats[:spatk] %></span>
-		<span><%= get_localised_text(lang, :spdef) %>: <%= stats[:spdef] %></span>
-		<span><%= get_localised_text(lang, :speed) %>: <%= stats[:speed] %></span>
+		<span><%= I18n.t(:hp) %>: <%= stats[:hp] %></span>
+		<span><%= I18n.t(:atk) %>: <%= stats[:atk] %></span>
+		<span><%= I18n.t(:def) %>: <%= stats[:def] %></span>
+		<span><%= I18n.t(:spatk) %>: <%= stats[:spatk] %></span>
+		<span><%= I18n.t(:spdef) %>: <%= stats[:spdef] %></span>
+		<span><%= I18n.t(:speed) %>: <%= stats[:speed] %></span>
 	</div>
 
 	<div class="stats">
@@ -39,7 +39,7 @@
 	</div>
 
 	<hr class="small">
-	<span><%= get_localised_text(lang, :abilities) %></span>
+	<span><%= I18n.t(:abilities) %></span>
 	<div class="evolutions">
 		<% abilities.each do | name, hidden, slot, id, unformatted | %>
 			<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
@@ -48,7 +48,7 @@
 
 	<% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
 		<hr class="small">
-		<span><%= get_localised_text(lang, :evolutions) %></span>
+		<span><%= I18n.t(:evolutions) %></span>
 	<% end %>
 
 	<div class="evolutions">
@@ -76,7 +76,7 @@
 	<br>
 	<div class="sprites-links">
 		<% formatted_sprites[:links].each do |link| %>
-			<a href="<%= link[:url] %>"><%= link[:icon] %> <%= get_localised_text(lang, link[:key]) %></a>
+			<a href="<%= link[:url] %>"><%= link[:icon] %> <%= I18n.t(link[:key]) %></a>
 		<% end %>
 	</div>
 </div>
@@ -89,8 +89,8 @@
 	</div>
 	<hr>
 
-	<h3 class="no-bottom-margin"><%= get_localised_text(lang, :damage_taken_from_other_types) %></h3>
-	<p class="info">(The amount of damage that a Pokémon of this type – or type combination – receives from other types)</p>
+	<h3 class="no-bottom-margin"><%= I18n.t(:damage_taken_from_other_types) %></h3>
+	<p class="info"><%= I18n.t(:damage_received_description) %></p>
 	<%= partial :damage, damage_info: damage_taken, lang: lang %>
 </div>
 
@@ -98,21 +98,21 @@
 <h3><%= name %> – Moves</h3>
 <% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
 	<%= partial :move_gens_type, gens: move_gens, id: pokemon_id, lang: lang %>
-	<p class="info">(Click the button to view this Pokémon’s moveset in another generation)</p>
+	<p class="info"><%= I18n.t(:view_moveset_generation) %></p>
 <% end %>
 
 <div class="type-move-container">
-	<a class="a-btn-3" href="/show/pokemon/moves/<%= id %>/gen/<%= moves[0][9] %>">Moves learnt by all means</a>
+	<a class="a-btn-3" href="/show/pokemon/moves/<%= id %>/gen/<%= moves[0][9] %>"><%= I18n.t(:moves_all_methods) %></a>
 </div>
-<p class="info">(Click the button to view all of the moves this Pokémon can learn – e. g. moves learnt through machines)</p>
+<p class="info"><%= I18n.t(:view_all_moves) %></p>
 <hr>
 
 <h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
-<p class="info">(<u>Underlined</u> moves are STAB. The moves this Pokémon learns from levelling up in <%= moves[0][10] %>. Cards view works better on mobile, table view is better on desktop.)</p>
+<p class="info"><%= I18n.t(:moves_info_stab, gen: moves[0][10]) %></p>
 
 <div class="tab table-cards-tabs">
-	<button class="tablinks" onclick="openTab(event, 'level-cards')">Cards View</button>
-	<button class="tablinks" onclick="openTab(event, 'level-table')">Table View</button>
+	<button class="tablinks" onclick="openTab(event, 'level-cards')"><%= I18n.t(:cards_view) %></button>
+	<button class="tablinks" onclick="openTab(event, 'level-table')"><%= I18n.t(:table_view) %></button>
 </div>
 
 <div id="level-cards" class="tabcontent">

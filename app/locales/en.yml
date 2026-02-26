@@ -1,0 +1,53 @@
+---
+en:
+  abilities: Abilities
+  evolutions: Evolutions
+  shiny: Show shiny
+  normal: Show normal
+  female: Show female
+  male: Show male
+  toggle_animation: Toggle animation
+  damage_taken_from_other_types: Damage taken from other types
+  horizontally_scrollable_on_small_screens: horizontally scrollable on small screens
+  direct_link: Direct link
+  pokemon_with_this_ability: Pokémon with this ability
+  hp: HP
+  atk: Atk
+  def: Def
+  spatk: Sp.Atk
+  spdef: Sp.Def
+  speed: Speed
+  random: Random
+  about: About
+  search: Search
+  enter_pokemon_name: Enter name of a Pokémon / move
+  footer: Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak,
+    and Creatures Inc. Theriodex is not affiliated with, authorised, or endorsed by
+    The Pokémon Company, Game Freak, Creatures, or Nintendo.
+  game: Game
+  guess_the_pokemon: Guess the Pokémon!
+  points: Points
+  reset: Reset
+  enter_pokemon_name_game: Enter Pokémon name
+  guess_button: Guess
+  better_luck_next_time: Better luck next time!
+  you_guessed_wrong: You guessed %{name} but the Pokémon was %{name}
+  play_again: Play again!
+  you_guessed_correctly: You guessed correctly!
+  well_done: You guessed %{name} and the Pokémon was %{name}. Well done!
+  skip: Skip
+  correct_guesses: Correct guesses
+  skipped: Skipped
+  first_letter_of_name: First letter of name
+  last_letter_of_name: Last letter of name
+  hints: Hints
+  decrease_blur: Decrease blur
+  browse: Browse
+  settings: Settings
+  damage_received_description: "(The amount of damage that a Pokémon of this type – or type combination – receives from other types)"
+  view_moveset_generation: "(Click the button to view this Pokémon's moveset in another generation)"
+  view_all_moves: "(Click the button to view all of the moves this Pokémon can learn – e.g. moves learnt through machines)"
+  moves_info_stab: "(Underlined moves are STAB. The moves this Pokémon learns from levelling up in %{gen}. Cards view works better on mobile, table view is better on desktop.)"
+  moves_all_methods: "Moves learnt by all means"
+  cards_view: "Cards View"
+  table_view: "Table View"

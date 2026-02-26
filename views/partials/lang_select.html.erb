@@ -1,9 +1,9 @@
 <div class="corner">
 	<% if request.fullpath.gsub(request.query_string, "").gsub("?", "") != "/" %>
-		<a class="corner" href="<%= request.fullpath %>"><%= get_localised_text(CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first, :direct_link) %></a>
+		<a class="corner" href="<%= request.fullpath %>"><%= I18n.t(:direct_link) %></a>
 		<form action="<%= request.fullpath %>" method="get" id="language_select">
 	<% else %>
-		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>"><%= get_localised_text(lang, :direct_link) %></a>
+		<a class="corner" href="/show/<%= id %>?lang=<%= lang %>"><%= I18n.t(:direct_link) %></a>
 		<form action="/show/<%= id %>" method="get" id="language_select">
 	<% end %>
 		<select aria-label="Select language" id="lang-select" name="lang" required>
