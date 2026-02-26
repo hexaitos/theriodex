@@ -1,14 +1,105 @@
 # Theriodex – An Open-Source Pokédex Written In Ruby
 
+- [Features (planned and current)](#features-planned-and-current)
+  - [Core Pokédex information](#core-pokédex-information)
+  - [Advanced Browsing](#advanced-browsing)
+  - [Interactive Tools](#interactive-tools)
+  - [Customization](#customization)
+  - [Planned in the near future](#planned-in-the-near-future)
+- [Quick start](#quick-start)
+- [Getting sprites and sounds](#getting-sprites-and-sounds)
+- [Database information](#database-information)
+- [Installation](#installation)
+  - [Via source](#via-source)
+  - [Via Docker](#via-docker)
+    - [Via Codeberg repository](#via-codeberg-repository)
+- [Leaderboard](#leaderboard)
+- [Reverse proxy](#reverse-proxy)
+- [Privacy policy](#privacy-policy)
+- [Notes on `rerun`](#notes-on-rerun)
+- [Notes on OpenBSD](#notes-on-openbsd)
+- [Notes on caching](#notes-on-caching)
+- [Acknowledgements](#acknowledgements)
+- [Copyright notices and attributions](#copyright-notices-and-attributions)
+
 ![Screenshot of Theriodex showing Vaporeon](screenshot.png)
 
----
+## [![Ruby Version](https://img.shields.io/badge/ruby-3.4.5-red.svg?style=flat-square&logo=ruby)](https://www.ruby-lang.org/) [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg?style=flat-square)](LICENSE) [![Docker](https://img.shields.io/badge/docker-ready-2496ED?style=flat-square&logo=docker)](Dockerfile) [![Codeberg CI](https://ci.codeberg.org/api/badges/15226/status.svg)](https://ci.codeberg.org/hexaitos/theriodex) [![Website](https://img.shields.io/badge/🌐-theriodex.net-green?style=flat-square)](https://theriodex.net)
 
 **Theriodex** is an open-source Pokédex written in Ruby! Displays a random Pokémon with a bunch of information on the homepage but also has information about Pokémons’ moves, their abilties, evolutions and more! It even has a small Pokémon guessing game. It is designed to be reasonably fast, give you the most important information at a glance and work well on both mobile and desktop. Refer to the `TODO.md` file in this repository for more information about what other features are planned. You can try it out over on [theriodex.net](https://theriodex.net)!
 
 This is still very much a work in progress and not done yet, so expect lots of bugs, breakages, maybe incorrect data and frequent updates. The name _Theriodex_ comes from `therio-`, which is a prefix from the Ancient Greek word for "animal" or "beast", and `-dex`, which is a reference to the Pokédex.
 
 This is based off of [PokeAPI](https://github.com/PokeAPI/pokeapi) which, in turn, takes a lot of its data from [Veekun's Pokédex](https://github.com/veekun/pokedex). However, I am not using their API or hosting it myself, I simply built the database which the API uses (`db.sqlite3` in this repository) and am querying it manually from within Ruby.
+
+# Features (planned and current)
+
+## Core Pokédex information
+
+- **(Nearly) Complete Coverage**: All standard 1000+ Pokémon through Generation IX
+- **Rich Data**: Base stats, EV yields, catch rates, egg groups, gender ratios, and Pokédex entries
+- **Move Learnsets**: Level-up, TM/HM, egg, tutor – with STAB highlighting and with changes per generation!
+- **Ability Details**: Full ability descriptions including the Pokémon that can have them
+- **Lots of sprites**: Default, shiny, and animated sprites – when looking at the Pokémon of a particular version, the sprite for that version is also shown!
+
+## Advanced Browsing
+
+- **Multi-parameter Filtering**: Browse Pokémon by their type, generation and type and more
+- **Item Database**: Complete item listings with descriptions and effects
+- **Search**: Fast fuzzy search across Pokémon and moves
+- **Multilingual Support**: Interface localization with `lang` parameter support
+
+## Interactive Tools
+
+- **"Who's That Pokémon?" Guessing Game**: Blurred sprite identification with adjustable difficulty
+- **Generation Filtering**: Practice specific generations (e.g., "Only Gen 1-3")
+- **Global Leaderboard**: Redis-backed score tracking with username persistence
+
+## Customization
+
+- **Typography**: Multiple pixel fonts to choose from depending on your preference
+- **Themes**: Different themes – some of which have to be unlocked by playing the game!
+- **Cursor Packs**: Various custom CSS cursors
+- **View Modes**: Cards vs. table layouts for browsing
+
+## Planned in the near future
+
+- **Evolution Chains**: Visual trees with evolution methods (level, item, friendship, trade, etc.)
+- **Daily Challenge Mode**: Wordle-style daily Pokémon (coming soon)
+- **Complete Pokédex coverage**: Including variants (like Lycanroc / Oricorio) and mega evolutions etc.
+- **Complete and improve localisation**: The current localisation implementation is incomplete and the backend also needs improving
+
+# Quick start
+
+**Prerequisites**
+
+- Docker and Docker Compose installed
+
+Then, to get started simply create a new folder and create a file in that folder titled `docker-compose.yml`. Copy the following text into the file:
+
+```yaml
+services:
+  theriodex:
+    image: codeberg.org/hexaitos/theriodex:latest
+    platform: linux/amd64
+    ports:
+      - "5678:5678"
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+
+  redis:
+    image: valkey/valkey:latest
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
+```
+
+Then start everything by running `(sudo) docker compose up -d`. Wait a while for everything to download. After a short while, Theriodex will be available under `localhost:5678`. If you wish to make it available on the Internet, move down to the
+Reverse proxy section
 
 # Getting sprites and sounds
 
