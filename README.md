@@ -39,10 +39,10 @@ Try it out at [theriodex.net](https://theriodex.net)!
 ### Guessing Game
 
 - **"Who's That Pokémon?" Guessing Game**: Blurred sprite identification with adjustable difficulty
-- **Generation Filtering**: Practice specific generations (e.g., "Only Gen 3")
+- **Generation Filtering**: Practise specific generations (e.g., "Only Gen 3")
 - **Global Leaderboard**: Redis-backed score tracking with username persistence
 
-### Customization
+### Customisation
 
 - **Typography**: Multiple pixel fonts to choose from
 - **Themes**: Various themes (some unlockable via gameplay)
