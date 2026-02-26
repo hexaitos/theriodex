@@ -16,7 +16,6 @@ require 'sinatra/flash'
 require 'securerandom'
 require 'base64'
 
-
 Tilt.register Tilt::ERBTemplate, 'html.erb'
 use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
 

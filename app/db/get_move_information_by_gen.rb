@@ -54,8 +54,8 @@ SELECT DISTINCT
 					AND move_effect_chance IS NOT NULL
 				ORDER BY version_group_id DESC
 				LIMIT 1
-		), move_effect.effect) AS move_effect_text,
-		move_effect.short_effect AS move_short_effect_text,
+		), move_effect.effect, 'No effect text available') AS move_effect_text,
+		COALESCE(move_effect.short_effect, 'No short effect text available') AS move_short_effect_text,
 		meta.min_hits,
 		meta.max_hits,
 		meta.min_turns,
@@ -148,7 +148,7 @@ JOIN pokemon_v2_typename typename
 				LIMIT 1
 		), move.type_id)
 		AND typename.language_id = ?
-JOIN pokemon_v2_moveeffecteffecttext move_effect
+LEFT JOIN pokemon_v2_moveeffecteffecttext move_effect
 		ON move_effect.move_effect_id = move.move_effect_id
 		AND move_effect.language_id = ?
 JOIN pokemon_v2_movemeta meta
@@ -179,7 +179,7 @@ TEXT
 GET_MOVE_INFORMATION_BY_GEN_Q = DB.prepare(GET_MOVE_INFORMATION_BY_GEN_QSTR)
 
 def get_move_information_by_gen(move_id, generation_id, language_id = 9)
-	rs = GET_MOVE_INFORMATION_BY_GEN_Q.execute(language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, language_id, move_id, generation_id)
+	rs = GET_MOVE_INFORMATION_BY_GEN_Q.execute(language_id, language_id, language_id, language_id, 9, 9, 9, language_id, language_id, move_id, generation_id)
 
 	omega_array = []
 
