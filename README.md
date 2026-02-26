@@ -73,6 +73,8 @@ services:
       - REDIS_HOST=redis
     depends_on:
       - redis
+    volumes:
+      - ./privacy.md:/usr/src/app/views/privacy.md
 
   redis:
     image: valkey/valkey:latest

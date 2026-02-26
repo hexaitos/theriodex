@@ -20,7 +20,7 @@ THERIODEX_VERSION = if git_available
 	date = `git show -s --date=format:%Y%m%d --format=%cd HEAD`.chomp
 	"theriodex-#{branch}-#{date}-#{sha}"
 	else
-		"theriodex-unknown"
+	"theriodex-unknown"
 end
 
 FONTS = Dir.children("#{Dir.pwd}/public/css/fonts").map { |e| e.gsub(".css", "") }
