@@ -1,7 +1,7 @@
 <div class="move-cards">
 	<% moves.each do | move | %>
 		<div class="move-card">
-			<a class="header" href="/show/move/<%= move["move_id"] %>/gen/<%= move["generation_id"] %>">
+			<a class="header" href="/show/move/<%= move["move_id"] %>/gen/<%= move["generation_id"] %>?lang=<%= lang %>">
 				<div class="card-header">
 					<% if move["is_stab"] == 1 then %>
 						<span class="move-name underline"><%= move["move_name"] %></span>
