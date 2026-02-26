@@ -1,5 +1,5 @@
-FROM ruby:3.4-alpine
-RUN apk add --no-cache build-base gcompat wget gzip
+FROM ruby:4-alpine
+RUN apk add --no-cache build-base gcompat wget gzip git
 
 RUN bundle config --global frozen 1
 

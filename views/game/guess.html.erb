@@ -1,4 +1,4 @@
-<% lang = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>
+<% lang = params["lang"] %>
 
 <div class="guess">
 	<% if correct then %>

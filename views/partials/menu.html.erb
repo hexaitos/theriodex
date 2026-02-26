@@ -1,5 +1,5 @@
 <div class="menu">
-	<% if CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first.nil? %>
+	<% if params["lang"].nil? %>
 		<a href="/">Random</a>
 		<a href="/search">Search</a>
 		<a href="/browse">Browse</a>
@@ -7,7 +7,7 @@
 		<a href="/settings">Settings</a>
 		<a href="/about">About</a>
 	<% else %>
-		<% language = CGI.parse(URI(request.fullpath).query.to_s)['lang']&.first %>
+		<% language = params["lang"] %>
 		<a href="/?lang=<%= language %>"><%= I18n.t(:random) %></a>
 		<a href="/search?lang=<%= language %>"><%= I18n.t(:search) %></a>
 		<a href="/browse?lang=<%= language %>"><%= I18n.t(:browse) %></a>
