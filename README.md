@@ -156,6 +156,10 @@ git pull
 git checkout main
 ```
 
+## Redis/Valkey
+
+TODO
+
 ## Configuration
 
 ### Sprites and Sounds
@@ -164,6 +168,8 @@ Sprites and cries are served from local storage, not GitHub.
 
 - **Sprites:** Download from [PokeAPI/sprites](https://github.com/PokeAPI/sprites/tree/4bcd17051efacd74966305ac87a0330b6131259a) (~1.5 GB) and place the `sprites` folder in `/public/`
 - **Cries:** Download from [PokeAPI/cries](https://github.com/PokeAPI/cries) (~30 MB) and place the `cries` folder in `/public/`
+
+You may also use the version that I am hosting myself. To do so, run the following command in the `theriodex` directory: `wget -qO- https://theriodex-data.s3.nl-ams.scw.cloud/main.tar.gz | gunzip | tar xvf - -C public --strip-components=1`.
 
 _Note:_ Theriodex _should_ work without sprites but then, of course, it will not display any of the images.
 
@@ -184,7 +190,7 @@ REDIS_HOST="localhost" ruby server.rb -e production
 
 ### Reverse Proxy
 
-To make your version of Theriodex publically accessible, you will most likely want to put it behind a reverse proxy. My preferred method of doing so is by using Caddy, as it makes the whole process rather simple!
+To make your version of Theriodex publicly accessible, you will most likely want to put it behind a reverse proxy. My preferred method of doing so is by using Caddy, as it makes the whole process rather simple!
 
 Let us assume that you have a server or other device which has a public IP and which is currently not hosting anything else – ports 80 and 443 are available and open to the public; let us also assume that you own the domain theriodex.net and have entered your servers public IP addresses into your domain registrar so that theriodex.net points to the public IP address(es) of your server.
 
