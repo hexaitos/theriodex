@@ -75,11 +75,13 @@ services:
       - redis
     volumes:
       - ./privacy.md:/usr/src/app/views/privacy.md
+    restart: unless-stopped
 
   redis:
     image: valkey/valkey:latest
     volumes:
       - redis_data:/data
+    restart: unless-stopped
 
 volumes:
   redis_data:
@@ -94,6 +96,8 @@ You can then start Theriodex with the following command:
 ```
 
 Theriodex will be available at `http://localhost:5678` after the images have been downloaded. The `-d` flag makes it start as a daemon so that it all runs in the background and so that it autostarts when you start your computer / server. To make it available on the public Internet, please follow the instructions in the [Reverse Proxy](#reverse-proxy) section.
+
+> **Podman notes**: The above-mentioned `docker-compose.yml` file works without any problems under Podman as well! Simply install podman and podman-compose (or docker-compose) and run `podman compose up -d` instead.
 
 ## Installation (advanced)
 
