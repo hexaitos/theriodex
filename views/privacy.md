@@ -100,25 +100,78 @@ When the user plays the Pokémon Guessing Game and manages to reach a certain nu
 
 **List of all session cookies**
 
-The following is an overview of all the cookies / data stored per session. You may verify where and how this data is used by looking for `session[:key_name_here]` in the software's source code. Replace `key_name_here` with the session key found in the first column of the following table:
+The following is an overview of all the cookies / data stored per session. You may verify where and how this data is used by looking for "session[:key\_name\_here]" in the software's source code. Replace "key\_name\_here" with the session key found in the first column of the following table:
 
-| Session Key            | Description / Stored Data                             |
-| ---------------------- | ----------------------------------------------------- |
-| `cursor`               | Stores the name of the currently selected cursor      |
-| `database_username`    | The username formatted for database storage           |
-| `difficulty`           | Selected difficulty level                             |
-| `font`                 | Stores the name of the currently selected font        |
-| `gen`                  | Stores the generation for the Pokémon Guessing Game   |
-| `guesses`              | Number of guesses in the game                         |
-| `points`               | Calcuated game score                                  |
-| `pokemon_info`         | Pokémon game information                              |
-| `results`              | Game results (how many guesses, points etc.)          |
-| `saved_in_leaderboard` | Flag indicating if score was submitted to leaderboard |
-| `serial`               | Serial number for unlocking themes                    |
-| `skips`                | Number of skips used                                  |
-| `theme`                | Stores the name of the currently selected theme       |
-| `unlocked_themes`      | List of themes unlocked by the user                   |
-| `username`             | Username selected when starting Pokémon Guessing Game |
+<table>
+  <thead>
+    <tr>
+      <th>Session Key</th>
+      <th>Description / Stored Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cursor</code></td>
+      <td>Stores the name of the currently selected cursor</td>
+    </tr>
+    <tr>
+      <td><code>database_username</code></td>
+      <td>The username formatted for database storage</td>
+    </tr>
+    <tr>
+      <td><code>difficulty</code></td>
+      <td>Selected difficulty level</td>
+    </tr>
+    <tr>
+      <td><code>font</code></td>
+      <td>Stores the name of the currently selected font</td>
+    </tr>
+    <tr>
+      <td><code>gen</code></td>
+      <td>Stores the generation for the Pokémon Guessing Game</td>
+    </tr>
+    <tr>
+      <td><code>guesses</code></td>
+      <td>Number of guesses in the game</td>
+    </tr>
+    <tr>
+      <td><code>points</code></td>
+      <td>Calcuated game score</td>
+    </tr>
+    <tr>
+      <td><code>pokemon_info</code></td>
+      <td>Pokémon game information</td>
+    </tr>
+    <tr>
+      <td><code>results</code></td>
+      <td>Game results (how many guesses, points etc.)</td>
+    </tr>
+    <tr>
+      <td><code>saved_in_leaderboard</code></td>
+      <td>Flag indicating if score was submitted to leaderboard</td>
+    </tr>
+    <tr>
+      <td><code>serial</code></td>
+      <td>Serial number for unlocking themes</td>
+    </tr>
+    <tr>
+      <td><code>skips</code></td>
+      <td>Number of skips used</td>
+    </tr>
+    <tr>
+      <td><code>theme</code></td>
+      <td>Stores the name of the currently selected theme</td>
+    </tr>
+    <tr>
+      <td><code>unlocked_themes</code></td>
+      <td>List of themes unlocked by the user</td>
+    </tr>
+    <tr>
+      <td><code>username</code></td>
+      <td>Username selected when starting Pokémon Guessing Game</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 3. Examples of collected logs
 
@@ -221,7 +274,7 @@ This policy may be updated. The "Last updated" date above will indicate the curr
 ### Rev. 3 – 27 February 2026
 
 - **Session architecture clarification**: Corrected technical description of Rack::Session::Pool implementation to clarify that while session _data_ is stored server-side in memory, a single transient cookie containing only the session identifier _is_ stored on the user's machine (previously stated "No cookies are stored"). The actual session data remains server-side and is lost on server restart.
-- **Session data transparency**: Added comprehensive breakdown of all server-side session data in new Section 2.1, including detailed table of all 14 session keys (`cursor`, `font`, `theme`, `unlocked_themes`, `serial`, etc.) and their specific purposes.
+- **Session data transparency**: Added comprehensive breakdown of all server-side session data in new Section 2.1, including detailed table of all 14 session keys and their specific purposes.
 - **User preferences**: Clarified that session storage includes user customisation data (selected theme, cursor style, font choice, difficulty settings) alongside game data.
 - **Theme unlock mechanism**: Documented serial generation system for unlocking themes via gameplay achievements; confirmed serials contain only obfuscated point counts with no personal data.
 - **Reset functionality**: Updated description of reset link to clarify it deletes both current game data _and_ selected customisation options/preferences.

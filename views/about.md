@@ -15,8 +15,10 @@ I highly recommend checking out this project’s official [git repository](https
 ### Core Pokédex Information and Features
 
 - **(Nearly) Complete Coverage**: All standard 1000+ Pokémon through Generation IX
+- **Damage information**: Quick overview of how much damage a Pokémon receives from other types! Takes dual-type Pokémon into account
 - **Move Learnsets**: Level-up, TM/HM, egg, and tutor moves with STAB highlighting and generation-specific changes
 - **Ability Details**: Full ability descriptions including which Pokémon can have them
+- **Stats and evolutions**: Overview of Pokémon's base stats and all their evolutions
 - **Lots and lots of sprites**: Default, shiny, and animated sprites and even version-specific sprites when viewing Pokémon by game version!
 - **Random Pokémon**: Displays a random Pokémon every time you visit the start page!
 
