@@ -46,15 +46,7 @@ SELECT DISTINCT
 		genname.name AS gen_name,
 		vg.id AS version_group_id,
 		vn.name AS version_name,
-		COALESCE((
-				SELECT move_effect_chance
-				FROM pokemon_v2_movechange
-				WHERE move_id = pokemonmove.move_id
-					AND version_group_id > pokemonmove.version_group_id
-					AND move_effect_chance IS NOT NULL
-				ORDER BY version_group_id DESC
-				LIMIT 1
-		), move_effect.effect, 'No effect text available') AS move_effect_text,
+		COALESCE(move_effect.effect, 'No effect text available') AS move_effect_text,
 		COALESCE(move_effect.short_effect, 'No short effect text available') AS move_short_effect_text,
 		COALESCE(meta.min_hits, 0) AS min_hits,
 		COALESCE(meta.max_hits, 0) AS max_hits,
@@ -122,22 +114,22 @@ FROM (
 		SELECT DISTINCT move_id, version_group_id
 		FROM pokemon_v2_pokemonmove
 ) AS pokemonmove
-JOIN pokemon_v2_move move
+LEFT JOIN pokemon_v2_move move
 		ON move.id = pokemonmove.move_id
-JOIN pokemon_v2_movename name
+LEFT JOIN pokemon_v2_movename name
 		ON name.move_id = move.id
 		AND name.language_id = ?
-JOIN pokemon_v2_movedamageclassname movedmgname
+LEFT JOIN pokemon_v2_movedamageclassname movedmgname
 		ON movedmgname.move_damage_class_id = move.move_damage_class_id
 		AND movedmgname.language_id = ?
-JOIN pokemon_v2_versiongroup vg
+LEFT JOIN pokemon_v2_versiongroup vg
 		ON vg.id = pokemonmove.version_group_id
-JOIN pokemon_v2_version version
+LEFT JOIN pokemon_v2_version version
 		ON version.version_group_id = vg.id
-JOIN pokemon_v2_generationname genname
+LEFT JOIN pokemon_v2_generationname genname
 		ON genname.generation_id = vg.generation_id
 		AND genname.language_id = ?
-JOIN pokemon_v2_typename typename
+LEFT JOIN pokemon_v2_typename typename
 		ON typename.type_id = COALESCE((
 				SELECT type_id
 				FROM pokemon_v2_movechange
@@ -159,7 +151,7 @@ LEFT JOIN pokemon_v2_movemetacategorydescription meta_description
 LEFT JOIN pokemon_v2_movemetaailmentname meta_ailment
 		ON meta_ailment.move_meta_ailment_id = meta.move_meta_ailment_id
 		AND meta_ailment.language_id = ?
-JOIN pokemon_v2_versionname vn
+LEFT JOIN pokemon_v2_versionname vn
 		ON vn.version_id = version.id
 		AND vn.language_id = ?
 LEFT JOIN pokemon_v2_movemetastatchange meta_statchange
@@ -173,6 +165,7 @@ WHERE
 ORDER BY
 		pokemonmove.move_id,
 		name.name ASC;
+
 TEXT
 
 GET_MOVE_INFORMATION_BY_GEN_Q = DB.prepare(GET_MOVE_INFORMATION_BY_GEN_QSTR)
