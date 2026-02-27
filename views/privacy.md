@@ -91,12 +91,15 @@ The most amount of information is stored in a session cookie. A server‑side se
   - The user's calculated score
 
 **Session data for user preferences**
+
 Additionally, we store user preferences in Rack::Session::Pool as well. These include (but may not necessarily be limited to) things such as the theme, cursor or font a user has selected as well as information about whether a specific theme has been unlocked.
 
 **Serial for unlocking themes**
+
 When the user plays the Pokémon Guessing Game and manages to reach a certain number of points, they may unlock additional themes. To unlock these themes later on, a serial is generated with which the user may unlock the theme again at a later point in time. These serials are _not_ stored and contain – in a slightly obfuscated manner – the number of points achieved. No personally-identifiable information is stored within these serials, simply the number of points acquired.
 
 **List of all session cookies**
+
 The following is an overview of all the cookies / data stored per session. You may verify where and how this data is used by looking for `session[:key_name_here]` in the software's source code. Replace `key_name_here` with the session key found in the first column of the following table:
 
 | Session Key            | Description / Stored Data                             |
