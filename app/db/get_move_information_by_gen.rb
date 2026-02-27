@@ -56,21 +56,21 @@ SELECT DISTINCT
 				LIMIT 1
 		), move_effect.effect, 'No effect text available') AS move_effect_text,
 		COALESCE(move_effect.short_effect, 'No short effect text available') AS move_short_effect_text,
-		meta.min_hits,
-		meta.max_hits,
-		meta.min_turns,
-		meta.max_turns,
-		meta.crit_rate,
-		NULLIF(meta.ailment_chance, 0) as ailment_chance,
-		NULLIF(meta.flinch_chance, 0) as flinch_chance,
-		NULLIF(meta.stat_chance, 0) as stat_chance,
-		meta.move_meta_category_id,
-		meta.move_id,
-		meta.move_meta_ailment_id,
-		meta.drain,
-		meta.healing,
-		meta_description.description,
-		meta_ailment.name AS meta_ailment_name,
+		COALESCE(meta.min_hits, 0) AS min_hits,
+		COALESCE(meta.max_hits, 0) AS max_hits,
+		COALESCE(meta.min_turns, 0) AS min_turns,
+		COALESCE(meta.max_turns, 0) AS max_turns,
+		COALESCE(meta.crit_rate, 0) AS crit_rate,
+		COALESCE(meta.ailment_chance, 0) AS ailment_chance,
+		COALESCE(meta.flinch_chance, 0) AS flinch_chance,
+		COALESCE(meta.stat_chance, 0) AS stat_chance,
+		COALESCE(meta.move_meta_category_id, 0) AS move_meta_category_id,
+		COALESCE(meta.move_id, 0),
+		COALESCE(meta.move_meta_ailment_id, 0) AS move_meta_ailment_id,
+		COALESCE(meta.drain, 0) AS drain,
+		COALESCE(meta.healing, 0) AS healing,
+		COALESCE(meta_description.description, 'No category description available') AS meta_category_description,
+		COALESCE(meta_ailment.name, 'None') AS meta_ailment_name,
 		version.id AS version_id,
 		version.name as version_db,
 		(
@@ -151,12 +151,12 @@ JOIN pokemon_v2_typename typename
 LEFT JOIN pokemon_v2_moveeffecteffecttext move_effect
 		ON move_effect.move_effect_id = move.move_effect_id
 		AND move_effect.language_id = ?
-JOIN pokemon_v2_movemeta meta
+LEFT JOIN pokemon_v2_movemeta meta
 		ON meta.move_id = pokemonmove.move_id
-JOIN pokemon_v2_movemetacategorydescription meta_description
+LEFT JOIN pokemon_v2_movemetacategorydescription meta_description
 		ON meta_description.move_meta_category_id = meta.move_meta_category_id
 		AND meta_description.language_id = ?
-JOIN pokemon_v2_movemetaailmentname meta_ailment
+LEFT JOIN pokemon_v2_movemetaailmentname meta_ailment
 		ON meta_ailment.move_meta_ailment_id = meta.move_meta_ailment_id
 		AND meta_ailment.language_id = ?
 JOIN pokemon_v2_versionname vn
@@ -173,7 +173,6 @@ WHERE
 ORDER BY
 		pokemonmove.move_id,
 		name.name ASC;
-
 TEXT
 
 GET_MOVE_INFORMATION_BY_GEN_Q = DB.prepare(GET_MOVE_INFORMATION_BY_GEN_QSTR)
