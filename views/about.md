@@ -2,13 +2,52 @@
 
 ![](/button_theriodex.gif)
 
-Theriodex is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial! Its aim is to provide you with the most important information you need at a glance!
+**Theriodex** is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial! Its aim is to provide you with the most important information you need at a glance! Also try the [Who's That Pokémon?](/game) guessing game and unlock more customisation options you can apply in the [Settings](/settings)!
 
-It is a small little project that I – [Hexaitos](https://hexaitos.com) – am working on in my free time mostly as a programming exercise and because I am a Pokémon myself! (several actually).
-
-A lot of features have already been implement but I would still not recommend using this for any particularly important Pokémon run or anything of the like! The start page will show a random Pokémon and will also show some information about this particular Pokémon’s weaknesses. You can click on the name of the generation in which this Pokémon first appeared or on the sprite showing the Pokémon’s types and you will automatically be redirected to a new site that shows you all Pokémon of that particular generation / type. A new random entry from the Pokédex is loaded every time you load the page of a Pokémon. You can view the Pokémon’s abilities and their evolution and you also have the option to see their moves! There is also a fuzzy search and a game you can play where you have to guess the name of a Pokémon! Try it out and see how many Pokémon you are able to guess correctly!
+It started out as a small project of mine but has tured into something much bigger! It is now the by far biggest project I have ever worked on and written myself and new features and bug fixes are still being added frequently! This is, however, very much a passion project and a programming excercise and, therefore, things have absolutely not been written or done in the most optimal of manners.
 
 I highly recommend checking out this project’s official [git repository](https://codeberg.org/hexaitos/theriodex), as you will be able to find the project’s README there which contains a bunch of planned features as well as instructions on how to run this yourself, if you so wish.
+
+---
+
+## Features
+
+### Core Pokédex Information and Features
+
+- **(Nearly) Complete Coverage**: All standard 1000+ Pokémon through Generation IX
+- **Move Learnsets**: Level-up, TM/HM, egg, and tutor moves with STAB highlighting and generation-specific changes
+- **Ability Details**: Full ability descriptions including which Pokémon can have them
+- **Lots and lots of sprites**: Default, shiny, and animated sprites and even version-specific sprites when viewing Pokémon by game version!
+- **Random Pokémon**: Displays a random Pokémon every time you visit the start page!
+
+### Advanced Browsing
+
+- **Multi-parameter Filtering**: Browse by type, generation, and more
+- **Item Database**: Complete item listings with descriptions and effects
+- **Search**: Fast fuzzy search across Pokémon and moves
+- **Multilingual Support**: Interface localization with `lang` parameter support
+
+### Guessing Game
+
+- **"Who's That Pokémon?" Guessing Game**: Blurred sprite identification with adjustable difficulty
+- **Generation Filtering**: Practise specific generations (e.g., "Only Gen 3")
+- **Global Leaderboard**: Redis-backed score tracking with username persistence
+
+### Customisation
+
+- **Typography**: Multiple pixel fonts to choose from
+- **Themes**: Various themes (some unlockable via gameplay)
+- **Cursor Packs**: Various custom CSS cursors
+- **View Modes**: Cards vs. table layouts for browsing
+
+### Planned Features
+
+- **Evolution Chains**: Visual trees with evolution methods (level, item, friendship, trade, etc.)
+- **Daily Challenge Mode**: Wordle-style daily Pokémon challenge
+- **Complete Coverage**: Including variants (Lycanroc, Oricorio) and Mega Evolutions
+- **Improved Localization**: Completing the current implementation and working on moving over to another backend
+
+---
 
 ## Acknowledgements
 
@@ -18,14 +57,22 @@ A special and immense thanks also to all my partners – who are way better at p
 
 If you enjoy any of the fonts or icons and wish to use them yourself, please do consider not simply taking them from Theriodex, but going to their respective sites and either buying it from them or donating to them – just as I did, too.
 
+---
+
 ## Tech
 
 Theriodex is powered – in one way or another – by OpenBSD, Debian, Docker, Netcup, deSEC and Codeberg! We are, therefore, essentially fully hosted in Germany!
 
 I used to mainly write my code in Doom Emacs but moved to VS Code and now mostly Zed mostly either on Linux (Fedora on my Framework 12) or macOS (on my M4 MacBook Pro).
 
+---
+
 ## Copyright notices and attributions
 
-Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak, and Creatures Inc. Theriodex not affiliated with, authorised, or endorsed by The Pokémon Company, Game Freak, Creatures, or Nintendo.
+Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak, and Creatures Inc. Theriodex is not affiliated with, authorized, or endorsed by The Pokémon Company, Game Freak, Creatures, or Nintendo.
 
-The rest of this project is licensed under the [3-Clause BSD licence](https://opensource.org/license/bsd-3-clause). The main font used on by Theriodex (Logic Loop) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and was made by [VEXED](https://v3x3d.itch.io/). A few glyphs are from [GGBotNet](https://www.ggbot.net/)'s Pixeloid font which is licensed under [CC0](https://creativecommons.org/public-domain/cc0/). Icons are from [Iconoir](https://iconoir.com/) and licensed under the MIT license.
+The project is licensed under the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause).
+
+- **Fonts** (all fonts selectable in the `Settings`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by [VEXED](https://v3x3d.itch.io/)
+- **Pixeloid font** (glyphs): [CC0](https://creativecommons.org/public-domain/cc0/) by [GGBotNet](https://www.ggbot.net/)
+- **Icons**: MIT License by [Iconoir](https://iconoir.com/)
