@@ -2,7 +2,11 @@
 
 <div class="types">
 	<h1 class="pokemon-title">
-		<%= form_name || name %>
+		<% if !form_name or form_name.empty? %>
+			<%= name %>
+		<% else %>
+			<%= form_name %>
+		<% end %>
 		<img class="sound-btn" src="/sound.svg" alt="A button showing a speaker" onclick="new Audio('<%= calls %>').play()">
 	</h1>
 
@@ -74,9 +78,14 @@
 		<% if forms.nil? or forms.size == 0 then %>
 			<%# nothing happens %>
 		<% else %>
-		<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
+			<% unless form_name %>
+				<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
+			<% end %>
+
 			<% forms.each do |form| %>
-				<a href="/show/<%= form["id"] %>?lang=<%= lang %>"><%= form["name"] %></a>
+				<% unless form["name"].empty? %>
+					<a href="/show/<%= form["id"] %>?lang=<%= lang %>"><%= form["name"] %></a>
+				<% end %>
 			<% end %>
 		<% end %>
 	</div>
