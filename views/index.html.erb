@@ -39,7 +39,9 @@
 	</div>
 
 	<div class="stats">
-		<span>Introduced in: <a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a></span>
+		<% unless gen[0] == "X" %>
+			<span>Introduced in: <a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a></span>
+		<% end %>
 	</div>
 
 	<hr class="small">
@@ -78,13 +80,15 @@
 		<% if forms.nil? or forms.size == 0 then %>
 			<%# nothing happens %>
 		<% else %>
-			<% unless form_name %>
+			<% unless no_base_form %>
 				<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
 			<% end %>
 
 			<% forms.each do |form| %>
 				<% unless form["name"].empty? %>
 					<a href="/show/<%= form["id"] %>?lang=<%= lang %>"><%= form["name"] %></a>
+				<% else %>
+					<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
 				<% end %>
 			<% end %>
 		<% end %>

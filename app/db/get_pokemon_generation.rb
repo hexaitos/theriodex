@@ -5,7 +5,7 @@ def get_pokemon_generation(id, lang = 9)
 
 	generation_info = DB.execute("select name, generation_id from pokemon_v2_generationname where generation_id in (select generation_id from pokemon_v2_pokemonformgeneration where pokemon_form_id = ?) and language_id= ? limit 1;", [ id, lang ]).first if id > 1024
 
-	generation_info = get_pokemon_generation(id, 9) if (generation_info.nil? or generation_info.length == 0) and is_available
+	#generation_info = get_pokemon_generation(id, 9) if (generation_info.nil? or generation_info.length == 0) and is_available
 
 	generation_info = "X" if !is_available
 

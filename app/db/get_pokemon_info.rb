@@ -50,6 +50,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	pokemon_data[:lang] = LANGUAGE_CODES.key(language_id)
 	pokemon_data[:pokemon_id] = pokemon_id
 	pokemon_data[:pokemon_id_form] = pokemon_id_form
+	pokemon_data[:no_base_form] = pokemon_data[:forms].any? { |f| f["id"].to_i == pokemon_id.to_i }
 
 	pokemon_data
 end
