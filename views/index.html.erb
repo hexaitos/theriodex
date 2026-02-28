@@ -64,6 +64,21 @@
 			<% end %>
 		<% end %>
 	</div>
+
+	<% unless forms.nil? or forms.size == 0 %>
+		<hr class="small">
+		<span>Forms</span>
+	<% end %>
+
+	<div class="evolutions">
+		<% if forms.nil? or forms.size == 0 then %>
+			<%# nothing happens %>
+		<% else %>
+			<% forms.each do |form| %>
+				<a href="/show/<%= form["id"] %>?lang=<%= lang %>"><%= form["name"] %></a>
+			<% end %>
+		<% end %>
+	</div>
 </div>
 
 <div class="sprites">

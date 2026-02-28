@@ -69,4 +69,8 @@ namespace "/show" do
 
 		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], lang)
 	end
+
+	get "/test/test" do
+		puts get_pokemon_base_form(10193)
+	end
 end

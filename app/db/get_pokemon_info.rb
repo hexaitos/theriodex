@@ -1,6 +1,10 @@
 def get_pokemon_info(pokemon_id, language_id = 9)
 	pokemon_data = {}
-	sprites = get_pokemon_sprites(pokemon_id)
+
+	pokemon_id_form = pokemon_id
+	pokemon_id = get_pokemon_base_form(pokemon_id, language_id).first["pokemon_form_id"]
+
+	sprites = get_pokemon_sprites(pokemon_id_form)
 	attrs = get_pokemon_attr(pokemon_id)
 	evolutions = get_pokemon_evolutions(pokemon_id, language_id)
 
@@ -8,6 +12,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id, language_id)
 	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id, language_id)
 	pokemon_data[:evolutions] = evolutions[:raw]
+	pokemon_data[:forms] = get_pokemon_forms(pokemon_id, language_id)
 	pokemon_data[:evolutions_formatted] = evolutions[:formatted]
 	pokemon_data[:name] = get_pokemon_name(pokemon_id, language_id)
 	pokemon_data[:abilities] = get_pokemon_abilities(pokemon_id, language_id)
