@@ -1,7 +1,8 @@
 GET_POKEMON_FORMS = <<-SQL
 SELECT DISTINCT
 	pfn.pokemon_name as name,
-	pf.id as id
+	pf.id as id,
+	pf.pokemon_id as pokemon_id
 FROM
 	pokemon_v2_pokemonspecies ps2
 JOIN

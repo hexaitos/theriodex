@@ -2,7 +2,7 @@
 
 <div class="types">
 	<h1 class="pokemon-title">
-		<%= name %>
+		<%= form_name || name %>
 		<img class="sound-btn" src="/sound.svg" alt="A button showing a speaker" onclick="new Audio('<%= calls %>').play()">
 	</h1>
 
@@ -74,6 +74,7 @@
 		<% if forms.nil? or forms.size == 0 then %>
 			<%# nothing happens %>
 		<% else %>
+		<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
 			<% forms.each do |form| %>
 				<a href="/show/<%= form["id"] %>?lang=<%= lang %>"><%= form["name"] %></a>
 			<% end %>
@@ -117,7 +118,7 @@
 <% end %>
 
 <div class="type-move-container">
-	<a class="a-btn-3" href="/show/pokemon/moves/<%= id %>/gen/<%= moves[0][9] %>?lang=<%= lang %>"><%= I18n.t(:moves_all_methods) %></a>
+	<a class="a-btn-3" href="/show/pokemon/moves/<%= pokemon_id %>/gen/<%= moves[0][9] %>?lang=<%= lang %>"><%= I18n.t(:moves_all_methods) %></a>
 </div>
 <p class="info"><%= I18n.t(:view_all_moves) %></p>
 <hr>
