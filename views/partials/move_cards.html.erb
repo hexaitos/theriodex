@@ -8,7 +8,12 @@
 					<% else %>
 						<span class="move-name"><%= name %></span>
 					<% end %>
-					<span class="move-level">Lv. <%= level %></span>
+
+					<% unless defined?(is_machine) %>
+						<span class="move-level">Lv. <%= level %></span>
+					<% else %>
+						<span class="move-level">No. <%= level %></span>
+					<% end %>
 				</div>
 			</a>
 		<div class="card-body">

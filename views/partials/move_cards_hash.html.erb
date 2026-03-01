@@ -13,7 +13,7 @@
 			</a>
 		<div class="card-body">
 			<div id="<%= move["cat_id"] %>" class="category"><%= move["cat"].upcase %></div>
-			<a href="/show/pokemon/type/<%= move["type_id"] %>" class="type-link"><div id="<%= move["type_id"]  %>" class="move-type-card"><%= move["type_name"]  %></div></a>
+			<a href="/show/pokemon/type/<%= move["type_id"] %>" class="type-link"><div id="<%= move["type_id"] %>" class="move-type-card"><%= move["type_name"] %></div></a>
 			<div class="move-stats">
 				<span>PWR: <%= move["power"] || '—' %> • ACC: <%= move["accuracy"] || '—' %></span>
 			</div>
