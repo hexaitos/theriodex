@@ -18,13 +18,13 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-primary: #96311d;
-		--color-primary-hover: #c58043;
+		--color-primary: #336e8c;
+		--color-primary-hover: #79cee0;
 		--color-accent: #162225;
 		--color-accent-border: #b5dbe2;
 		--color-bg: #162225;
-		--color-links: #c58043;
-		--color-th: #96311d;
+		--color-links: #79cee0;
+		--color-th: #336e8c;
 		--color-td: black;
 		--color-body: black;
 	}
