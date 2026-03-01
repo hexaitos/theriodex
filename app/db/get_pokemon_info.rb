@@ -5,7 +5,6 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	pokemon_id = get_pokemon_base_form(pokemon_id, language_id).first["pokemon_form_id"]
 
 	sprites = get_pokemon_sprites(pokemon_id_form)
-	attrs = get_pokemon_attr(pokemon_id)
 	evolutions = get_pokemon_evolutions(pokemon_id, language_id)
 
 	pokemon_data[:types] = get_pokemon_types(pokemon_id)
@@ -27,6 +26,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 
 	pokemon_data[:calls] = get_pokemon_calls(pokemon_id)
 
+	attrs = get_pokemon_attr(pokemon_data[:pokemon_id_form2] || pokemon_id)
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
 	puts pokemon_data[:stats] = get_pokemon_stats(pokemon_data[:pokemon_id_form2] || pokemon_id_form)
