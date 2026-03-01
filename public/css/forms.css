@@ -40,19 +40,13 @@ input.username {
 }
 
 select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	text-align-last: center;
 	font-family: var(--font-primary);
 	font-size: var(--font-size-sm);
-
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: base-select;
 	border: none;
-}
-
-select::picker-icon {
-	color: #999999;
-	transition: 0.4s rotate;
 }
 
 select#lang-select {
