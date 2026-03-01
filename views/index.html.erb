@@ -63,15 +63,17 @@
 		<div class="evolutions">
 			<form action="/show/" method="get" id="evolution-select-form">
 				<label for="evolution-select">Select evolution</label>
-				<select aria-label="Select evolution" id="evolution-select" name="evolution" required>
-					<% evolutions.each do |evolution| %>
-						<% if evolutions_formatted[evolution] == name %>
-							<option selected value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
-						<% else %>
-							<option value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+				<div class="custom-select">
+					<select aria-label="Select evolution" id="evolution-select" name="evolution" required>
+						<% evolutions.each do |evolution| %>
+							<% if evolutions_formatted[evolution] == name %>
+								<option selected value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+							<% else %>
+								<option value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+							<% end %>
 						<% end %>
-					<% end %>
-				</select>
+					</select>
+				</div>
 			</form>
 
 			<script>
@@ -90,30 +92,32 @@
 		<div class="evolutions">
 			<form action="/show/pokemon/" method="get" id="form-select-form">
 			<label for="form-select">Select form</label>
-			<select aria-label="Select language" id="form-select" name="form" required>
-				<% if forms.nil? or forms.size == 0 then %>
-					<%# nothing happens %>
-				<% else %>
-					<% unless no_base_form %>
-						<option value="<%= pokemon_id %>"><%= name %></option>
-					<% end %>
-					<% forms.each do |form| %>
-						<% unless form["name"].empty? %>
-							<% unless form["id"].to_i == id.to_i %>
-								<option value="<%= form["id"] %>"><%= form["name"] %></option>
+			<div class="custom-select">
+				<select aria-label="Select language" id="form-select" name="form" required>
+					<% if forms.nil? or forms.size == 0 then %>
+						<%# nothing happens %>
+					<% else %>
+						<% unless no_base_form %>
+							<option value="<%= pokemon_id %>"><%= name %></option>
+						<% end %>
+						<% forms.each do |form| %>
+							<% unless form["name"].empty? %>
+								<% unless form["id"].to_i == id.to_i %>
+									<option value="<%= form["id"] %>"><%= form["name"] %></option>
+								<% else %>
+									<option selected value="<%= form["id"] %>"><%= form["name"] %></option>
+								<% end %>
 							<% else %>
-								<option selected value="<%= form["id"] %>"><%= form["name"] %></option>
-							<% end %>
-						<% else %>
-							<% unless form["id"].to_i == id.to_i %>
-								<option value="<%= pokemon_id %>"><%= name %></option>
-							<% else %>
-								<option selected value="<%= form["id"] %>"><%= name %></option>
+								<% unless form["id"].to_i == id.to_i %>
+									<option value="<%= pokemon_id %>"><%= name %></option>
+								<% else %>
+									<option selected value="<%= form["id"] %>"><%= name %></option>
+								<% end %>
 							<% end %>
 						<% end %>
 					<% end %>
-				<% end %>
-			</select>
+				</select>
+			</div>
 			</form>
 
 			<script>

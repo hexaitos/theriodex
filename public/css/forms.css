@@ -12,6 +12,33 @@ input.username {
 	width: 80%;
 }
 
+.custom-select {
+	position: relative;
+}
+
+.custom-select::before,
+.custom-select::after {
+	--size: 0.5rem;
+	position: absolute;
+	content: "";
+	right: 1rem;
+	pointer-events: none;
+}
+
+.custom-select::before {
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-bottom: var(--size) solid white;
+	top: 20%;
+}
+
+.custom-select::after {
+	border-left: var(--size) solid transparent;
+	border-right: var(--size) solid transparent;
+	border-top: var(--size) solid white;
+	top: 55%;
+}
+
 select {
 	text-align-last: center;
 	font-family: var(--font-primary);
@@ -19,8 +46,13 @@ select {
 
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
+	appearance: base-select;
 	border: none;
+}
+
+select::picker-icon {
+	color: #999999;
+	transition: 0.4s rotate;
 }
 
 select#lang-select {
