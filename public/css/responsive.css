@@ -28,3 +28,13 @@
 		width: 116px;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.evolution-container {
+		flex-direction: column;
+	}
+
+	div.evolutions {
+		width: 100%;
+	}
+}
