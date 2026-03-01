@@ -124,7 +124,7 @@
 				document.querySelector('#form-select-form').addEventListener("change", (event) => {
 					event.preventDefault();
 					const selectedValue = document.querySelector('#form-select').value;
-					window.location.href = `/show/pokemon/${selectedValue}`;
+					window.location.href = `/show/pokemon/${selectedValue}?lang=<%= lang %>`;
 				});
 			</script>
 		</div>
