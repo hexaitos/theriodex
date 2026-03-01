@@ -1,0 +1,43 @@
+:root {
+	--color-primary: #319c73;
+	--color-primary-hover: #34cf94;
+	--color-accent: #eed59c;
+	--color-accent-border: #319c73;
+	--color-body: #bd9462;
+	--color-links: #319c73;
+	--color-th: #319c73;
+	--color-bg: #eed59c;
+	--color-header: #319c73;
+	--color-td: white;
+
+	--font-size-body: var(--font-size-md);
+	--font-size-small: var(--font-size-sm);
+	--font-size-micro: var(--font-size-xs);
+	--font-size-heading: var(--font-size-xl);
+	--font-size-title: var(--font-size-xxl);
+}
+
+body {
+	background-image: url(/backgrounds/leaves.svg);
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
+th {
+	color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: #319c73;
+		--color-primary-hover: #34cf94;
+		--color-accent: #5b4121;
+		--color-accent-border: #32e5a0;
+		--color-body: #31210f;
+		--color-links: #32e5a0;
+		--color-th: #319c73;
+		--color-bg: #5b4121;
+		--color-header: #319c73;
+		--color-td: black;
+	}
+}
