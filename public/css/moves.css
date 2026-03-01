@@ -10,18 +10,39 @@ div.evolutions {
 	justify-content: center;
 	gap: 2px;
 	margin-top: 5px;
+	margin: 0 auto;
+	flex: 1 1 0;
+	max-width: 500px;
+}
+
+div.evolutions form {
+	width: 100%;
+}
+
+div.evolution-container {
+	display: flex;
+	justify-content: center;
+	max-width: 500px;
+	margin: 0 auto;
+	gap: 5px;
 }
 
 div.evolutions a {
-	padding: 2.5px 5px;
+	padding: 0.5rem;
 	border-radius: 5px;
 	color: white;
 	text-decoration: none;
 	background-color: var(--color-primary);
+	flex: 1 1 0;
+	white-space: nowrap;
 }
 
 div.evolutions a:hover {
 	background-color: var(--color-primary-hover);
+}
+
+div.evolutions label {
+	font-size: var(--font-size-base);
 }
 
 .hm-details {

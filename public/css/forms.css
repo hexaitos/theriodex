@@ -13,10 +13,14 @@ input.username {
 }
 
 select {
-	-webkit-appearance: none;
 	text-align-last: center;
 	font-family: var(--font-primary);
 	font-size: var(--font-size-sm);
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
 }
 
 select#lang-select {
@@ -36,6 +40,17 @@ select#lang-select {
 	width: 110px;
 	border: none;
 	font-size: var(--font-size-xs);
+}
+
+select#form-select,
+select#evolution-select {
+	text-align: center;
+	justify-content: center;
+	border-radius: 5px;
+	background-color: var(--color-primary);
+	padding: 0.5rem;
+	color: white;
+	width: 100%;
 }
 
 select#difficulty,

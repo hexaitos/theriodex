@@ -1,5 +1,7 @@
 <%= partial :lang_select, id: id, lang: lang %>
 
+
+
 <div class="types">
 	<h1 class="pokemon-title">
 		<% if !form_name or form_name.empty? %>
@@ -52,46 +54,77 @@
 		<% end %>
 	</div>
 
-	<% unless evolutions.nil? or evolutions.size == 0 or evolutions.size == 1 %>
+	<% if (!evolutions.nil? && evolutions.size > 1) || (!forms.nil? && forms.size > 0) %>
 		<hr class="small">
-		<span><%= I18n.t(:evolutions) %></span>
 	<% end %>
 
-	<div class="evolutions">
-		<% if evolutions.size == 1 or evolutions.nil? or evolutions.size == 0 then %>
-			<%# nothing happens %>
-		<% else %>
-			<% evolutions.each do | evolution | %>
-				<% if evolutions_formatted[evolution] == name then %>
-						<a class="current" href="/show/<%= evolution %>?lang=<%= lang %>"><%= evolutions_formatted[evolution] %></a>
-					<% else %>
-						<a href="/show/<%= evolution %>?lang=<%= lang %>"><%= evolutions_formatted[evolution] %></a>
+	<div class="evolution-container">
+	<% unless evolutions.nil? or evolutions.size <= 1 %>
+		<div class="evolutions">
+			<form action="/show/" method="get" id="evolution-select-form">
+				<label for="evolution-select">Select evolution</label>
+				<select aria-label="Select evolution" id="evolution-select" name="evolution" required>
+					<% evolutions.each do |evolution| %>
+						<% if evolutions_formatted[evolution] == name %>
+							<option selected value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+						<% else %>
+							<option value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+						<% end %>
 					<% end %>
-			<% end %>
-		<% end %>
-	</div>
+				</select>
+			</form>
+
+			<script>
+				document.querySelector('#evolution-select-form').addEventListener("change", (event) => {
+					event.preventDefault();
+					const selectedValue = document.querySelector('#evolution-select').value;
+					window.location.href = `/show/${selectedValue}?lang=<%= lang %>`;
+				});
+			</script>
+		</div>
+	<% end %>
+
+
 
 	<% unless forms.nil? or forms.size == 0 %>
-		<hr class="small">
-		<span>Forms</span>
-	<% end %>
-
-	<div class="evolutions">
-		<% if forms.nil? or forms.size == 0 then %>
-			<%# nothing happens %>
-		<% else %>
-			<% unless no_base_form %>
-				<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
-			<% end %>
-
-			<% forms.each do |form| %>
-				<% unless form["name"].empty? %>
-					<a href="/show/<%= form["id"] %>?lang=<%= lang %>"><%= form["name"] %></a>
+		<div class="evolutions">
+			<form action="/show/pokemon/" method="get" id="form-select-form">
+			<label for="form-select">Select form</label>
+			<select aria-label="Select language" id="form-select" name="form" required>
+				<% if forms.nil? or forms.size == 0 then %>
+					<%# nothing happens %>
 				<% else %>
-					<a href="/show/<%= pokemon_id %>?lang=<%= lang %>">Base form</a>
+					<% unless no_base_form %>
+						<option value="<%= pokemon_id %>"><%= name %></option>
+					<% end %>
+					<% forms.each do |form| %>
+						<% unless form["name"].empty? %>
+							<% unless form["id"].to_i == id.to_i %>
+								<option value="<%= form["id"] %>"><%= form["name"] %></option>
+							<% else %>
+								<option selected value="<%= form["id"] %>"><%= form["name"] %></option>
+							<% end %>
+						<% else %>
+							<% unless form["id"].to_i == id.to_i %>
+								<option value="<%= pokemon_id %>"><%= name %></option>
+							<% else %>
+								<option selected value="<%= form["id"] %>"><%= name %></option>
+							<% end %>
+						<% end %>
+					<% end %>
 				<% end %>
-			<% end %>
-		<% end %>
+			</select>
+			</form>
+
+			<script>
+				document.querySelector('#form-select-form').addEventListener("change", (event) => {
+					event.preventDefault();
+					const selectedValue = document.querySelector('#form-select').value;
+					window.location.href = `/show/pokemon/${selectedValue}`;
+				});
+			</script>
+		</div>
+	<% end %>
 	</div>
 </div>
 

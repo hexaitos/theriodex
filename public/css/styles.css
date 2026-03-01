@@ -365,6 +365,7 @@ div.evolutions {
 	justify-content: center;
 	gap: 2px;
 	margin-top: 5px;
+	flex: auto;
 }
 
 div.evolutions a {
