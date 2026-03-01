@@ -7,7 +7,6 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	sprites = get_pokemon_sprites(pokemon_id_form)
 	evolutions = get_pokemon_evolutions(pokemon_id, language_id)
 
-	pokemon_data[:types] = get_pokemon_types(pokemon_id)
 	pokemon_data[:flavour_text] = get_pokemon_flavour_text(pokemon_id, language_id)
 	pokemon_data[:species_name] = get_pokemon_genus(pokemon_id, language_id)
 	pokemon_data[:evolutions] = evolutions[:raw]
@@ -22,8 +21,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	else
 		pokemon_data[:abilities] = abilities
 	end
-	puts "#{pokemon_data[:abilities]}"
-
+	pokemon_data[:types] = get_pokemon_types(pokemon_data[:pokemon_id_form2] || pokemon_id)
 	pokemon_data[:calls] = get_pokemon_calls(pokemon_id)
 
 	attrs = get_pokemon_attr(pokemon_data[:pokemon_id_form2] || pokemon_id)
