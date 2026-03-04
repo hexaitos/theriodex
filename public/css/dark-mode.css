@@ -32,7 +32,8 @@
 	div.move-details div,
 	label,
 	legend,
-	input[type="radio"]:disabled + label::before {
+	input[type="radio"]:disabled + label::before,
+	li {
 		color: white !important;
 	}
 
