@@ -18,9 +18,6 @@ require 'base64'
 require 'i18n'
 require 'yaml'
 require 'i18n/backend/fallbacks'
-require 'falcon'
-
-#set :server, 'falcon'
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'
 use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400

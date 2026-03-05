@@ -25,5 +25,3 @@ gem "pstore", "~> 0.2.1"
 gem "i18n", "~> 1.14"
 
 gem "yaml", "~> 0.4.0"
-
-gem "falcon", "~> 0.54.3"
