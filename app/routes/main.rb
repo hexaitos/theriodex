@@ -17,3 +17,7 @@ get "/:id/json" do
 
 	pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], lang).to_json
 end
+
+get "/test" do
+	puts get_pokemon_for_day
+end

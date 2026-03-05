@@ -14,6 +14,15 @@ $pokemon_cache ||= {}
 git_sha = `git rev-parse HEAD 2>&1` rescue ""
 git_available = $?.success? && git_sha.length >= 6
 
+# Daily challenge
+POKEMON_CHALLENGE_NUM = 3
+POKEMON_CHALLENGE_GEN = Random.new(42)
+POKEMON_CHALLENGE_START_DATE = Date.new(2026, 3, 5)
+POKEMON_CHALLENGE_IDS = []
+2000.times do
+	POKEMON_CHALLENGE_IDS << POKEMON_CHALLENGE_GEN.rand(1..1024)
+end
+
 THERIODEX_VERSION = if git_available
 	sha = git_sha[0..5]
 	branch = `git rev-parse --abbrev-ref HEAD`.chomp
