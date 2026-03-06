@@ -46,7 +46,7 @@ namespace "/game" do
 	get "/challenge/play" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
-		redirect "/results" if session[:guesses] == POKEMON_CHALLENGE_NUM
+		redirect "/game/results" if session[:guesses] == POKEMON_CHALLENGE_NUM
 
 		erb :"game/game", locals: pokemon_view_game(get_pokemon_for_day[session[:guesses]], lang, session[:difficulty].clean)
 	end
@@ -67,6 +67,8 @@ namespace "/game" do
 	get "/skip/:lang" do
 		session[:skips] = session[:skips] ? session[:skips] + 1 : 1
 		session[:results][session[:pokemon_info][:id]] = { name: session[:pokemon_info][:name], skipped: true }
+
+		redirect "/game/challenge/play?lang=#{params["lang"]}" if session[:challenge]
 		redirect "/game/play?lang=#{params["lang"]}"
 	end
 

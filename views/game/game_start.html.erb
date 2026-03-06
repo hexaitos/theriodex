@@ -30,8 +30,7 @@
 				<p>The daily challenge mode – this mode is particularly difficult with no hints available and a large amount of blur. You will be given a set of five Pokémon from Generation <%= GENS.keys.first.romanise %> to Generation <%= GENS.keys.last.romanise %> to guess from each day. Come back every day to try your luck!</p>
 			</div>
 			<div class="game-start-buttons">
-				<a class="a-btn-2" href="/game/daily?lang=<%= lang %>">Start today’s challenge (<%= Date.today %>)</a>
-				<button type="submit" class="full" name="daily" value="true">Start today’s challenge</button>
+				<button type="submit" class="full" name="daily" value="true">Start today’s challenge (<%= Date.today %>)</button>
 			</div>
 			<hr>
 
@@ -68,7 +67,7 @@
 				<p>View the leaderboard and see the scores of other players – maybe you can even get to the top!</p>
 			</div>
 		</form>
-	<% else %>
+	<% elsif session[:points] and !session[:challenge] %>
 		<h3>Continue game</h3>
 		<div class="diff-hint">
 			<p>Clicking the “Continue” button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard, to view your results or to see the leaderboard, scroll down. To reset the game, click the “Reset Game” button.</p>
@@ -95,6 +94,35 @@
 			<p>Hint: If you want to try a new difficulty or generation or use a new username (so that your friend can play as well, for example), please use the “Reset Game” button.</p>
 			<p><u>Resetting the game will reset all the counters</u>. If you want to continue where you left off and keep your score for this session, click the “Continue” button.</p>
 		</div>
+		<% elsif session[:points] and session[:challenge] %>
+			<h3>Continue game</h3>
+			<div class="diff-hint">
+				<p>Clicking the “Continue” button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard, to view your results or to see the leaderboard, scroll down. To reset the game, click the “Reset Game” button.</p>
+			</div>
+			<div class="game-start-buttons">
+				<% unless session[:guesses] == POKEMON_CHALLENGE_NUM %>
+					<a class="a-btn-2 continue" href="/game/challenge/play?lang=<%= lang %>">Continue</a>
+				<% end %>
+				<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
+			</div>
+			<hr>
+			<div class="game-start-buttons">
+				<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
+				<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+			</div>
+			<% if !session[:saved_in_leaderboard] %>
+				<%= partial :save_in_leaderboard %>
+			<% else %>
+				<form action="/game/leaderboard/save" method="post">
+					<button type="submit">Override saved data in leaderboard</button>
+				</form>
+			<% end %>
+
+			<hr>
+			<div class="diff-hint">
+				<p>Hint: If you want to try a new difficulty or generation or use a new username (so that your friend can play as well, for example), please use the “Reset Game” button.</p>
+				<p><u>Resetting the game will reset all the counters</u>. If you want to continue where you left off and keep your score for this session, click the “Continue” button.</p>
+			</div>
 	<% end %>
 </div>
 <h2>What is this?</h2>
