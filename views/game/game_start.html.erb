@@ -25,8 +25,16 @@
 				<p>Choose your username like in an old arcade game! You can choose between three different letters from A-Z. Or just leave it at the default and save your result as “AAA” in the leaderboard!</p>
 			</div>
 			<hr>
+			<h3>Daily challenge</h3>
+			<div class="diff-hint">
+				<p>The daily challenge mode – this mode is particularly difficult with no hints available and a large amount of blur. You will be given a set of five Pokémon from Generation <%= GENS.keys.first.romanise %> to Generation <%= GENS.keys.last.romanise %> to guess from each day. Come back every day to try your luck!</p>
+			</div>
+			<div class="game-start-buttons">
+				<a class="a-btn-2" href="/game/daily?lang=<%= lang %>">Start today’s challenge (<%= Date.today %>)</a>
+			</div>
+			<hr>
 
-			<h3>Choose your difficulty</h3>
+			<h3>Endless mode</h3>
 			<select id="difficulty" name="diff" required>
 				<option value="easy">🟢 Easy</option>
 				<option value="medium">🟡 Medium</option>
