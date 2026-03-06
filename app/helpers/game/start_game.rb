@@ -11,6 +11,7 @@ def start_challenge(u1, u2, u3, lang)
 	session[:difficulty] ||= "hard"
 	session[:challenge] ||= true
 	session[:guesses] ||= 0
+	session[:skips] ||= 0
 	session[:username] ||= generate_username(u1.clean, u2.clean, u3.clean)
 	redirect "/game/challenge/play?lang=#{lang.clean}"
 end

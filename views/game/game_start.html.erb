@@ -100,7 +100,7 @@
 				<p>Clicking the “Continue” button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard, to view your results or to see the leaderboard, scroll down. To reset the game, click the “Reset Game” button.</p>
 			</div>
 			<div class="game-start-buttons">
-				<% unless session[:guesses] == POKEMON_CHALLENGE_NUM %>
+				<% unless session[:guesses] + session[:skips] == POKEMON_CHALLENGE_NUM %>
 					<a class="a-btn-2 continue" href="/game/challenge/play?lang=<%= lang %>">Continue</a>
 				<% end %>
 				<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
