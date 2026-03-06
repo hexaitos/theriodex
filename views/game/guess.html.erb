@@ -13,5 +13,9 @@
 		<p>You guessed <u><%= guess.capitalize %></u> but the Pokémon was <u><%= pokemon_info[:name] %></u></p>
 	<% end %>
 	<br>
-	<a href="/game/play?lang=<%= lang %>"><button><%= I18n.t(:play_again) %></button></a>
+	<% unless session[:challenge] %>
+		<a href="/game/play?lang=<%= lang %>"><button><%= I18n.t(:play_again) %></button></a>
+	<% else %>
+		<a href="/game/challenge/play?lang=<%= lang %>"><button>Next Pokémon</button></a>
+	<% end %>
 </div>

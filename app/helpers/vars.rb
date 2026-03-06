@@ -15,7 +15,7 @@ git_sha = `git rev-parse HEAD 2>&1` rescue ""
 git_available = $?.success? && git_sha.length >= 6
 
 # Daily challenge
-POKEMON_CHALLENGE_NUM = 3
+POKEMON_CHALLENGE_NUM = 5
 POKEMON_CHALLENGE_GEN = Random.new(42)
 POKEMON_CHALLENGE_START_DATE = Date.new(2026, 3, 5)
 POKEMON_CHALLENGE_IDS = []

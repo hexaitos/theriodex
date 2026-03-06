@@ -6,7 +6,11 @@ namespace "/game" do
 	end
 
 	post "/start/:lang/?:gen?" do
-		start_game(params["diff"], params["gen"], params["username-1"], params["username-2"], params["username-3"], params["lang"])
+		unless params["daily"] == "true"
+			start_game(params["diff"], params["gen"], params["username-1"], params["username-2"], params["username-3"], params["lang"])
+		else
+			start_challenge(params["username-1"], params["username-2"], params["username-3"], params["lang"])
+		end
 	end
 
 	get "/play" do
@@ -29,7 +33,6 @@ namespace "/game" do
 				end
 			end
 
-
 		end
 		flash[:notification] = "You've unlocked the #{session[:serial][:theme]} theme! Go to the Settings to select it. Your code is <code class='serial'>#{session[:serial][:serial]}</code>" if session[:serial]
 
@@ -38,6 +41,14 @@ namespace "/game" do
 
 	post "/play" do
 		erb :"game/guess", locals: check_pokemon_guess(params["guess"])
+	end
+
+	get "/challenge/play" do
+		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+
+		redirect "/results" if session[:guesses] == POKEMON_CHALLENGE_NUM
+
+		erb :"game/game", locals: pokemon_view_game(get_pokemon_for_day[session[:guesses]], lang, session[:difficulty].clean)
 	end
 
 	get "/results" do

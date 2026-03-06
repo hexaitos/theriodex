@@ -5,3 +5,12 @@ def start_game(difficulty, gen = nil, u1, u2, u3, lang)
 	session[:username] ||= generate_username(u1.clean, u2.clean, u3.clean)
 	redirect "/game/play?lang=#{lang.clean}"
 end
+
+def start_challenge(u1, u2, u3, lang)
+	session.clear
+	session[:difficulty] ||= "hard"
+	session[:challenge] ||= true
+	session[:guesses] ||= 0
+	session[:username] ||= generate_username(u1.clean, u2.clean, u3.clean)
+	redirect "/game/challenge/play?lang=#{lang.clean}"
+end
