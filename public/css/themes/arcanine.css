@@ -1,0 +1,43 @@
+:root {
+	--color-primary: #d46719;
+	--color-primary-hover: #f5a96e;
+	--color-accent: #f1d5af;
+	--color-accent-border: #323d48;
+	--color-body: #8b4513;
+	--color-links: #d46719;
+	--color-th: #e8955a;
+	--color-bg: #f1d5af;
+	--color-header: #e8955a;
+	--color-td: white;
+
+	--font-size-body: var(--font-size-md);
+	--font-size-small: var(--font-size-sm);
+	--font-size-micro: var(--font-size-xs);
+	--font-size-heading: var(--font-size-xl);
+	--font-size-title: var(--font-size-xxl);
+}
+
+body {
+	background-image: url(/backgrounds/tiger-stripes.svg);
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
+th {
+	color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: #d46719;
+		--color-primary-hover: #f5a96e;
+		--color-accent: #323d48;
+		--color-accent-border: #e8955a;
+		--color-body: #1a1a1a;
+		--color-links: #f1d5af;
+		--color-th: #e8955a;
+		--color-bg: #323d48;
+		--color-header: #e8955a;
+		--color-td: #2a2a2a;
+	}
+}
