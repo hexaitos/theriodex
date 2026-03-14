@@ -1,12 +1,12 @@
 # Theriodex – Privacy Policy
 
-**Last updated:** 27 February 2026
+**Last updated:** 14 March 2026
 
 ---
 
 ## Short overview
 
-We store only the minimum needed to run the game and site. Sessions/logs are stored for 24h and leaderboard scores persist only if you submit them. A privacy-friendly analytics service has been added in October 2025 to give us a general idea of how our service is used. This data is anonymised and never sold to anyone.
+We store only the minimum needed to run the game and site. Sessions/logs are stored for 24h and leaderboard scores persist only if you submit them.
 
 **What we store**:
 
@@ -15,20 +15,17 @@ We store only the minimum needed to run the game and site. Sessions/logs are sto
   - User preferences such as theme, font and cursor
 - Optional leaderboard entries (username, score, submission date) – stored only if you choose to submit, requires active consent.
 - Server access logs (IP, timestamp, requested resource, actions such as which Pokémon was shown).
-- Basic analytics data via self-hosted Plausible (page views, referral sources, browser/OS information - no personal data collected).
-  - You can view the exact same data that we have access to on [https://plausible.theriodex.net/theriodex.net/](https://plausible.theriodex.net/theriodex.net/).
 
 **Retention**:
 
 - Session cookies & server access logs: deleted after a maximum of 24 hours.
-- Analytics data: kept perpetually.
 - Leaderboard entries: kept perpetually until you request deletion.
 
 **Where data is processed / stored**:
 
 All processing and storage is done in the EU.
 
-- Website, Redis (leaderboard), and analytics hosted by: netcup (Germany).
+- Website and Redis (leaderboard) hosted by: netcup (Germany).
 - DNS provided by: deSEC (Germany).
 - Email provided by: mailbox.org (Germany).
 - Operator based in: Germany.
@@ -48,24 +45,15 @@ All processing and storage is done in the EU.
 
 ## 2. What we collect
 
-Only basic server logs and minimal analytics are collected automatically. These may include:
+Only basic server logs are collected automatically. These may include:
 
 - IP address, timestamp, request method and path, HTTP status, response size, User‑Agent, and referrer.
 - Internal application events needed for operation or debugging (for example: which Pokémon ID was requested, request processing messages, error messages).
-- Basic analytics data collected by self-hosted Plausible: page views, referral sources, browser and operating system information (without collecting personal data).
-- We do not collect user accounts, profiles, or behavioural tracking data for advertising. No third‑party trackers are used beyond our self-hosted Plausible instance.
+- We do not collect user accounts, profiles, or behavioural tracking data for advertising. No third‑party trackers are used.
 
 **Server logs (netcup)**
 
 - Logs are stored on our netcup VPS and are retained for 1 day. They include the IP address from which the request was made and information about activity on the website (for example: which Pokémon was displayed). When a user chooses to play the Pokémon Guessing Game, relevant current game data is also logged.
-
-**Analytics (self-hosted Plausible)**
-
-- Plausible Analytics is self-hosted on our own server and collects only basic, non-personal usage data.
-- No cookies are used for tracking; Plausible is GDPR-compliant out of the box.
-- Data collected includes page views, referral sources, browser type, operating system, and country (determined from IP without storing the full IP).
-- Since Plausible is self-hosted, all analytics data remains on our netcup VPS in Germany.
-- For more information about how Plausible works without compromising user privacy, please view their [data policy](https://plausible.io/data-policy).
 
 **Leaderboard (optional, persistent)**
 
@@ -177,7 +165,6 @@ The following is an overview of all the cookies / data stored per session. You m
 
 - Example log entries and formats are available in the source code and contain the fields described above.
 - Logs stored on netcup include IPs, timestamps, requested resources (e.g., Pokémon sprite or page), and, when applicable, current game state data recorded at the time the user is playing.
-- Plausible analytics data is publicly viewable at [https://plausible.theriodex.net/theriodex.net/](https://plausible.theriodex.net/theriodex.net/).
 
 ## 4. Why we collect it (purposes) and legal basis
 
@@ -188,12 +175,10 @@ The following is an overview of all the cookies / data stored per session. You m
 - Performance monitoring and troubleshooting.
 - Enabling the Pokémon Guessing Game and an optional public leaderboard.
 - Enabling user customisation and accessibility
-- Basic usage statistics to understand how the site is being used (via self-hosted Plausible).
 
 **Legal basis:**
 
 - Legitimate interest (Art. 6(1)(f) GDPR) in operating a secure, reliable service. Session data and logs are used only to operate the game and service and to mitigate potential attacks.
-- Self-hosted Plausible analytics is GDPR-compliant by design, collecting only non-personal data without requiring user consent.
 
 ## 5. Where data is stored
 
@@ -203,8 +188,6 @@ The following is an overview of all the cookies / data stored per session. You m
   - Server logs are stored on the same VPS (retained for 1 day).
 - Leaderboard database:
   - The leaderboard is stored in a Redis database running on the same netcup VPS.
-- Analytics:
-  - Plausible Analytics is self-hosted on the same netcup VPS in Nuremberg, Germany.
 - DNS is hosted by deSEC (Germany).
 - Emails hosting is provided by mailbox.org (Germany).
 - netcup ensures all hosting services are fully compliant with the EU's General Data Protection Regulation (GDPR).
@@ -215,13 +198,11 @@ The following is an overview of all the cookies / data stored per session. You m
 - Server logs: retained for 1 day. These logs may contain IP addresses and activity data (including Pokémon shown and game state when a user plays).
 - Session / game data (Rack::Session::Pool): deleted after 24 hours, when the user uses the "Reset game" button, or when the server restarts (sessions are kept in memory).
 - Leaderboard entries: stored perpetually (unless a deletion request is processed — see section 9).
-- Analytics data: Analytics data is not deleted (as this would make using analytics rather pointless in the first place). However, Plausible analytics data does not contain any personal identifiable information.
 - In case of an ongoing security investigation or legal obligation, relevant logs or data may be kept for longer as necessary.
 
 ## 7. Recipients and disclosures
 
-- Logs, session data, leaderboard data, and analytics data are accessible only to the operator (and any personnel explicitly authorised by the operator).
-- Since Plausible is self-hosted, no third party (including Plausible) has access to the analytics data.
+- Logs, session data, and leaderboard data are accessible only to the operator (and any personnel explicitly authorised by the operator).
 - We do not share logs with advertising or analytics companies.
 - We may be required to disclose data to comply with legal obligations or official requests.
 
@@ -273,10 +254,19 @@ This policy may be updated. The "Last updated" date above will indicate the curr
 
 ### Rev. 3 – 27 February 2026
 
-- **Session architecture clarification**: Corrected technical description of Rack::Session::Pool implementation to clarify that while session _data_ is stored server-side in memory, a single transient cookie containing only the session identifier _is_ stored on the user's machine (previously stated "No cookies are stored"). The actual session data remains server-side and is lost on server restart.
-- **Session data transparency**: Added comprehensive breakdown of all server-side session data in new Section 2.1, including detailed table of all 14 session keys and their specific purposes.
-- **User preferences**: Clarified that session storage includes user customisation data (selected theme, cursor style, font choice, difficulty settings) alongside game data.
-- **Theme unlock mechanism**: Documented serial generation system for unlocking themes via gameplay achievements; confirmed serials contain only obfuscated point counts with no personal data.
-- **Reset functionality**: Updated description of reset link to clarify it deletes both current game data _and_ selected customisation options/preferences.
-- **Purposes**: Added "Enabling user customisation and accessibility" to the list of data processing purposes in Section 4.
-- **Short overview**: Expanded bullet points to explicitly mention user preferences (theme, font, cursor) as stored data categories.
+- Session architecture clarification: Corrected technical description of Rack::Session::Pool implementation to clarify that while session _data_ is stored server-side in memory, a single transient cookie containing only the session identifier _is_ stored on the user's machine (previously stated "No cookies are stored"). The actual session data remains server-side and is lost on server restart.
+- Session data transparency: Added comprehensive breakdown of all server-side session data in new Section 2.1, including detailed table of all 14 session keys and their specific purposes.
+- User preferences: Clarified that session storage includes user customisation data (selected theme, cursor style, font choice, difficulty settings) alongside game data.
+- Theme unlock mechanism: Documented serial generation system for unlocking themes via gameplay achievements; confirmed serials contain only obfuscated point counts with no personal data.
+- Reset functionality: Updated description of reset link to clarify it deletes both current game data _and_ selected customisation options/preferences.
+- Purposes: Added "Enabling user customisation and accessibility" to the list of data processing purposes in Section 4.
+- Short overview: Expanded bullet points to explicitly mention user preferences (theme, font, cursor) as stored data categories.
+
+### Rev. 4 – 14 March 2026
+
+- Removed Plausible Analytics: Discontinued use of self-hosted Plausible Analytics; all analytics-related data collection and references have been removed.
+- Updated data collection: Removed analytics data from "What we store" and retention sections.
+- Updated purposes: Removed analytics-related purposes from Section 4.
+- Updated storage: Removed analytics infrastructure from Section 5.
+- Updated recipients: Removed analytics-related disclosures from Section 7.
+- Updated short overview: Removed mention of analytics service and public analytics URL.
