@@ -37,4 +37,8 @@
 	div.evolutions {
 		width: 100%;
 	}
+
+	footer div.footer-container {
+		flex-direction: column;
+	}
 }

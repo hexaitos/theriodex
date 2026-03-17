@@ -1,7 +1,7 @@
 # About Theriodex
 
-![](/button_theriodex.gif)
-
+<img src="logo.webp" align="left" width="120" style="margin-right: 15px; margin-bottom: 10px;">
+	
 **Theriodex** is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial! Its aim is to provide you with the most important information you need at a glance! Also try the [Who's That Pokémon?](/game) guessing game and unlock more customisation options you can apply in the [Settings](/settings)!
 
 It started out as a small project of mine but has tured into something much bigger! It is now the by far biggest project I have ever worked on and written myself and new features and bug fixes are still being added frequently! This is, however, very much a passion project and a programming excercise and, therefore, things have absolutely not been written or done in the most optimal of manners.
@@ -75,6 +75,8 @@ Pokémon and Pokémon character names are trademarks of Nintendo, Game Freak, an
 
 The project is licensed under the [3-Clause BSD License](https://opensource.org/license/bsd-3-clause).
 
-- **Fonts** (all fonts selectable in the `Settings`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by [VEXED](https://v3x3d.itch.io/)
+- **Fonts** (all fonts selectable in the Settings): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by [VEXED](https://v3x3d.itch.io/)
 - **Pixeloid font** (glyphs): [CC0](https://creativecommons.org/public-domain/cc0/) by [GGBotNet](https://www.ggbot.net/)
 - **Icons**: MIT License by [Iconoir](https://iconoir.com/)
+
+![](/button_theriodex.gif)
