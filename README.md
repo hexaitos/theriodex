@@ -2,6 +2,8 @@
 
 ## [![Ruby Version](https://img.shields.io/badge/ruby-4.0-red.svg?style=flat-square&logo=ruby)](https://www.ruby-lang.org/) [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg?style=flat-square)](LICENSE) [![Docker](https://img.shields.io/badge/docker-ready-2496ED?style=flat-square&logo=docker)](Dockerfile) [![Codeberg CI](https://ci.codeberg.org/api/badges/15226/status.svg)](https://ci.codeberg.org/hexaitos/theriodex) [![Website](https://img.shields.io/badge/🌐-theriodex.net-green?style=flat-square)](https://theriodex.net)
 
+<img src="logo.png" align="left" width="120" style="margin-right: 15px; margin-bottom: 10px;">
+
 **Theriodex** is an open-source Pokédex written in Ruby! It displays a random Pokémon with comprehensive information on the homepage, plus detailed data about moves, abilities, evolutions, and more. It even includes a small Pokémon guessing game. Designed to be fast, informative at a glance, and responsive on both mobile and desktop.
 
 The name _Theriodex_ comes from `therio-` (Ancient Greek for "animal" or "beast") and `-dex` (reference to the Pokédex).
