@@ -19,6 +19,7 @@ footer img {
 footer span {
 	width: 100%;
 	font-size: var(--font-size-xs);
+	display: block;
 }
 
 footer span a:after {
@@ -35,4 +36,19 @@ footer span a:after {
 
 footer span a:last-of-type:after {
 	background-image: none;
+}
+
+footer div.footer-container {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+footer div.footer-container div {
+	align-self: center;
+}
+
+footer div.footer-container div img {
+	width: 64px;
+	margin: 0 auto;
 }
