@@ -21,6 +21,7 @@ body {
 	background-image: url(/backgrounds/tiger-stripes.svg);
 	background-repeat: repeat;
 	background-attachment: fixed;
+	background-size: 100%;
 }
 
 th {
