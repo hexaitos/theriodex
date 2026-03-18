@@ -1,12 +1,10 @@
 footer {
 	margin-top: 30px;
 	margin-bottom: 30px;
-	padding: 30px;
+	padding: 20px;
 	background-color: var(--color-accent);
 	border-radius: 5px;
 	font-size: var(--font-size-sm);
-	display: flex;
-	flex-flow: wrap;
 	justify-content: center;
 }
 
@@ -17,21 +15,26 @@ footer img {
 }
 
 footer span {
-	width: 100%;
 	font-size: var(--font-size-xs);
 	display: block;
 }
 
-footer span a:after {
+div.footer-links a:before {
 	content: "";
 	display: inline-block;
 	width: 1em;
 	height: 1em;
 	background-size: 1em 1em;
-	margin-left: 3px;
+	margin-right: 3px;
 	vertical-align: middle;
 	margin-bottom: 2px;
 	background-image: url("/icons/ball.svg");
+}
+
+div.footer-links {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 footer span a:last-of-type:after {
@@ -40,7 +43,8 @@ footer span a:last-of-type:after {
 
 footer div.footer-container {
 	display: flex;
-	justify-content: center;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 	gap: 10px;
 }
 
@@ -49,6 +53,18 @@ footer div.footer-container div {
 }
 
 footer div.footer-container div img {
-	width: 64px;
+	width: 50px;
 	margin: 0 auto;
+}
+
+div.footer-text {
+	flex: 0 1 70%;
+}
+
+div.footer-text span {
+	text-align: justify;
+}
+
+footer a {
+	font-size: var(--font-size-xs);
 }

@@ -1,18 +1,21 @@
 <footer>
 	<div class="footer-container">
-		<div>
-			<span>
-				<a href="/privacy">Privacy Policy</a>
-				<a href="https://codeberg.org/hexaitos/theriodex">Source Code</a>
-				<a href="https://hexaitos.com">Developer Website</a>
-			</span>
-			<span>Version: <%= THERIODEX_VERSION %></span>
-			<br>
+		<div class="footer-links">
+			<a href="/privacy">Privacy Policy</a>
+			<a href="https://codeberg.org/hexaitos/theriodex">Source Code</a>
+		</div>
+		<div class="footer-text">
 			<span class="footer-text"><%= I18n.t(:footer) %></span>
 		</div>
 		<div>
 			<img src="/logo.webp">
 		</div>
+
+	</div>
+	<hr>
+	<div>
+		<span><%= THERIODEX_VERSION %></span>
+		<a href="https://hexaitos.com">Made by Hexaitos</a>
 	</div>
 	<a rel="me" aria-label="Hidden link for Mastodon verification" href="https://social.jnpw.net/@hexaitos"></a>
 </footer>

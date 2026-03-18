@@ -38,7 +38,7 @@
 		width: 100%;
 	}
 
-	footer div.footer-container {
-		flex-direction: column;
+	div.footer-links {
+		flex-direction: row;
 	}
 }
