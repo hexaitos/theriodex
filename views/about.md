@@ -78,5 +78,6 @@ The project is licensed under the [3-Clause BSD License](https://opensource.org/
 - **Fonts** (all fonts selectable in the Settings): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by [VEXED](https://v3x3d.itch.io/)
 - **Pixeloid font** (glyphs): [CC0](https://creativecommons.org/public-domain/cc0/) by [GGBotNet](https://www.ggbot.net/)
 - **Icons**: MIT License by [Iconoir](https://iconoir.com/)
+- **Logo**: The fantastic logo was made by my partner Coyote 💛
 
 ![](/button_theriodex.gif)
