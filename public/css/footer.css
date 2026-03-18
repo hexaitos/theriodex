@@ -63,6 +63,7 @@ div.footer-text {
 
 div.footer-text span {
 	text-align: justify;
+	hyphens: auto;
 }
 
 footer a {
