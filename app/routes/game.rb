@@ -60,7 +60,7 @@ namespace "/game" do
 	end
 
 	get "/reset/?:lang?" do
-		session.clear
+		clear_game
 		redirect "/game?lang=#{params["lang"]}"
 	end
 

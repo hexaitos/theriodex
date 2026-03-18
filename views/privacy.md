@@ -32,7 +32,7 @@ All processing and storage is done in the EU.
 
 **How to delete data**:
 
-- You can delete the current session data yourself by navigating to [https://theriodex.net/game/reset](https://theriodex.net/game/reset) (Warning: Clicking this link will immediately delete your current game data as well as your selected customisation options).
+- You can delete the current session data yourself by navigating to [https://theriodex.net/game/reset](https://theriodex.net/reset_session) (Warning: Clicking this link will immediately delete your current game data as well as your selected customisation options).
 - Contact us to delete leaderboard data.
 - Contact: privacy@theriodex.net – include details (username, date) to request removal (e.g., leaderboard entry).
 
@@ -88,7 +88,7 @@ When the user plays the Pokémon Guessing Game and manages to reach a certain nu
 
 **List of all session cookies**
 
-The following is an overview of all the cookies / data stored per session. You may verify where and how this data is used by looking for "session[:key\_name\_here]" in the software's source code. Replace "key\_name\_here" with the session key found in the first column of the following table:
+The following is an overview of all the cookies / data stored per session. You may verify where and how this data is used by looking for "session[:key\_name\_here]" in the software's source code. Replace "key_name_here" with the session key found in the first column of the following table:
 
 <table>
   <thead>

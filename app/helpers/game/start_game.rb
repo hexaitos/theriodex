@@ -1,5 +1,5 @@
 def start_game(difficulty, gen = nil, u1, u2, u3, lang)
-	session.clear
+	clear_game
 	session[:difficulty] ||= difficulty.clean
 	session[:gen] ||= gen.clean if gen
 	session[:username] ||= generate_username(u1.clean, u2.clean, u3.clean)
@@ -7,7 +7,7 @@ def start_game(difficulty, gen = nil, u1, u2, u3, lang)
 end
 
 def start_challenge(u1, u2, u3, lang)
-	session.clear
+	clear_game
 	session[:difficulty] ||= "hard"
 	session[:challenge] ||= true
 	session[:guesses] ||= 0
