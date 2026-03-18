@@ -22,7 +22,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 		pokemon_data[:abilities] = abilities
 	end
 	pokemon_data[:types] = get_pokemon_types(pokemon_data[:pokemon_id_form2] || pokemon_id)
-	pokemon_data[:calls] = get_pokemon_calls(pokemon_id)
+	pokemon_data[:calls] = get_pokemon_calls(pokemon_data[:pokemon_id_form2] || pokemon_id)
 
 	attrs = get_pokemon_attr(pokemon_data[:pokemon_id_form2] || pokemon_id)
 	pokemon_data[:weight] = attrs[0].to_f
