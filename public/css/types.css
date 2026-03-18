@@ -64,6 +64,7 @@ td div.move-type-card,
 div.move-type-card-name {
 	position: relative;
 	padding-left: 1em;
+	white-space: nowrap;
 }
 
 td div.move-type-card:before {
