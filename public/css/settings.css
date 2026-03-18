@@ -12,6 +12,13 @@ fieldset div {
 	flex: 1 1 0;
 }
 
+fieldset#font-select {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: 0 0.3px 0.1px currentColor;
+	font-variant-ligatures: none;
+}
+
 /*
 fieldset div div label {
 	display: inline;

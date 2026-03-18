@@ -8,9 +8,9 @@
 
 The name _Theriodex_ comes from `therio-` (Ancient Greek for "animal" or "beast") and `-dex` (reference to the Pokédex).
 
-> **Note:** This is still very much a work in progress. Expect bugs, breakages, possible incorrect data, and frequent updates. Check `TODO.md` for planned features.
-
 Try it out at [theriodex.net](https://theriodex.net)!
+
+> **Note:** This is still very much a work in progress. Expect bugs, breakages, possible incorrect data, and frequent updates. Check `TODO.md` for planned features.
 
 ## Table of Contents
 
@@ -57,8 +57,6 @@ Try it out at [theriodex.net](https://theriodex.net)!
 ### Planned Features
 
 - **Evolution Chains**: Visual trees with evolution methods (level, item, friendship, trade, etc.)
-- **Daily Challenge Mode**: Wordle-style daily Pokémon challenge
-- **Complete Coverage**: Including variants (Lycanroc, Oricorio) and Mega Evolutions
 - **Improved Localization**: Completing the current implementation and working on moving over to another backend
 
 ## Quick Start
@@ -225,7 +223,7 @@ theriodex.net {
 }
 ```
 
-Caddy will automatically obtain an SSL certificate for you and in just a few moments, your website should be available under theriodex.net and have HTTPS enabled!
+Caddy will automatically obtain an SSL certificate for you and in just a few moments, your website should be available under theriodex.net and have HTTPS enabled! It also enables (hopefully) decent caching defaults.
 
 ### Privacy Policy
 
@@ -320,7 +318,7 @@ echo 'export GEM_HOME=$HOME/.gem' >> $HOME/.profile
 
 ## Acknowledgements
 
-A special and immense thanks to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thanks 🩵
+A special and immense thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thank you, I love you all 💛
 
 Data sources:
 
@@ -334,6 +332,8 @@ Fonts:
 
 Icons: [Iconoir](https://iconoir.com/)
 
+- Logo: The fantastic logo was made by my partner Coyote 💛
+
 > **Support the original creators!** Please consider donating to / buying the fonts and icons used in Theriodex if you are a frequent vistor of theriodex.net or if you wish to host it yourself.
 
 ## Copyright
@@ -345,4 +345,3 @@ The project is licensed under the [3-Clause BSD License](https://opensource.org/
 - **Fonts** (all fonts selectable in the `Settings`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by [VEXED](https://v3x3d.itch.io/)
 - **Pixeloid font** (glyphs): [CC0](https://creativecommons.org/public-domain/cc0/) by [GGBotNet](https://www.ggbot.net/)
 - **Icons**: MIT License by [Iconoir](https://iconoir.com/)
-- **Logo**: The fantastic logo was made by my partner Coyote 💛

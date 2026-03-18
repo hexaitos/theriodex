@@ -14,7 +14,7 @@ I highly recommend checking out this project’s official [git repository](https
 
 ### Core Pokédex Information and Features
 
-- **(Nearly) Complete Coverage**: All standard 1000+ Pokémon through Generation IX
+- **Complete Coverage**: All 1000+ Pokémon through Generation IX including special varities (such as regional variants, mega evolutions and more)
 - **Damage information**: Quick overview of how much damage a Pokémon receives from other types! Takes dual-type Pokémon into account
 - **Move Learnsets**: Level-up, TM/HM, egg, and tutor moves with STAB highlighting and generation-specific changes
 - **Ability Details**: Full ability descriptions including which Pokémon can have them
@@ -22,16 +22,16 @@ I highly recommend checking out this project’s official [git repository](https
 - **Lots and lots of sprites**: Default, shiny, and animated sprites and even version-specific sprites when viewing Pokémon by game version!
 - **Random Pokémon**: Displays a random Pokémon every time you visit the start page!
 
-### Advanced Browsing
+### Browsing
 
 - **Multi-parameter Filtering**: Browse by type, generation, and more
 - **Item Database**: Complete item listings with descriptions and effects
 - **Search**: Fast fuzzy search across Pokémon and moves
-- **Multilingual Support**: Interface localization with `lang` parameter support
+- **Multilingual Support**: Interface localization with lang parameter support
 
-### Guessing Game
+### Game
 
-- **"Who's That Pokémon?" Guessing Game**: Blurred sprite identification with adjustable difficulty
+- **"Who's That Pokémon?" Guessing Game**: Blurred sprite identification with adjustable difficulty and a daily challenge mode!
 - **Generation Filtering**: Practise specific generations (e.g., "Only Gen 3")
 - **Global Leaderboard**: Redis-backed score tracking with username persistence
 
@@ -45,8 +45,6 @@ I highly recommend checking out this project’s official [git repository](https
 ### Planned Features
 
 - **Evolution Chains**: Visual trees with evolution methods (level, item, friendship, trade, etc.)
-- **Daily Challenge Mode**: Wordle-style daily Pokémon challenge
-- **Complete Coverage**: Including variants (Lycanroc, Oricorio) and Mega Evolutions
 - **Improved Localization**: Completing the current implementation and working on moving over to another backend
 
 ---
@@ -55,7 +53,7 @@ I highly recommend checking out this project’s official [git repository](https
 
 I want to thank the folk behind [PokeAPI](https://github.com/PokeAPI/pokeapi) and [Veekun’s Pokédex](https://github.com/veekun/pokedex) who are responsible for the data in this repository’s database. Thanks also to [GGBotNet](https://www.ggbot.net/) and [VEXED](https://v3x3d.itch.io/) for creating the fantastic pixel fonts I am using. Icons are from [Iconoir](https://iconoir.com/).
 
-A special and immense thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thanks 🩵
+A special and immense thanks also to all my partners – who are way better at programming and database queries than I am – for helping me out a lot and answering my questions and giving helpful tips. I definitely would not have been able to get as far with this project if it hadn’t been for them. Thank you, I love you all 💛
 
 If you enjoy any of the fonts or icons and wish to use them yourself, please do consider not simply taking them from Theriodex, but going to their respective sites and either buying it from them or donating to them – just as I did, too.
 
