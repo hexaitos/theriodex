@@ -27,6 +27,31 @@ div.search_bar form input {
 	flex: auto;
 }
 
+div.search_bar_index {
+}
+
+div.search_bar_index input {
+	margin-bottom: 0;
+	flex: auto;
+}
+
+div.search_bar_index input {
+	border-radius: 5px 0px 0px 0px;
+}
+
+div.search_bar_index button {
+	border-radius: 0px 5px 0px 0px;
+}
+
+div.search_bar_index form {
+	display: flex;
+	justify-content: safe center;
+}
+
+.no-top-radius {
+	border-radius: 0 0 5px 5px !important;
+}
+
 div.search {
 	min-width: 200px;
 }
@@ -44,8 +69,12 @@ div.privacy code {
 	white-space: pre;
 }
 
-div.about {
+div.about p {
 	text-align: justify;
+}
+
+div.about h1 {
+	text-align: left;
 }
 
 div.flavour {
@@ -131,4 +160,8 @@ div.notification code {
 	border-radius: 5px;
 	padding: 2px;
 	font-size: var(--font-size-base);
+}
+
+figcaption {
+	font-size: var(--font-size-xs);
 }

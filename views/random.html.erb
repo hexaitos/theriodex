@@ -1,0 +1,190 @@
+<%= partial :lang_select, id: id, lang: lang %>
+
+<div class="types">
+	<h1 class="pokemon-title">
+		<% if !form_name or form_name.empty? %>
+			<%= name %>
+		<% else %>
+			<%= form_name %>
+		<% end %>
+		<img class="sound-btn" src="/sound.svg" alt="A button showing a speaker" onclick="new Audio('<%= calls %>').play()">
+	</h1>
+
+	<div class="type-container">
+	<% types.each do |type| %>
+		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>" aria-label="Pokémon type <%= type.first.to_s %>">
+		<div id="<%= type.first.to_s %>" class="move-type-card move-type-card-name rounded"></div>
+		</a>
+	<% end %>
+	</div>
+
+	<div class="generation-index">
+	</div>
+
+	<hr class="small">
+
+	<div class="stats">
+		<span><%= weight / 10 %> kg</span>
+		<span><%= height / 10 %> m</span>
+		<span><%= species_name %></span>
+	</div>
+
+	<div class="stats">
+		<span><%= I18n.t(:hp) %>: <%= stats[:hp] %></span>
+		<span><%= I18n.t(:atk) %>: <%= stats[:atk] %></span>
+		<span><%= I18n.t(:def) %>: <%= stats[:def] %></span>
+		<span><%= I18n.t(:spatk) %>: <%= stats[:spatk] %></span>
+		<span><%= I18n.t(:spdef) %>: <%= stats[:spdef] %></span>
+		<span><%= I18n.t(:speed) %>: <%= stats[:speed] %></span>
+	</div>
+
+	<div class="stats">
+		<% unless gen[0] == "X" %>
+			<span>Introduced in: <a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a></span>
+		<% end %>
+	</div>
+
+	<hr class="small">
+	<span><%= I18n.t(:abilities) %></span>
+	<div class="evolutions">
+		<% abilities.each do | name, hidden, slot, id, unformatted | %>
+			<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
+		<% end %>
+	</div>
+
+	<% if (!evolutions.nil? && evolutions.size > 1) || (!forms.nil? && forms.size > 0) %>
+		<hr class="small">
+	<% end %>
+
+	<div class="evolution-container">
+	<% unless evolutions.nil? or evolutions.size <= 1 %>
+		<div class="evolutions">
+			<form action="/show/" method="get" id="evolution-select-form">
+				<label for="evolution-select">Select evolution</label>
+				<div class="custom-select">
+					<select aria-label="Select evolution" id="evolution-select" name="evolution" required>
+						<% evolutions.each do |evolution| %>
+							<% if evolutions_formatted[evolution] == name %>
+								<option selected value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+							<% else %>
+								<option value="<%= evolution %>"><%= evolutions_formatted[evolution] %></option>
+							<% end %>
+						<% end %>
+					</select>
+				</div>
+			</form>
+
+			<script>
+				document.querySelector('#evolution-select-form').addEventListener("change", (event) => {
+					event.preventDefault();
+					const selectedValue = document.querySelector('#evolution-select').value;
+					window.location.href = `/show/${selectedValue}?lang=<%= lang %>`;
+				});
+			</script>
+		</div>
+	<% end %>
+
+
+
+	<% unless forms.nil? or forms.size == 0 %>
+		<div class="evolutions">
+			<form action="/show/pokemon/" method="get" id="form-select-form">
+			<label for="form-select">Select form</label>
+			<div class="custom-select">
+				<select aria-label="Select language" id="form-select" name="form" required>
+					<% if forms.nil? or forms.size == 0 then %>
+						<%# nothing happens %>
+					<% else %>
+						<% unless no_base_form %>
+							<option value="<%= pokemon_id %>"><%= name %></option>
+						<% end %>
+						<% forms.each do |form| %>
+							<% unless form["name"].empty? %>
+								<% unless form["id"].to_i == id.to_i %>
+									<option value="<%= form["id"] %>"><%= form["name"] %></option>
+								<% else %>
+									<option selected value="<%= form["id"] %>"><%= form["name"] %></option>
+								<% end %>
+							<% else %>
+								<% unless form["id"].to_i == id.to_i %>
+									<option value="<%= pokemon_id %>"><%= name %></option>
+								<% else %>
+									<option selected value="<%= form["id"] %>"><%= name %></option>
+								<% end %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</select>
+			</div>
+			</form>
+
+			<script>
+				document.querySelector('#form-select-form').addEventListener("change", (event) => {
+					event.preventDefault();
+					const selectedValue = document.querySelector('#form-select').value;
+					window.location.href = `/show/pokemon/${selectedValue}?lang=<%= lang %>`;
+				});
+			</script>
+		</div>
+	<% end %>
+	</div>
+</div>
+
+<div class="sprites">
+	<%= image_tag formatted_sprites[:front], alt: "#{name} front sprite" %>
+
+	<% if formatted_sprites[:back] %>
+		<%= image_tag formatted_sprites[:back], alt: "#{name} back sprite" %>
+	<% end %>
+
+	<br>
+	<div class="sprites-links">
+		<% formatted_sprites[:links].each do |link| %>
+			<a href="<%= link[:url] %>"><%= link[:icon] %> <%= I18n.t(link[:key]) %></a>
+		<% end %>
+	</div>
+</div>
+
+
+<div class="info">
+	<hr>
+	<div class="flavour">
+		<p><%= flavour_text %></p>
+	</div>
+	<hr>
+
+	<h3 class="no-bottom-margin"><%= I18n.t(:damage_taken_from_other_types) %></h3>
+	<p class="info"><%= I18n.t(:damage_received_description) %></p>
+	<%= partial :damage, damage_info: damage_taken, lang: lang %>
+</div>
+
+<hr>
+<h3><%= name %> – Moves</h3>
+<% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
+	<%= partial :move_gens_type, gens: move_gens, id: pokemon_id, lang: lang %>
+	<p class="info"><%= I18n.t(:view_moveset_generation) %></p>
+<% end %>
+
+<div class="type-move-container">
+	<a class="a-btn-3" href="/show/pokemon/moves/<%= pokemon_id %>/gen/<%= moves[0][9] %>?lang=<%= lang %>"><%= I18n.t(:moves_all_methods) %></a>
+</div>
+<p class="info"><%= I18n.t(:view_all_moves) %></p>
+<hr>
+
+<h3 class="no-bottom-margin">Moves in <%= moves[0][10] %></h3>
+<p class="info"><%= I18n.t(:moves_info_stab, gen: moves[0][10]) %></p>
+
+<div class="tab table-cards-tabs">
+	<button class="tablinks" onclick="openTab(event, 'level-cards')"><%= I18n.t(:cards_view) %></button>
+	<button class="tablinks" onclick="openTab(event, 'level-table')"><%= I18n.t(:table_view) %></button>
+</div>
+
+<div id="level-cards" class="tabcontent">
+	<%= partial :move_cards, moves: moves, lang: lang %>
+</div>
+
+<div id="level-table" class="tabcontent">
+	<%= partial :move_table, moves: moves, lang: lang %>
+</div>
+
+<%= partial :tab_js %>

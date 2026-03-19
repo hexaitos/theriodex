@@ -1,6 +1,7 @@
 <div class="menu">
 	<% if params["lang"].nil? %>
-		<a href="/">Random</a>
+		<a href="/">Home</a>
+		<a href="/random">Random</a>
 		<a href="/search">Search</a>
 		<a href="/browse">Browse</a>
 		<a href="/game">Game</a>
@@ -8,7 +9,8 @@
 		<a href="/about">About</a>
 	<% else %>
 		<% language = params["lang"] %>
-		<a href="/?lang=<%= language %>"><%= I18n.t(:random) %></a>
+		<a href="/?lang=<%= language %>">Home</a>
+		<a href="/random?lang=<%= language %>"><%= I18n.t(:random) %></a>
 		<a href="/search?lang=<%= language %>"><%= I18n.t(:search) %></a>
 		<a href="/browse?lang=<%= language %>"><%= I18n.t(:browse) %></a>
 		<a href="/game?lang=<%= language %>"><%= I18n.t(:game) %></a>

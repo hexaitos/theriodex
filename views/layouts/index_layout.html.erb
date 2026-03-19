@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="darkreader-lock">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Theriodex - An Open-Source Pokédex</title>
+	<meta name="description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
+
+	<meta property="og:title" content="Theriodex - An Open-Source Pokédex">
+	<meta property="og:description" content="Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.">
+	<meta property="og:url" content="<%= request.base_url %><%= request.path_info %>">
+	<meta property="og:image" content="<%= request.base_url %>/logo.png">
+
+	<script type="application/ld+json">
+		<%= {
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Theriodex – An Open-Source Pokédex",
+			"url": request.base_url + request.path_info,
+			"name": "Theriodex - An Open-Source Pokédex",
+			"description": "Theriodex: An ad-free and open-source Pokédex featuring Pokémon species data, moves, abilities, evolutions, and an interactive guessing game.",
+			"image": {
+				"@type": "ImageObject",
+				"url": request.base_url + "/logo.png",
+				"contentUrl": request.base_url + "/logo.png",
+				"width": 256,
+				"height": 256,
+				"caption": "Logo",
+				"representativeOfPage": true,
+			}
+		}.to_json %>
+	</script>
+
+	<link rel="preload" as="style" href="/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
+
+	<%= partial :fonts %>
+	<%= partial :theme %>
+	<%= partial :cursor %>
+</head>
+
+<body>
+	<%= partial :menu %>
+
+	<div class="search">
+		<div class="search_bar_index">
+			<form action="/search" method="GET">
+			<input type="text" id="q" name="q" placeholder="Search Pokémon / Move" required>
+			<input type="hidden" name="lang" value="<%= lang %>">
+			<button type="submit"><%= I18n.t(:search) %></button>
+			</form>
+		</div>
+	</div>
+
+	<div class="main no-top-radius">
+		<% if flash[:notification] %>
+			<div class="notification">
+				<p><%= flash[:notification] %></p>
+			</div>
+		<% end %>
+
+		<%= yield %>
+	</div>
+
+	<%= partial :footer %>
+</body>
+</html>

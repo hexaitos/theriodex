@@ -149,7 +149,7 @@ def pokemon_view_type(type, language_id = 9, gen = nil)
 	}
 end
 
-def pokemon_view_index(id, form = nil, s = nil, animated = false, language_id = 9)
+def view_pokemon(id, form = nil, s = nil, animated = false, language_id = 9)
 	selected_pokemon = Sanitize.fragment(id)
 	selected_sex = Sanitize.fragment(s)
 	animated = Sanitize.fragment(animated) unless !animated

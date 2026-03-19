@@ -67,7 +67,7 @@ namespace "/show" do
 	get "/pokemon/:id" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
-		erb :index, locals: pokemon_view_index(params[:id], params[:form], params[:s], params[:animated], lang)
+		erb :random, locals: view_pokemon(params[:id], params[:form], params[:s], params[:animated], lang)
 	end
 
 	get "/test/test" do
