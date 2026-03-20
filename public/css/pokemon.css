@@ -65,4 +65,5 @@ div.stat-graph div.percentage-bar {
 	height: 20px;
 	width: var(--percentage);
 	border-radius: 5px;
+	border: 1px solid black;
 }
