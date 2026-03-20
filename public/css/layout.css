@@ -28,19 +28,21 @@ div.search_bar form input {
 }
 
 div.search_bar_index {
+	margin-bottom: 10px;
 }
 
 div.search_bar_index input {
 	margin-bottom: 0;
 	flex: auto;
+	background-color: var(--color-bg);
 }
 
 div.search_bar_index input {
-	border-radius: 5px 0px 0px 0px;
+	border-radius: 5px 0 0 5px;
 }
 
 div.search_bar_index button {
-	border-radius: 0px 5px 0px 0px;
+	border-radius: 0 5px 5px 0;
 }
 
 div.search_bar_index form {

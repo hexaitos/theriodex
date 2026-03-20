@@ -47,14 +47,14 @@
 	<div class="search">
 		<div class="search_bar_index">
 			<form action="/search" method="GET">
-			<input type="text" id="q" name="q" placeholder="Search Pokémon / Move" required>
+			<input type="text" id="q" name="q" placeholder="Search Pokémon / Move" autocomplete="off" required>
 			<input type="hidden" name="lang" value="<%= lang %>">
 			<button type="submit"><%= I18n.t(:search) %></button>
 			</form>
 		</div>
 	</div>
 
-	<div class="main no-top-radius">
+	<div class="main">
 		<% if flash[:notification] %>
 			<div class="notification">
 				<p><%= flash[:notification] %></p>
