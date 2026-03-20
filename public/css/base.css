@@ -21,10 +21,10 @@ body {
 	font-family: "Quotes", var(--font-primary);
 	font-size: var(--font-size-base);
 	line-height: var(--line-height-base);
-	margin-left: 20%;
-	margin-right: 20%;
 	text-align: center;
 	background-color: var(--color-body);
+	margin: 0 auto;
+	max-width: 1000px;
 }
 
 p {

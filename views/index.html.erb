@@ -1,18 +1,48 @@
 <div class="about">
-	<h1>Welcome to Theriodex!</h1>
+	<div class="index">
+		<div class="text">
+			<h1>Welcome to Theriodex!</h1>
 
-	<figure style="float: left; margin: 0 15px 10px 0;">
-		<img src="logo.webp" width="120">
-		<figcaption>Vappy bids you welcome!</figcaption>
-	</figure>
+			<figure style="float: left; margin: 0 15px 10px 0;">
+				<img src="logo.webp" width="120">
+				<figcaption>Vappy says hello!</figcaption>
+			</figure>
 
-	<p><b>Theriodex</b> is an open-source and ad-free Pokédex! Its aim is to provide you with the most important information you need at a glance! Also try the <a href="/game">Who's That Pokémon?</a> guessing game and unlock more customisation options you can apply in the <a href="/settings">Settings</a>!</p>
+			<p>Hello and welcome to <b>Theriodex</b>! Theriodex is an open-source and ad-free Pokédex! Its aim is to provide you with the most important information you need at a glance! This site is still a work-in-progress; therefore, don't hesitate to contact us if you have any ideas for improvement!</p>
 
-	<div class="random-index-pokemon">
-		<% if !form_name or form_name.empty? %>
-			<%= name %>
-		<% else %>
-			<%= form_name %>
-		<% end %>
+			<p>There are plenty of things to do here! You can try your luck at the <a href="/game">Who's That Pokémon?</a> guessing game either by doing the default endless mode or by doing the daily Pokémon challenge! You can also be shown a <a href="/random">random Pokémon</a>, search for Pokémon or moves or simply browse the database for – for example – all Pokémon of a particular type!</p>
+
+			<p>Don't like the font, theme or cursor? To into the <a href="/settings">Settings</a> to change them to your liking! You can also unlock more customisation options by playing the game and reaching a certain score!</p>
+		</div>
+
+		<div class="random-index-pokemon-container">
+			<div class="random-index-pokemon">
+				<div>
+					<h2>Do you know <%= name %>?</h2>
+					<div class="type-container">
+					<% types.each do |type| %>
+						<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>" aria-label="Pokémon type <%= type.first.to_s %>">
+						<div id="<%= type.first.to_s %>" class="move-type-card move-type-card-name rounded"></div>
+						</a>
+					<% end %>
+					</div>
+				</div>
+				<br>
+
+				<div class="index-sprites-text">
+					<div class="sprites">
+						<%= image_tag sprite, alt: "#{name} front sprite" %>
+					</div>
+
+					<div class="flavour-index">
+						<p><%= flavour_text %></p>
+					</div>
+				</div>
+
+				<div>
+					<a class="a-btn-1" href="/show/pokemon/<%= name %>">Learn more!</a>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

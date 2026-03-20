@@ -73,7 +73,10 @@ div.about p {
 	text-align: justify;
 }
 
-div.about h1 {
+div.about h1,
+div.about h2,
+div.about h3,
+div.about ul {
 	text-align: left;
 }
 
@@ -164,4 +167,48 @@ div.notification code {
 
 figcaption {
 	font-size: var(--font-size-xs);
+}
+
+div.random-index-pokemon {
+	flex: auto;
+	padding: 10px;
+	align-self: baseline;
+}
+
+div.index div.text {
+	flex: 1 1 60%;
+}
+
+div.index {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 20px;
+	overflow: hidden;
+}
+
+div.random-index-pokemon-container {
+	margin: 0 auto;
+	flex: 1 1 200px;
+	border-left: 2px solid var(--color-th);
+	margin-left: -2px;
+}
+
+div.random-index-pokemon a.a-btn-1 {
+	width: 100%;
+	display: block;
+}
+
+div.flavour-index {
+	flex: 1 1 55%;
+}
+
+div.flavour-index p {
+	margin-top: 0;
+}
+
+div.index-sprites-text {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
 }
