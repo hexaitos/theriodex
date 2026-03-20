@@ -71,14 +71,19 @@ div.privacy code {
 	white-space: pre;
 }
 
-div.about p {
+div.about p,
+div.index p {
 	text-align: justify;
 }
 
 div.about h1,
 div.about h2,
 div.about h3,
-div.about ul {
+div.about ul,
+div.index h1,
+div.index h2,
+div.index h3,
+div.index ul {
 	text-align: left;
 }
 

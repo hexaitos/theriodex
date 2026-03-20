@@ -1054,7 +1054,8 @@ div.damage_taken td {
 	font-size: var(--font-size-sm);
 }
 
-div.about {
+div.about,
+div.index {
 	text-align: justify;
 }
 
