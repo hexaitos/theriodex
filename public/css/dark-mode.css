@@ -33,7 +33,8 @@
 	label,
 	legend,
 	input[type="radio"]:disabled + label::before,
-	li {
+	li,
+	figcaption {
 		color: white !important;
 	}
 
