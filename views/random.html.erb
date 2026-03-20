@@ -84,8 +84,6 @@
 		</div>
 	<% end %>
 
-
-
 	<% unless forms.nil? or forms.size == 0 %>
 		<div class="evolutions">
 			<form action="/show/pokemon/" method="get" id="form-select-form">
@@ -159,6 +157,17 @@
 </div>
 
 <hr>
+<h3><%= name %> – Stats</h3>
+<div class="stat-graph">
+	<% [:hp, :atk, :def, :spatk, :spdef, :speed].each do |s| %>
+		<div class="row">
+			<span><%= I18n.t(s) %>: <%= stats[s] %></span>
+			<div class="percentage-bar" style="--percentage: <%= scale_to_pct(stats[s]) %>%; --bar-color: <%= hue_for_pct(scale_to_pct(stats[s])) %> "></div>
+		</div>
+	<% end %>
+</div>
+<hr>
+
 <h3><%= name %> – Moves</h3>
 <% unless move_gens.size == 1 and move_gens[0] == moves[0][9] then %>
 	<%= partial :move_gens_type, gens: move_gens, id: pokemon_id, lang: lang %>

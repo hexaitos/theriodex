@@ -53,3 +53,16 @@ div.price-container span {
 	line-height: var(--font-size-xs);
 	color: grey;
 }
+
+div.stat-graph {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+div.stat-graph div.percentage-bar {
+	background-color: var(--bar-color);
+	height: 20px;
+	width: var(--percentage);
+	border-radius: 5px;
+}
