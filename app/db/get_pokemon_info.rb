@@ -3,6 +3,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 
 	pokemon_id_form = pokemon_id
 	pokemon_id = get_pokemon_base_form(pokemon_id, language_id).first["pokemon_form_id"]
+	pokemon_id = 716 if pokemon_id.to_i == 10132
 
 	sprites = get_pokemon_sprites(pokemon_id_form)
 	evolutions = get_pokemon_evolutions(pokemon_id, language_id)
