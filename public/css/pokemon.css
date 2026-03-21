@@ -65,5 +65,22 @@ div.stat-graph div.percentage-bar {
 	height: 20px;
 	width: var(--percentage);
 	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid grey;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+}
+
+div.row {
+	display: flex;
+	gap: 20px;
+}
+
+div.row span {
+	width: 5rem;
+}
+
+div.percentage-bar-container {
+	flex: auto;
 }

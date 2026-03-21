@@ -161,8 +161,10 @@
 <div class="stat-graph">
 	<% [:hp, :atk, :def, :spatk, :spdef, :speed].each do |s| %>
 		<div class="row">
-			<span><%= I18n.t(s) %>: <%= stats[s] %></span>
-			<div class="percentage-bar" style="--percentage: <%= scale_to_pct(stats[s]) %>%; --bar-color: <%= hue_for_pct(scale_to_pct(stats[s])) %> "></div>
+			<span><%= I18n.t(s) %></span>
+			<div class="percentage-bar-container">
+				<div class="percentage-bar" style="--percentage: <%= scale_to_pct(stats[s]) %>%; --bar-color: <%= hue_for_pct(scale_to_pct(stats[s])) %> "><%= stats[s] %></div>
+			</div>
 		</div>
 	<% end %>
 </div>
