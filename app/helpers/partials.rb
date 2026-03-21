@@ -15,7 +15,6 @@ helpers do
 	rescue
 		""
 	end
-
 	end
 
 	def get_sprites_from_gen(sprite_hash, generation)

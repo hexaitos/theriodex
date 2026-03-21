@@ -2,7 +2,7 @@ def get_random_sprite_from_gen(sprite_hash, generation)
 	sprites = []
 	url = nil
 
-	generation = generation.gsub(/\s+/, '-').downcase if generation.include?(" ")
+	generation = generation.gsub(/\s+/, "-").downcase if generation.include?(" ")
 
 	parsed_sprites = JSON.parse(sprite_hash)
 	available_sprites = parsed_sprites.dig("versions", generation) || {}

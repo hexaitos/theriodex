@@ -1,4 +1,4 @@
-def init_serials()
+def init_serials
 	new_serial = "youdon'tdeserveit"
 	points = 9999999999
 

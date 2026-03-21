@@ -3,5 +3,5 @@ def get_item_pocket_ids_and_names(language_id = 9)
 
 	data = get_item_pocket_ids_and_names(9) if data.nil? or data.length == 0
 
-	return data
+	data
 end

@@ -3,5 +3,5 @@ def get_pokemon_genus(pokemon_id, language_id = 9)
 
 	genus = get_pokemon_genus(pokemon_id, 9) if genus.nil? or genus.length == 0
 
-	return genus
+	genus
 end
