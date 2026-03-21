@@ -129,6 +129,7 @@ a.corner {
 	color: #ffffff;
 	background-color: var(--color-primary);
 	width: 110px;
+	min-height: 28px;
 }
 
 a.corner:hover {

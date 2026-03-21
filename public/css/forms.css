@@ -66,6 +66,7 @@ select#lang-select {
 	width: 110px;
 	border: none;
 	font-size: var(--font-size-xs);
+	min-height: 28px;
 }
 
 select#form-select,
