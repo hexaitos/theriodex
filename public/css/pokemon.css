@@ -41,6 +41,7 @@ div.id-container {
 	left: 0;
 	right: 0;
 	padding-left: 5px;
+	width: 5px;
 }
 
 div.id-container span {

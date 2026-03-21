@@ -12,10 +12,8 @@
 				<div id="<%= move["type_id"] %>" class="move-type-card move-type-card-name rounded"></div>
 				</a>
 				</div>
-				<br>
-				<a href="/show/move/<%= move["move_id"] %>/gen/<%= move["latest_generation_id"] %>?lang=<%= lang %>">
-				<br><%= move["name"] %><br></a>
-				<br>
+				<a class="a-btn-1 btn-search" href="/show/move/<%= move["move_id"] %>/gen/<%= move["latest_generation_id"] %>?lang=<%= lang %>">
+				<%= move["name"] %></a>
 			</div>
 		<% end %>
 	</div>

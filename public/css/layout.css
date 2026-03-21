@@ -27,6 +27,13 @@ div.search_bar form input {
 	flex: auto;
 }
 
+a.btn-search {
+	width: 80%;
+	text-align: center;
+	margin: 10px auto !important;
+	display: block;
+}
+
 div.search_bar_index {
 	margin-bottom: 10px;
 }
