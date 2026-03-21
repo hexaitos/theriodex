@@ -35,9 +35,9 @@ FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
 
 I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
 I18n.load_path += Dir['./app/locales/*.yml']
-I18n.available_locales = [:en, :de, :ja, :ko, :fr, :it, :es, :"zh-cn", :"zh-tw"]
+I18n.available_locales = [ :en, :de, :ja, :ko, :fr, :it, :es, :"zh-cn", :"zh-tw" ]
 I18n.default_locale = :en
-I18n.fallbacks = [:en]
+I18n.fallbacks = [ :en ]
 
 configure :production do
 	set :static_cache_control, [ :public, max_age: 3600 ]

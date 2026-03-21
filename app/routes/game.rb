@@ -32,7 +32,6 @@ namespace "/game" do
 					session[:serial][:theme] = formatted_theme
 				end
 			end
-
 		end
 		flash[:notification] = "You've unlocked the #{session[:serial][:theme]} theme! Go to the Settings to select it. Your code is <code class='serial'>#{session[:serial][:serial]}</code>" if session[:serial]
 

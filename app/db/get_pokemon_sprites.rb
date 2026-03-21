@@ -1,5 +1,4 @@
 def get_pokemon_sprites(pokemon_id)
-
 	sprites_formatted = {}
 
 	if pokemon_id.to_i > 1024 then

@@ -4,7 +4,7 @@ def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 
 	if !pokemon_id.is_integer? then pokemon_id = get_pokemon_id_from_name(pokemon_id, language_id) end
 
-	moves = get_pokemon_moves_by_gen2(pokemon_id, gen_id, language_id).group_by { | entry | entry["version_name"]}
+	moves = get_pokemon_moves_by_gen2(pokemon_id, gen_id, language_id).group_by { | entry | entry["version_name"] }
 
 	puts moves.values.first.first["name"]
 
@@ -92,7 +92,7 @@ def pokemon_view_gen(gen, language_id = 9)
 	pokemon_of_gen = {}
 	generation = nil
 	language_id == "en" ? language_id = 9 : language_id
-	versions = get_versions_from_gen(gen, language_id).flatten.join(' • ')
+	versions = get_versions_from_gen(gen, language_id).flatten.join(" • ")
 
 	pokemon_of_gen_raw.each do | pokemon |
 		generation ||= get_pokemon_generation(pokemon.first, language_id)

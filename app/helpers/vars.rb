@@ -28,8 +28,8 @@ THERIODEX_VERSION = if git_available
 	branch = `git rev-parse --abbrev-ref HEAD`.chomp
 	date = `git show -s --date=format:%Y%m%d --format=%cd HEAD`.chomp
 	"theriodex-#{branch}-#{date}-#{sha}"
-	else
-	require 'date'
+else
+	require "date"
 	"theriodex-stable-#{Date.today.strftime('%Y%m%d')}"
 end
 
@@ -50,11 +50,11 @@ LOCKED_THEMES = {
 }
 
 CRIT = {
-	0 => {2 => 6.64, 6 => 6.25, 9 => 4.17},
-	1 => {9 => 12.5},
-	2 => {5 => 25, 9 => 50},
-	3 => {2 => 33.2, 5 => 33.3, 9 => 100},
-	4 => {5 => 50, 9 => 100}
+	0 => { 2 => 6.64, 6 => 6.25, 9 => 4.17 },
+	1 => { 9 => 12.5 },
+	2 => { 5 => 25, 9 => 50 },
+	3 => { 2 => 33.2, 5 => 33.3, 9 => 100 },
+	4 => { 5 => 50, 9 => 100 }
 }
 
 GENS = {
@@ -66,7 +66,7 @@ GENS = {
 	6 => "generation-vi",
 	7 => "generation-vii",
 	8 => "generation-viii",
-	9 => "generation-ix",
+	9 => "generation-ix"
 }
 
 LANGUAGE_CODES = {
