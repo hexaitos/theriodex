@@ -1,5 +1,5 @@
 <div class="corner">
-	<% if request.fullpath.gsub(request.query_string, "").gsub("?", "") != "/" %>
+	<% if request.fullpath.gsub(request.query_string, "").gsub("?", "") != "/random" %>
 		<a class="corner" href="<%= request.fullpath %>"><%= I18n.t(:direct_link) %></a>
 		<form action="<%= request.fullpath %>" method="get" id="language_select">
 	<% else %>
