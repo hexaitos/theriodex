@@ -9,7 +9,7 @@ de:
   toggle_animation: Animation ein-/ausschalten
   damage_taken_from_other_types: Schaden durch andere Typen
   horizontally_scrollable_on_small_screens: auf kleinen Bildschirmen horizontal scrollbar
-  direct_link: Direkter Link
+  direct_link: Direktlink
   pokemon_with_this_ability: Pokémon mit dieser Fähigkeit
   hp: KP
   atk: Ang
@@ -52,3 +52,12 @@ de:
   moves_all_methods: "Auf allen Wegen erlernte Attacken"
   cards_view: "Kartenansicht"
   table_view: "Tabellenansicht"
+  home: "Startseite"
+  welcome_heading: "Willkommen bei Theriodex!"
+  welcome: "Hallo und herzlich Willkommen bei „Theriodex“. Theriodex ist ein quelloffener und werbefreier Pokédex! Unser Ziel ist es, Pokémon-Informationen auf einem Blick und übersichtlich darzustellen. Theriodex ist allerdings noch nicht fertig und es gibt ständig neue Updates; falls du also Verbesserungsvorschläge haben solltest, so zögere nicht, uns zu kontaktieren!"
+  todo_heading: "Was gibt es zu machen?"
+  todo: "Es gibt hier einiges zu machen! Entweder versucht du dein Glück und spielst das <a href='/game'>Pokémon-Ratespiel</a> (entweder in der Endlosversion oder die „Daily Challenge“) oder du schaust dir ein <a href='/random'>zufälliges Pokémon</a> an, suchst nach Pokémon oder Moves oder durchsuchst ganz einfach die Datenbank um z. B. alle Pokémon eines bestimmten Typen zu finden!"
+  customise: "Verändere nach Belieben das Aussehen von Theriodex! Dir gefällt die Schriftart, das Theme oder der Mauszeiger nicht? Dann kannst du einfach in die <a href='/settings'>Einstellugen</a> gehen und dort zwischen verschiedenen Optionen auswählen! Sind Optionen ausgegraut, so musst du diese erst durch Spielen des Ratespiels durch Erreichen eines bestimmten Scores freischalten!"
+  did_you_know: "Kanntest du schon %{name}?"
+  learn_more: "Mehr erfahren!"
+  search_pokemon_move: "Nach Pokeḿon / Move suchen"

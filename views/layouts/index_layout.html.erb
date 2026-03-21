@@ -47,7 +47,7 @@
 	<div class="search">
 		<div class="search_bar_index">
 			<form action="/search" method="GET">
-			<input type="text" id="q" name="q" placeholder="Search Pokémon / Move" autocomplete="off" required>
+			<input type="text" id="q" name="q" placeholder="<%= I18n.t(:search_pokemon_move) %>" autocomplete="off" required>
 			<input type="hidden" name="lang" value="<%= lang %>">
 			<button type="submit"><%= I18n.t(:search) %></button>
 			</form>
