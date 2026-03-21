@@ -18,7 +18,7 @@ steps:
     settings:
       registry: codeberg.org
       dockerfile: *file
-      platforms: linux/amd64, linux/arm64
+      platforms: linux/amd64
       repo: *repo
       tags: latest
       username: ${CI_REPO_OWNER}

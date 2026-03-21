@@ -10,8 +10,6 @@ services:
       - redis
     volumes:
       - ./privacy.md:/usr/src/app/views/privacy.md
-      - ./sprites:/usr/src/public/sprites
-      - ./cries:/usr/src/public/cries
     restart: unless-stopped
 
   redis:
