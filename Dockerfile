@@ -6,8 +6,6 @@ RUN bundle config --global frozen 1
 WORKDIR /usr/src/app
 RUN mkdir public
 
-RUN wget -qO- https://theriodex-data.s3.nl-ams.scw.cloud/main.tar.gz | gunzip | tar xvf - -C public --strip-components=1
-
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
