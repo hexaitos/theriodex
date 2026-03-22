@@ -85,7 +85,7 @@ div.sprite-version-container {
 div.sprite-version-names {
 	display: flex;
 	flex-direction: row;
-	flex: 1 1 10px;
+	flex: 1 1 100px;
 	align-self: center;
 	justify-content: center;
 	gap: 5px;
