@@ -1,0 +1,12 @@
+<% puts sprites %>
+<% sprites["versions"].each do | generation, version | %>
+<h2><%= generation %></h2>
+	<% version.each do | name, sprites | %>
+		<h3><%= name %></h3>
+		<img src="<%= format_sprite(sprites.dig("front_default")) %>">
+		<img src="<%= format_sprite(sprites.dig("front_female")) %>">
+		<img src="<%= format_sprite(sprites.dig("front_shiny")) %>">
+		<img src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
+	<% end %>
+	<br>
+<% end %>
