@@ -56,8 +56,10 @@ div.all-sprites figure {
 div.sprite-gen {
 	border: 2px solid var(--color-th);
 	border-radius: 5px;
-	flex: 1 1 500px;
 	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 div.sprite-version {
@@ -82,9 +84,17 @@ div.sprite-version-container {
 
 div.sprite-version-names {
 	display: flex;
-	flex-direction: column;
-	flex: 0 1 20%;
+	flex-direction: row;
+	flex: 1 1 10px;
 	align-self: center;
+	justify-content: center;
+	gap: 5px;
+	flex-wrap: wrap;
+	width: 100px;
+}
+
+div.sprite-version-names span:not(:last-of-type)::after {
+	content: ", ";
 }
 
 div.sprite-version-heading + div.sprite-version-heading {
