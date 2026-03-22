@@ -18,6 +18,7 @@ require 'base64'
 require 'i18n'
 require 'yaml'
 require 'i18n/backend/fallbacks'
+require 'cssminify'
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'
 use Rack::Session::Pool, key: 'rack.session', expire_after: 86_400
@@ -30,6 +31,9 @@ Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative serv
 Dir.glob("#{Dir.pwd}/app/helpers/*rb").each { | helper | require_relative helper }
 Dir.glob("#{Dir.pwd}/app/helpers/game/*rb").each { | helper | require_relative helper }
 Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
+
+css = Dir['public/css/*.css'].reject { |f| f.include?("styles.min.css") }.sort.map { |f| File.read(f) }.join
+File.write('public/css/styles.min.css', CSSminify.compress(css))
 
 FileUtils.remove_dir(CACHE_DIR) if Dir.exist?(CACHE_DIR)
 
