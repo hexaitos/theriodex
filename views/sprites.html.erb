@@ -6,25 +6,25 @@
 <div class="all-sprites">
 	<% if sprites.dig("front_default") %>
 		<figure>
-			<img src="<%= format_sprite(sprites.dig("front_default")) %>">
+			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_default")) %>">
 			<figcaption>Default</figcaption>
 		</figure>
 	<% end %>
 	<% if sprites.dig("front_female") %>
 		<figure>
-			<img src="<%= format_sprite(sprites.dig("front_female")) %>">
+			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_female")) %>">
 			<figcaption>Female</figcaption>
 		</figure>
 	<% end %>
 	<% if sprites.dig("front_shiny") %>
 		<figure>
-			<img src="<%= format_sprite(sprites.dig("front_shiny")) %>">
+			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny")) %>">
 			<figcaption>Shiny</figcaption>
 		</figure>
 	<% end %>
 	<% if sprites.dig("front_shiny_female") %>
 		<figure>
-			<img src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
+			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
 			<figcaption>Shiny Female</figcaption>
 		</figure>
 	<% end %>
@@ -60,20 +60,44 @@
 								<% end %>
 								<% if sprites.dig("front_female") %>
 									<figure>
-										<img src="<%= format_sprite(sprites.dig("front_female")) %>">
+										<img loading="lazy" src="<%= format_sprite(sprites.dig("front_female")) %>">
 										<figcaption>Female</figcaption>
 									</figure>
 								<% end %>
 								<% if sprites.dig("front_shiny") %>
 									<figure>
-										<img src="<%= format_sprite(sprites.dig("front_shiny")) %>">
+										<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny")) %>">
 										<figcaption>Shiny</figcaption>
 									</figure>
 								<% end %>
 								<% if sprites.dig("front_shiny_female") %>
 									<figure>
-										<img src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
+										<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
 										<figcaption>Shiny Female</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("back_default") %>
+									<figure>
+										<img class="sprite" src="<%= format_sprite(sprites.dig("back_default")) %>">
+										<figcaption>Back Default</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("back_female") %>
+									<figure>
+										<img loading="lazy" src="<%= format_sprite(sprites.dig("back_female")) %>">
+										<figcaption>Back Female</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("back_shiny") %>
+									<figure>
+										<img loading="lazy" src="<%= format_sprite(sprites.dig("back_shiny")) %>">
+										<figcaption>Back Shiny</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("back_shiny_female") %>
+									<figure>
+										<img loading="lazy" src="<%= format_sprite(sprites.dig("back_shiny_female")) %>">
+										<figcaption>Back Shiny Female</figcaption>
 									</figure>
 								<% end %>
 							</div>

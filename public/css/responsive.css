@@ -41,4 +41,12 @@
 	div.footer-links {
 		flex-direction: row;
 	}
+
+	div.all-sprites img {
+		width: 80px;
+	}
+
+	div.all-sprites figure {
+		margin: 15px;
+	}
 }
