@@ -8,6 +8,15 @@ div.sprites img {
 	image-rendering: pixelated;
 }
 
+div.all-sprites img {
+	border: 5px double var(--color-accent-border);
+	border-radius: 5px;
+	width: 100px;
+	aspect-ratio: 1 / 1;
+	object-fit: fill;
+	image-rendering: auto;
+}
+
 div.sprites-links {
 	display: flex;
 	flex-wrap: wrap;
@@ -31,4 +40,31 @@ div.sprites a:hover {
 .pokemon-title {
 	transform: translateX(11px);
 	margin-bottom: 0;
+}
+
+div.all-sprites {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+div.all-sprites figure {
+	flex: 1 1 0;
+}
+
+div.sprite-gen {
+	border: 2px solid var(--color-th);
+	border-radius: 5px;
+	flex: 1 1 500px;
+}
+
+div.sprite-version {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+div.all-sprites figure {
+	margin: 15px;
 }

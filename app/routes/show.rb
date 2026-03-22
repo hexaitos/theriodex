@@ -53,7 +53,6 @@ namespace "/show" do
 		erb :items_by_pocket, locals: { items: items }
 	end
 
-
 	get "/items/:pocket" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
@@ -72,7 +71,7 @@ namespace "/show" do
 	end
 
 	get "/sprites/:id" do
-		erb :sprites, locals: { sprites: get_all_sprites(params[:id]) }
+		erb :sprites, locals: { sprites: get_all_sprites(params[:id]), name: get_pokemon_name(params[:id]) }
 	end
 
 	get "/test/test" do

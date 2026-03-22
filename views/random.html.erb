@@ -137,9 +137,7 @@
 
 	<br>
 	<div class="sprites-links">
-		<% formatted_sprites[:links].each do |link| %>
-			<a href="<%= link[:url] %>"><%= link[:icon] %> <%= I18n.t(link[:key]) %></a>
-		<% end %>
+		<a href="/show/sprites/<%= pokemon_id_form %>">Show all sprites</a>
 	</div>
 </div>
 
