@@ -57,6 +57,7 @@ div.sprite-gen {
 	border: 2px solid var(--color-th);
 	border-radius: 5px;
 	flex: 1 1 500px;
+	padding: 10px;
 }
 
 div.sprite-version {
@@ -67,4 +68,30 @@ div.sprite-version {
 
 div.all-sprites figure {
 	margin: 15px;
+}
+
+div.all-sprites h2 {
+	flex: 0 0 100%;
+}
+
+div.sprite-version-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+div.sprite-version-names {
+	display: flex;
+	flex-direction: column;
+	flex: 0 1 20%;
+	align-self: center;
+}
+
+div.sprite-version-heading + div.sprite-version-heading {
+	border-top: 1px solid var(--color-th);
+	padding-top: 10px;
+}
+
+div.all-sprites-gen-container {
+	flex: auto;
 }

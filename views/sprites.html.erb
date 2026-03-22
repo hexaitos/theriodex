@@ -1,4 +1,6 @@
+
 <h1>All <%= name %> sprites</h1>
+<hr>
 <h2>Default sprites</h2>
 
 <div class="all-sprites">
@@ -28,42 +30,58 @@
 	<% end %>
 </div>
 
+<hr>
+
 <div class="all-sprites">
 	<% sprites["versions"]&.each do | generation, version | %>
 		<% unless all_values_nil?(version) %>
-				<div class="sprite-gen">
+			<div class="all-sprites-gen-container">
 				<h2>Generation <%= generation.rpartition("-").last.upcase %></h2>
-				<% version.each do | name, sprites | %>
-					<h3><%= get_version_names(name).flatten.uniq.join(", ") %></h3>
-					<div class="sprite-version">
-						<% if sprites.dig("front_default") %>
-							<figure>
-								<img class="sprite" src="<%= format_sprite(sprites.dig("front_default")) %>">
-								<figcaption>Default</figcaption>
-							</figure>
-						<% end %>
-						<% if sprites.dig("front_female") %>
-							<figure>
-								<img src="<%= format_sprite(sprites.dig("front_female")) %>">
-								<figcaption>Female</figcaption>
-							</figure>
-						<% end %>
-						<% if sprites.dig("front_shiny") %>
-							<figure>
-								<img src="<%= format_sprite(sprites.dig("front_shiny")) %>">
-								<figcaption>Shiny</figcaption>
-							</figure>
-						<% end %>
-						<% if sprites.dig("front_shiny_female") %>
-							<figure>
-								<img src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
-								<figcaption>Shiny Female</figcaption>
-							</figure>
-						<% end %>
-					</div>
-				<% end %>
+				<br>
+				<div class="sprite-gen">
+					<% version.each do | name, sprites | %>
+						<div class="sprite-version-container">
+							<div class="sprite-version-names">
+								<% if name == "icons" %>
+									<span>Icons</span>
+								<% end %>
+								<% get_version_names(name).flatten.uniq.each do | version | %>
+									<% unless !sprites["front_default"] %>
+										<span><%= version %></span>
+									<% end %>
+								<% end %>
+							</div>
+							<div class="sprite-version">
+								<% if sprites.dig("front_default") %>
+									<figure>
+										<img class="sprite" src="<%= format_sprite(sprites.dig("front_default")) %>">
+										<figcaption>Default</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("front_female") %>
+									<figure>
+										<img src="<%= format_sprite(sprites.dig("front_female")) %>">
+										<figcaption>Female</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("front_shiny") %>
+									<figure>
+										<img src="<%= format_sprite(sprites.dig("front_shiny")) %>">
+										<figcaption>Shiny</figcaption>
+									</figure>
+								<% end %>
+								<% if sprites.dig("front_shiny_female") %>
+									<figure>
+										<img src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
+										<figcaption>Shiny Female</figcaption>
+									</figure>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<br>
 			</div>
-			<br>
 		<% end %>
 	<% end %>
 </div>
