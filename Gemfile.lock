@@ -69,7 +69,6 @@ GEM
       redis-client (>= 0.22.0)
     redis-client (0.27.0)
       connection_pool
-    require (0.2.7)
     rerun (0.14.0)
       listen (~> 3.0)
     ruby2_keywords (0.0.5)
@@ -128,7 +127,6 @@ DEPENDENCIES
   rackup
   redcarpet
   redis
-  require (~> 0.2.7)
   rerun
   sanitize
   securerandom (~> 0.4.1)

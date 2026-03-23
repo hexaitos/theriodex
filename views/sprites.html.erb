@@ -1,32 +1,28 @@
+<% sprite_hashes = {
+					"front_default" => "Default",
+					"front_female" => "Female",
+					"front_shiny" => "Shiny",
+					"front_shiny_female" => "Shiny Female",
 
-<h1>All <%= name %> sprites</h1>
+					"back_default" => "Back Default",
+					"back_female" => "Back Female",
+					"back_shiny" => "Back Shiny",
+					"back_shiny_female" => "Back Shiny Female"
+} %>
+
+
+<h2>All <%= name %> sprites</h1>
 <hr>
 <h2>Default sprites</h2>
 
 <div class="all-sprites">
-	<% if sprites.dig("front_default") %>
-		<figure>
-			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_default")) %>">
-			<figcaption>Default</figcaption>
-		</figure>
-	<% end %>
-	<% if sprites.dig("front_female") %>
-		<figure>
-			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_female")) %>">
-			<figcaption>Female</figcaption>
-		</figure>
-	<% end %>
-	<% if sprites.dig("front_shiny") %>
-		<figure>
-			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny")) %>">
-			<figcaption>Shiny</figcaption>
-		</figure>
-	<% end %>
-	<% if sprites.dig("front_shiny_female") %>
-		<figure>
-			<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
-			<figcaption>Shiny Female</figcaption>
-		</figure>
+	<% sprite_hashes.each do | db_name, display_name | %>
+		<% if sprites.dig(db_name) %>
+			<figure>
+				<img class="sprite" src="<%= format_sprite(sprites.dig(db_name)) %>">
+				<figcaption><%= display_name %></figcaption>
+			</figure>
+		<% end %>
 	<% end %>
 </div>
 
@@ -51,54 +47,22 @@
 									<% end %>
 								<% end %>
 							</div>
+
 							<div class="sprite-version">
-								<% if sprites.dig("front_default") %>
-									<figure>
-										<img class="sprite" src="<%= format_sprite(sprites.dig("front_default")) %>">
-										<figcaption>Default</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("front_female") %>
-									<figure>
-										<img loading="lazy" src="<%= format_sprite(sprites.dig("front_female")) %>">
-										<figcaption>Female</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("front_shiny") %>
-									<figure>
-										<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny")) %>">
-										<figcaption>Shiny</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("front_shiny_female") %>
-									<figure>
-										<img loading="lazy" src="<%= format_sprite(sprites.dig("front_shiny_female")) %>">
-										<figcaption>Shiny Female</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("back_default") %>
-									<figure>
-										<img class="sprite" src="<%= format_sprite(sprites.dig("back_default")) %>">
-										<figcaption>Back Default</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("back_female") %>
-									<figure>
-										<img loading="lazy" src="<%= format_sprite(sprites.dig("back_female")) %>">
-										<figcaption>Back Female</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("back_shiny") %>
-									<figure>
-										<img loading="lazy" src="<%= format_sprite(sprites.dig("back_shiny")) %>">
-										<figcaption>Back Shiny</figcaption>
-									</figure>
-								<% end %>
-								<% if sprites.dig("back_shiny_female") %>
-									<figure>
-										<img loading="lazy" src="<%= format_sprite(sprites.dig("back_shiny_female")) %>">
-										<figcaption>Back Shiny Female</figcaption>
-									</figure>
+								<% sprite_hashes.each do | db_name, display_name | %>
+									<% if sprites.dig(db_name) %>
+										<figure>
+											<img class="sprite" src="<%= format_sprite(sprites.dig(db_name)) %>">
+											<figcaption><%= display_name %></figcaption>
+										</figure>
+									<% end %>
+
+									<% if sprites.dig("animated", db_name) %>
+										<figure>
+											<img class="sprite" src="<%= format_sprite(sprites.dig("animated", db_name)) %>">
+											<figcaption><%= display_name %> Animated</figcaption>
+										</figure>
+									<% end %>
 								<% end %>
 							</div>
 						</div>

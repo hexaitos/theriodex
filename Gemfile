@@ -26,5 +26,4 @@ gem "i18n", "~> 1.14"
 
 gem "yaml", "~> 0.4.0"
 
-gem "require", "~> 0.2.7"
 gem "cssminify", "~> 1.0"
