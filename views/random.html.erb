@@ -7,16 +7,15 @@ let lastScrollY = window.scrollY;
 const fab = document.querySelector('.fab');
 
 window.addEventListener('scroll', () => {
-  const currentScrollY = window.scrollY;
-  console.log("hi")
+	const currentScrollY = window.scrollY;
 
-  if (currentScrollY > lastScrollY && currentScrollY > 200) {
-    fab.classList.add('hidden');
-  } else {
-    fab.classList.remove('hidden');
-  }
+	if (currentScrollY > lastScrollY && currentScrollY > 200) {
+		fab.classList.add('hidden');
+	} else {
+		fab.classList.remove('hidden');
+	}
 
-  lastScrollY = currentScrollY;
+	lastScrollY = currentScrollY;
 });
 </script>
 
