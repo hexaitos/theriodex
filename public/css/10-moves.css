@@ -79,7 +79,7 @@ td a.header:before {
 
 div.move-details div {
 	border: 2px solid var(--color-accent-border);
-	flex: 1 1 0;
+	flex: auto;
 	border-radius: 5px;
 	padding: 5px;
 }
