@@ -24,7 +24,7 @@ body {
 	text-align: center;
 	background-color: var(--color-body);
 	margin: 0 auto;
-	max-width: 900px;
+	max-width: 1000px;
 }
 
 p {
