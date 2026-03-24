@@ -35,7 +35,7 @@ div.types span {
 div.move-type-card,
 div.category {
 	color: white;
-	padding-top: 0.3em;
+	padding: 0.1rem;
 }
 
 td div.move-type-card,
@@ -257,7 +257,7 @@ div.move-type-card-name:after {
 	display: inline-flex;
 	content: var(--type-name);
 	color: white;
-	margin-top: 4px;
+	margin: 0.2rem 0;
 }
 
 .rounded {
