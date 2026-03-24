@@ -53,10 +53,10 @@ en:
   table_view: "Table View"
   home: "Home"
   welcome_heading: "Welcome to Theriodex!"
-  welcome: "Hello and welcome to <b>Theriodex</b>! Theriodex is an open-source and ad-free Pokédex! Its aim is to provide you with the most important information you need at a glance! This site is still a work-in-progress; therefore, don't hesitate to contact us if you have any ideas for improvement!"
-  todo_heading: "What to do?"
-  todo: "There are plenty of things to do here! You can try your luck at the <a href='/game'>Who's That Pokémon?</a> guessing game either by doing the default endless mode or by doing the daily Pokémon challenge! Or look at a <a href='/random'>random Pokémon</a>, search for Pokémon or Pokémon moves or simply browse the database for various things, such as all Pokémon of a particular type!"
-  customise: "Customise Theriodex to your liking! Don't like the font, theme or cursor? Go into the <a href='/settings'>Settings</a> to choose between a variety of different themes and fonts! You can also unlock more customisation options by playing the game and reaching a certain score!"
-  did_you_know: "Do you know %{name}?"
-  learn_more: "Learn more!"
-  search_pokemon_move: "Search Pokeḿon / Move"
+  welcome: Hello and welcome to <b>Theriodex</b>! Theriodex aims to provide you with the most important information about Pokémon or their moves at a glance. Theriodex is a small passion project that and is will remain ad-free and open-source; it is still very much a work-in-progress and should you find issues or have ideas for improvement, you can contact us <a href="/contact">here</a>.
+  todo_heading: What to do?
+  todo: Not only can you browse or search for information of specific Pokémon using the fuzzy search or browse function, you can also look at a <a href="/random">random</a> Pokémon entry or even have some fun and try your luck at the <a href="/game">Who’s that Pokémon</a>-style guessing game; either try the endless mode or the extra challenging daily challenge.
+  customise: "Theriodex is also customisable: if you are not a fan of the default theme, font or cursor, then you can head into the <a href='/settings'>Settings</a> and choose between a variety of different themes and fonts. But beware, some of them may have to be unlocked by playing the game, so you better brush up on your Pokémon recognition skills if you want those!"
+  did_you_know: Do you know %{name}?
+  learn_more: Learn more!
+  search_pokemon_move: Search Pokeḿon / Move
