@@ -70,7 +70,7 @@ div.move-type-card-name {
 td div.move-type-card:before {
 	left: 4px;
 	position: absolute;
-	transform: translateY(-0.1em);
+	transform: translateY(0.2em);
 }
 
 div.browse-type div.move-type-card:before,
