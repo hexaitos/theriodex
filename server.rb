@@ -65,8 +65,8 @@ before do
 	path_parts = path.split('/')
 	potential_locale = path_parts[1]
 
-	if request.params["lang"] then
-		redirect "/#{request.params['lang']}#{path}"
+	if request.query_string&.rpartition("=").first == "lang" then
+		redirect "/#{request.query_string.rpartition('=').last}#{path_parts.join("/")}"
 	end
 
 	if potential_locale && I18n.available_locales.map(&:to_s).include?(potential_locale)
