@@ -1,6 +1,6 @@
 # About Theriodex
 
-<img src="logo.webp" align="left" width="120" style="margin-right: 15px; margin-bottom: 10px;">
+<img src="/logo.webp" align="left" width="120" style="margin-right: 15px; margin-bottom: 10px;">
 	
 **Theriodex** is an open-source Pokédex written in Ruby using [Sinatra](https://sinatrarb.com) and a handful of other Ruby gems. It is – and will remain – completely ad-free and non-commercial! Its aim is to provide you with the most important information you need at a glance! Also try the [Who's That Pokémon?](/game) guessing game and unlock more customisation options you can apply in the [Settings](/settings)!
 

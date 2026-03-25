@@ -30,7 +30,7 @@ Dir.glob("#{Dir.pwd}/app/db/*rb").each { | db_helper |  require_relative db_help
 Dir.glob("#{Dir.pwd}/app/services/*rb").each { | service | require_relative service }
 Dir.glob("#{Dir.pwd}/app/helpers/*rb").each { | helper | require_relative helper }
 Dir.glob("#{Dir.pwd}/app/helpers/game/*rb").each { | helper | require_relative helper }
-Dir.glob("#{Dir.pwd}/app/routes/*rb").each { | route | require_relative route }
+Dir.glob("#{Dir.pwd}/app/routes/*rb").sort.each { | route | require_relative route }
 
 css = Dir['public/css/*.css'].reject { |f| f.include?("styles.min.css") }.sort.map { |f| File.read(f) }.join
 File.write('public/css/styles.min.css', CSSminify.compress(css))
@@ -58,7 +58,6 @@ end
 configure do
 	set :views, File.expand_path('views', __dir__)
 	set :erb, layout_options: { views: File.join(settings.views, 'layouts') }
-	set :strict_paths, false
 end
 
 before do
@@ -70,4 +69,22 @@ before do
 	else
 		I18n.locale = I18n.default_locale
 	end
+end
+
+def with_valid_lang(&block)
+	if params[:lang] && !LANGUAGE_CODES.has_key?(params[:lang].downcase)
+		halt 404
+	end
+
+	lang = LANGUAGE_CODES[params[:lang]&.downcase] || "en"
+	yield lang
+end
+
+helpers do
+  def resolve_lang
+    if params[:lang] && !LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase)
+      pass
+    end
+    LANGUAGE_CODES[params[:lang]&.downcase] || "en"
+  end
 end

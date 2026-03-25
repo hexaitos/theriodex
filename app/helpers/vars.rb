@@ -81,6 +81,14 @@ LANGUAGE_CODES = {
 	"en" => 9
 }
 
+LANGUAGE_NAMES = {
+	"en" => "English",
+	"de" => "Deutsch",
+	"fr" => "Français",
+	"it" => "Italiano",
+	"es" => "Español"
+}
+
 CACHE_DIR = "/tmp/cache/rack"
 
 POCKET_SPRITES = {

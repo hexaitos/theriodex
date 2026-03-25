@@ -1,11 +1,11 @@
 <style>
-	<% FONTS.each do | font | %>
-		<% unless font == "default" %>
-			label[for="<%= font %>"] {
-				font-family: "<%= font.gsub("-", " ").titleise %>"
-			}
-		<% end %>
-	<% end %>
+  <% FONTS.each do | font | %>
+    <% unless font == "default" %>
+      label[for="<%= font %>"] {
+      font-family: "<%= font.gsub("-", " ").titleise %>"
+      }
+    <% end %>
+  <% end %>
 </style>
 
 <h1 class="no-bottom-margin">Settings</h1>
@@ -13,87 +13,111 @@
 <br>
 
 <div class="browse-gen-type">
-	<form method="POST" action="/settings/select-font">
-		<fieldset id="font-select">
-			<legend>Select a font</legend>
-			<div>
-				<% FONTS.each do | font | %>
-					<div>
-						<% if session[:font] == font or (!session[:font] and font == "default") then %>
-							<input type="radio" checked id="<%= font %>" name="font" value="<%= font %>">
-							<label for="<%= font %>"><%= font.gsub("-", " ").titleise %></label>
-						<% else %>
-							<input type="radio" id="<%= font %>" name="font" value="<%= font %>">
-							<label for="<%= font %>"><%= font.gsub("-", " ").titleise %></label>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-			<div>
-				<button class="full" type="submit">Select font</button>
-			</div>
-		</fieldset>
-	</form>
+  <form method="POST" action="/settings/select-cursor">
+    <fieldset>
+      <legend>Select a cursor</legend>
+      <div>
+        <div>
+          <% if !session[:cursor] then %>
+            <input type="radio" id="cursor" name="cursor" value="none" checked>
+          <% else %>
+            <input type="radio" id="cursor" name="cursor" value="none">
+          <% end %>
+          <label for="cursor">None</label>
+        </div>
+        <% CURSORS.each do | cursor | %>
+          <% formatted_cursor = File.basename(cursor, ".*") %>
+          <div>
+            <% if session[:cursor] == cursor %>
+              <input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>" checked>
+            <% else %>
+              <input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>">
+            <% end %>
+            <label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <button class="full" type="submit">Select cursor</button>
+      </div>
+    </fieldset>
+  </form>
+  <form method="POST" action="/settings/select-font">
+    <fieldset id="font-select">
+      <legend>Select a font</legend>
+      <div>
+        <% FONTS.each do | font | %>
+          <div>
+            <% if session[:font] == font or (!session[:font] and font == "default") then %>
+              <input type="radio" checked id="<%= font %>" name="font" value="<%= font %>">
+            <% else %>
+              <input type="radio" id="<%= font %>" name="font" value="<%= font %>">
+            <% end %>
+            <label for="<%= font %>"><%= font.gsub("-", " ").titleise %></label>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <button class="full" type="submit">Select font</button>
+      </div>
+    </fieldset>
+  </form>
 
-	<br>
-	<form method="POST" action="/settings/select-theme">
-		<fieldset>
-			<legend>Select a theme</legend>
-			<div>
-				<% THEMES.each do | theme | %>
-					<% formatted_theme = File.basename(theme, ".*") %>
-					<div>
-						<% if session[:theme] == theme or (!session[:theme] and formatted_theme == "default") then %>
-							<input type="radio" checked id="<%= theme %>" name="theme" value="<%= theme %>">
-							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
-						<% elsif !is_theme_unlocked?(theme) then %>
-							<input type="radio" id="<%= theme %>" name="theme" value="<%= theme %>" disabled>
-							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
-						<% else %>
-							<input type="radio" id="<%= theme %>" name="theme" value="<%= theme %>">
-							<label for="<%= theme %>"><%= formatted_theme.titleise %></label>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-			<div>
-				<button class="full" type="submit">Select theme</button>
-			</div>
-		</fieldset>
-	</form>
+  <br>
+  <form method="POST" action="/settings/select-theme">
+    <fieldset>
+      <legend>Select a theme</legend>
+      <div>
+        <% THEMES.each do | theme | %>
+          <% formatted_theme = File.basename(theme, ".*") %>
+          <div>
+            <% if session[:theme] == theme or (!session[:theme] and formatted_theme == "default") then %>
+              <input type="radio" checked id="<%= theme %>" name="theme" value="<%= theme %>">
+            <% elsif !is_theme_unlocked?(theme) then %>
+              <input type="radio" id="<%= theme %>" name="theme" value="<%= theme %>" disabled>
+            <% else %>
+              <input type="radio" id="<%= theme %>" name="theme" value="<%= theme %>">
+            <% end %>
+            <label for="<%= theme %>"><%= formatted_theme.titleise %></label>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <button class="full" type="submit">Select theme</button>
+      </div>
+    </fieldset>
+  </form>
 
-	<br>
-	<form method="POST" action="/settings/select-cursor">
-		<fieldset>
-			<legend>Select a cursor</legend>
-			<div>
-				<div>
-					<% if !session[:cursor] then %>
-						<input type="radio" id="cursor" name="cursor" value="none" checked>
-						<label for="cursor">None</label>
-					<% else %>
-						<input type="radio" id="cursor" name="cursor" value="none">
-						<label for="cursor">None</label>
-					<% end %>
-				</div>
-				<% CURSORS.each do | cursor | %>
-					<% formatted_cursor = File.basename(cursor, ".*") %>
-					<div>
-						<% if session[:cursor] == cursor %>
-							<input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>" checked>
-							<label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
-						<% else %>
-							<input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>">
-							<label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-			<div>
-				<button class="full" type="submit">Select cursor</button>
-			</div>
-		</fieldset>
-	</form>
+  <br>
+  <form method="POST" action="/settings/select-cursor">
+    <fieldset>
+      <legend>Select a cursor</legend>
+      <div>
+        <div>
+          <% if !session[:cursor] then %>
+            <input type="radio" id="cursor" name="cursor" value="none" checked>
+          <% else %>
+            <input type="radio" id="cursor" name="cursor" value="none">
+          <% end %>
+          <label for="cursor">None</label>
+        </div>
+        <% CURSORS.each do | cursor | %>
+          <% formatted_cursor = File.basename(cursor, ".*") %>
+          <div>
+            <% if session[:cursor] == cursor %>
+              <input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>" checked>
+            <% else %>
+              <input type="radio" id="<%= cursor %>" name="cursor" value="<%= cursor %>">
+            <% end %>
+            <label for="<%= cursor %>"><img src="/cursors/<%= cursor %>"></label>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <button class="full" type="submit">Select cursor</button>
+      </div>
+    </fieldset>
+  </form>
 </div>
 
 <hr>
@@ -101,8 +125,8 @@
 <p class="info">(If you have received a serial code from playing the game, you can enter it here to unlock all the themes without having to replay it again!)</p>
 
 <div class="search_bar">
-	<form action="/settings/unlock" method="POST">
-		<input type="text" id="serial" name="serial" placeholder="Enter serial" required>
-		<button type="submit">Unlock themes</button>
-	</form>
+  <form action="/settings/unlock" method="POST">
+    <input type="text" id="serial" name="serial" placeholder="Enter serial" required>
+    <button type="submit">Unlock themes</button>
+  </form>
 </div>

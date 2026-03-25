@@ -1,3 +1,0 @@
-get "/:lang?/about" do
-	erb :about, locals: { text: markdown(:about) }
-end

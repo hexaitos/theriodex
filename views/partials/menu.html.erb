@@ -9,7 +9,7 @@
 		<a href="/about">About</a>
 	<% else %>
 		<% language = params["lang"] %>
-		<a href="/<%= language %>/"><%= I18n.t(:home) %></a>
+		<a href="/<%= language %>"><%= I18n.t(:home) %></a>
 		<a href="/<%= language %>/random"><%= I18n.t(:random) %></a>
 		<a href="/<%= language %>/search"><%= I18n.t(:search) %></a>
 		<a href="/<%= language %>/browse"><%= I18n.t(:browse) %></a>

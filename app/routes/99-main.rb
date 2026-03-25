@@ -1,6 +1,6 @@
 get "/:lang?" do
 	random_pokemon = rand(1..1024)
-	lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+	lang =  resolve_lang
 
 	erb :index, layout: :index_layout, locals: view_pokemon(random_pokemon, params[:form], params[:s], params[:animated], lang)
 end

@@ -1,17 +1,21 @@
+<% lang = params["lang"] || lang %>
+
 <div class="corner">
-	<% if request.fullpath.gsub(request.query_string, "").gsub("?", "") != "/random" %>
-		<a class="corner" href="<%= request.fullpath %>"><%= I18n.t(:direct_link) %></a>
-		<form action="<%= request.fullpath %>" method="get" id="language_select">
+	<% path = request.path %>
+	<% if path != "/random" %>
+		<a class="corner" href="<%= path %>"><%= I18n.t(:direct_link) %></a>
+		<form action="/change-lang" method="post" id="language_select">
 	<% else %>
 		<a class="corner" href="/<%= lang %>/show/<%= id %>"><%= I18n.t(:direct_link) %></a>
-		<form action="/show/<%= id %>" method="get" id="language_select">
+		<form action="/change-lang/" method="post" id="language_select">
 	<% end %>
 		<select aria-label="Select language" id="lang-select" name="lang" required>
-			<option value="en">🌐 English</option>
-			<option value="de">🌐 Deutsch</option>
-			<option value="fr">🌐 Français</option>
-			<option value="it">🌐 Italiano</option>
-			<option value="es">🌐 Español</option>
+			<% LANGUAGE_NAMES.each do | code, name | %>
+				<option value="<%= code %>"
+					<% if lang == code %> selected <% end %>>🌐
+						<%= name %>
+					</option>
+			<% end %>
 		</select>
 	</form>
 </div>
@@ -20,10 +24,4 @@
 document.querySelector('#language_select').addEventListener("change", (event) => {
 	document.querySelector('#language_select').submit();
 });
-
-window.onload = () => {
-	const urlParams = new URLSearchParams(window.location.search);
-	const lang = urlParams.get('lang') || 'en';
-	document.querySelector('#lang-select').value = lang;
-};
 </script>

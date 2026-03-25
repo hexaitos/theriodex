@@ -1,6 +1,6 @@
 namespace "/?:lang?/game" do
 	get "" do
-		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? params[:lang] : "en"
+		lang = resolve_lang
 
 		erb :"game/game_start", locals: { lang: lang, id: 1 }
 	end
@@ -14,7 +14,8 @@ namespace "/?:lang?/game" do
 	end
 
 	get "/play" do
-		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
+		lang = resolve_lang
+
 		if !session[:difficulty]
 			redirect "/#{LANGUAGE_CODES.key(lang)}/game"
 		end
@@ -43,8 +44,7 @@ namespace "/?:lang?/game" do
 	end
 
 	get "/challenge/play" do
-		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-
+		lang = resolve_lang
 		redirect "/game/results" if session[:guesses] + session[:skips] == POKEMON_CHALLENGE_NUM
 
 		erb :"game/game", locals: pokemon_view_game(get_pokemon_for_day[session[:guesses] + session[:skips]], lang, session[:difficulty].clean)
@@ -78,8 +78,7 @@ namespace "/?:lang?/game" do
 	end
 
 	get "/leaderboard/view" do
-		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
-		erb :"game/leaderboard", locals: { points: session[:points], guesses: session[:guesses], skips: session[:skips], username: session[:username], lang: LANGUAGE_CODES.key(lang) }
+		lang = resolve_lang erb :"game/leaderboard", locals: { points: session[:points], guesses: session[:guesses], skips: session[:skips], username: session[:username], lang: LANGUAGE_CODES.key(lang) }
 	end
 
 	get "/game/test" do
