@@ -2,12 +2,12 @@
 
 <div class="corner">
 	<% path = request.path %>
-	<% if path != "/random" %>
+	<% if !path.include?("/random") %>
 		<a class="corner" href="<%= path %>"><%= I18n.t(:direct_link) %></a>
 		<form action="/change-lang" method="post" id="language_select">
 	<% else %>
-		<a class="corner" href="/<%= lang %>/show/<%= id %>"><%= I18n.t(:direct_link) %></a>
-		<form action="/change-lang/" method="post" id="language_select">
+		<a class="corner" href="/<%= lang %>/show/pokemon/<%= id %>"><%= I18n.t(:direct_link) %></a>
+		<form action="/change-lang" method="post" id="language_select">
 	<% end %>
 		<select aria-label="Select language" id="lang-select" name="lang" required>
 			<% LANGUAGE_NAMES.each do | code, name | %>
