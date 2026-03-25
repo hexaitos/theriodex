@@ -1,11 +1,12 @@
 <%= partial :lang_select, id: id, lang: lang %>
 <%= partial :privacy_js %>
+<%= lang = params["lang"] || lang %>
 
 <h1>Pokémon Guessing Game</h1>
 <div class="difficulty-select">
 	<% if !session[:points] %>
 		<h3>Enter username</h3>
-		<form action="/<%= lang %>/game/start/" method="post" id="difficulty">
+		<form action="/<%= lang %>/game/start" method="post" id="difficulty">
 			<select id="username-1" class="username-select" name="username-1" required>
 				<% ('A'..'Z').each do | letter | %>
 					<option value="<%= letter %>"><%= letter %></option>
@@ -103,7 +104,7 @@
 				<% unless session[:guesses] + session[:skips] == POKEMON_CHALLENGE_NUM %>
 					<a class="a-btn-2 continue" href="/<%= lang %>/game/challenge/play">Continue</a>
 				<% end %>
-				<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
+				<a class="a-btn-2 continue" href="/<%= lang %>/game/reset">Reset Game</a>
 			</div>
 			<hr>
 			<div class="game-start-buttons">

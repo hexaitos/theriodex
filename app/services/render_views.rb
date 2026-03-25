@@ -21,6 +21,7 @@ def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 end
 
 def pokemon_view_search(query, language_id = 9)
+	language_id == "en" ? language_id = 9 : language_id
 	query = Sanitize.fragment(query)
 	{
 		search_results: search_for_pokemon(query, language_id),

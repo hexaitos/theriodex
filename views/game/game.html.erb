@@ -28,10 +28,10 @@
 		});
 	</script>
 
-	<form action="/game/play?lang=<%= lang %>" method="post">
+	<form action="/<%= lang %>/game/play" method="post">
 		<input name="guess" autocomplete="off" required placeholder="<%= I18n.t(:enter_pokemon_name_game) %>">
 		<button type="submit"><%= I18n.t(:guess_button) %></button>
-		<a class="a-btn-2" href="/game/skip/<%= lang %>"><%= I18n.t(:skip) %></a>
+		<a class="a-btn-2" href="/<%= lang %>/game/skip"><%= I18n.t(:skip) %></a>
 	</form>
 	<br>
 

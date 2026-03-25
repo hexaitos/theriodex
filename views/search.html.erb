@@ -1,11 +1,11 @@
 <%= partial :lang_select %>
+<% lang = params["lang"] || lang %>
 <h1 class="no-bottom-margin">Search</h1>
 <p class="info">(This form allows you to search for a Pokémon or a move by name. You can then click the link of the move or Pokémon you wish to know more about and you will be redirected to a new page with more info.)</p>
 
 <div class="search_bar">
-	<form action="/search" method="GET">
+	<form action="/<%= lang %>/search" method="GET">
 	<input type="text" id="q" name="q" placeholder="<%= I18n.t(:enter_pokemon_name) %>" required>
-	<input type="hidden" name="lang" value="<%= lang %>">
 	<button type="submit"><%= I18n.t(:search) %></button>
 	</form>
 </div>

@@ -1,12 +1,13 @@
 <div class="corner">
 	<a class="corner" href="/<%= lang %>/game">Menu</a>
-	<form action="<%= request.fullpath %>" method="get" id="language_select">
-		<select id="lang-select" name="lang" required>
-			<option value="en">🌐 English</option>
-			<option value="de">🌐 Deutsch</option>
-			<option value="fr">🌐 Français</option>
-			<option value="it">🌐 Italiano</option>
-			<option value="es">🌐 Español</option>
+	<form action="/change-lang" method="post" id="language_select">
+		<select aria-label="Select language" id="lang-select" name="lang" required>
+			<% LANGUAGE_NAMES.each do | code, name | %>
+				<option value="<%= code %>"
+					<% if lang == code %> selected <% end %>>🌐
+						<%= name %>
+					</option>
+			<% end %>
 		</select>
 	</form>
 </div>
@@ -16,9 +17,4 @@ document.querySelector('#language_select').addEventListener("change", (event) =>
 	document.querySelector('#language_select').submit();
 });
 
-window.onload = () => {
-	const urlParams = new URLSearchParams(window.location.search);
-	const lang = urlParams.get('lang') || 'en';
-	document.querySelector('#lang-select').value = lang;
-};
 </script>

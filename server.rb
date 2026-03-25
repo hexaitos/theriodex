@@ -71,20 +71,12 @@ before do
 	end
 end
 
-def with_valid_lang(&block)
-	if params[:lang] && !LANGUAGE_CODES.has_key?(params[:lang].downcase)
-		halt 404
-	end
-
-	lang = LANGUAGE_CODES[params[:lang]&.downcase] || "en"
-	yield lang
-end
-
 helpers do
-  def resolve_lang
-    if params[:lang] && !LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase)
-      pass
-    end
-    LANGUAGE_CODES[params[:lang]&.downcase] || "en"
-  end
+	def resolve_lang
+		if params[:lang] && !LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase)
+			pass
+		end
+
+		LANGUAGE_CODES[params[:lang]&.downcase] || "en"
+	end
 end

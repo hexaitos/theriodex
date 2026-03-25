@@ -6,6 +6,7 @@ namespace "/?:lang?/game" do
 	end
 
 	post "/start/?:gen?" do
+		puts lang = resolve_lang
 		unless params["daily"] == "true"
 			start_game(params["diff"], params["gen"], params["username-1"], params["username-2"], params["username-3"], params["lang"])
 		else
@@ -40,6 +41,8 @@ namespace "/?:lang?/game" do
 	end
 
 	post "/play" do
+		lang = resolve_lang
+
 		erb :"game/guess", locals: check_pokemon_guess(params["guess"])
 	end
 
@@ -51,10 +54,14 @@ namespace "/?:lang?/game" do
 	end
 
 	get "/results" do
+		lang = resolve_lang
+
 		erb :"game/game_results", locals: pokemon_view_results()
 	end
 
 	get "/save" do
+		lang = resolve_lang
+
 		download_results()
 	end
 
@@ -64,6 +71,8 @@ namespace "/?:lang?/game" do
 	end
 
 	get "/skip" do
+		lang = resolve_lang
+
 		session[:skips] = session[:skips] ? session[:skips] + 1 : 1
 		session[:results][session[:pokemon_info][:id]] = { name: session[:pokemon_info][:name], skipped: true }
 
@@ -72,13 +81,17 @@ namespace "/?:lang?/game" do
 	end
 
 	post "/leaderboard/save" do
+		lang = resolve_lang
+
 		redirect back if params["privacy_accepted"].to_i != 1
 		save_data_in_leaderboard(session[:username].clean) if session[:username]
 		redirect back
 	end
 
 	get "/leaderboard/view" do
-		lang = resolve_lang erb :"game/leaderboard", locals: { points: session[:points], guesses: session[:guesses], skips: session[:skips], username: session[:username], lang: LANGUAGE_CODES.key(lang) }
+		lang = resolve_lang
+
+		erb :"game/leaderboard", locals: { points: session[:points], guesses: session[:guesses], skips: session[:skips], username: session[:username], lang: LANGUAGE_CODES.key(lang) }
 	end
 
 	get "/game/test" do
