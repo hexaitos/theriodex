@@ -148,10 +148,10 @@ window.addEventListener('scroll', () => {
 </div>
 
 <div class="sprites">
-	<%= image_tag formatted_sprites[:front], alt: "#{name} front sprite" %>
+	<%= image_tag sprite, alt: "#{name} front sprite" %>
 
-	<% if formatted_sprites[:back] %>
-		<%= image_tag formatted_sprites[:back], alt: "#{name} back sprite" %>
+	<% if sprite_back %>
+		<%= image_tag sprite_back, alt: "#{name} back sprite" %>
 	<% end %>
 
 	<br>

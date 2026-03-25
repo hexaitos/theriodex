@@ -175,8 +175,6 @@ def view_pokemon(id, form = nil, s = nil, animated = false, language_id = 9)
 	pokemon_data[:animated] = animated
 	pokemon_data[:move_gens] = get_pokemon_move_versions(pokemon_data[:pokemon_id]).flatten
 
-	pokemon_data[:formatted_sprites] = show_sprites(selected_pokemon, language_id, pokemon_data[:sprite], pokemon_data[:sprite_back], pokemon_data[:back_shiny], pokemon_data[:back_female], pokemon_data[:back_shiny_female], pokemon_data[:animated_back], pokemon_data[:animated_back_shiny], pokemon_data[:front_shiny], pokemon_data[:front_female], pokemon_data[:front_shiny_female], pokemon_data[:animated_front], pokemon_data[:animated_front_shiny], pokemon_data[:sex], pokemon_data[:form], pokemon_data[:animated])
-
 	pokemon_data
 end
 
