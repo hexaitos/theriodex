@@ -10,19 +10,19 @@
 				</div>
 				<div class="type-container">
 				<% info[:types].each do |id, name| %>
-					<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>" aria-label="Pokémon type <%= id %>">
+					<a style="text-decoration: none;" href="/<%= lang %>/show/pokemon/type/<%= id %>" aria-label="Pokémon type <%= id %>">
 					<div id="<%= id %>" class="move-type-card move-type-card-name rounded"></div>
 					</a>
 				<% end %>
 				</div>
 				<br>
-				<a href="/show/<%= id %>?lang=<%= lang %>">
+				<a href="/<%= lang %>/show/<%= id %>">
 					<img loading="lazy" src="<%= info[:sprite] %>" alt="The sprite for the Pokémon <%= info[:name] %>">
 					<br>
 					<%= info[:name] %>
 					<br>
 				</a>
-				<a class="test" href="/show/pokemon/gen/<%= info.dig(:gen, 1) %>?lang=<%= lang %>"><%= info.dig(:gen, 0) %></a>
+				<a class="test" href="/<%= lang %>/show/pokemon/gen/<%= info.dig(:gen, 1) %>"><%= info.dig(:gen, 0) %></a>
 				<br>
 			</div>
 		<% end %>

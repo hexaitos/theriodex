@@ -1,11 +1,11 @@
-namespace "/game" do
+namespace "/?:lang?/game" do
 	get "" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? params[:lang] : "en"
 
 		erb :"game/game_start", locals: { lang: lang, id: 1 }
 	end
 
-	post "/start/:lang/?:gen?" do
+	post "/start/?:gen?" do
 		unless params["daily"] == "true"
 			start_game(params["diff"], params["gen"], params["username-1"], params["username-2"], params["username-3"], params["lang"])
 		else
@@ -16,7 +16,7 @@ namespace "/game" do
 	get "/play" do
 		lang = LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 		if !session[:difficulty]
-			redirect "/game?lang=#{LANGUAGE_CODES.key(lang)}"
+			redirect "/#{LANGUAGE_CODES.key(lang)}/game"
 		end
 
 		session[:serial] ||= nil
@@ -58,17 +58,17 @@ namespace "/game" do
 		download_results()
 	end
 
-	get "/reset/?:lang?" do
+	get "/reset" do
 		clear_game
-		redirect "/game?lang=#{params["lang"]}"
+		redirect "/#{params["lang"]}/game"
 	end
 
-	get "/skip/:lang" do
+	get "/skip" do
 		session[:skips] = session[:skips] ? session[:skips] + 1 : 1
 		session[:results][session[:pokemon_info][:id]] = { name: session[:pokemon_info][:name], skipped: true }
 
-		redirect "/game/challenge/play?lang=#{params["lang"]}" if session[:challenge]
-		redirect "/game/play?lang=#{params["lang"]}"
+		redirect "/#{params["lang"]}/game/challenge/play" if session[:challenge]
+		redirect "/#{params["lang"]}/game/play"
 	end
 
 	post "/leaderboard/save" do

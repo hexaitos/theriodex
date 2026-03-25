@@ -11,7 +11,7 @@
 	<%= partial :save_in_leaderboard_results, lang: lang %>
 <% else %>
 	<form class="save-in-leaderboard" action="/game/leaderboard/save" method="post">
-		<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+		<a class="a-btn-2" href="/<%= lang %>/game/leaderboard/view">View leaderboard</a>
 		<button type="submit">Override saved data in leaderboard</button>
 	</form>
 <% end %>

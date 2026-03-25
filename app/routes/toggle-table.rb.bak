@@ -1,4 +1,4 @@
-get "/:lang?/toggle-table/:id" do
+get "/toggle-table/:id" do
 	if !session[:table] then
 		session[:table] = true
 	else

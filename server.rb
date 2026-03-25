@@ -58,13 +58,15 @@ end
 configure do
 	set :views, File.expand_path('views', __dir__)
 	set :erb, layout_options: { views: File.join(settings.views, 'layouts') }
+	set :strict_paths, false
 end
 
 before do
-	lang = params[:lang]
+	path_parts = request.path_info.split('/')
+	potential_locale = path_parts[1]
 
-	if lang && I18n.available_locales.map(&:to_s).include?(lang.to_s)
-		I18n.locale = lang.to_sym
+	if potential_locale && I18n.available_locales.map(&:to_s).include?(potential_locale)
+		I18n.locale = potential_locale.to_sym
 	else
 		I18n.locale = I18n.default_locale
 	end

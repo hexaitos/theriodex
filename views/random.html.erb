@@ -31,7 +31,7 @@ window.addEventListener('scroll', () => {
 
 	<div class="type-container">
 	<% types.each do |type| %>
-		<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>" aria-label="Pokémon type <%= type.first.to_s %>">
+		<a style="text-decoration: none;" href="/<%= lang %>/show/pokemon/type/<%= type.first.to_s %>" aria-label="Pokémon type <%= type.first.to_s %>">
 		<div id="<%= type.first.to_s %>" class="move-type-card move-type-card-name rounded"></div>
 		</a>
 	<% end %>
@@ -59,7 +59,7 @@ window.addEventListener('scroll', () => {
 
 	<div class="stats">
 		<% unless gen[0] == "X" %>
-			<span>Introduced in: <a href="/show/pokemon/gen/<%= gen[1] %>?lang=<%= lang %>"><%= gen[0] %></a></span>
+			<span>Introduced in: <a href="/<%= lang %>/show/pokemon/gen/<%= gen[1] %>"><%= gen[0] %></a></span>
 		<% end %>
 	</div>
 
@@ -67,7 +67,7 @@ window.addEventListener('scroll', () => {
 	<span><%= I18n.t(:abilities) %></span>
 	<div class="evolutions">
 		<% abilities.each do | name, hidden, slot, id, unformatted | %>
-			<a href="/show/ability/<%= id %>?lang=<%= lang %>"><%= name %></a>
+			<a href="/<%= lang %>/show/ability/<%= id %>"><%= name %></a>
 		<% end %>
 	</div>
 
@@ -97,7 +97,7 @@ window.addEventListener('scroll', () => {
 				document.querySelector('#evolution-select-form').addEventListener("change", (event) => {
 					event.preventDefault();
 					const selectedValue = document.querySelector('#evolution-select').value;
-					window.location.href = `/show/${selectedValue}?lang=<%= lang %>`;
+					window.location.href = `/<%= lang %>/show/${selectedValue}`;
 				});
 			</script>
 		</div>
@@ -139,7 +139,7 @@ window.addEventListener('scroll', () => {
 				document.querySelector('#form-select-form').addEventListener("change", (event) => {
 					event.preventDefault();
 					const selectedValue = document.querySelector('#form-select').value;
-					window.location.href = `/show/pokemon/${selectedValue}?lang=<%= lang %>`;
+					window.location.href = `/<%= lang %>/show/pokemon/${selectedValue}`;
 				});
 			</script>
 		</div>
@@ -194,7 +194,7 @@ window.addEventListener('scroll', () => {
 <% end %>
 
 <div class="type-move-container">
-	<a class="a-btn-3" href="/show/pokemon/moves/<%= pokemon_id %>/gen/<%= moves[0][9] %>?lang=<%= lang %>"><%= I18n.t(:moves_all_methods) %></a>
+	<a class="a-btn-3" href="/<%= lang %>/show/pokemon/moves/<%= pokemon_id %>/gen/<%= moves[0][9] %>"><%= I18n.t(:moves_all_methods) %></a>
 </div>
 <p class="info"><%= I18n.t(:view_all_moves) %></p>
 <hr>

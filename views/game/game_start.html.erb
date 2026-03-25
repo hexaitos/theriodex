@@ -5,7 +5,7 @@
 <div class="difficulty-select">
 	<% if !session[:points] %>
 		<h3>Enter username</h3>
-		<form action="/game/start/<%= lang %>" method="post" id="difficulty">
+		<form action="/<%= lang %>/game/start/" method="post" id="difficulty">
 			<select id="username-1" class="username-select" name="username-1" required>
 				<% ('A'..'Z').each do | letter | %>
 					<option value="<%= letter %>"><%= letter %></option>
@@ -62,7 +62,7 @@
 				<p>Start the game immediately with the difficulty settings and the username you selected above!</p>
 			</div>
 			<hr>
-			<a class="a-btn-2 full" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+			<a class="a-btn-2 full" href="/<%= lang %>/game/leaderboard/view">View leaderboard</a>
 			<div class="diff-hint">
 				<p>View the leaderboard and see the scores of other players – maybe you can even get to the top!</p>
 			</div>
@@ -73,13 +73,13 @@
 			<p>Clicking the “Continue” button will make your game continue where you left off. Your username and your difficulty settings will remain the same. To save your data in the leaderboard, to view your results or to see the leaderboard, scroll down. To reset the game, click the “Reset Game” button.</p>
 		</div>
 		<div class="game-start-buttons">
-			<a class="a-btn-2 continue" href="/game/play?lang=<%= lang %>">Continue</a>
-			<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
+			<a class="a-btn-2 continue" href="/<%= lang %>/game/play">Continue</a>
+			<a class="a-btn-2 continue" href="/<%= lang %>/game/reset">Reset Game</a>
 		</div>
 		<hr>
 		<div class="game-start-buttons">
-			<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
-			<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+			<a class="a-btn-2" href="/<%= lang %>/game/results">View / download results</a>
+			<a class="a-btn-2" href="/<%= lang %>/game/leaderboard/view">View leaderboard</a>
 		</div>
 		<% if !session[:saved_in_leaderboard] %>
 			<%= partial :save_in_leaderboard %>
@@ -101,14 +101,14 @@
 			</div>
 			<div class="game-start-buttons">
 				<% unless session[:guesses] + session[:skips] == POKEMON_CHALLENGE_NUM %>
-					<a class="a-btn-2 continue" href="/game/challenge/play?lang=<%= lang %>">Continue</a>
+					<a class="a-btn-2 continue" href="/<%= lang %>/game/challenge/play">Continue</a>
 				<% end %>
 				<a class="a-btn-2 continue" href="/game/reset/<%= lang %>">Reset Game</a>
 			</div>
 			<hr>
 			<div class="game-start-buttons">
-				<a class="a-btn-2" href="/game/results?lang=<%= lang %>">View / download results</a>
-				<a class="a-btn-2" href="/game/leaderboard/view?lang=<%= lang %>">View leaderboard</a>
+				<a class="a-btn-2" href="/<%= lang %>/game/results">View / download results</a>
+				<a class="a-btn-2" href="/<%= lang %>/game/leaderboard/view">View leaderboard</a>
 			</div>
 			<% if !session[:saved_in_leaderboard] %>
 				<%= partial :save_in_leaderboard %>

@@ -73,7 +73,7 @@
 								</div>
 								<div class="type-container">
 								<% entry["pokemon_type_ids"].split(',').each do | id | %>
-									<a style="text-decoration: none;" href="/show/pokemon/type/<%= id %>?lang=<%= lang %>">
+									<a style="text-decoration: none;" href="/<%= lang %>/show/pokemon/type/<%= id %>">
 
 									<div id="<%= id %>" class="move-type-card move-type-card-name rounded"></div>
 									</a>

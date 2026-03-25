@@ -14,8 +14,8 @@
 	<% end %>
 	<br>
 	<% unless session[:challenge] %>
-		<a href="/game/play?lang=<%= lang %>"><button><%= I18n.t(:play_again) %></button></a>
+		<a href="/<%= lang %>/game/play"><button><%= I18n.t(:play_again) %></button></a>
 	<% else %>
-		<a href="/game/challenge/play?lang=<%= lang %>"><button>Next Pokémon</button></a>
+		<a href="/<%= lang %>/game/challenge/play"><button>Next Pokémon</button></a>
 	<% end %>
 </div>

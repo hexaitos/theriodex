@@ -3,7 +3,7 @@ def start_game(difficulty, gen = nil, u1, u2, u3, lang)
 	session[:difficulty] ||= difficulty.clean
 	session[:gen] ||= gen.clean if gen
 	session[:username] ||= generate_username(u1.clean, u2.clean, u3.clean)
-	redirect "/game/play?lang=#{lang.clean}"
+	redirect "/#{lang.clean}/game/play"
 end
 
 def start_challenge(u1, u2, u3, lang)
@@ -13,5 +13,5 @@ def start_challenge(u1, u2, u3, lang)
 	session[:guesses] ||= 0
 	session[:skips] ||= 0
 	session[:username] ||= generate_username(u1.clean, u2.clean, u3.clean)
-	redirect "/game/challenge/play?lang=#{lang.clean}"
+	redirect "/#{lang.clean}/game/challenge/play"
 end

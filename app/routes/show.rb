@@ -1,4 +1,4 @@
-namespace "/show" do
+namespace "/?:lang?/show" do
 	get "/pokemon/moves/:pokemon_id/gen/:gen_id" do
 		lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 

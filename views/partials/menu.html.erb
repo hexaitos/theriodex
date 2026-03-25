@@ -9,12 +9,12 @@
 		<a href="/about">About</a>
 	<% else %>
 		<% language = params["lang"] %>
-		<a href="/?lang=<%= language %>"><%= I18n.t(:home) %></a>
-		<a href="/random?lang=<%= language %>"><%= I18n.t(:random) %></a>
-		<a href="/search?lang=<%= language %>"><%= I18n.t(:search) %></a>
-		<a href="/browse?lang=<%= language %>"><%= I18n.t(:browse) %></a>
-		<a href="/game?lang=<%= language %>"><%= I18n.t(:game) %></a>
-		<a href="/settings?lang=<%= language %>"><%= I18n.t(:settings) %></a>
-		<a href="/about?lang=<%= language %>"><%= I18n.t(:about) %></a>
+		<a href="/<%= language %>/"><%= I18n.t(:home) %></a>
+		<a href="/<%= language %>/random"><%= I18n.t(:random) %></a>
+		<a href="/<%= language %>/search"><%= I18n.t(:search) %></a>
+		<a href="/<%= language %>/browse"><%= I18n.t(:browse) %></a>
+		<a href="/<%= language %>/game"><%= I18n.t(:game) %></a>
+		<a href="/<%= language %>/settings"><%= I18n.t(:settings) %></a>
+		<a href="/<%= language %>/about"><%= I18n.t(:about) %></a>
 	<% end %>
 </div>

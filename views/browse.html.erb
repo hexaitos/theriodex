@@ -21,7 +21,7 @@
 	<h2 id="gen">Browse Pokémon – By Generation</h2>
 	<div class="browse-gen">
 		<% gens.each do | name, num | %>
-			<a class="a-btn-3 browse" href="/show/pokemon/gen/<%= num %>?lang=<%= lang %>"><%= name %><img style="width: 64px; vertical-align: middle;" src="<%= GEN_SPRITES[num] %>"></a>
+			<a class="a-btn-3 browse" href="/<%= lang %>/show/pokemon/gen/<%= num %>"><%= name %><img style="width: 64px; vertical-align: middle;" src="<%= GEN_SPRITES[num] %>"></a>
 		<% end %>
 	</div>
 </div>
@@ -74,7 +74,7 @@
 	<h2 id="items">Browse Items – By Pocket</h2>
 	<div class="browse-gen">
 		<% pocket_ids_and_names.each do | id, name | %>
-			<a class="a-btn-3 browse" href="/show/items/<%= id %>?lang=<%= lang %>"><%= name %><img style="width: 32px; vertical-align: middle;" src="<%= POCKET_SPRITES[id] %>"></a>
+			<a class="a-btn-3 browse" href="/<%= lang %>/show/items/<%= id %>"><%= name %><img style="width: 32px; vertical-align: middle;" src="<%= POCKET_SPRITES[id] %>"></a>
 		<% end %>
 	</div>
 </div>

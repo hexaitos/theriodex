@@ -1,4 +1,4 @@
-get "/:lang?/search" do
+get "/search" do
 	lang =  LANGUAGE_CODES.has_key?(params[:lang].to_s.downcase) ? LANGUAGE_CODES[params[:lang].to_s.downcase] : "en"
 
 	erb :search, locals: pokemon_view_search(params[:q], lang)

@@ -24,7 +24,7 @@
 				<h2><%= I18n.t(:did_you_know, name: name) %></h2>
 				<div class="type-container">
 				<% types.each do |type| %>
-					<a style="text-decoration: none;" href="/show/pokemon/type/<%= type.first.to_s %>?lang=<%= lang %>" aria-label="Pokémon type <%= type.first.to_s %>">
+					<a style="text-decoration: none;" href="/<%= lang %>/show/pokemon/type/<%= type.first.to_s %>" aria-label="Pokémon type <%= type.first.to_s %>">
 					<div id="<%= type.first.to_s %>" class="move-type-card move-type-card-name rounded"></div>
 					</a>
 				<% end %>
