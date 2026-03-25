@@ -61,8 +61,13 @@ configure do
 end
 
 before do
-	path_parts = request.path_info.split('/')
+	path = request.path_info
+	path_parts = path.split('/')
 	potential_locale = path_parts[1]
+
+	if request.params["lang"] then
+		redirect "/#{request.params['lang']}#{path}"
+	end
 
 	if potential_locale && I18n.available_locales.map(&:to_s).include?(potential_locale)
 		I18n.locale = potential_locale.to_sym
