@@ -6,7 +6,7 @@ namespace "/?:lang?/game" do
 	end
 
 	post "/start/?:gen?" do
-		puts lang = resolve_lang
+		lang = resolve_lang
 		unless params["daily"] == "true"
 			start_game(params["diff"], params["gen"], params["username-1"], params["username-2"], params["username-3"], params["lang"])
 		else

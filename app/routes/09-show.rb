@@ -41,7 +41,7 @@ namespace "/?:lang?/show" do
 	get "/items/:pocket/gen/:gen" do
 		items = get_items_by_category(params["pocket"], 9, params["gen"])
 
-		puts items
+		items
 
 		erb :items_by_pocket, locals: { items: items }
 	end

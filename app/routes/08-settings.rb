@@ -32,12 +32,12 @@ end
 
 get "/settings/test" do
 	session[:all_themes_unlocked] = true
-	puts generate_serial(10)
+	generate_serial(10)
 end
 
 post "/settings/unlock" do
 	session[:unlocked_themes] ||= []
-	puts is_serial_valid?([ "serial" ])
+	is_serial_valid?([ "serial" ])
 
 	if is_serial_valid?(params["serial"]) then
 		serial_points = get_serial_points(params["serial"])

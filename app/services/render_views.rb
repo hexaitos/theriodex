@@ -6,8 +6,6 @@ def pokemon_view_moves(pokemon_id, gen_id, language_id = 9)
 
 	moves = get_pokemon_moves_by_gen2(pokemon_id, gen_id, language_id).group_by { | entry | entry["version_name"] }
 
-	puts moves.values.first.first["name"]
-
 	{
 		id: pokemon_id,
 		gen_name: moves.values.first.first["gen_name"],
@@ -39,7 +37,7 @@ def pokemon_view_game(id, language_id = 9, difficulty = "easy")
 	game_data[:skips] = session[:skips] ||= 0
 	game_data[:results] = session[:results] ||= {}
 
-	puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) - Game data: #{game_data}\n\n"
+	#puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) - Game data: #{game_data}\n\n"
 
 	game_data
 end

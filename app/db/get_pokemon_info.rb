@@ -28,7 +28,7 @@ def get_pokemon_info(pokemon_id, language_id = 9)
 	attrs = get_pokemon_attr(pokemon_data[:pokemon_id_form2] || pokemon_id)
 	pokemon_data[:weight] = attrs[0].to_f
 	pokemon_data[:height] = attrs[1].to_f
-	puts pokemon_data[:stats] = get_pokemon_stats(pokemon_data[:pokemon_id_form2] || pokemon_id_form)
+	pokemon_data[:stats] = get_pokemon_stats(pokemon_data[:pokemon_id_form2] || pokemon_id_form)
 	pokemon_data[:gen] = get_pokemon_generation(pokemon_id_form.to_i, language_id)
 	pokemon_data[:moves] = get_pokemon_moves(pokemon_id, language_id)
 

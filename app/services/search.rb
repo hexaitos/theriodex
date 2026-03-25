@@ -49,7 +49,5 @@ def search_for_moves(query, language_id = 9)
 		end
 	end
 
-	puts search_results
-
 	search_results
 end
