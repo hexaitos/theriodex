@@ -21,9 +21,7 @@
 	<div class="random-index-pokemon-container">
 		<div class="random-index-pokemon">
 			<div>
-				<% if !form_name or form_name.empty? %>
-					<% name = name %>
-				<% else %>
+				<% unless !form_name or form_name.empty? %>
 					<% name = form_name %>
 				<% end %>
 
