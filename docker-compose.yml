@@ -24,6 +24,10 @@ services:
       watch:
         - action: rebuild
           path: .
+          ignore:
+            - .git/
+            - public/sprites/
+            - public/cries/
         - action: rebuild
           path: Gemfile
         - action: rebuild
