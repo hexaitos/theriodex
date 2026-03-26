@@ -22,12 +22,8 @@ services:
     restart: unless-stopped
     develop:
       watch:
-        - action: sync
+        - action: rebuild
           path: .
-          target: /usr/src/app
-          ignore:
-            - .git/
-            - tmp/
         - action: rebuild
           path: Gemfile
         - action: rebuild
