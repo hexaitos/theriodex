@@ -1,5 +1,5 @@
 get "/?:lang?/random" do
-	random_pokemon = rand(1..1024)
+	random_pokemon = ALL_POKEMON_IDS.sample
 	lang = resolve_lang
 
 	erb :random, locals: view_pokemon(random_pokemon, params[:form], params[:s], params[:animated], lang)
@@ -7,7 +7,7 @@ end
 
 
 get "/?:lang?/random/json" do
-	random_pokemon = rand(1..1024)
+	random_pokemon = ALL_POKEMON_IDS.sample
 	lang = resolve_lang
 	view_pokemon(random_pokemon, params[:form], params[:s], params[:animated], lang).to_json
 end

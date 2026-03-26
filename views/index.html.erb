@@ -21,6 +21,12 @@
 	<div class="random-index-pokemon-container">
 		<div class="random-index-pokemon">
 			<div>
+				<% if !form_name or form_name.empty? %>
+					<% name = name %>
+				<% else %>
+					<% name = form_name %>
+				<% end %>
+
 				<h2><%= I18n.t(:did_you_know, name: name) %></h2>
 				<div class="type-container">
 				<% types.each do |type| %>
@@ -43,7 +49,7 @@
 			</div>
 
 			<div>
-				<a class="a-btn-1" href="/<%= lang %>/show/pokemon/<%= name %>"><%= I18n.t(:learn_more) %></a>
+				<a class="a-btn-1" href="/<%= lang %>/show/pokemon/<%= pokemon_id_form %>"><%= I18n.t(:learn_more) %></a>
 			</div>
 		</div>
 	</div>

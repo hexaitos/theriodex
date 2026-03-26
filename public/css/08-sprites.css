@@ -40,6 +40,14 @@ div.sprites a:hover {
 .pokemon-title {
 	transform: translateX(11px);
 	margin-bottom: 0;
+	margin-top: -10px;
+}
+
+span.id {
+	font-size: var(--font-size-sm);
+	opacity: 40%;
+	margin-top: 10px;
+	display: inline-block;
 }
 
 div.all-sprites {

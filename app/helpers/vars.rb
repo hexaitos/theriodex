@@ -125,3 +125,5 @@ GEN_RELEASE_YEARS = {
 	8 => "2019 - 2022",
 	9 => "2022"
 }
+
+ALL_POKEMON_IDS = DB.execute("select id from pokemon_v2_pokemonform").flatten
