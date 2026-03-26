@@ -1,6 +1,14 @@
 services:
-  theriodex:
-    image: codeberg.org/hexaitos/theriodex:latest
+  redis:
+    image: valkey/valkey:latest
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  theriodex-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     platform: linux/amd64
     ports:
       - "5678:5678"
@@ -9,14 +17,21 @@ services:
     depends_on:
       - redis
     volumes:
-      - ./privacy.md:/usr/src/app/views/privacy.md
+      - ./public/sprites:/usr/src/app/public/sprites
+      - ./public/cries:/usr/src/app/public/cries
     restart: unless-stopped
-
-  redis:
-    image: valkey/valkey:latest
-    volumes:
-      - redis_data:/data
-    restart: unless-stopped
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /usr/src/app
+          ignore:
+            - .git/
+            - tmp/
+        - action: rebuild
+          path: Gemfile
+        - action: rebuild
+          path: Gemfile.lock
 
 volumes:
   redis_data:
