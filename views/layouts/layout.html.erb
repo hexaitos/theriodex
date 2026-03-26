@@ -6,7 +6,7 @@
 	<meta name="darkreader-lock">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<% case request.path_info
-	when %r{^/show/([^/]+)$} %>
+	when %r{^(?:/[a-z]{2})?/show/([^/]+)$} %>
 		<title>Theriodex – <%= name %></title>
 		<meta name="description" content="<%= name %> is a Pokémon. <%= flavour_text %>">
 		<meta property="og:title" content="Theriodex – <%= name %>">
@@ -32,7 +32,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/show/pokemon/([^/]+)$} %>
+	<% when %r{^(?:/[a-z]{2})?/show/pokemon/([^/]+)$} %>
 		<title>Theriodex – <%= name %></title>
 		<meta name="description" content="<%= name %> is a <%= gen[0] %> Pokémon. <%= flavour_text %>">
 		<meta property="og:title" content="Theriodex – <%= name %>">
@@ -58,7 +58,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/show/pokemon/type/([^/]+)$} %>
+	<% when %r{^(?:/[a-z]{2})?/show/pokemon/type/([^/]+)$} %>
 		<title>Theriodex – All <%= type_name %>-type Pokeḿon</title>
 		<meta name="description" content="">
 		<meta property="og:title" content="Theriodex – All Pokémon of type <%= type_name %>">
@@ -84,7 +84,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/show/pokemon/gen/([^/]+)$} %>
+	<% when %r{^(?:/[a-z]{2})?/show/pokemon/gen/([^/]+)$} %>
 		<title>Theriodex – <%= gen[0] %></title>
 		<meta name="description" content="All Pokémon of <%= gen[0] %>">
 		<meta property="og:title" content="All Pokémon of <%= gen[0] %>">
@@ -110,7 +110,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/show/ability/([^/]+)$} %>
+	<% when %r{^(?:/[a-z]{2})?/show/ability/([^/]+)$} %>
 		<title>Theriodex – Ability: <%= ability_name %></title>
 		<meta name="description" content="<%= ability_name %>: <%= ability_information %>">
 		<meta property="og:title" content="All Pokémon with ability <%= ability_name %>.">
@@ -126,7 +126,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/show/pokemon/moves/([^/]+)/gen/([^/]+)$} %>
+	<% when %r{^(?:/[a-z]{2})?/show/pokemon/moves/([^/]+)/gen/([^/]+)$} %>
 		<title>Theriodex – <%= name %>’s moves in <%= gen_name %></title>
 		<meta name="description" content="Discover all moves <%= name %> can learn in <%= gen_name %>: level-up, TMs, HMs, breeding, and tutoring!">
 		<meta property="og:title" content="Theriodex – <%= name %>’s moves in <%= gen_name %>.">
@@ -152,7 +152,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/browse$} %>
+	<% when %r{^(?:/[a-z]{2})?/browse$} %>
 		<title>Theriodex - Browse Theriodex</title>
 		<meta name="description" content="Browse Pokémon by generation, type, or combo (and also items) in the complete Theriodex database.">
 
@@ -180,7 +180,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/search(\?.*)?$} %>
+	<% when %r{^(?:/[a-z]{2})?/search(\?.*)?$} %>
 		<title>Theriodex - Search Theriodex (Pokédex search)</title>
 		<meta name="description" content="Search the full Pokédex and explore Pokémon moves with detailed information, all in one place.">
 
@@ -208,7 +208,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/game(/.*)?(\?.*)?$} %>
+	<% when %r{^(?:/[a-z]{2})?/game(/.*)?(\?.*)?$} %>
 		<title>Theriodex - Pokémon Guessing Game (Who’s That Pokémon?)</title>
 		<meta name="description" content="Can you guess Pokémon from blurred sprites? Adjust difficulty, reveal hints and track your score. How many can you guess? Will you top the leaderboard?">
 
@@ -236,7 +236,7 @@
 			}.to_json %>
 		</script>
 
-	<% when %r{^/show/move/(\d+)/gen/(\d+)$} %>
+	<% when %r{^(?:/[a-z]{2})?/show/move/(\d+)/gen/(\d+)$} %>
 		<title>Theriodex – Pokémon move <%= move_info[0]["name"] %> in <%=  move_info[0]["gen_name"] %></title>
 		<meta name="description" content="Complete details for the move <%= move_info[0]["name"] %> in <%= move_info[0]["gen_name"] %>: type, power, accuracy, effect, and all Pokémon that can learn it.">
 		<meta property="og:title" content="Theriodex – Pokémon move <%= move_info[0]["name"] %> in <%=  move_info[0]["gen_name"] %>">
