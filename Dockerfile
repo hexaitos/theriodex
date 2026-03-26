@@ -16,6 +16,7 @@ RUN bundle config set --global frozen 1 && \
 COPY app app
 COPY views views
 COPY server.rb server.rb
+COPY public public
 
 FROM ruby:4-alpine
 
