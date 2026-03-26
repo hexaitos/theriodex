@@ -1,22 +1,26 @@
-FROM ruby:4-alpine
-RUN apk add --no-cache build-base gcompat wget gzip git
+FROM ruby:4-alpine AS builder
 
-RUN bundle config --global frozen 1
+RUN apk add --no-cache build-base gcompat git
 
 WORKDIR /usr/src/app
-RUN mkdir public
+COPY Gemfile Gemfile.lock ./
+RUN bundle config --global frozen 1 && \
+    bundle install && \
+    bundle clean --force && \
+    rm -rf ~/.bundle/cache /usr/local/bundle/cache
 
-#RUN wget -qO- https://theriodex-data.s3.nl-ams.scw.cloud/main.tar.gz | gunzip | tar xvf - -C public --strip-components=1
+FROM ruby:4-alpine
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/local/bundle /usr/local/bundle
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
 
 COPY app app
-COPY public public
 COPY views views
 COPY server.rb server.rb
-
-RUN apk del build-base gcompat wget gzip
+COPY public public
 
 EXPOSE 5678
-CMD ["bundle", "exec", "ruby", "server.rb", "-e", "development", "-p", "5678", "-o0.0.0.0"]
+CMD ["bundle", "exec", "ruby", "server.rb", "-e", "development", "-p", "5678", "-o", "0.0.0.0"]
