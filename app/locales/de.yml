@@ -46,9 +46,9 @@ de:
   browse: Durchsuchen
   settings: Einstellungen
   damage_received_description: "(Die Menge an Schaden, die ein Pokémon dieses Typs – oder dieser Typenkombination – von anderen Typen erhält)"
-  view_moveset_generation: "(Klicke auf die Schaltfläche, um das Moveset dieses Pokémon in einer anderen Generation anzusehen)"
+  view_moveset_generation: "(Klicke auf die jeweilige Schaltfläche, um das Moveset dieses Pokémon in einer anderen Generation anzusehen)"
   view_all_moves: "(Klicke auf die Schaltfläche, um alle Attacken anzusehen, die dieses Pokémon lernen kann – z. B. durch Maschinen erlernte Attacken)"
-  moves_info_stab: "(Unterstrichene Attacken sind STAB. Die Attacken, die dieses Pokémon durch Levelaufstieg in %{gen} lernt. Kartenansicht funktioniert besser auf Mobilgeräten, Tabellenansicht ist besser für Desktop.)"
+  moves_info_stab: "(Unterstrichene Attacken sind STAB. Liste aller Attacken, die dieses Pokémon durch Levelaufstieg in %{gen} lernt. Kartenansicht funktioniert besser auf Mobilgeräten, Tabellenansicht ist besser für Desktop.)"
   moves_all_methods: "Auf allen Wegen erlernte Attacken"
   cards_view: "Kartenansicht"
   table_view: "Tabellenansicht"
@@ -61,3 +61,6 @@ de:
   did_you_know: "Kanntest du schon %{name}?"
   learn_more: "Mehr erfahren!"
   search_pokemon_move: "Nach Pokeḿon / Move suchen"
+  select_evolution: "Entwicklung auswählen"
+  select_form: "Form auswählen"
+  show_all_sprites: "Alle Sprites ansehen"

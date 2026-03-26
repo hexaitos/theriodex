@@ -47,7 +47,7 @@ en:
   damage_received_description: "(The amount of damage that a Pokémon of this type – or type combination – receives from other types)"
   view_moveset_generation: "(Click the button to view this Pokémon's moveset in another generation)"
   view_all_moves: "(Click the button to view all of the moves this Pokémon can learn – e.g. moves learnt through machines)"
-  moves_info_stab: "(Underlined moves are STAB. The moves this Pokémon learns from levelling up in %{gen}. Cards view works better on mobile, table view is better on desktop.)"
+  moves_info_stab: "(Underlined moves are STAB. List of moves this Pokémon learns from levelling up in %{gen}. Cards view works better on mobile, table view is better on desktop.)"
   moves_all_methods: "Moves learnt by all means"
   cards_view: "Cards View"
   table_view: "Table View"
@@ -60,3 +60,6 @@ en:
   did_you_know: Do you know %{name}?
   learn_more: Learn more!
   search_pokemon_move: Search Pokeḿon / Move
+  select_evolution: "Select evolution"
+  select_form: "Select form"
+  show_all_sprites: "Show all sprites"

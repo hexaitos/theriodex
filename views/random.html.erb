@@ -79,7 +79,7 @@ window.addEventListener('scroll', () => {
 	<% unless evolutions.nil? or evolutions.size <= 1 %>
 		<div class="evolutions">
 			<form action="/show/" method="get" id="evolution-select-form">
-				<label for="evolution-select">Select evolution</label>
+				<label for="evolution-select"><%= I18n.t(:select_evolution) %></label>
 				<div class="custom-select">
 					<select aria-label="Select evolution" id="evolution-select" name="evolution" required>
 						<% evolutions.each do |evolution| %>
@@ -106,7 +106,7 @@ window.addEventListener('scroll', () => {
 	<% unless forms.nil? or forms.size == 0 %>
 		<div class="evolutions">
 			<form action="/show/pokemon/" method="get" id="form-select-form">
-			<label for="form-select">Select form</label>
+			<label for="form-select"><%= I18n.t(:select_form) %></label>
 			<div class="custom-select">
 				<select aria-label="Select language" id="form-select" name="form" required>
 					<% if forms.nil? or forms.size == 0 then %>
@@ -156,7 +156,7 @@ window.addEventListener('scroll', () => {
 
 	<br>
 	<div class="sprites-links">
-		<a href="/<%= lang %>/show/sprites/<%= pokemon_id_form %>">Show all sprites</a>
+		<a href="/<%= lang %>/show/sprites/<%= pokemon_id_form %>"><%= I18n.t(:show_all_sprites) %></a>
 	</div>
 </div>
 
