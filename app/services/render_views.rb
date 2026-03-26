@@ -164,7 +164,7 @@ def view_pokemon(id, form = nil, s = nil, animated = false, language_id = 9)
 		raise Sinatra::NotFound
 	end
 
-	puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) - The following Pokémon was selected: #{selected_pokemon}.\n The following data was returned: #{pokemon_data}\n\n"
+	#puts "(#{Time.now.strftime('%d.%m-%Y %H:%M')}) - The following Pokémon was selected: #{selected_pokemon}.\n The following data was returned: #{pokemon_data}\n\n"
 
 	pokemon_data[:id] = selected_pokemon
 	pokemon_data[:damage_taken] = damage_taken(pokemon_data[:types])
