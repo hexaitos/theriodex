@@ -33,6 +33,12 @@
 		</script>
 
 	<% when %r{^(?:/[a-z]{2})?/show/pokemon/([^/]+)$} %>
+		<% if !form_name or form_name.empty? %>
+			<%= name %>
+		<% else %>
+			<%= form_name %>
+		<% end %>
+
 		<title>Theriodex – <%= name %></title>
 		<meta name="description" content="<%= name %> is a <%= gen[0] %> Pokémon. <%= flavour_text %>">
 		<meta property="og:title" content="Theriodex – <%= name %>">
