@@ -10,7 +10,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
   - [x] When looking at all moves a particular Pokémon of a particular generation learns, show that generation's sprites at the top
   - [x] Better move overview
   - [x] Sometimes move differ from game to game in a particular gen (Vaporeon, Gen I). Fix it so that this is properly displayed
-  - [ ] In the view showing all Pokémon that can learn a particular move, add the level at which they learn it / the HM/TM by which they learn it
+  - [x] In the view showing all Pokémon that can learn a particular move, add the level at which they learn it / the HM/TM by which they learn it
   - [x] Browsable moves / searchable moves
   - [x] Maybe add the "Pokémon that can learn this move" stuff into the same view as the move itself?
 - [x] Show evolutions (added in `fe4698bfa8`)
@@ -24,7 +24,7 @@ Non-exhaustive list, may not all get implemented and other stuff not here may ge
 - [x] Ability to show animated sprites if there is one (maybe also with button, maybe display at random) (added in `f1782528cb`)
 - [x] Clean up index.erb with some helper functions perhaps?
 - [x] Add info what generation a Pokémon first appeared in
-- [ ] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
+- [x] Maybe move language from query param to route (`?lang=de` => `/show/de/:id`)
 - [x] Maybe a small game where you have to guess a Pokémon (`image-rendering: pixelated;` and scaling up might work?)
   - [ ] Add a daily challenge mode?
 - [x] Maybe add berries?
