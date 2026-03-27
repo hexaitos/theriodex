@@ -1,10 +1,12 @@
 <%= partial :lang_select %>
 
 <h1><%= ability_name %></h1>
-<p class="ability"><%= ability_information %></p>
-<br>
-<hr>
+<p class="ability"><%= ability_information || "No information found" %></p>
 
-<h2><%= I18n.t(:pokemon_with_this_ability) %></h2>
+<% unless pokemon_with_ability.empty? %>
+	<br>
+	<hr>
+	<h2><%= I18n.t(:pokemon_with_this_ability) %></h2>
 
-<%= partial :view_pokemon_by_x, list: pokemon_with_ability, lang: lang %>
+	<%= partial :view_pokemon_by_x, list: pokemon_with_ability, lang: lang %>
+<% end %>

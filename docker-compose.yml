@@ -9,7 +9,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    platform: linux/amd64
     ports:
       - "5678:5678"
     environment:
